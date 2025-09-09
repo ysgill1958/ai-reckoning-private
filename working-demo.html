@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Collapsible Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a2e;
+            color: white;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        
+        .demo-collapsible {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+            max-width: 800px;
+        }
+        
+        .demo-header {
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            background: rgba(239, 68, 68, 0.1);
+            border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+            font-weight: 600;
+            position: relative;
+            text-align: center;
+        }
+        
+        .demo-header:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+        
+        .demo-content {
+            display: none;
+            padding: 1.5rem;
+        }
+        
+        .chevron {
+            position: absolute;
+            right: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔴 AI RECKONING - Working Demo</h1>
+    
+    <div class="demo-collapsible">
+        <div class="demo-header" onclick="toggleDemo('facts')">
+            📊 Critical Facts & Figures (Click to Expand)
+            <span class="chevron" id="facts_chevron">⬇️</span>
+        </div>
+        <div class="demo-content" id="facts">
+            <h3>🚨 Industry Impact Statistics</h3>
+            <ul>
+                <li><strong>86%</strong> of customer service tasks automatable</li>
+                <li><strong>1.35 Crore</strong> Indian jobs will be redefined</li>
+                <li><strong>60%</strong> of current skills become obsolete in 3-5 years</li>
+                <li><strong>₹12L-₹50L</strong> salary range for AI-skilled professionals</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="demo-collapsible">
+        <div class="demo-header" onclick="toggleDemo('itbpm')">
+            💻 IT & BPM - HIGH RISK
+            <span class="chevron" id="itbpm_chevron">⬇️</span>
+        </div>
+        <div class="demo-content" id="itbpm">
+            <p><strong>Job Loss Threat: 🔴 CRITICAL (70-80% roles at risk)</strong></p>
+            <p>Code generation tools like GitHub Copilot replacing 30% of routine programming. Junior developer positions decreasing while AI-augmented senior roles increasing 250%.</p>
+            <p><strong>Timeline:</strong> 18-24 months for major displacement.</p>
+        </div>
+    </div>
+    
+    <div class="demo-collapsible">
+        <div class="demo-header" onclick="toggleDemo('banking')">
+            🏦 Banking & Financial Services - MEDIUM-HIGH RISK
+            <span class="chevron" id="banking_chevron">⬇️</span>
+        </div>
+        <div class="demo-content" id="banking">
+            <p><strong>Job Loss Threat: 🟠 HIGH (50-65% roles at risk)</strong></p>
+            <p>40% of routine banking operations automated by 2026. Risk assessment, loan processing, fraud detection being replaced by AI systems.</p>
+            <p><strong>Timeline:</strong> 24-36 months.</p>
+        </div>
+    </div>
+    
+    <script>
+        function toggleDemo(id) {
+            const content = document.getElementById(id);
+            const chevron = document.getElementById(id + '_chevron');
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                if (chevron) chevron.textContent = '⬆️';
+            } else {
+                content.style.display = 'none';
+                if (chevron) chevron.textContent = '⬇️';
+            }
+        }
+        
+        // Make sure everything starts closed
+        window.onload = function() {
+            document.getElementById('facts').style.display = 'none';
+            document.getElementById('itbpm').style.display = 'none';
+            document.getElementById('banking').style.display = 'none';
+        };
+    </script>
+</body>
+</html>

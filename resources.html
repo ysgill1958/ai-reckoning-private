@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive survival resources for AI-driven career transformation">
+    <title>Survival Resources | AI RECKONING</title>
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* NUCLEAR OPTION - FORCE CENTER ALIGNMENT EVERYWHERE */
+        * {
+            text-align: center !important;
+            box-sizing: border-box !important;
+        }
+        
+        html, body {
+            text-align: center !important;
+            width: 100% !important;
+        }
+        
+        /* Override ALL Tailwind utility classes */
+        .text-left, .text-right, .text-justify, .text-start, .text-end,
+        .sm\\:text-left, .md\\:text-left, .lg\\:text-left, .xl\\:text-left,
+        .justify-start, .justify-end, .justify-between, .justify-around, .justify-evenly,
+        .items-start, .items-end, .self-start, .self-end {
+            text-align: center !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        
+        /* Force ALL flex containers to center */
+        .flex, .flex-col, .flex-row, .inline-flex {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+        
+        /* Force ALL grid containers to center */
+        .grid {
+            display: grid !important;
+            justify-items: center !important;
+            text-align: center !important;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            color: white;
+            text-align: center !important;
+        }
+        main { flex: 1; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+        .btn-primary { 
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+            padding: 1rem 2rem; 
+            border-radius: 0.75rem; 
+            color: white; 
+            font-weight: 600; 
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+        }
+        .btn-secondary {
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+        }
+        .btn-success {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.3);
+        }
+        .btn-completed {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+            opacity: 0.7;
+            cursor: not-allowed;
+            font-size: 0.875rem;
+        }
+        .progress-tracker {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .progress-bar-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 0.5rem;
+            height: 0.75rem;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #ef4444 0%, #f97316 50%, #eab308 100%);
+            height: 100%;
+            transition: width 0.5s ease;
+            border-radius: 0.5rem;
+        }
+        .user-level {
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.875rem;
+            display: inline-block;
+        }
+        .level-beginner { background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%); }
+        .level-intermediate { background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%); }
+        .level-advanced { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+        .level-expert { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .completion-notification {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(34, 197, 94, 0.95);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+        .completion-notification.fade-out {
+            animation: fadeOut 0.3s ease;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+        }
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .quick-access-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .quick-access-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        .search-container {
+            margin-bottom: 2rem;
+        }
+        .search-input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.75rem;
+            color: white;
+            font-size: 1rem;
+            backdrop-filter: blur(20px);
+        }
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .search-input:focus {
+            outline: none;
+            border-color: #ef4444;
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+        .nav-active { 
+            color: #ef4444; 
+            font-weight: 600; 
+            position: relative; 
+        }
+        .nav-active:after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -4px; 
+            left: 0; 
+            width: 100%; 
+            height: 2px; 
+            background: #ef4444; 
+        }
+        
+        /* Enhanced Navigation Styles - Force Visibility */
+        header {
+            background: rgba(26, 26, 46, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            position: relative !important;
+            z-index: 1000 !important;
+        }
+        .header-container {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 1rem !important;
+            padding: 1rem !important;
+        }
+        .logo-section {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.75rem !important;
+        }
+        nav {
+            width: 100% !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 0.5rem !important;
+            max-width: 100% !important;
+            overflow: visible !important;
+        }
+        nav a {
+            display: block !important;
+            padding: 0.75rem 1rem !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 0.5rem !important;
+            color: white !important;
+            text-decoration: none !important;
+            font-size: 0.875rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            min-width: 100px !important;
+            transition: all 0.3s ease !important;
+            white-space: nowrap !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            color: #fecaca !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        /* Desktop styles - Force visibility */
+        @media (min-width: 1024px) {
+            .header-container {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 1.5rem !important;
+            }
+            nav {
+                width: auto !important;
+                justify-content: flex-end !important;
+            }
+            nav a {
+                background: rgba(255, 255, 255, 0.12) !important;
+                border: 2px solid rgba(255, 255, 255, 0.2) !important;
+                min-width: auto !important;
+                padding: 0.625rem 1.25rem !important;
+                font-size: 0.9rem !important;
+                font-weight: 500 !important;
+            }
+            nav a:hover {
+                background: rgba(255, 255, 255, 0.2) !important;
+                border-color: rgba(255, 255, 255, 0.4) !important;
+            }
+        }
+        
+        /* Color Contrast Fixes for Better Visibility */
+        .text-blue-400, 
+        .bg-blue-400 {
+            color: #67e8f9 !important;
+            background-color: #67e8f9 !important;
+        }
+        .text-blue-600 {
+            color: #60a5fa !important;
+        }
+        .bg-blue-600 {
+            background-color: #2563eb !important;
+        }
+        .border-blue-500 {
+            border-color: #3b82f6 !important;
+        }
+        /* Ensure all blue text is readable */
+        .text-blue-400 {
+            color: #67e8f9 !important;
+        }
+        
+        /* Additional overrides for specific classes */
+        p.text-blue-400,
+        span.text-blue-400,
+        i.text-blue-400 {
+            color: #67e8f9 !important;
+        }
+        
+        /* Force all blue text to be cyan with inline style override */
+        * {
+            --tw-text-opacity: 1;
+        }
+        .text-blue-400 {
+            color: rgb(103 232 249 / var(--tw-text-opacity)) !important;
+        }
+        
+        .warning-icon { 
+            animation: pulse 2s infinite; 
+        }
+        @keyframes pulse { 
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 
+            70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); } 
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } 
+        }
+        #loading { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background: rgba(0, 0, 0, 0.8); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            z-index: 9999; 
+        }
+        .hidden { 
+            display: none; 
+        }
+        
+        /* Resource-specific styles */
+        .resource-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .resource-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .resource-category {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .resource-category-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            background: rgba(59, 130, 246, 0.1);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-radius: 0.75rem 0.75rem 0 0;
+        }
+        
+        .resource-category-header:hover {
+            background: rgba(59, 130, 246, 0.2);
+            transform: translateY(-1px);
+        }
+        
+        .resource-category-header:active {
+            transform: translateY(0);
+            background: rgba(59, 130, 246, 0.3);
+        }
+        
+        .resource-category-content {
+            transition: all 0.3s ease;
+            overflow: hidden;
+            opacity: 1;
+            padding: 1.5rem;
+            display: block;
+        }
+        
+        .resource-category-content.hidden {
+            display: none !important;
+        }
+        
+        .resource-category-content.active {
+            display: block !important;
+            opacity: 1;
+            padding: 1.5rem;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .resource-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(59, 130, 246, 0.3);
+        }
+        
+        .resource-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge-free {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid #22c55e;
+        }
+        
+        .badge-paid {
+            background: rgba(249, 115, 22, 0.2);
+            color: #f97316;
+            border: 1px solid #f97316;
+        }
+        
+        .badge-certification {
+            background: rgba(168, 85, 247, 0.2);
+            color: #a855f7;
+            border: 1px solid #a855f7;
+        }
+        
+        .resource-quick-access {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            z-index: 100;
+            display: none;
+        }
+        
+        .resource-quick-access.show {
+            display: block;
+        }
+        
+        .quick-access-item {
+            display: block;
+            padding: 0.5rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quick-access-item:hover {
+            background: rgba(59, 130, 246, 0.2);
+        }
+        
+        .progress-tracker {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            height: 0.5rem;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #22c55e, #16a34a);
+            height: 100%;
+            border-radius: 1rem;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" class="hidden">
+        <div class="text-center">
+            <i class="fas fa-spinner fa-spin text-4xl text-red-500"></i>
+            <p class="mt-4 text-lg">Loading AI Reckoning...</p>
+        </div>
+    </div>
+    <script>
+        // Immediately hide loading screen
+        document.getElementById('loading').style.display = 'none';
+    </script>
+    <div id="app" class="min-h-screen">
+        <header role="banner">
+            <div class="max-w-7xl mx-auto">
+                <div class="header-container">
+                    <!-- Logo and brand -->
+                    <div class="logo-section">
+                        <div class="bg-red-600 p-2 rounded-xl warning-icon">
+                            <i class="fas fa-exclamation-triangle text-xl"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold">AI RECKONING</h1>
+                            <p class="text-xs opacity-90">Emergency Career Transformation System</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <nav role="navigation">
+                        <a href="index.html">Home</a>
+                        <a href="assessment.html">Assessment</a>
+                        <a href="roadmaps.html">Critical Roadmaps</a>
+                        <a href="resources.html" class="nav-active" aria-current="page">Survival Resources</a>
+                        <a href="community.html">Community</a>
+                        <a href="about.html">About</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" role="main">
+            <!-- Emergency Alert Banner -->
+            <div style="background: rgba(59, 130, 246, 0.15); border: 2px solid #3b82f6; border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; text-align: center;">
+                <h2 class="text-2xl font-bold mb-2" style="color: #60a5fa;">🧰 COMPREHENSIVE SURVIVAL TOOLKIT</h2>
+                <p class="text-lg">Essential resources, tools, and training for AI career transformation</p>
+                <p class="text-sm mt-2" style="color: #d1d5db;">⚡ Everything you need to execute your roadmap successfully</p>
+            </div>
+
+            <!-- Enhanced Progress Tracker -->
+            <div class="progress-tracker">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold">🎯 Your Learning Progress</h3>
+                    <div class="user-level level-beginner">Beginner</div>
+                </div>
+                <div class="progress-text text-sm mb-2" style="color: #d1d5db;">0/0 Resources Completed (0%)</div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="text-xs opacity-60">Complete resources to unlock achievement badges and advance your level!</div>
+                
+                <!-- Debug Test Button -->
+                <div class="mt-4">
+                    <button onclick="testSimple()" class="btn-secondary" style="font-size: 0.75rem;">🔧 Test Simple JavaScript</button>
+                </div>
+            </div>
+
+            <!-- Search Functionality -->
+            <div class="search-container">
+                <div class="relative">
+                    <input 
+                        type="text" 
+                        placeholder="🔍 Search resources, tools, courses... (Ctrl+F)" 
+                        class="search-input"
+                        oninput="searchResources(this.value)"
+                    >
+                </div>
+            </div>
+
+            <!-- Enhanced Quick Access Navigation -->
+            <section class="glass rounded-2xl p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">🚀 Quick Access Hub</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <button onclick="window.quickAccessTo('ai-tools')" class="resource-quick-btn">
+                        <i class="fas fa-robot text-2xl mb-2" style="color: #60a5fa;"></i>
+                        <span class="text-sm font-semibold">AI Tools</span>
+                    </button>
+                    <button onclick="window.quickAccessTo('learning-platforms')" class="resource-quick-btn">
+                        <i class="fas fa-graduation-cap text-2xl mb-2" style="color: #22c55e;"></i>
+                        <span class="text-sm font-semibold">Learning</span>
+                    </button>
+                    <button onclick="window.quickAccessTo('certifications')" class="resource-quick-btn">
+                        <i class="fas fa-certificate text-2xl mb-2" style="color: #c084fc;"></i>
+                        <span class="text-sm font-semibold">Certifications</span>
+                    </button>
+                    <button onclick="window.quickAccessTo('job-market')" class="resource-quick-btn">
+                        <i class="fas fa-briefcase text-2xl mb-2" style="color: #f59e0b;"></i>
+                        <span class="text-sm font-semibold">Job Market</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- No Results Message -->
+            <div id="no-results-message" style="display: none;" class="text-center py-8">
+                <div class="text-6xl mb-4">🔍</div>
+                <h3 class="text-xl font-bold mb-2">No Resources Found</h3>
+                <p style="color: #d1d5db;">Try adjusting your search terms or browse by category above.</p>
+            </div>
+
+            <!-- AI Tools & Platforms -->
+            <div class="resource-category" id="ai-tools">
+                <div class="resource-category-header" onclick="simpleToggle('ai-tools-content')" style="cursor: pointer; border: 2px solid #3b82f6;">
+                    <span><i class="fas fa-robot mr-2"></i>🤖 AI Tools & Platforms - Master the Technology</span>
+                    <i class="fas fa-chevron-down" id="ai-tools-content_chevron"></i>
+                </div>
+                <div class="resource-category-content hidden" id="ai-tools-content" style="display: none;">
+                    
+                    <!-- Coding AI Tools -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">💻 AI Coding & Development Tools</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">GitHub Copilot</h5>
+                                <p class="text-sm opacity-90 mb-3">AI-powered code completion and generation</p>
+                                <ul class="text-xs mb-4 space-y-1" style="color: #d1d5db;">
+                                    <li>• Real-time code suggestions</li>
+                                    <li>• Multi-language support</li>
+                                    <li>• IDE integration</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://github.com/features/copilot" target="_blank" class="btn-secondary">Try Free</a>
+                                    <button onclick="markAsCompleted('github-copilot')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+                            
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">ChatGPT for Coding</h5>
+                                <p class="text-sm opacity-90 mb-3">Code generation, debugging, and explanation</p>
+                                <ul class="text-xs mb-4 space-y-1" style="color: #d1d5db;">
+                                    <li>• Code generation from prompts</li>
+                                    <li>• Bug detection and fixes</li>
+                                    <li>• Code explanation</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://chat.openai.com" target="_blank" class="btn-secondary">Start Coding</a>
+                                    <button onclick="markAsCompleted('chatgpt-coding')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+                            
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE TIER</div>
+                                <h5 class="text-lg font-bold mb-2">Claude by Anthropic</h5>
+                                <p class="text-sm opacity-90 mb-3">Advanced AI for complex coding tasks</p>
+                                <ul class="text-xs mb-4 space-y-1" style="color: #d1d5db;">
+                                    <li>• Complex algorithm design</li>
+                                    <li>• Architecture planning</li>
+                                    <li>• Code optimization</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://claude.ai" target="_blank" class="btn-secondary">Try Claude</a>
+                                    <button onclick="markAsCompleted('claude-coding')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-paid">FREEMIUM</div>
+                                <h5 class="text-lg font-bold mb-2">Tabnine</h5>
+                                <p class="text-sm opacity-90 mb-3">AI-powered code completion for teams</p>
+                                <ul class="text-xs mb-4 space-y-1" style="color: #d1d5db;">
+                                    <li>• Team collaboration features</li>
+                                    <li>• Enterprise security</li>
+                                    <li>• Custom model training</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.tabnine.com" target="_blank" class="btn-secondary">Explore</a>
+                                    <button onclick="markAsCompleted('tabnine')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Creation AI -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">✍️ Content & Marketing AI Tools</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE TIER</div>
+                                <h5 class="text-lg font-bold mb-2">Jasper AI</h5>
+                                <p class="text-sm opacity-90 mb-3">Advanced content generation and marketing copy</p>
+                                <ul class="text-xs mb-4 space-y-1" style="color: #d1d5db;">
+                                    <li>• Marketing copy generation</li>
+                                    <li>• SEO optimization</li>
+                                    <li>• Brand voice training</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.jasper.ai" target="_blank" class="btn-secondary">Try Free</a>
+                                    <button onclick="markAsCompleted('jasper-ai')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">Copy.ai</h5>
+                                <p class="text-sm opacity-90 mb-3">AI copywriting for marketing and sales</p>
+                                <ul class="text-xs mb-4 space-y-1" style="color: #d1d5db;">
+                                    <li>• Sales copy templates</li>
+                                    <li>• Social media content</li>
+                                    <li>• Email marketing</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://copy.ai" target="_blank" class="btn-secondary">Start Writing</a>
+                                    <button onclick="markAsCompleted('copy-ai')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">Canva AI</h5>
+                                <p class="text-sm opacity-90 mb-3">AI-powered design and visual content creation</p>
+                                <ul class="text-xs mb-4 space-y-1" style="color: #d1d5db;">
+                                    <li>• AI image generation</li>
+                                    <li>• Design automation</li>
+                                    <li>• Brand kit integration</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.canva.com" target="_blank" class="btn-secondary">Design Now</a>
+                                    <button onclick="markAsCompleted('canva-ai')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business AI Tools -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">📊 Business & Analytics AI Tools</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-paid">ENTERPRISE</div>
+                                <h5 class="text-lg font-bold mb-2">Salesforce Einstein</h5>
+                                <p class="text-sm opacity-90 mb-3">AI-powered CRM and sales automation</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Predictive lead scoring</li>
+                                    <li>• Sales forecasting</li>
+                                    <li>• Customer insights</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.salesforce.com/products/einstein/" target="_blank" class="btn-secondary">Learn More</a>
+                                    <button onclick="markAsCompleted('salesforce-einstein')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE TIER</div>
+                                <h5 class="text-lg font-bold mb-2">Power BI AI</h5>
+                                <p class="text-sm opacity-90 mb-3">AI-enhanced business intelligence and analytics</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Automated insights</li>
+                                    <li>• Natural language queries</li>
+                                    <li>• Predictive analytics</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://powerbi.microsoft.com" target="_blank" class="btn-secondary">Try Free</a>
+                                    <button onclick="markAsCompleted('power-bi-ai')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Learning Platforms -->
+            <div class="resource-category" id="learning-platforms">
+                <div class="resource-category-header" onclick="simpleToggle('learning-content')" style="cursor: pointer; border: 2px solid #22c55e;">
+                    <span><i class="fas fa-graduation-cap mr-2"></i>🎓 Learning Platforms - Build Your Skills</span>
+                    <i class="fas fa-chevron-down" id="learning-content_chevron"></i>
+                </div>
+                <div class="resource-category-content hidden" id="learning-content" style="display: none;">
+                    
+                    <!-- AI & ML Learning -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">🧠 AI & Machine Learning Courses</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">Coursera - Machine Learning by Andrew Ng</h5>
+                                <p class="text-sm opacity-90 mb-3">Stanford's famous ML course - foundational AI knowledge</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Mathematical foundations</li>
+                                    <li>• Practical implementation</li>
+                                    <li>• Industry best practices</li>
+                                    <li>• ⏱️ Duration: 11 weeks</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.coursera.org/learn/machine-learning" target="_blank" class="btn-secondary">Enroll Free</a>
+                                    <button onclick="markAsCompleted('coursera-ml')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">Fast.ai - Practical Deep Learning</h5>
+                                <p class="text-sm opacity-90 mb-3">Hands-on approach to deep learning and AI</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Project-based learning</li>
+                                    <li>• Real-world applications</li>
+                                    <li>• Community support</li>
+                                    <li>• ⏱️ Duration: 7 weeks</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://course.fast.ai" target="_blank" class="btn-secondary">Start Course</a>
+                                    <button onclick="markAsCompleted('fastai-dl')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">FutureSkills Prime</h5>
+                                <p class="text-sm opacity-90 mb-3">Government-backed AI and emerging tech courses (India)</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Industry-relevant curriculum</li>
+                                    <li>• Certification programs</li>
+                                    <li>• Free access for Indians</li>
+                                    <li>• ⏱️ Duration: Varies</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://futureskillsprime.in" target="_blank" class="btn-secondary">Explore Courses</a>
+                                    <button onclick="markAsCompleted('futureskills-prime')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-paid">PAID</div>
+                                <h5 class="text-lg font-bold mb-2">Udacity AI Nanodegrees</h5>
+                                <p class="text-sm opacity-90 mb-3">Industry-focused AI specialization programs</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Project-based curriculum</li>
+                                    <li>• Mentor support</li>
+                                    <li>• Career services</li>
+                                    <li>• ⏱️ Duration: 3-4 months</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.udacity.com/school-of-ai" target="_blank" class="btn-secondary">View Programs</a>
+                                    <button onclick="markAsCompleted('udacity-ai')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Programming & Development -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">💻 Programming & Development</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">FreeCodeCamp</h5>
+                                <p class="text-sm opacity-90 mb-3">Comprehensive programming curriculum</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Full-stack development</li>
+                                    <li>• Data science track</li>
+                                    <li>• 300+ hours of content</li>
+                                    <li>• ⏱️ Duration: Self-paced</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.freecodecamp.org" target="_blank" class="btn-secondary">Start Learning</a>
+                                    <button onclick="markAsCompleted('freecodecamp')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">Codecademy - Python</h5>
+                                <p class="text-sm opacity-90 mb-3">Interactive Python programming course</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Hands-on coding practice</li>
+                                    <li>• Real-time feedback</li>
+                                    <li>• Project-based learning</li>
+                                    <li>• ⏱️ Duration: 25 hours</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.codecademy.com/learn/learn-python-3" target="_blank" class="btn-secondary">Learn Python</a>
+                                    <button onclick="markAsCompleted('codecademy-python')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">Skill India - Digital Skills</h5>
+                                <p class="text-sm opacity-90 mb-3">Government initiative for digital literacy (India)</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Basic to advanced IT skills</li>
+                                    <li>• Industry certifications</li>
+                                    <li>• Job placement assistance</li>
+                                    <li>• ⏱️ Duration: Varies</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.skillindia.gov.in" target="_blank" class="btn-secondary">Explore Programs</a>
+                                    <button onclick="markAsCompleted('skill-india')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business & Marketing -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">📈 Business & Digital Marketing</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">Google Digital Garage</h5>
+                                <p class="text-sm opacity-90 mb-3">Digital marketing and business skills</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Digital marketing fundamentals</li>
+                                    <li>• Google tools training</li>
+                                    <li>• Business growth strategies</li>
+                                    <li>• ⏱️ Duration: 40 hours</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://learndigital.withgoogle.com/digitalgarage" target="_blank" class="btn-secondary">Start Learning</a>
+                                    <button onclick="markAsCompleted('google-garage')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">HubSpot Academy</h5>
+                                <p class="text-sm opacity-90 mb-3">Inbound marketing and sales training</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Content marketing</li>
+                                    <li>• Sales methodology</li>
+                                    <li>• CRM training</li>
+                                    <li>• ⏱️ Duration: Various courses</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://academy.hubspot.com" target="_blank" class="btn-secondary">Explore Courses</a>
+                                    <button onclick="markAsCompleted('hubspot-academy')" class="btn-success">✓ Completed</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications -->
+            <div class="resource-category" id="certifications">
+                <div class="resource-category-header" onclick="simpleToggle('certifications-content')" style="cursor: pointer; border: 2px solid #a855f7;">
+                    <span><i class="fas fa-certificate mr-2"></i>🏆 Professional Certifications - Validate Your Skills</span>
+                    <i class="fas fa-chevron-down" id="certifications-content_chevron"></i>
+                </div>
+                <div class="resource-category-content hidden" id="certifications-content" style="display: none;">
+                    
+                    <!-- Cloud & AI Certifications -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">☁️ Cloud & AI Certifications</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-premium">HIGH VALUE</div>
+                                <h5 class="text-lg font-bold mb-2">AWS Certified Cloud Practitioner</h5>
+                                <p class="text-sm opacity-90 mb-3">Entry-level AWS cloud fundamentals certification</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Cloud computing basics</li>
+                                    <li>• AWS core services</li>
+                                    <li>• Security & compliance</li>
+                                    <li>• 💰 Cost: $100 | ⏱️ Prep: 1-2 months</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://aws.amazon.com/certification/certified-cloud-practitioner/" target="_blank" class="btn-secondary">View Details</a>
+                                    <button onclick="markAsCompleted('aws-ccp')" class="btn-success">✓ Certified</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-premium">HIGH VALUE</div>
+                                <h5 class="text-lg font-bold mb-2">Google Cloud Digital Leader</h5>
+                                <p class="text-sm opacity-90 mb-3">Google Cloud fundamentals and business value</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Digital transformation</li>
+                                    <li>• Cloud technology concepts</li>
+                                    <li>• Google Cloud products</li>
+                                    <li>• 💰 Cost: $99 | ⏱️ Prep: 1 month</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://cloud.google.com/certification/cloud-digital-leader" target="_blank" class="btn-secondary">Learn More</a>
+                                    <button onclick="markAsCompleted('gcp-leader')" class="btn-success">✓ Certified</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-premium">HIGH VALUE</div>
+                                <h5 class="text-lg font-bold mb-2">Microsoft Azure AI Fundamentals</h5>
+                                <p class="text-sm opacity-90 mb-3">AI and machine learning concepts on Azure</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• AI workloads and considerations</li>
+                                    <li>• Machine learning on Azure</li>
+                                    <li>• Computer vision & NLP</li>
+                                    <li>• 💰 Cost: $99 | ⏱️ Prep: 2-3 weeks</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://docs.microsoft.com/en-us/learn/certifications/azure-ai-fundamentals/" target="_blank" class="btn-secondary">Get Started</a>
+                                    <button onclick="markAsCompleted('azure-ai')" class="btn-success">✓ Certified</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data & Analytics -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">📊 Data & Analytics Certifications</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-premium">HIGH VALUE</div>
+                                <h5 class="text-lg font-bold mb-2">Google Data Analytics Certificate</h5>
+                                <p class="text-sm opacity-90 mb-3">Professional certificate for data analytics roles</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Data analysis process</li>
+                                    <li>• Spreadsheets, SQL, R, Tableau</li>
+                                    <li>• Portfolio projects</li>
+                                    <li>• 💰 Cost: $49/month | ⏱️ Duration: 3-6 months</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.coursera.org/professional-certificates/google-data-analytics" target="_blank" class="btn-secondary">Enroll Now</a>
+                                    <button onclick="markAsCompleted('google-data')" class="btn-success">✓ Certified</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE PREP</div>
+                                <h5 class="text-lg font-bold mb-2">Tableau Desktop Specialist</h5>
+                                <p class="text-sm opacity-90 mb-3">Entry-level Tableau certification</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Data visualization fundamentals</li>
+                                    <li>• Dashboard creation</li>
+                                    <li>• Basic analytics</li>
+                                    <li>• 💰 Cost: $100 | ⏱️ Prep: 1 month</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.tableau.com/learn/certification/desktop-specialist" target="_blank" class="btn-secondary">Study Guide</a>
+                                    <button onclick="markAsCompleted('tableau-specialist')" class="btn-success">✓ Certified</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-premium">VALUABLE</div>
+                                <h5 class="text-lg font-bold mb-2">IBM Data Science Certificate</h5>
+                                <p class="text-sm opacity-90 mb-3">Comprehensive data science program</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Python for data science</li>
+                                    <li>• Machine learning</li>
+                                    <li>• Data visualization</li>
+                                    <li>• 💰 Cost: $49/month | ⏱️ Duration: 3-5 months</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.coursera.org/professional-certificates/ibm-data-science" target="_blank" class="btn-secondary">View Program</a>
+                                    <button onclick="markAsCompleted('ibm-data-science')" class="btn-success">✓ Certified</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Digital Marketing -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">📱 Digital Marketing Certifications</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">Google Ads Certification</h5>
+                                <p class="text-sm opacity-90 mb-3">Google Ads platform proficiency</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Search, Display, Video ads</li>
+                                    <li>• Campaign optimization</li>
+                                    <li>• Performance measurement</li>
+                                    <li>• 💰 Cost: FREE | ⏱️ Prep: 2-4 weeks</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://skillshop.exceedlms.com/student/catalog" target="_blank" class="btn-secondary">Get Certified</a>
+                                    <button onclick="markAsCompleted('google-ads')" class="btn-success">✓ Certified</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">Facebook Social Media Marketing</h5>
+                                <p class="text-sm opacity-90 mb-3">Meta's social media marketing certificate</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Facebook & Instagram advertising</li>
+                                    <li>• Content strategy</li>
+                                    <li>• Analytics and optimization</li>
+                                    <li>• 💰 Cost: $49/month | ⏱️ Duration: 4-7 months</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.coursera.org/professional-certificates/facebook-social-media-marketing" target="_blank" class="btn-secondary">Learn More</a>
+                                    <button onclick="markAsCompleted('facebook-marketing')" class="btn-success">✓ Certified</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">HubSpot Content Marketing</h5>
+                                <p class="text-sm opacity-90 mb-3">Content marketing strategy and execution</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Content planning and creation</li>
+                                    <li>• Distribution strategies</li>
+                                    <li>• Performance measurement</li>
+                                    <li>• 💰 Cost: FREE | ⏱️ Duration: 4-5 hours</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://academy.hubspot.com/courses/content-marketing" target="_blank" class="btn-secondary">Start Course</a>
+                                    <button onclick="markAsCompleted('hubspot-content')" class="btn-success">✓ Certified</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Job Market & Government Support -->
+            <div class="resource-category" id="job-market">
+                <div class="resource-category-header" onclick="simpleToggle('job-market-content')" style="cursor: pointer; border: 2px solid #f59e0b;">
+                    <span><i class="fas fa-briefcase mr-2"></i>💼 Job Market & Government Support - Find Opportunities</span>
+                    <i class="fas fa-chevron-down" id="job-market-content_chevron"></i>
+                </div>
+                <div class="resource-category-content hidden" id="job-market-content" style="display: none;">
+                    
+                    <!-- Job Portals -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">🔍 AI-Era Job Portals</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">LinkedIn Learning + Jobs</h5>
+                                <p class="text-sm opacity-90 mb-3">Professional networking and AI-focused job opportunities</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• AI and tech job listings</li>
+                                    <li>• Skill-based hiring</li>
+                                    <li>• Learning path recommendations</li>
+                                    <li>• ⏱️ Active job market analysis</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.linkedin.com/jobs" target="_blank" class="btn-secondary">Browse Jobs</a>
+                                    <button onclick="markAsCompleted('linkedin-jobs')" class="btn-success">✓ Profile Updated</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">AngelList (Wellfound)</h5>
+                                <p class="text-sm opacity-90 mb-3">Startup jobs focused on AI and emerging tech</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Early-stage AI companies</li>
+                                    <li>• Remote-first opportunities</li>
+                                    <li>• Equity-based compensation</li>
+                                    <li>• ⏱️ Direct founder contact</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://wellfound.com" target="_blank" class="btn-secondary">Explore Startups</a>
+                                    <button onclick="markAsCompleted('angellist')" class="btn-success">✓ Applied</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">FREE</div>
+                                <h5 class="text-lg font-bold mb-2">Naukri.com - AI Jobs</h5>
+                                <p class="text-sm opacity-90 mb-3">India's largest job portal with AI job filters</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• AI/ML job categories</li>
+                                    <li>• Salary insights</li>
+                                    <li>• Company reviews</li>
+                                    <li>• ⏱️ Daily job alerts</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.naukri.com" target="_blank" class="btn-secondary">Find Jobs</a>
+                                    <button onclick="markAsCompleted('naukri')" class="btn-success">✓ Profile Created</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Government Programs -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">🏛️ Government Support Programs</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">GOVERNMENT</div>
+                                <h5 class="text-lg font-bold mb-2">PMKVY 4.0 (India)</h5>
+                                <p class="text-sm opacity-90 mb-3">Skill development scheme with AI/digital focus</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Free skill training</li>
+                                    <li>• Industry-aligned courses</li>
+                                    <li>• Placement assistance</li>
+                                    <li>• ⏱️ Certificate + stipend</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.pmkvyofficial.org" target="_blank" class="btn-secondary">Apply Now</a>
+                                    <button onclick="markAsCompleted('pmkvy')" class="btn-success">✓ Enrolled</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">GOVERNMENT</div>
+                                <h5 class="text-lg font-bold mb-2">SkillBridge (USA)</h5>
+                                <p class="text-sm opacity-90 mb-3">Industry training for transitioning workers</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Apprenticeship programs</li>
+                                    <li>• On-the-job training</li>
+                                    <li>• Industry partnerships</li>
+                                    <li>• ⏱️ Path to full employment</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://skillbridge.osd.mil" target="_blank" class="btn-secondary">Learn More</a>
+                                    <button onclick="markAsCompleted('skillbridge')" class="btn-success">✓ Applied</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">GOVERNMENT</div>
+                                <h5 class="text-lg font-bold mb-2">Digital Economy Promotion Agency (Thailand)</h5>
+                                <p class="text-sm opacity-90 mb-3">Digital skills development for workforce transformation</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Digital literacy programs</li>
+                                    <li>• AI workforce training</li>
+                                    <li>• Industry collaboration</li>
+                                    <li>• ⏱️ Regional presence</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.depa.or.th" target="_blank" class="btn-secondary">Explore Programs</a>
+                                    <button onclick="markAsCompleted('depa')" class="btn-success">✓ Registered</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial Support -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-4">💰 Financial Support & Emergency Aid</h4>
+                        <div class="resource-grid">
+                            <div class="resource-item">
+                                <div class="resource-badge badge-emergency">URGENT</div>
+                                <h5 class="text-lg font-bold mb-2">Emergency Unemployment Benefits</h5>
+                                <p class="text-sm opacity-90 mb-3">Immediate financial assistance during transition</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• File unemployment claims</li>
+                                    <li>• Extended benefits for AI displacement</li>
+                                    <li>• Healthcare continuation (COBRA)</li>
+                                    <li>• ⏱️ Apply within deadlines</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.dol.gov/general/topic/unemployment-insurance" target="_blank" class="btn-secondary">File Claim</a>
+                                    <button onclick="markAsCompleted('unemployment')" class="btn-success">✓ Filed</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">SUPPORT</div>
+                                <h5 class="text-lg font-bold mb-2">Career Transition Loans</h5>
+                                <p class="text-sm opacity-90 mb-3">Low-interest loans for retraining and education</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• Education loan programs</li>
+                                    <li>• Income-driven repayment</li>
+                                    <li>• Loan forgiveness options</li>
+                                    <li>• ⏱️ Deferred payment plans</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://studentaid.gov" target="_blank" class="btn-secondary">Explore Options</a>
+                                    <button onclick="markAsCompleted('education-loans')" class="btn-success">✓ Applied</button>
+                                </div>
+                            </div>
+
+                            <div class="resource-item">
+                                <div class="resource-badge badge-free">SUPPORT</div>
+                                <h5 class="text-lg font-bold mb-2">Food & Housing Assistance</h5>
+                                <p class="text-sm opacity-90 mb-3">Basic needs support during career transition</p>
+                                <ul class="text-xs opacity-75 mb-4 space-y-1">
+                                    <li>• SNAP food assistance</li>
+                                    <li>• Housing voucher programs</li>
+                                    <li>• Utility assistance</li>
+                                    <li>• ⏱️ Emergency aid programs</li>
+                                </ul>
+                                <div class="space-x-2">
+                                    <a href="https://www.benefits.gov" target="_blank" class="btn-secondary">Find Benefits</a>
+                                    <button onclick="markAsCompleted('basic-needs')" class="btn-success">✓ Applied</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <footer class="mt-16 py-8 px-4 border-t border-gray-700" style="background: rgba(17, 24, 39, 0.8); backdrop-filter: blur(10px);" role="contentinfo">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4" style="color: white;">AI RECKONING</h4>
+                        <p class="text-sm mb-4" style="color: #d1d5db;">Emergency response for AI-driven workforce transformation.</p>
+                        <div class="mt-4 space-y-2">
+                            <a href="about.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">About Us</a>
+                            <a href="methodology.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Our Methodology</a>
+                            <a href="research.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Research & Data</a>
+                            <a href="privacy.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Privacy Policy</a>
+                            <a href="terms.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Terms of Service</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4" style="color: white;">Resources</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://futureskillsprime.in" target="_blank" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">FutureSkills Prime</a></li>
+                            <li><a href="https://www.skillindia.gov.in" target="_blank" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Skill India</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4" style="color: white;">Industries</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="resources.html#it-bpm" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">IT & BPM</a></li>
+                            <li><a href="resources.html#banking" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Banking</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4" style="color: white;">Support</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="help.html" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Help Center</a></li>
+                            <li><a href="contact.html" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+                    <p style="color: #9ca3af;">&copy; 2025 AI RECKONING. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+    
+    <script>
+    // Direct inline JavaScript for guaranteed functionality
+    console.log('🚀 Inline JavaScript loading...');
+    
+    function simpleToggle(contentId) {
+        console.log('🔄 simpleToggle called for:', contentId);
+        const content = document.getElementById(contentId);
+        const chevron = document.getElementById(contentId + '_chevron');
+        
+        if (!content) {
+            console.error('❌ Content not found:', contentId);
+            alert('Content not found: ' + contentId);
+            return;
+        }
+        
+        console.log('📋 Current classes:', content.className);
+        
+        if (content.style.display === 'none' || content.classList.contains('hidden')) {
+            // Show
+            content.style.display = 'block';
+            content.classList.remove('hidden');
+            if (chevron) {
+                chevron.classList.remove('fa-chevron-down');
+                chevron.classList.add('fa-chevron-up');
+            }
+            console.log('✅ Shown:', contentId);
+        } else {
+            // Hide
+            content.style.display = 'none';
+            content.classList.add('hidden');
+            if (chevron) {
+                chevron.classList.remove('fa-chevron-up');
+                chevron.classList.add('fa-chevron-down');
+            }
+            console.log('✅ Hidden:', contentId);
+        }
+    }
+    
+    // Make function globally available
+    window.simpleToggle = simpleToggle;
+    
+    function testSimple() {
+        alert('🧪 Simple test working! Now testing toggle...');
+        simpleToggle('ai-tools-content');
+    }
+    
+    window.testSimple = testSimple;
+    
+    console.log('✅ Inline JavaScript loaded successfully');
+    </script>
+</body>
+</html>

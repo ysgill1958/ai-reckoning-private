@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Fixed styles with black background and no overlapping */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: white;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        a, p, h1, h2, h3, h4, h5, h6 {
+            color: #fff !important;
+            text-shadow: 0 1px 3px #000;
+            text-align: center;
+        }
+        
+        a:hover, a:focus { color: #f3f4f6; text-decoration: underline; }
+        
+        header, main, footer {
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        main { 
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        nav { 
+            text-align: center;
+        }
+        
+        nav a { 
+            margin: 0 0.75rem; 
+            padding: 0.5rem;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary { 
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+            padding: 1rem 2rem; 
+            border-radius: 0.75rem; 
+            color: white; 
+            font-weight: 600; 
+            display: inline-block; 
+            margin: 1rem auto;
+            text-decoration: none;
+        }
+        
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 2rem; 
+            margin: 1rem auto;
+            border-radius: 1rem;
+        }
+    </style>
+    <style>
+        /* Additional styles */
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Join the AI Reckoning community for support">
+    <title>Community | AI RECKONING</title>
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; display: flex; flex-direction: column; color: white; }
+        main { flex: 1; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .btn-primary { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); padding: 1rem 2rem; border-radius: 0.75rem; color: white; font-weight: 600; }
+        .btn-primary:hover { transform: translateY(-2px); }
+        .nav-active { color: #ef4444; font-weight: 600; position: relative; }
+        .nav-active:after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background: #ef4444; }
+        .warning-icon { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+        #loading { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div id="loading" class="hidden">
+        <div class="text-center">
+            <i class="fas fa-spinner fa-spin text-4xl text-red-500"></i>
+            <p class="mt-4 text-lg">Loading AI Reckoning...</p>
+        </div>
+    </div>
+    <script>
+        // Immediately hide loading screen
+        document.getElementById('loading').style.display = 'none';
+    </script>
+    <div id="app" class="min-h-screen">
+        <header class="py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-700" role="banner">
+            <div class="max-w-7xl mx-auto">
+                <!-- Main header row -->
+                <div class="flex flex-col lg:flex-row justify-between items-center">
+                    <!-- Logo and brand -->
+                    <div class="flex items-center space-x-3 mb-4 lg:mb-0">
+                        <div class="bg-red-600 p-2 rounded-xl warning-icon">
+                            <i class="fas fa-exclamation-triangle text-2xl"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold">AI RECKONING</h1>
+                            <p class="text-sm opacity-90">Emergency Career Transformation System</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <nav class="flex flex-wrap justify-center lg:justify-end gap-4 lg:gap-6" role="navigation">
+                        <a href="index.html" class="font-medium hover:text-red-300 transition px-2 py-1">Home</a>
+                        <a href="assessment.html" class="font-medium hover:text-red-300 transition px-2 py-1">Assessment</a>
+                        <a href="roadmaps.html" class="font-medium hover:text-red-300 transition px-2 py-1">Critical Roadmaps</a>
+                        <a href="resources.html" class="font-medium hover:text-red-300 transition px-2 py-1">Survival Resources</a>
+                        <a href="community.html" class="font-medium hover:text-red-300 transition nav-active px-2 py-1" aria-current="page">Community</a>
+                        <a href="about.html" class="font-medium hover:text-red-300 transition px-2 py-1">About</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" role="main">
+            <section id="community" class="glass rounded-2xl p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">Join Our Community</h3>
+                <p class="text-lg mb-8 text-center opacity-80">Connect with others navigating the AI revolution.</p>
+                <div class="text-center">
+                    <a href="contact.html" class="btn-primary">Get Involved</a>
+                </div>
+            </section>
+        </main>
+        <footer class="mt-16 py-8 px-4 border-t border-gray-700" role="contentinfo">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">AI RECKONING</h4>
+                        <p class="text-sm opacity-75">Emergency response for AI-driven workforce transformation.</p>
+                        <div class="mt-4 space-y-2">
+                            <a href="about.html" class="block text-sm text-blue-400 hover:text-blue-300">About Us</a>
+                            <a href="methodology.html" class="block text-sm text-blue-400 hover:text-blue-300">Our Methodology</a>
+                            <a href="research.html" class="block text-sm text-blue-400 hover:text-blue-300">Research & Data</a>
+                            <a href="privacy.html" class="block text-sm text-blue-400 hover:text-blue-300">Privacy Policy</a>
+                            <a href="terms.html" class="block text-sm text-blue-400 hover:text-blue-300">Terms of Service</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4">Resources</h5>
+                        <ul class="space-y-2 text-sm opacity-75">
+                            <li><a href="https://futureskillsprime.in" target="_blank" class="hover:text-red-300 transition">FutureSkills Prime</a></li>
+                            <li><a href="https://www.skillindia.gov.in" target="_blank" class="hover:text-red-300 transition">Skill India</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4">Industries</h5>
+                        <ul class="space-y-2 text-sm opacity-75">
+                            <li><a href="resources.html#it-bpm" class="hover:text-red-300 transition">IT & BPM</a></li>
+                            <li><a href="resources.html#banking" class="hover:text-red-300 transition">Banking</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4">Support</h5>
+                        <ul class="space-y-2 text-sm opacity-75">
+                            <li><a href="help.html" class="hover:text-red-300 transition">Help Center</a></li>
+                            <li><a href="contact.html" class="hover:text-red-300 transition">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm opacity-75">
+                    <p>&copy; 2025 AI RECKONING. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>

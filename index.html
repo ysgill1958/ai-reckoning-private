@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Reckoning: Emergency Career Transformation System">
+    <title>AI RECKONING | Emergency Career Transformation System</title>
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <link rel="stylesheet" href="css/fonts/inter.css">
+    <link rel="stylesheet" href="css/fontawesome/fontawesome.css">
+    
+    <!-- COMPREHENSIVE CENTER ALIGNMENT OVERRIDE -->
+    <style>
+    /* NUCLEAR OPTION - FORCE CENTER ALIGNMENT EVERYWHERE */
+    * {
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+    
+    html, body {
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    /* Override ALL Tailwind utility classes */
+    .text-left, .text-right, .text-justify, .text-start, .text-end,
+    .sm\\:text-left, .md\\:text-left, .lg\\:text-left, .xl\\:text-left,
+    .justify-start, .justify-end, .justify-between, .justify-around, .justify-evenly,
+    .items-start, .items-end, .self-start, .self-end {
+        text-align: center !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    /* Force ALL flex containers to center */
+    .flex, .flex-col, .flex-row, .inline-flex {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    /* Force ALL grid containers to center */
+    .grid {
+        display: grid !important;
+        justify-items: center !important;
+        text-align: center !important;
+    }
+    
+    /* Override container classes */
+    .container, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl, .mx-auto {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* Basic layout with center alignment */
+    /* Basic layout with center alignment */
+    body {
+        font-family: 'Inter', sans-serif !important;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+        min-height: 100vh;
+        color: white !important;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        text-align: center !important;
+    }
+    
+    /* FORCE ALL TEXT TO CENTER */
+    h1, h2, h3, h4, h5, h6, p, a, span, div, li, ul, ol, 
+    strong, em, i, b, small, blockquote {
+        text-align: center !important;
+        color: #fff !important;
+        text-shadow: 0 1px 3px #000;
+    }
+    
+    /* FORCE ALL CONTAINERS TO CENTER */
+    header, main, footer, section, article, nav, aside {
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Navigation specific */
+    nav {
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+    }
+    
+    /* Override Tailwind utility classes completely */
+    .max-w-7xl { margin: 0 auto !important; text-align: center !important; }
+    .mx-auto { margin: 0 auto !important; text-align: center !important; }
+    .px-4, .px-6, .px-8 { text-align: center !important; }
+    .py-4, .py-6, .py-8 { text-align: center !important; }
+    
+    /* Enhanced center alignment with higher specificity */
+    body, html {
+        text-align: center !important;
+    }
+    
+    a, p, h1, h2, h3, h4, h5, h6 {
+        color: #fff !important;
+        text-shadow: 0 1px 3px #000;
+        text-align: center !important;
+    }
+    
+    /* Force center alignment for all major containers */
+    header, main, footer, section, div {
+        text-align: center !important;
+    }
+    
+    main { 
+        flex: 1; 
+        max-width: 1200px;
+        margin: 0 auto !important;
+        padding: 2rem 1rem;
+        text-align: center !important;
+    }
+    
+    /* Force center-aligned navigation */
+    nav { 
+        text-align: center !important;
+        justify-content: center !important;
+        display: flex !important;
+        flex-wrap: wrap !important;
+    }
+    
+    nav a { 
+        margin: 0 0.75rem; 
+        padding: 0.5rem;
+        display: inline-block;
+        text-align: center !important;
+    }
+    
+    /* Enhanced center alignment for specific elements */
+    .icon-text-center {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
+    .icon-text-center i {
+        margin-bottom: 0.5rem;
+        text-align: center !important;
+    }
+    
+    /* Force center alignment for collapsible headers */
+    .collapsible-header {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        position: relative;
+    }
+    
+    .collapsible-header i {
+        margin-right: 0.5rem;
+        text-align: center !important;
+    }
+    
+    .btn-primary { 
+        background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+        padding: 1rem 2rem; 
+        border-radius: 0.75rem; 
+        color: white; 
+        font-weight: 600; 
+        display: inline-block; 
+        margin: 1rem auto;
+        text-decoration: none;
+    }
+    
+    .critical-alert { 
+        border-left: 4px solid #ef4444; 
+        background: rgba(239, 68, 68, 0.1); 
+        padding: 1.5rem; 
+        border-radius: 0.75rem; 
+        margin: 2rem auto;
+        max-width: 800px;
+    }
+    .glass { 
+        background: rgba(255, 255, 255, 0.05); 
+        -webkit-backdrop-filter: blur(10px); 
+        backdrop-filter: blur(10px); 
+        border: 1px solid rgba(255, 255, 255, 0.1); 
+        padding: 2rem; 
+        margin: 1rem auto;
+        border-radius: 1rem;
+    }
+    
+    .btn-primary:hover { transform: translateY(-2px); }
+    .urgent { color: #ef4444; font-weight: 600; }
+    .nav-active { color: #ef4444; font-weight: 600; }
+    .warning-icon { animation: pulse 2s infinite; }
+    @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+    
+    /* Collapsible box styles - SIMPLIFIED */
+    .collapsible {
+        background: rgba(239, 68, 68, 0.15);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 0.75rem;
+        margin: 1.5rem auto;
+        max-width: 900px;
+        overflow: hidden;
+    }
+    
+    .collapsible-header {
+        padding: 1.25rem 1.5rem;
+        cursor: pointer !important;
+        background: rgba(239, 68, 68, 0.1);
+        border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        text-align: center;
+        position: relative;
+        user-select: none;
+    }
+    
+    .collapsible-header:hover {
+        background: rgba(239, 68, 68, 0.2) !important;
+    }
+    
+    .collapsible-content {
+        display: none;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.02);
+    }
+    
+    .collapsible.open .collapsible-content {
+        display: block !important;
+    }
+    
+    .collapsible-toggle {
+        position: absolute;
+        right: 1.5rem;
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .collapsible.open .collapsible-toggle {
+        transform: rotate(180deg);
+    }
+    
+    .fact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+        justify-items: center !important;
+        text-align: center !important;
+    }
+    
+    .fact-box {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1.25rem;
+        border-radius: 0.5rem;
+        border-left: 3px solid #ef4444;
+        text-align: center !important;
+        width: 100%;
+        max-width: 350px;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .fact-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #ef4444;
+        display: block;
+        margin-bottom: 0.5rem;
+        text-align: center !important;
+    }
+    
+    /* Force center alignment for main sections */
+    .critical-alert {
+        text-align: center !important;
+        margin-bottom: 2rem;
+    }
+    
+    .critical-alert h2 {
+        text-align: center !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Force center align logo and brand section */
+    .brand-section {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        margin-bottom: 1rem;
+    }
+    
+    .brand-section .warning-icon {
+        margin-right: 1rem;
+    }
+    
+    /* Override Tailwind classes for center alignment */
+    .flex {
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    
+    .max-w-7xl {
+        text-align: center !important;
+    }
+    
+    #loading { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.95); display: none; align-items: center; justify-content: center; z-index: 1000; }
+    .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div id="loading" class="hidden">
+        <div class="text-center">
+            <i class="fas fa-spinner fa-spin text-4xl text-red-500" role="img" aria-label="Loading"></i>
+            <p class="mt-4 text-lg" style="color: #fff; font-weight: bold; text-shadow: 0 2px 8px #000;">Loading AI Reckoning...</p>
+        </div>
+    </div>
+    <script>
+        // Immediately hide loading screen
+        document.getElementById('loading').style.display = 'none';
+    </script>
+    <div id="app" class="min-h-screen" style="text-align: center;">
+        <header class="py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-700" role="banner" style="text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+            <div class="max-w-7xl mx-auto" style="text-align: center; width: 100%;">
+                <!-- Main header row -->
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; width: 100%;">
+                    <!-- Logo and brand - Center aligned -->
+                    <div style="display: flex; align-items: center; justify-content: center; text-align: center; margin-bottom: 1rem;">
+                        <div class="bg-red-600 p-2 rounded-xl warning-icon" style="margin-right: 1rem;">
+                            <i class="fas fa-exclamation-triangle text-2xl" role="img" aria-label="Warning" style="text-align: center;"></i>
+                        </div>
+                        <div style="text-align: center;">
+                            <h1 class="text-2xl font-bold" style="text-align: center; color: white;">AI RECKONING</h1>
+                            <p class="text-sm opacity-90" style="text-align: center; color: white;">Emergency Career Transformation System</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation - Center aligned -->
+                    <nav style="display: flex; justify-content: center; flex-wrap: wrap; text-align: center; gap: 1rem;">
+                        <a href="index.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">Home</a>
+                        <a href="assessment.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">Assessment</a>
+                        <a href="roadmaps.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">Critical Roadmaps</a>
+                        <a href="resources.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">Survival Resources</a>
+                        <a href="community.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">Community</a>
+                        <a href="about.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">About</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main style="text-align: center; padding: 2rem; max-width: 1200px; margin: 0 auto;">
+            <section id="home" style="text-align: center; margin-bottom: 3rem;">
+                <div style="text-align: center;">
+                    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; margin-bottom: 2rem;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ef4444; margin-bottom: 1rem; text-align: center;"></i>
+                        <h2 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 1rem; text-align: center; color: white;">
+                            <span style="color: #ef4444;">WARNING:</span> The AI Revolution is Not a Drill
+                        </h2>
+                        <p style="font-size: 1.2rem; margin-bottom: 1rem; text-align: center; color: white;">86% of customer service tasks are automatable. 1.35 crore roles in India will be redefined.</p>
+                    </div>
+                </div>
+                
+                <!-- Collapsible Facts and Figures Section -->
+                <div style="text-align: center; background: rgba(255,255,255,0.05); margin: 2rem 0; border-radius: 0.5rem;">
+                    <div onclick="toggleContent('factsContent')" style="cursor: pointer; padding: 1.5rem; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <i class="fas fa-chart-line" style="font-size: 2rem; margin-bottom: 1rem; color: #ef4444; text-align: center;"></i>
+                        <span style="font-size: 1.2rem; font-weight: 600; text-align: center; color: white;">Critical Facts & Figures</span>
+                        <span style="font-size: 0.9rem; opacity: 0.75; margin-top: 0.5rem; text-align: center; color: white;">(Click to Expand)</span>
+                        <i class="fas fa-chevron-down" id="factsContent_chevron" style="margin-top: 1rem; text-align: center;"></i>
+                    </div>
+                    <div id="factsContent" style="display: none; padding: 2rem; text-align: center;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; justify-items: center; text-align: center;">
+                            <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 0.5rem; border-left: 3px solid #ef4444; text-align: center; max-width: 350px;">
+                                <span style="font-size: 2rem; font-weight: bold; color: #ef4444; display: block; margin-bottom: 0.5rem; text-align: center;">86%</span>
+                                <strong style="text-align: center; color: white;">Customer Service Automation</strong>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9; text-align: center; color: white;">of customer service tasks can be fully automated using current AI technology, according to McKinsey Global Institute research.</p>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 0.5rem; border-left: 3px solid #ef4444; text-align: center; max-width: 350px;">
+                                <span style="font-size: 2rem; font-weight: bold; color: #ef4444; display: block; margin-bottom: 0.5rem; text-align: center;">1.35 Cr</span>
+                                <strong style="text-align: center; color: white;">Indian Jobs at Risk</strong>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9; text-align: center; color: white;">roles across India will be fundamentally redefined or eliminated by AI within the next 5 years, particularly in IT and service sectors.</p>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 0.5rem; border-left: 3px solid #ef4444; text-align: center; max-width: 350px;">
+                                <span style="font-size: 2rem; font-weight: bold; color: #ef4444; display: block; margin-bottom: 0.5rem; text-align: center;">60%</span>
+                                <strong style="text-align: center; color: white;">Skill Obsolescence Rate</strong>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9; text-align: center; color: white;">of current technical skills will become obsolete within 3-5 years due to rapid AI advancement, requiring immediate reskilling.</p>
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.05); padding: 1.5rem; border-radius: 0.5rem; border-left: 3px solid #ef4444; text-align: center; max-width: 350px;">
+                                <span style="font-size: 2rem; font-weight: bold; color: #ef4444; display: block; margin-bottom: 0.5rem; text-align: center;">₹12L-₹50L</span>
+                                <strong style="text-align: center; color: white;">AI Role Salary Range</strong>
+                                <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.9; text-align: center; color: white;">Average salary range for AI-skilled professionals in India, representing 200-400% increase over traditional roles.</p>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(239, 68, 68, 0.2);">
+                            <div class="icon-text-center mb-6">
+                                <i class="fas fa-industry text-3xl text-red-400 mb-3"></i>
+                                <h4 class="text-xl font-bold mb-4 text-red-400">Industry Impact Breakdown</h4>
+                            </div>
+                            
+                            <!-- IT & BPM Industry -->
+                            <div class="collapsible" id="itBpmCollapsible" style="margin: 1rem 0; max-width: 100%;">
+                                <div class="collapsible-header" onclick="toggleContent('itBpmContent')" style="font-size: 1rem; padding: 1rem; cursor: pointer;">
+                                    <div class="icon-text-center">
+                                        <i class="fas fa-laptop-code text-xl mb-2"></i>
+                                        <span class="font-semibold">IT & BPM</span>
+                                        <span class="text-red-400 font-bold block mt-1">HIGH RISK</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down collapsible-toggle" id="itBpmContent_chevron"></i>
+                                </div>
+                                <div class="collapsible-content" id="itBpmContent" style="display: none; padding: 1.5rem;">
+                                    <div class="text-left space-y-3">
+                                        <p><strong>Job Loss Threat Level: 🔴 CRITICAL (70-80% roles at risk)</strong></p>
+                                        <p>Code generation tools like GitHub Copilot and ChatGPT are already replacing 30% of routine programming tasks. Junior developer positions are decreasing while AI-augmented senior roles are increasing 250%.</p>
+                                        <p><strong>Specific Threats:</strong> Manual testing (90% automated), basic coding (60% AI-generated), documentation (85% auto-generated), routine maintenance (75% automated).</p>
+                                        <p><strong>Timeline:</strong> 18-24 months for major displacement. Companies like Infosys and TCS already reducing campus hiring by 40%.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Banking Industry -->
+                            <div class="collapsible" id="bankingCollapsible" style="margin: 1rem 0; max-width: 100%;">
+                                <div class="collapsible-header" onclick="toggleContent('bankingContent')" style="font-size: 1rem; padding: 1rem; cursor: pointer;">
+                                    <div class="icon-text-center">
+                                        <i class="fas fa-university text-xl mb-2"></i>
+                                        <span class="font-semibold">Banking & Financial Services</span>
+                                        <span class="text-orange-400 font-bold block mt-1">MEDIUM-HIGH RISK</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down collapsible-toggle" id="bankingContent_chevron"></i>
+                                </div>
+                                <div class="collapsible-content" id="bankingContent" style="display: none; padding: 1.5rem;">
+                                    <div class="text-left space-y-3">
+                                        <p><strong>Job Loss Threat Level: 🟠 HIGH (50-65% roles at risk)</strong></p>
+                                        <p>40% of routine banking operations will be automated by 2026. Risk assessment, loan processing, and fraud detection are being rapidly replaced by AI systems. Traditional banking roles are declining by 15% annually.</p>
+                                        <p><strong>Specific Threats:</strong> Data entry clerks (95% eliminated), loan officers (60% automated), customer service reps (80% replaced by chatbots), compliance analysts (70% automated).</p>
+                                        <p><strong>Timeline:</strong> 24-36 months. HDFC, ICICI already implementing AI-first strategies, reducing branch staff by 30%.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Customer Support -->
+                            <div class="collapsible" id="customerSupportCollapsible" style="margin: 1rem 0; max-width: 100%;">
+                                <div class="collapsible-header" onclick="toggleContent('customerSupportContent')" style="font-size: 1rem; padding: 1rem; cursor: pointer;">
+                                    <div class="icon-text-center">
+                                        <i class="fas fa-headset text-xl mb-2"></i>
+                                        <span class="font-semibold">Customer Support & Call Centers</span>
+                                        <span class="text-red-400 font-bold block mt-1">CRITICAL RISK</span>
+                                    </div>
+                                    <i class="fas fa-chevron-down collapsible-toggle" id="customerSupportContent_chevron"></i>
+                                </div>
+                                <div class="collapsible-content" id="customerSupportContent" style="display: none; padding: 1.5rem;">
+                                    <div class="text-left space-y-3">
+                                        <p><strong>Job Loss Threat Level: 🔴 CRITICAL (80-90% roles at risk)</strong></p>
+                                        <p>Chatbots and AI assistants handle 70% of Level 1 support tickets. Human agents are being retrained for complex problem-solving or displaced entirely. Call center employment down 25% since 2022.</p>
+                                        <p><strong>Specific Threats:</strong> Basic query resolution (95% automated), order processing (90% automated), technical support L1 (85% replaced), appointment scheduling (100% automated).</p>
+                                        <p><strong>Timeline:</strong> 12-18 months. Major BPOs like Wipro, Genpact cutting workforce by 35-40%.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Healthcare Administration -->
+                            <div class="collapsible" id="healthcareCollapsible" style="margin: 1rem 0; max-width: 100%;">
+                                <div class="collapsible-header" onclick="toggleCollapsible('healthcareCollapsible')" style="font-size: 1rem; padding: 1rem;">
+                                    <span><i class="fas fa-hospital mr-2"></i>Healthcare Administration <span class="text-yellow-400 font-bold ml-2">MEDIUM RISK</span></span>
+                                    <i class="fas fa-chevron-down collapsible-toggle"></i>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div class="text-left space-y-3">
+                                        <p><strong>Job Loss Threat Level: 🟡 MEDIUM (40-55% roles at risk)</strong></p>
+                                        <p>Medical records processing, insurance claims, and appointment scheduling increasingly automated. AI diagnostic tools reducing need for preliminary screening staff.</p>
+                                        <p><strong>Specific Threats:</strong> Medical coding (70% automated), claims processing (80% automated), appointment coordination (90% automated), basic diagnosis screening (60% AI-assisted).</p>
+                                        <p><strong>Timeline:</strong> 36-48 months. Hospitals adopting AI-first administrative processes, reducing clerical staff by 25%.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Retail & E-commerce -->
+                            <div class="collapsible" id="retailCollapsible" style="margin: 1rem 0; max-width: 100%;">
+                                <div class="collapsible-header" onclick="toggleCollapsible('retailCollapsible')" style="font-size: 1rem; padding: 1rem;">
+                                    <span><i class="fas fa-shopping-cart mr-2"></i>Retail & E-commerce <span class="text-orange-400 font-bold ml-2">HIGH RISK</span></span>
+                                    <i class="fas fa-chevron-down collapsible-toggle"></i>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div class="text-left space-y-3">
+                                        <p><strong>Job Loss Threat Level: 🟠 HIGH (55-70% roles at risk)</strong></p>
+                                        <p>Automated checkout, AI-powered inventory management, and chatbot customer service eliminating traditional retail roles. Amazon Go model expanding rapidly.</p>
+                                        <p><strong>Specific Threats:</strong> Cashiers (95% elimination with self-checkout), inventory clerks (80% automated), sales associates (60% replaced by AI assistance), order fulfillment (75% automated).</p>
+                                        <p><strong>Timeline:</strong> 24-36 months. Major retailers like Reliance, Future Group investing heavily in automation.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Manufacturing -->
+                            <div class="collapsible" id="manufacturingCollapsible" style="margin: 1rem 0; max-width: 100%;">
+                                <div class="collapsible-header" onclick="toggleCollapsible('manufacturingCollapsible')" style="font-size: 1rem; padding: 1rem;">
+                                    <span><i class="fas fa-industry mr-2"></i>Manufacturing & Production <span class="text-red-400 font-bold ml-2">HIGH RISK</span></span>
+                                    <i class="fas fa-chevron-down collapsible-toggle"></i>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div class="text-left space-y-3">
+                                        <p><strong>Job Loss Threat Level: 🔴 HIGH (60-75% roles at risk)</strong></p>
+                                        <p>Robotic process automation and AI-driven quality control eliminating manual production roles. Smart factories reducing human workforce by 50-60%.</p>
+                                        <p><strong>Specific Threats:</strong> Assembly line workers (80% automated), quality inspectors (90% AI-replaced), machine operators (70% automated), packaging staff (85% robotic).</p>
+                                        <p><strong>Timeline:</strong> 18-30 months. Tata Motors, Bajaj Auto implementing Industry 4.0, cutting manual workforce by 45%.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Accounting & Finance -->
+                            <div class="collapsible" id="accountingCollapsible" style="margin: 1rem 0; max-width: 100%;">
+                                <div class="collapsible-header" onclick="toggleCollapsible('accountingCollapsible')" style="font-size: 1rem; padding: 1rem;">
+                                    <span><i class="fas fa-calculator mr-2"></i>Accounting & Finance <span class="text-orange-400 font-bold ml-2">MEDIUM-HIGH RISK</span></span>
+                                    <i class="fas fa-chevron-down collapsible-toggle"></i>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div class="text-left space-y-3">
+                                        <p><strong>Job Loss Threat Level: 🟠 MEDIUM-HIGH (50-65% roles at risk)</strong></p>
+                                        <p>Automated reporting tools eliminate 80% of manual data processing work. Business analysts must pivot to strategy and interpretation or face obsolescence.</p>
+                                        <p><strong>Specific Threats:</strong> Bookkeepers (90% automated), tax preparers (85% AI-assisted), financial analysts (60% automated), payroll processors (95% eliminated).</p>
+                                        <p><strong>Timeline:</strong> 24-36 months. EY, Deloitte already using AI for 70% of audit processes, reducing junior staff needs by 40%.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Transportation & Logistics -->
+                            <div class="collapsible" id="transportCollapsible" style="margin: 1rem 0; max-width: 100%;">
+                                <div class="collapsible-header" onclick="toggleCollapsible('transportCollapsible')" style="font-size: 1rem; padding: 1rem;">
+                                    <span><i class="fas fa-truck mr-2"></i>Transportation & Logistics <span class="text-yellow-400 font-bold ml-2">MEDIUM RISK</span></span>
+                                    <i class="fas fa-chevron-down collapsible-toggle"></i>
+                                </div>
+                                <div class="collapsible-content">
+                                    <div class="text-left space-y-3">
+                                        <p><strong>Job Loss Threat Level: 🟡 MEDIUM (35-50% roles at risk)</strong></p>
+                                        <p>Autonomous vehicles and AI route optimization threatening traditional driving and logistics coordination roles. Warehouse automation eliminating manual sorting jobs.</p>
+                                        <p><strong>Specific Threats:</strong> Long-haul truckers (60% risk in 5-7 years), warehouse workers (75% automated), logistics coordinators (55% AI-replaced), delivery personnel (40% drone/robot replacement).</p>
+                                        <p><strong>Timeline:</strong> 36-60 months. Companies like Flipkart, Amazon investing in automated delivery systems and smart warehouses.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 2rem; padding: 1rem; background: rgba(255, 255, 255, 0.05); border-radius: 0.5rem;">
+                                <p class="text-center font-semibold text-yellow-400">
+                                    <i class="fas fa-clock mr-2"></i>
+                                    Time to Act: The transition window is closing rapidly. Companies are making AI adoption decisions NOW.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-xl mb-8 max-w-4xl mx-auto opacity-90">
+                    The IT sector is transforming. Only first movers will secure their future.
+                </p>
+                
+                <a href="assessment.html" class="btn-primary" aria-label="Begin Emergency Assessment" title="Begin Emergency Assessment">
+                    <i class="fas fa-bolt mr-2" role="img" aria-label="Begin Emergency Assessment"></i> BEGIN EMERGENCY ASSESSMENT
+                </a>
+            </section>
+            <section id="roadmapSection" class="hidden">
+                <div class="glass rounded-2xl p-8 mb-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center">Your Personalized Roadmap</h3>
+                    <div id="roadmapContent"></div>
+                </div>
+            </section>
+            <section id="fallbackContent" class="hidden text-center">
+                <div class="glass rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-4">Welcome to AI Reckoning</h3>
+                    <p class="text-lg mb-6 opacity-90">Start with an assessment to get tailored guidance.</p>
+                    <a href="assessment.html" class="btn-primary" aria-label="Start Assessment" title="Start Assessment">
+                        <i class="fas fa-bolt mr-2" role="img" aria-label="Start Assessment"></i> Start Assessment
+                    </a>
+                </div>
+            </section>
+        </main>
+        <footer class="mt-16 py-8 px-4 border-t border-gray-700" role="contentinfo">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">AI RECKONING</h4>
+                        <p class="text-sm opacity-75">Emergency response for AI-driven workforce transformation.</p>
+                        <div class="mt-4 space-y-2">
+                            <a href="about.html" class="block text-sm text-blue-400 hover:text-blue-300">About Us</a>
+                            <a href="methodology.html" class="block text-sm text-blue-400 hover:text-blue-300">Our Methodology</a>
+                            <a href="research.html" class="block text-sm text-blue-400 hover:text-blue-300">Research & Data</a>
+                            <a href="privacy.html" class="block text-sm text-blue-400 hover:text-blue-300">Privacy Policy</a>
+                            <a href="terms.html" class="block text-sm text-blue-400 hover:text-blue-300">Terms of Service</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4">Resources</h5>
+                        <ul class="space-y-2 text-sm opacity-75">
+                            <li><a href="https://futureskillsprime.in" target="_blank" class="hover:text-red-300 transition">FutureSkills Prime</a></li>
+                            <li><a href="https://www.skillindia.gov.in" target="_blank" class="hover:text-red-300 transition">Skill India</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4">Industries</h5>
+                        <ul class="space-y-2 text-sm opacity-75">
+                            <li><a href="resources.html#it-bpm" class="hover:text-red-300 transition">IT & BPM</a></li>
+                            <li><a href="resources.html#banking" class="hover:text-red-300 transition">Banking</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4">Support</h5>
+                        <ul class="space-y-2 text-sm opacity-75">
+                            <li><a href="help.html" class="hover:text-red-300 transition">Help Center</a></li>
+                            <li><a href="contact.html" class="hover:text-red-300 transition">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm opacity-75">
+                    <p>&copy; 2025 AI RECKONING. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        // Simple and reliable collapsible functionality
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            const chevron = document.getElementById(id + '_chevron');
+            
+            if (!content) {
+                console.error('Content element not found: ' + id);
+                return;
+            }
+            
+            if (content.style.display === 'none' || content.style.display === '') {
+                content.style.display = 'block';
+                if (chevron) chevron.style.transform = 'rotate(180deg)';
+            } else {
+                content.style.display = 'none';
+                if (chevron) chevron.style.transform = 'rotate(0deg)';
+            }
+        }
+        
+        // Legacy function for older collapsibles
+        function toggleCollapsible(id) {
+            const collapsible = document.getElementById(id);
+            if (collapsible) {
+                const content = collapsible.querySelector('.collapsible-content');
+                if (content) {
+                    if (content.style.display === 'none' || content.style.display === '') {
+                        content.style.display = 'block';
+                        content.style.padding = '1.5rem';
+                    } else {
+                        content.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

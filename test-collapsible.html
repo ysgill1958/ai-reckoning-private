@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Collapsible</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #1a1a2e;
+            color: white;
+            padding: 2rem;
+        }
+        
+        .test-collapsible {
+            background: rgba(239, 68, 68, 0.15);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+            max-width: 600px;
+        }
+        
+        .test-header {
+            padding: 1rem;
+            cursor: pointer;
+            background: rgba(239, 68, 68, 0.1);
+            border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+            font-weight: bold;
+        }
+        
+        .test-header:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+        
+        .test-content {
+            display: none;
+            padding: 1rem;
+        }
+        
+        .test-collapsible.open .test-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Collapsible Test</h1>
+    
+    <div class="test-collapsible" id="test1">
+        <div class="test-header">Click Me - Test 1</div>
+        <div class="test-content">
+            <p>This is the content for test 1. If you can see this, the collapsible is working!</p>
+        </div>
+    </div>
+    
+    <div class="test-collapsible" id="test2">
+        <div class="test-header">Click Me - Test 2</div>
+        <div class="test-content">
+            <p>This is the content for test 2. This should also expand when clicked.</p>
+        </div>
+    </div>
+    
+    <script>
+        function toggleTest(id) {
+            console.log('Toggling:', id);
+            const element = document.getElementById(id);
+            if (element.classList.contains('open')) {
+                element.classList.remove('open');
+                console.log('Closed:', id);
+            } else {
+                element.classList.add('open');
+                console.log('Opened:', id);
+            }
+        }
+        
+        window.onload = function() {
+            console.log('Test page loaded');
+            
+            const headers = document.querySelectorAll('.test-header');
+            headers.forEach(function(header) {
+                header.addEventListener('click', function() {
+                    const collapsibleId = this.parentElement.id;
+                    console.log('Header clicked:', collapsibleId);
+                    toggleTest(collapsibleId);
+                });
+            });
+            
+            console.log('Setup complete. Headers found:', headers.length);
+        };
+    </script>
+</body>
+</html>

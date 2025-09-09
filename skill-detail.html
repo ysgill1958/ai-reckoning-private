@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed skill information for AI career transformation">
+    <title>Skill Details | AI RECKONING</title>
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* NUCLEAR OPTION - FORCE CENTER ALIGNMENT EVERYWHERE */
+        * {
+            text-align: center !important;
+            box-sizing: border-box !important;
+        }
+        
+        html, body {
+            text-align: center !important;
+            width: 100% !important;
+        }
+        
+        /* Override ALL Tailwind utility classes */
+        .text-left, .text-right, .text-justify, .text-start, .text-end,
+        .sm\\:text-left, .md\\:text-left, .lg\\:text-left, .xl\\:text-left,
+        .justify-start, .justify-end, .justify-between, .justify-around, .justify-evenly,
+        .items-start, .items-end, .self-start, .self-end {
+            text-align: center !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        
+        /* Force ALL flex containers to center */
+        .flex, .flex-col, .flex-row, .inline-flex {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            color: white;
+            text-align: center !important;
+        }
+        
+        main { flex: 1; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+        .btn-primary { 
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+            padding: 1rem 2rem; 
+            border-radius: 0.75rem; 
+            color: white; 
+            font-weight: 600; 
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+        }
+        
+        .skill-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .learning-path {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #67e8f9;
+        }
+        
+        .tool-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .step-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .step-item {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            border-left: 3px solid #ef4444;
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(249, 115, 22, 0.1));
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .resource-link {
+            background: rgba(103, 232, 249, 0.1);
+            border: 1px solid rgba(103, 232, 249, 0.3);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            color: #67e8f9;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .resource-link:hover {
+            background: rgba(103, 232, 249, 0.2);
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body style="text-align: center; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white;">
+    <!-- Header -->
+    <header class="glass border-b border-gray-800" style="text-align: center; padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.2);">
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; text-align: center;">
+            <div style="background: #ef4444; padding: 0.5rem; border-radius: 0.5rem; margin-right: 1rem;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 1.5rem; color: white;"></i>
+            </div>
+            <div style="text-align: center;">
+                <h1 style="font-size: 2rem; font-weight: bold; color: white; text-align: center; margin: 0;">AI RECKONING</h1>
+                <p style="font-size: 0.9rem; color: white; text-align: center; margin: 0;">Emergency Career Transformation System</p>
+            </div>
+        </div>
+        
+        <nav style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; text-align: center;">
+            <a href="index.html" style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 0.5rem; color: white; text-decoration: none;">🏠 Home</a>
+            <a href="roadmaps.html" style="padding: 0.5rem 1rem; background: rgba(239,68,68,0.2); border-radius: 0.5rem; color: white; text-decoration: none;">🛡️ Roadmaps</a>
+            <a href="resources.html" style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 0.5rem; color: white; text-decoration: none;">📚 Resources</a>
+            <a href="assessment.html" style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 0.5rem; color: white; text-decoration: none;">🔍 Assessment</a>
+            <a href="about.html" style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 0.5rem; color: white; text-decoration: none;">ℹ️ About</a>
+        </nav>
+    </header>
+
+    <main style="text-align: center; padding: 2rem; max-width: 1200px; margin: 0 auto;">
+        <!-- Dynamic Content Container -->
+        <div id="skill-content" style="text-align: center;">
+            <!-- Content will be loaded dynamically -->
+        </div>
+        
+        <!-- Back Navigation -->
+        <div style="text-align: center; margin-top: 3rem; gap: 1rem; display: flex; justify-content: center; flex-wrap: wrap;">
+            <a id="back-to-phase" href="#" class="btn-primary" style="text-align: center;">
+                ← Back to Phase
+            </a>
+            <a href="roadmaps.html" class="btn-primary" style="background: rgba(255,255,255,0.1); text-align: center;">
+                ← Back to Roadmaps
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem;">
+        <div style="text-align: center;">
+            <p style="color: #ef4444; font-weight: 600; margin-bottom: 0.5rem; text-align: center;">⚠️ EMERGENCY SKILL DEVELOPMENT IN PROGRESS</p>
+            <p style="font-size: 0.9rem; opacity: 0.8; text-align: center;">Master this skill to secure your AI future.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Comprehensive skill data
+        const skillData = {
+            'ai-coding-tools-mastery': {
+                title: 'AI Coding Tools Mastery',
+                description: 'GitHub Copilot, ChatGPT for code, Claude for complex logic',
+                category: 'AI Development',
+                difficulty: 'Beginner to Intermediate',
+                timeToMaster: '4-6 weeks',
+                overview: 'Master the essential AI coding tools that are revolutionizing software development. Learn to use GitHub Copilot, ChatGPT, and Claude to increase your coding productivity by 40-60% while maintaining code quality.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1',
+                        title: 'GitHub Copilot Setup & Basics',
+                        objectives: [
+                            'Install and configure GitHub Copilot in VS Code',
+                            'Understand Copilot suggestions and acceptance',
+                            'Learn basic code completion techniques',
+                            'Practice with simple functions and classes'
+                        ],
+                        practicalTasks: [
+                            'Set up Copilot in your development environment',
+                            'Write 10 simple functions using Copilot assistance',
+                            'Practice accepting/rejecting suggestions effectively',
+                            'Create a basic REST API with Copilot help'
+                        ]
+                    },
+                    {
+                        week: 'Week 2',
+                        title: 'ChatGPT for Development',
+                        objectives: [
+                            'Master ChatGPT prompting for code generation',
+                            'Learn to explain and debug code with ChatGPT',
+                            'Practice code optimization techniques',
+                            'Understand context management for coding'
+                        ],
+                        practicalTasks: [
+                            'Generate 5 different algorithms using ChatGPT',
+                            'Debug existing code with AI assistance',
+                            'Optimize performance of legacy code',
+                            'Create comprehensive code documentation'
+                        ]
+                    },
+                    {
+                        week: 'Week 3',
+                        title: 'Claude for Complex Logic',
+                        objectives: [
+                            'Use Claude for complex problem solving',
+                            'Learn architectural decision making with AI',
+                            'Practice system design with AI assistance',
+                            'Master code review and improvement'
+                        ],
+                        practicalTasks: [
+                            'Design a microservices architecture with Claude',
+                            'Solve complex algorithmic problems',
+                            'Review and improve existing codebases',
+                            'Create system documentation and diagrams'
+                        ]
+                    },
+                    {
+                        week: 'Week 4',
+                        title: 'Integration & Workflow',
+                        objectives: [
+                            'Combine all AI tools in daily workflow',
+                            'Develop personal AI coding methodology',
+                            'Create reusable prompts and templates',
+                            'Build quality assurance processes'
+                        ],
+                        practicalTasks: [
+                            'Build a complete application using all AI tools',
+                            'Create your personal AI coding workflow',
+                            'Develop a prompt library for common tasks',
+                            'Establish code quality metrics and review process'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'GitHub Copilot',
+                        description: 'AI pair programmer that suggests code as you type',
+                        cost: '$10/month',
+                        features: [
+                            'Real-time code suggestions',
+                            'Support for 100+ languages',
+                            'IDE integration',
+                            'Context-aware completions'
+                        ],
+                        gettingStarted: 'Install VS Code extension, sign up for GitHub Copilot, enable in your IDE'
+                    },
+                    {
+                        name: 'ChatGPT Plus',
+                        description: 'Advanced conversational AI for code generation and debugging',
+                        cost: '$20/month',
+                        features: [
+                            'Code generation from natural language',
+                            'Bug fixing and optimization',
+                            'Code explanation and documentation',
+                            'Architecture planning'
+                        ],
+                        gettingStarted: 'Sign up at openai.com, upgrade to Plus, learn effective prompting techniques'
+                    },
+                    {
+                        name: 'Claude (Anthropic)',
+                        description: 'AI assistant excellent for complex reasoning and large codebases',
+                        cost: '$20/month (Pro)',
+                        features: [
+                            'Long context understanding',
+                            'Complex problem solving',
+                            'Code architecture planning',
+                            'Detailed code analysis'
+                        ],
+                        gettingStarted: 'Create account at claude.ai, start with free tier, upgrade for more usage'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'AI-Assisted Todo Application',
+                        description: 'Build a full-stack todo app using only AI assistance',
+                        timeEstimate: '1 week',
+                        skills: ['Frontend development', 'Backend API', 'Database design', 'Testing'],
+                        deliverables: [
+                            'Working todo application',
+                            'AI prompts used for each component',
+                            'Code quality review document',
+                            'Performance metrics comparison'
+                        ]
+                    },
+                    {
+                        title: 'Legacy Code Modernization',
+                        description: 'Use AI to refactor and modernize an existing codebase',
+                        timeEstimate: '2 weeks',
+                        skills: ['Code analysis', 'Refactoring', 'Testing', 'Documentation'],
+                        deliverables: [
+                            'Refactored codebase',
+                            'Before/after performance metrics',
+                            'AI-generated documentation',
+                            'Test coverage improvements'
+                        ]
+                    },
+                    {
+                        title: 'AI Code Review System',
+                        description: 'Build a system that uses AI to automatically review code',
+                        timeEstimate: '3 weeks',
+                        skills: ['AI integration', 'Code analysis', 'Automation', 'CI/CD'],
+                        deliverables: [
+                            'Automated code review system',
+                            'Integration with version control',
+                            'Quality metrics dashboard',
+                            'Team adoption guidelines'
+                        ]
+                    }
+                ],
+                
+                resources: [
+                    { name: 'GitHub Copilot Documentation', type: 'Documentation', url: 'https://docs.github.com/copilot' },
+                    { name: 'OpenAI API Documentation', type: 'Documentation', url: 'https://platform.openai.com/docs' },
+                    { name: 'Claude API Documentation', type: 'Documentation', url: 'https://docs.anthropic.com' },
+                    { name: 'AI for Developers Course', type: 'Course', url: '#' },
+                    { name: 'Prompt Engineering Guide', type: 'Guide', url: '#' },
+                    { name: 'AI Coding Best Practices', type: 'Best Practices', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '15-30%',
+                    jobSecurity: 'High - becomes AI-augmented rather than replaced',
+                    futureProofing: 'Essential skill for next 5-10 years',
+                    opportunityAreas: [
+                        'AI-augmented development roles',
+                        'Technical leadership positions',
+                        'AI integration consulting',
+                        'Developer productivity optimization'
+                    ]
+                },
+                
+                assessmentCriteria: [
+                    'Can effectively use AI tools to generate quality code',
+                    'Understands when to accept/reject AI suggestions',
+                    'Can debug and optimize AI-generated code',
+                    'Has established personal AI coding workflow',
+                    'Can train others in AI coding best practices'
+                ]
+            },
+            
+            'prompt-engineering-for-code': {
+                title: 'Prompt Engineering for Code',
+                description: 'Write precise prompts for code generation and debugging',
+                category: 'AI Development',
+                difficulty: 'Intermediate',
+                timeToMaster: '3-4 weeks',
+                overview: 'Master the art and science of crafting prompts that generate high-quality, maintainable code. Learn context management, iterative prompting, and advanced techniques for getting exactly what you need from AI coding assistants.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1',
+                        title: 'Prompt Fundamentals',
+                        objectives: [
+                            'Understand prompt structure and components',
+                            'Learn basic prompt patterns for coding',
+                            'Practice clear requirement specification',
+                            'Master context setting techniques'
+                        ],
+                        practicalTasks: [
+                            'Write prompts for 20 different coding tasks',
+                            'Compare outputs from different prompt styles',
+                            'Create a prompt template library',
+                            'Practice requirement clarification techniques'
+                        ]
+                    },
+                    {
+                        week: 'Week 2',
+                        title: 'Advanced Prompting Techniques',
+                        objectives: [
+                            'Learn iterative prompt refinement',
+                            'Master chain-of-thought prompting',
+                            'Practice few-shot learning techniques',
+                            'Understand constraint specification'
+                        ],
+                        practicalTasks: [
+                            'Build complex applications through iterative prompting',
+                            'Create few-shot examples for common patterns',
+                            'Practice constraint-driven development',
+                            'Develop prompts for different coding styles'
+                        ]
+                    },
+                    {
+                        week: 'Week 3',
+                        title: 'Debugging & Optimization',
+                        objectives: [
+                            'Master prompts for code debugging',
+                            'Learn performance optimization prompting',
+                            'Practice error analysis techniques',
+                            'Understand code review prompting'
+                        ],
+                        practicalTasks: [
+                            'Debug 10 different types of code issues',
+                            'Optimize performance through AI assistance',
+                            'Create systematic debugging prompts',
+                            'Build code review automation'
+                        ]
+                    },
+                    {
+                        week: 'Week 4',
+                        title: 'Specialization & Mastery',
+                        objectives: [
+                            'Develop domain-specific prompting skills',
+                            'Master architecture-level prompting',
+                            'Create reusable prompt frameworks',
+                            'Build team prompting standards'
+                        ],
+                        practicalTasks: [
+                            'Create specialized prompts for your domain',
+                            'Design system architecture through prompting',
+                            'Build team prompt libraries',
+                            'Train others in effective prompting'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'Prompt Engineering Tools',
+                        description: 'Specialized tools for crafting and testing prompts',
+                        cost: 'Free to $50/month',
+                        features: [
+                            'Prompt templates and libraries',
+                            'A/B testing for prompts',
+                            'Version control for prompts',
+                            'Performance analytics'
+                        ],
+                        gettingStarted: 'Start with free tools, build prompt libraries, track effectiveness'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'Personal Prompt Library',
+                        description: 'Build a comprehensive library of coding prompts',
+                        timeEstimate: '2 weeks',
+                        skills: ['Prompt design', 'Organization', 'Testing', 'Documentation'],
+                        deliverables: [
+                            'Categorized prompt library',
+                            'Effectiveness metrics',
+                            'Usage documentation',
+                            'Team sharing system'
+                        ]
+                    }
+                ],
+                
+                resources: [
+                    { name: 'Prompt Engineering Guide', type: 'Guide', url: '#' },
+                    { name: 'OpenAI Prompt Examples', type: 'Examples', url: '#' },
+                    { name: 'Claude Prompting Guide', type: 'Guide', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '20-40%',
+                    jobSecurity: 'Very High - critical skill for AI age',
+                    futureProofing: 'Essential for all AI interaction',
+                    opportunityAreas: [
+                        'AI prompt specialist roles',
+                        'AI training and consulting',
+                        'Developer productivity roles',
+                        'AI tool optimization'
+                    ]
+                }
+            },
+            
+            'conversational-ai-design': {
+                title: 'Conversational AI Design',
+                description: 'Design effective AI conversation flows and experiences',
+                category: 'Customer Experience',
+                difficulty: 'Intermediate',
+                timeToMaster: '4-6 weeks',
+                overview: 'Learn to design natural, helpful AI conversations that improve customer satisfaction and reduce support costs. Master conversation flow design, personality development, and user experience optimization.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1-2',
+                        title: 'Conversation Design Fundamentals',
+                        objectives: [
+                            'Understand conversation design principles',
+                            'Learn user intent recognition',
+                            'Practice dialogue flow mapping',
+                            'Master persona development'
+                        ],
+                        practicalTasks: [
+                            'Map 5 different customer service conversations',
+                            'Create conversation flow diagrams',
+                            'Develop chatbot personas',
+                            'Design intent recognition systems'
+                        ]
+                    },
+                    {
+                        week: 'Week 3-4',
+                        title: 'Advanced Conversation Flows',
+                        objectives: [
+                            'Build complex multi-turn conversations',
+                            'Learn context management',
+                            'Practice error handling and recovery',
+                            'Master conversation optimization'
+                        ],
+                        practicalTasks: [
+                            'Build a complex customer service bot',
+                            'Implement context-aware responses',
+                            'Create error handling workflows',
+                            'Optimize conversation efficiency'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'Dialogflow',
+                        description: 'Google\'s conversation AI platform',
+                        cost: 'Free tier + usage-based',
+                        features: [
+                            'Intent recognition',
+                            'Entity extraction',
+                            'Multi-platform deployment',
+                            'Analytics and optimization'
+                        ],
+                        gettingStarted: 'Create Google Cloud account, start with Dialogflow ES, build first agent'
+                    },
+                    {
+                        name: 'Microsoft Bot Framework',
+                        description: 'Comprehensive bot building platform',
+                        cost: 'Free + Azure usage',
+                        features: [
+                            'Multi-channel support',
+                            'Advanced AI integration',
+                            'Rich conversation tools',
+                            'Enterprise security'
+                        ],
+                        gettingStarted: 'Set up Azure account, install Bot Framework SDK, create first bot'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'Customer Support Chatbot',
+                        description: 'Design and build a comprehensive customer support chatbot',
+                        timeEstimate: '3 weeks',
+                        skills: ['Conversation design', 'Intent modeling', 'User testing', 'Analytics'],
+                        deliverables: [
+                            'Working customer support bot',
+                            'Conversation flow documentation',
+                            'User testing results',
+                            'Performance metrics dashboard'
+                        ]
+                    }
+                ],
+                
+                resources: [
+                    { name: 'Conversational Design Guide', type: 'Guide', url: '#' },
+                    { name: 'Google Conversation Design', type: 'Course', url: '#' },
+                    { name: 'Chatbot UX Best Practices', type: 'Best Practices', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '25-45%',
+                    jobSecurity: 'High - specialized, growing field',
+                    futureProofing: 'Very strong - conversational AI expanding rapidly',
+                    opportunityAreas: [
+                        'Conversation designer roles',
+                        'UX/UI for AI products',
+                        'Customer experience leadership',
+                        'AI product management'
+                    ]
+                }
+            },
+            
+            'ai-customer-service-platforms': {
+                title: 'AI Customer Service Platforms',
+                description: 'Master Zendesk, Intercom, and other AI-powered support tools',
+                category: 'Customer Experience',
+                difficulty: 'Beginner to Intermediate',
+                timeToMaster: '3-4 weeks',
+                overview: 'Learn to configure and optimize AI chatbots, automated ticket routing, and intelligent support systems for maximum efficiency and customer satisfaction.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1',
+                        title: 'Platform Setup & Basics',
+                        objectives: [
+                            'Set up Zendesk AI features',
+                            'Configure Intercom chatbots',
+                            'Learn platform navigation',
+                            'Understand AI automation basics'
+                        ],
+                        practicalTasks: [
+                            'Create Zendesk account and configure AI features',
+                            'Set up basic Intercom chatbot',
+                            'Configure automated ticket routing',
+                            'Create knowledge base integration'
+                        ]
+                    },
+                    {
+                        week: 'Week 2',
+                        title: 'Advanced AI Features',
+                        objectives: [
+                            'Master sentiment analysis tools',
+                            'Configure intelligent routing',
+                            'Set up predictive responses',
+                            'Learn customer context tracking'
+                        ],
+                        practicalTasks: [
+                            'Implement sentiment-based escalation',
+                            'Create intelligent agent assignment',
+                            'Build predictive response system',
+                            'Set up customer journey tracking'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'Zendesk AI',
+                        description: 'AI-powered customer service platform',
+                        cost: '$49-$99/agent/month',
+                        features: [
+                            'AI-powered Answer Bot',
+                            'Intelligent ticket routing',
+                            'Sentiment analysis',
+                            'Predictive customer insights'
+                        ],
+                        gettingStarted: 'Sign up for trial, enable AI features, configure Answer Bot'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'Complete Customer Support System',
+                        description: 'Build end-to-end AI customer support automation',
+                        timeEstimate: '2 weeks',
+                        skills: ['Platform configuration', 'AI training', 'Integration', 'Analytics'],
+                        deliverables: [
+                            'Fully configured support system',
+                            'AI chatbot with 80%+ resolution rate',
+                            'Integration with existing tools',
+                            'Performance metrics dashboard'
+                        ]
+                    }
+                ],
+                
+                resources: [
+                    { name: 'Zendesk AI Certification', type: 'Certification', url: '#' },
+                    { name: 'Customer Service AI Best Practices', type: 'Guide', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '20-35%',
+                    jobSecurity: 'High - AI customer service expertise in demand',
+                    futureProofing: 'Strong - customer service automation growing rapidly',
+                    opportunityAreas: [
+                        'Customer Success Manager roles',
+                        'Support Operations Manager',
+                        'Customer Experience Specialist',
+                        'AI Support Consultant'
+                    ]
+                }
+            },
+            
+            'ai-writing---research': {
+                title: 'AI Writing & Research',
+                description: 'Master ChatGPT, Claude, and specialized writing AI tools',
+                category: 'Content Marketing',
+                difficulty: 'Beginner to Intermediate',
+                timeToMaster: '4-5 weeks',
+                overview: 'Learn to use AI for research, writing, editing, and fact-checking while maintaining quality and authenticity.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1',
+                        title: 'AI Writing Fundamentals',
+                        objectives: [
+                            'Master ChatGPT for content creation',
+                            'Learn effective writing prompts',
+                            'Understand AI writing limitations',
+                            'Practice different content types'
+                        ],
+                        practicalTasks: [
+                            'Write 10 blog posts using AI assistance',
+                            'Create social media content templates',
+                            'Practice email writing with AI',
+                            'Develop personal writing workflow'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'ChatGPT Plus',
+                        description: 'Advanced conversational AI for writing',
+                        cost: '$20/month',
+                        features: [
+                            'GPT-4 access',
+                            'Web browsing capability',
+                            'Plugin ecosystem',
+                            'Custom instructions'
+                        ],
+                        gettingStarted: 'Sign up at openai.com, upgrade to Plus, learn writing prompts'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'Content Marketing Campaign',
+                        description: 'Create a full campaign using only AI assistance',
+                        timeEstimate: '2 weeks',
+                        skills: ['Content strategy', 'Writing', 'Research', 'SEO'],
+                        deliverables: [
+                            'Campaign strategy document',
+                            '10 blog posts with AI assistance',
+                            'Social media content library',
+                            'Performance optimization report'
+                        ]
+                    }
+                ],
+                
+                resources: [
+                    { name: 'AI Content Creator Certification', type: 'Certification', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '25-40%',
+                    jobSecurity: 'High - AI-augmented writers in high demand',
+                    futureProofing: 'Essential - AI writing skills are the future',
+                    opportunityAreas: [
+                        'Content Marketing Manager',
+                        'AI Content Specialist',
+                        'Digital Marketing Manager',
+                        'Content Strategy Director'
+                    ]
+                }
+            },
+            
+            'ai-code-review---quality': {
+                title: 'AI Code Review & Quality',
+                description: 'Learn to validate, improve, and secure AI-generated code',
+                category: 'AI Development',
+                difficulty: 'Intermediate',
+                timeToMaster: '3-4 weeks',
+                overview: 'Build critical skills in evaluating AI-generated code for security, performance, and maintainability. Develop systematic review processes.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1',
+                        title: 'Code Quality Fundamentals',
+                        objectives: [
+                            'Learn code quality metrics and standards',
+                            'Understand security vulnerabilities in AI code',
+                            'Practice systematic code review techniques',
+                            'Master static analysis tools'
+                        ],
+                        practicalTasks: [
+                            'Review 20 AI-generated code samples',
+                            'Identify common AI code issues',
+                            'Set up automated quality checking',
+                            'Create quality assessment rubric'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'SonarQube',
+                        description: 'Code quality and security analysis',
+                        cost: 'Free community edition',
+                        features: ['Security vulnerability detection', 'Code smell identification', 'Technical debt measurement'],
+                        gettingStarted: 'Install SonarQube, integrate with your IDE, run first analysis'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'AI Code Quality Framework',
+                        description: 'Build comprehensive quality assurance system for AI-generated code',
+                        timeEstimate: '2 weeks',
+                        skills: ['Quality assurance', 'Security testing', 'Code review'],
+                        deliverables: ['Quality framework', 'Automated testing pipeline', 'Review checklist']
+                    }
+                ],
+                
+                resources: [
+                    { name: 'Secure Coding Practices', type: 'Guide', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '15-25%',
+                    jobSecurity: 'High - quality assurance always needed',
+                    futureProofing: 'Essential - AI code needs human oversight',
+                    opportunityAreas: ['Quality Assurance Lead', 'Security Engineer', 'Technical Lead']
+                }
+            },
+            
+            'system-architecture-focus': {
+                title: 'System Architecture Focus',
+                description: 'Move from coding to designing AI-integrated systems',
+                category: 'AI Development',
+                difficulty: 'Advanced',
+                timeToMaster: '6-8 weeks',
+                overview: 'Transition to higher-level thinking about system design and architecture. Focus on creating scalable, AI-ready system blueprints.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1-2',
+                        title: 'Architecture Fundamentals',
+                        objectives: [
+                            'Learn system design principles',
+                            'Understand scalability patterns',
+                            'Master architectural documentation',
+                            'Practice system thinking'
+                        ],
+                        practicalTasks: [
+                            'Design 5 system architectures',
+                            'Create architecture diagrams',
+                            'Practice trade-off analysis',
+                            'Build documentation templates'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'Draw.io / Lucidchart',
+                        description: 'System architecture diagramming',
+                        cost: 'Free / $7.95/month',
+                        features: ['Architecture templates', 'Collaboration tools', 'Integration with docs'],
+                        gettingStarted: 'Create account, explore templates, start with simple diagrams'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'AI-Ready Architecture Portfolio',
+                        description: 'Design comprehensive system architectures for AI integration',
+                        timeEstimate: '4 weeks',
+                        skills: ['System design', 'Documentation', 'AI integration'],
+                        deliverables: ['Architecture portfolio', 'Design patterns library', 'Documentation standards']
+                    }
+                ],
+                
+                resources: [
+                    { name: 'System Design Fundamentals', type: 'Course', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '30-50%',
+                    jobSecurity: 'Very High - architects always in demand',
+                    futureProofing: 'Excellent - high-level design thinking',
+                    opportunityAreas: ['Solutions Architect', 'Technical Architect', 'Engineering Manager']
+                }
+            },
+            
+            'machine-learning-implementation': {
+                title: 'Machine Learning Implementation',
+                description: 'Deploy ML models in production applications',
+                category: 'AI Development',
+                difficulty: 'Advanced',
+                timeToMaster: '8-10 weeks',
+                overview: 'Learn to take ML models from development to production, including deployment, monitoring, and maintenance. Master MLOps practices.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1-3',
+                        title: 'ML Production Fundamentals',
+                        objectives: [
+                            'Learn MLOps principles',
+                            'Master model deployment techniques',
+                            'Understand production monitoring',
+                            'Practice CI/CD for ML'
+                        ],
+                        practicalTasks: [
+                            'Deploy 3 ML models to production',
+                            'Set up monitoring systems',
+                            'Create deployment pipelines',
+                            'Build model versioning system'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'MLflow',
+                        description: 'ML lifecycle management platform',
+                        cost: 'Free open source',
+                        features: ['Experiment tracking', 'Model registry', 'Deployment tools'],
+                        gettingStarted: 'Install MLflow, start tracking experiments, deploy first model'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'Complete MLOps Pipeline',
+                        description: 'Build end-to-end ML production system',
+                        timeEstimate: '6 weeks',
+                        skills: ['MLOps', 'Deployment', 'Monitoring', 'DevOps'],
+                        deliverables: ['Production ML system', 'Monitoring dashboard', 'Deployment documentation']
+                    }
+                ],
+                
+                resources: [
+                    { name: 'MLOps Fundamentals', type: 'Course', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '40-60%',
+                    jobSecurity: 'Very High - MLOps in huge demand',
+                    futureProofing: 'Excellent - critical for AI future',
+                    opportunityAreas: ['MLOps Engineer', 'ML Engineer', 'Data Science Manager']
+                }
+            },
+            
+            'customer-analytics---insights': {
+                title: 'Customer Analytics & Insights',
+                description: 'Use AI to analyze customer behavior and predict needs',
+                category: 'Customer Experience',
+                difficulty: 'Intermediate',
+                timeToMaster: '5-6 weeks',
+                overview: 'Master predictive analytics, customer segmentation, and AI-driven insights to improve customer experience and business outcomes.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1-2',
+                        title: 'Analytics Fundamentals',
+                        objectives: [
+                            'Learn customer data analysis',
+                            'Master segmentation techniques',
+                            'Understand predictive modeling',
+                            'Practice insight generation'
+                        ],
+                        practicalTasks: [
+                            'Analyze customer datasets',
+                            'Build segmentation models',
+                            'Create predictive analytics',
+                            'Generate actionable insights'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'Google Analytics 4',
+                        description: 'Advanced web analytics with AI insights',
+                        cost: 'Free / Premium tiers',
+                        features: ['Predictive metrics', 'Smart insights', 'Customer journey analysis'],
+                        gettingStarted: 'Set up GA4, enable enhanced measurement, explore AI insights'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'Customer Intelligence Dashboard',
+                        description: 'Build comprehensive customer analytics system',
+                        timeEstimate: '3 weeks',
+                        skills: ['Data analysis', 'Visualization', 'Predictive modeling'],
+                        deliverables: ['Analytics dashboard', 'Predictive models', 'Insight reports']
+                    }
+                ],
+                
+                resources: [
+                    { name: 'Google Analytics Certification', type: 'Certification', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '25-40%',
+                    jobSecurity: 'High - data-driven insights always valuable',
+                    futureProofing: 'Strong - analytics skills transferable',
+                    opportunityAreas: ['Customer Analyst', 'CX Manager', 'Data Analyst', 'Business Intelligence']
+                }
+            },
+            
+            'omnichannel-ai-orchestration': {
+                title: 'Omnichannel AI Orchestration',
+                description: 'Coordinate AI across all customer touchpoints',
+                category: 'Customer Experience',
+                difficulty: 'Advanced',
+                timeToMaster: '6-8 weeks',
+                overview: 'Learn to create seamless customer experiences across web, mobile, voice, and social channels using AI orchestration.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1-3',
+                        title: 'Omnichannel Strategy',
+                        objectives: [
+                            'Understand omnichannel principles',
+                            'Learn channel integration techniques',
+                            'Master customer journey mapping',
+                            'Practice experience orchestration'
+                        ],
+                        practicalTasks: [
+                            'Map omnichannel customer journeys',
+                            'Design integration architecture',
+                            'Build channel coordination systems',
+                            'Create experience optimization framework'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'Salesforce Service Cloud',
+                        description: 'Omnichannel customer service platform',
+                        cost: '$75-$300/user/month',
+                        features: ['Channel integration', 'AI routing', 'Unified customer view'],
+                        gettingStarted: 'Set up trial, configure channels, enable AI features'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'Complete Omnichannel System',
+                        description: 'Build integrated customer experience across all channels',
+                        timeEstimate: '5 weeks',
+                        skills: ['Integration', 'Orchestration', 'Customer experience'],
+                        deliverables: ['Omnichannel platform', 'Integration documentation', 'Experience metrics']
+                    }
+                ],
+                
+                resources: [
+                    { name: 'Omnichannel CX Certification', type: 'Certification', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '35-55%',
+                    jobSecurity: 'Very High - omnichannel expertise rare',
+                    futureProofing: 'Excellent - future of customer experience',
+                    opportunityAreas: ['CX Director', 'Omnichannel Manager', 'Digital Transformation Lead']
+                }
+            },
+            
+            'visual-content-ai': {
+                title: 'Visual Content AI',
+                description: 'Create stunning visuals using Midjourney, DALL-E, and AI design tools',
+                category: 'Content Marketing',
+                difficulty: 'Beginner to Intermediate',
+                timeToMaster: '4-5 weeks',
+                overview: 'Develop expertise in AI-generated images, graphics, and video content for marketing and communication.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1',
+                        title: 'AI Image Generation',
+                        objectives: [
+                            'Master Midjourney for high-quality images',
+                            'Learn DALL-E for specific use cases',
+                            'Understand prompt engineering for visuals',
+                            'Practice style consistency'
+                        ],
+                        practicalTasks: [
+                            'Generate 50 marketing images with Midjourney',
+                            'Create brand-consistent visual library',
+                            'Practice advanced prompting techniques',
+                            'Build visual style guide'
+                        ]
+                    },
+                    {
+                        week: 'Week 2',
+                        title: 'AI Video and Animation',
+                        objectives: [
+                            'Learn RunwayML for video generation',
+                            'Master AI animation tools',
+                            'Practice video editing with AI',
+                            'Create motion graphics'
+                        ],
+                        practicalTasks: [
+                            'Produce 10 marketing videos',
+                            'Create animated social content',
+                            'Build video template library',
+                            'Practice AI-assisted editing'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'Midjourney',
+                        description: 'Advanced AI image generation',
+                        cost: '$10-$60/month',
+                        features: ['High-quality images', 'Style consistency', 'Commercial license'],
+                        gettingStarted: 'Join Discord server, start with /imagine commands, learn prompting'
+                    },
+                    {
+                        name: 'RunwayML',
+                        description: 'AI video generation and editing',
+                        cost: '$12-$76/month',
+                        features: ['Video generation', 'AI editing tools', 'Motion graphics'],
+                        gettingStarted: 'Create account, try video generation, explore editing tools'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'Complete Visual Brand System',
+                        description: 'Create comprehensive visual content system using AI',
+                        timeEstimate: '3 weeks',
+                        skills: ['Visual design', 'Brand consistency', 'Content creation'],
+                        deliverables: ['Visual brand guide', 'Image library', 'Video templates', 'Style documentation']
+                    }
+                ],
+                
+                resources: [
+                    { name: 'Midjourney Mastery Course', type: 'Course', url: '#' },
+                    { name: 'AI Design Fundamentals', type: 'Course', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '20-35%',
+                    jobSecurity: 'High - visual content always needed',
+                    futureProofing: 'Strong - AI visual skills in demand',
+                    opportunityAreas: ['Visual Content Creator', 'Brand Designer', 'Marketing Designer', 'Creative Director']
+                }
+            },
+            
+            'seo---content-optimization': {
+                title: 'SEO & Content Optimization',
+                description: 'Use AI to optimize content for search engines and audiences',
+                category: 'Content Marketing',
+                difficulty: 'Intermediate',
+                timeToMaster: '5-6 weeks',
+                overview: 'Master AI-driven SEO tools, content optimization, and performance analysis for maximum reach and engagement.',
+                
+                learningPath: [
+                    {
+                        week: 'Week 1-2',
+                        title: 'AI SEO Fundamentals',
+                        objectives: [
+                            'Learn AI-powered keyword research',
+                            'Master content optimization with AI',
+                            'Understand semantic SEO',
+                            'Practice competitor analysis'
+                        ],
+                        practicalTasks: [
+                            'Optimize 20 pieces of content with AI',
+                            'Conduct AI-powered keyword research',
+                            'Analyze competitor strategies',
+                            'Build optimization workflows'
+                        ]
+                    }
+                ],
+                
+                tools: [
+                    {
+                        name: 'Surfer SEO',
+                        description: 'AI-powered content optimization',
+                        cost: '$59-$239/month',
+                        features: ['Content optimization', 'SERP analysis', 'AI writing assistant'],
+                        gettingStarted: 'Start trial, optimize first article, learn content editor'
+                    }
+                ],
+                
+                projects: [
+                    {
+                        title: 'SEO Content Optimization System',
+                        description: 'Build comprehensive SEO workflow using AI tools',
+                        timeEstimate: '4 weeks',
+                        skills: ['SEO', 'Content optimization', 'Analytics'],
+                        deliverables: ['SEO workflow', 'Optimization templates', 'Performance tracking']
+                    }
+                ],
+                
+                resources: [
+                    { name: 'AI SEO Certification', type: 'Certification', url: '#' }
+                ],
+                
+                careerImpact: {
+                    salaryIncrease: '25-40%',
+                    jobSecurity: 'Very High - SEO always essential',
+                    futureProofing: 'Excellent - AI SEO skills valuable',
+                    opportunityAreas: ['SEO Specialist', 'Content Marketing Manager', 'Digital Marketing Director']
+                }
+            }
+        };
+
+        // Get skill and phase from URL parameters
+        function getParamsFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                skill: params.get('skill'),
+                phase: params.get('phase')
+            };
+        }
+
+        // Load skill content
+        function loadSkillContent(skillId, phaseId) {
+            const skill = skillData[skillId];
+            if (!skill) {
+                document.getElementById('skill-content').innerHTML = '<h2>Skill not found</h2>';
+                return;
+            }
+
+            // Set back button link
+            document.getElementById('back-to-phase').href = `phase-detail.html?phase=${phaseId}`;
+
+            const content = `
+                <div class="skill-section" style="text-align: center;">
+                    <div style="background: #ef4444; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; display: inline-block; margin-bottom: 1rem; text-align: center;">
+                        ${skill.category} • ${skill.difficulty}
+                    </div>
+                    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #ef4444; text-align: center;">${skill.title}</h1>
+                    <p style="font-size: 1.2rem; margin-bottom: 1rem; opacity: 0.9; text-align: center;">${skill.description}</p>
+                    <p style="font-size: 1rem; margin-bottom: 2rem; text-align: center;">${skill.overview}</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; text-align: center;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <h4 style="color: #67e8f9; margin-bottom: 0.5rem; text-align: center;">⏰ Time to Master</h4>
+                            <p style="text-align: center;">${skill.timeToMaster}</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <h4 style="color: #67e8f9; margin-bottom: 0.5rem; text-align: center;">💰 Salary Impact</h4>
+                            <p style="text-align: center;">${skill.careerImpact.salaryIncrease}</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <h4 style="color: #67e8f9; margin-bottom: 0.5rem; text-align: center;">🔒 Job Security</h4>
+                            <p style="text-align: center;">${skill.careerImpact.jobSecurity}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-section" style="text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: #ef4444; text-align: center;">🗓️ Learning Path</h3>
+                    ${skill.learningPath.map(week => `
+                        <div class="learning-path" style="text-align: center;">
+                            <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #67e8f9; text-align: center;">${week.week}: ${week.title}</h4>
+                            <div style="margin-bottom: 1rem; text-align: center;">
+                                <h5 style="color: #ef4444; margin-bottom: 0.5rem; text-align: center;">🎯 Objectives:</h5>
+                                <ul style="text-align: center; list-style: none; padding: 0;">
+                                    ${week.objectives.map(obj => `<li style="margin: 0.25rem 0; text-align: center;">• ${obj}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div style="text-align: center;">
+                                <h5 style="color: #67e8f9; margin-bottom: 0.5rem; text-align: center;">💼 Practical Tasks:</h5>
+                                <ul style="text-align: center; list-style: none; padding: 0;">
+                                    ${week.practicalTasks.map(task => `<li style="margin: 0.25rem 0; text-align: center;">✅ ${task}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="skill-section" style="text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: #ef4444; text-align: center;">🛠️ Essential Tools</h3>
+                    ${skill.tools.map(tool => `
+                        <div class="tool-card" style="text-align: center;">
+                            <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #67e8f9; text-align: center;">${tool.name}</h4>
+                            <p style="margin-bottom: 1rem; text-align: center;">${tool.description}</p>
+                            <div style="margin-bottom: 1rem; text-align: center;">
+                                <span style="background: rgba(239,68,68,0.2); padding: 0.25rem 0.5rem; border-radius: 0.25rem; color: #ef4444;">💰 ${tool.cost}</span>
+                            </div>
+                            <div style="margin-bottom: 1rem; text-align: center;">
+                                <h5 style="color: #ef4444; margin-bottom: 0.5rem; text-align: center;">Features:</h5>
+                                <ul style="text-align: center; list-style: none; padding: 0;">
+                                    ${tool.features.map(feature => `<li style="margin: 0.25rem 0; text-align: center;">• ${feature}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <p style="text-align: center;"><strong>Getting Started:</strong> ${tool.gettingStarted}</p>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="skill-section" style="text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: #ef4444; text-align: center;">🚀 Practice Projects</h3>
+                    ${skill.projects.map(project => `
+                        <div class="project-card" style="text-align: center;">
+                            <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #ef4444; text-align: center;">${project.title}</h4>
+                            <p style="margin-bottom: 1rem; text-align: center;">${project.description}</p>
+                            <div style="margin-bottom: 1rem; text-align: center;">
+                                <span style="background: rgba(255,255,255,0.1); padding: 0.25rem 0.5rem; border-radius: 0.25rem;">⏰ ${project.timeEstimate}</span>
+                            </div>
+                            <div style="margin-bottom: 1rem; text-align: center;">
+                                <h5 style="color: #67e8f9; margin-bottom: 0.5rem; text-align: center;">Skills Practiced:</h5>
+                                <p style="text-align: center;">${project.skills.join(', ')}</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <h5 style="color: #ef4444; margin-bottom: 0.5rem; text-align: center;">Deliverables:</h5>
+                                <ul style="text-align: center; list-style: none; padding: 0;">
+                                    ${project.deliverables.map(deliverable => `<li style="margin: 0.25rem 0; text-align: center;">📋 ${deliverable}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="skill-section" style="text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: #ef4444; text-align: center;">📚 Resources & Links</h3>
+                    <div style="text-align: center;">
+                        ${skill.resources.map(resource => `
+                            <a href="${resource.url}" class="resource-link" style="text-align: center;">${resource.name} (${resource.type})</a>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="skill-section" style="text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: #ef4444; text-align: center;">💼 Career Impact</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; text-align: center;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <h4 style="color: #67e8f9; margin-bottom: 0.5rem; text-align: center;">💰 Salary Increase</h4>
+                            <p style="text-align: center;">${skill.careerImpact.salaryIncrease}</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <h4 style="color: #67e8f9; margin-bottom: 0.5rem; text-align: center;">🛡️ Future-Proofing</h4>
+                            <p style="text-align: center;">${skill.careerImpact.futureProofing}</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1rem; text-align: center;">
+                        <h4 style="color: #ef4444; margin-bottom: 0.5rem; text-align: center;">🚀 Opportunity Areas:</h4>
+                        <ul style="text-align: center; list-style: none; padding: 0;">
+                            ${skill.careerImpact.opportunityAreas.map(area => `<li style="margin: 0.25rem 0; text-align: center;">• ${area}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+
+                ${skill.assessmentCriteria ? `
+                    <div class="skill-section" style="text-align: center;">
+                        <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: #ef4444; text-align: center;">✅ Mastery Assessment</h3>
+                        <p style="margin-bottom: 1rem; text-align: center;">You'll know you've mastered this skill when you can:</p>
+                        <ul style="text-align: center; list-style: none; padding: 0;">
+                            ${skill.assessmentCriteria.map(criteria => `<li style="margin: 0.5rem 0; text-align: center;">✅ ${criteria}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
+            `;
+
+            document.getElementById('skill-content').innerHTML = content;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = getParamsFromURL();
+            loadSkillContent(params.skill, params.phase);
+        });
+    </script>
+</body>
+</html>

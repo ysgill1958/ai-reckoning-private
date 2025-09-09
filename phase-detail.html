@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detailed phase information for AI career transformation">
+    <title>Phase Details | AI RECKONING</title>
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* NUCLEAR OPTION - FORCE CENTER ALIGNMENT EVERYWHERE */
+        * {
+            text-align: center !important;
+            box-sizing: border-box !important;
+        }
+        
+        html, body {
+            text-align: center !important;
+            width: 100% !important;
+        }
+        
+        /* Override ALL Tailwind utility classes */
+        .text-left, .text-right, .text-justify, .text-start, .text-end,
+        .sm\\:text-left, .md\\:text-left, .lg\\:text-left, .xl\\:text-left,
+        .justify-start, .justify-end, .justify-between, .justify-around, .justify-evenly,
+        .items-start, .items-end, .self-start, .self-end {
+            text-align: center !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        
+        /* Force ALL flex containers to center */
+        .flex, .flex-col, .flex-row, .inline-flex {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+        
+        /* Force ALL grid containers to center */
+        .grid {
+            display: grid !important;
+            justify-items: center !important;
+            text-align: center !important;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            color: white;
+            text-align: center !important;
+        }
+        
+        main { flex: 1; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+        .btn-primary { 
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+            padding: 1rem 2rem; 
+            border-radius: 0.75rem; 
+            color: white; 
+            font-weight: 600; 
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+        }
+        
+        .detail-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill-detail {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-left: 4px solid #ef4444;
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .resource-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .timeline-detailed {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-detailed::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #ef4444, #f97316, #eab308);
+        }
+        
+        .week-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        
+        .week-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 1rem;
+            width: 10px;
+            height: 10px;
+            background: #ef4444;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+<body style="text-align: center; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: white;">
+    <!-- Header -->
+    <header class="glass border-b border-gray-800" style="text-align: center; padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.2);">
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; text-align: center;">
+            <div style="background: #ef4444; padding: 0.5rem; border-radius: 0.5rem; margin-right: 1rem;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 1.5rem; color: white;"></i>
+            </div>
+            <div style="text-align: center;">
+                <h1 style="font-size: 2rem; font-weight: bold; color: white; text-align: center; margin: 0;">AI RECKONING</h1>
+                <p style="font-size: 0.9rem; color: white; text-align: center; margin: 0;">Emergency Career Transformation System</p>
+            </div>
+        </div>
+        
+        <nav style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; text-align: center;">
+            <a href="index.html" style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 0.5rem; color: white; text-decoration: none;">🏠 Home</a>
+            <a href="roadmaps.html" style="padding: 0.5rem 1rem; background: rgba(239,68,68,0.2); border-radius: 0.5rem; color: white; text-decoration: none;">🛡️ Roadmaps</a>
+            <a href="resources.html" style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 0.5rem; color: white; text-decoration: none;">📚 Resources</a>
+            <a href="assessment.html" style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 0.5rem; color: white; text-decoration: none;">🔍 Assessment</a>
+            <a href="about.html" style="padding: 0.5rem 1rem; background: rgba(255,255,255,0.1); border-radius: 0.5rem; color: white; text-decoration: none;">ℹ️ About</a>
+        </nav>
+    </header>
+
+    <main style="text-align: center; padding: 2rem; max-width: 1200px; margin: 0 auto;">
+        <!-- Dynamic Content Container -->
+        <div id="phase-content" style="text-align: center;">
+            <!-- Content will be loaded dynamically -->
+        </div>
+        
+        <!-- Back to Roadmaps Button -->
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="roadmaps.html" class="btn-primary" style="text-align: center;">
+                ← Back to Roadmaps
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 2rem; background: rgba(0,0,0,0.3); border-top: 1px solid rgba(255,255,255,0.1); margin-top: 3rem;">
+        <div style="text-align: center;">
+            <p style="color: #ef4444; font-weight: 600; margin-bottom: 0.5rem; text-align: center;">⚠️ EMERGENCY CAREER TRANSFORMATION IN PROGRESS</p>
+            <p style="font-size: 0.9rem; opacity: 0.8; text-align: center;">Every day matters. Start your transformation today.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Phase data definitions
+        const phaseData = {
+            'ai-dev-phase1': {
+                title: 'Phase 1: Emergency AI Integration',
+                subtitle: 'AI-Augmented Developer Transformation (Months 1-3)',
+                objective: 'Master AI coding tools to become AI-augmented rather than replaced',
+                riskLevel: 'CRITICAL RISK: IT & Software Development',
+                color: '#ef4444',
+                weeks: [
+                    {
+                        week: 'Week 1-2',
+                        title: 'AI Coding Tools Setup',
+                        tasks: [
+                            'Install and configure GitHub Copilot',
+                            'Set up ChatGPT Plus for coding assistance',
+                            'Learn Claude for complex logic problems',
+                            'Practice basic AI-assisted coding workflows'
+                        ],
+                        deliverables: ['Configured development environment', 'First AI-assisted code commit']
+                    },
+                    {
+                        week: 'Week 3-4',
+                        title: 'Prompt Engineering Mastery',
+                        tasks: [
+                            'Learn effective code prompting techniques',
+                            'Practice debugging with AI assistance',
+                            'Master context-aware code generation',
+                            'Develop personal prompt templates'
+                        ],
+                        deliverables: ['Prompt template library', 'Improved coding productivity metrics']
+                    },
+                    {
+                        week: 'Week 5-8',
+                        title: 'AI Code Review & Quality',
+                        tasks: [
+                            'Learn to validate AI-generated code',
+                            'Implement security checks for AI code',
+                            'Practice refactoring AI suggestions',
+                            'Build code quality assessment skills'
+                        ],
+                        deliverables: ['Code review checklist', 'Security validation process']
+                    },
+                    {
+                        week: 'Week 9-12',
+                        title: 'System Architecture Focus',
+                        tasks: [
+                            'Transition from coding to architecture',
+                            'Design AI-integrated system blueprints',
+                            'Learn microservices for AI components',
+                            'Practice high-level system thinking'
+                        ],
+                        deliverables: ['System architecture portfolio', 'AI integration patterns']
+                    }
+                ],
+                skills: [
+                    {
+                        name: 'AI Coding Tools Mastery',
+                        description: 'GitHub Copilot, ChatGPT for code, Claude for complex logic',
+                        details: 'Learn to effectively use AI coding assistants to increase productivity by 40-60%. Master prompt engineering for code generation, debugging, and optimization.',
+                        resources: ['GitHub Copilot Documentation', 'OpenAI API Guides', 'Claude AI Coding Best Practices']
+                    },
+                    {
+                        name: 'Prompt Engineering for Code',
+                        description: 'Write precise prompts for code generation and debugging',
+                        details: 'Develop expertise in crafting prompts that generate high-quality, maintainable code. Learn context management and iterative prompting techniques.',
+                        resources: ['Prompt Engineering Course', 'Code Prompting Templates', 'AI Debugging Strategies']
+                    },
+                    {
+                        name: 'AI Code Review & Quality',
+                        description: 'Learn to validate, improve, and secure AI-generated code',
+                        details: 'Build critical skills in evaluating AI-generated code for security, performance, and maintainability. Develop systematic review processes.',
+                        resources: ['Secure Coding Practices', 'Code Quality Metrics', 'AI Security Guidelines']
+                    },
+                    {
+                        name: 'System Architecture Focus',
+                        description: 'Move from coding to designing AI-integrated systems',
+                        details: 'Transition to higher-level thinking about system design and architecture. Focus on creating scalable, AI-ready system blueprints.',
+                        resources: ['System Design Fundamentals', 'AI Architecture Patterns', 'Microservices for AI']
+                    }
+                ],
+                resources: [
+                    { name: 'GitHub Copilot Certification', type: 'Certification', link: '#' },
+                    { name: 'OpenAI API Documentation', type: 'Documentation', link: '#' },
+                    { name: 'AI Coding Courses', type: 'Course', link: '#' }
+                ],
+                targetRoles: ['AI-Augmented Developer', 'Senior Developer', 'Tech Lead'],
+                salary: '$80,000 - $120,000',
+                timeline: '3 months intensive',
+                nextPhase: 'ai-dev-phase2'
+            },
+            'ai-dev-phase2': {
+                title: 'Phase 2: AI Specialization',
+                subtitle: 'AI-Augmented Developer Transformation (Months 4-6)',
+                objective: 'Become the AI expert in your organization',
+                riskLevel: 'MODERATE RISK: IT & Software Development',
+                color: '#f97316',
+                weeks: [
+                    {
+                        week: 'Week 13-16',
+                        title: 'Machine Learning Implementation',
+                        tasks: [
+                            'Learn to deploy ML models in production',
+                            'Master TensorFlow/PyTorch integration',
+                            'Implement model monitoring and updates',
+                            'Build ML pipeline automation'
+                        ],
+                        deliverables: ['Production ML model', 'Monitoring dashboard']
+                    },
+                    {
+                        week: 'Week 17-20',
+                        title: 'AI Integration Architecture',
+                        tasks: [
+                            'Design AI service architectures',
+                            'Implement API gateways for AI services',
+                            'Build scalable AI microservices',
+                            'Create AI system documentation'
+                        ],
+                        deliverables: ['AI service architecture', 'Integration documentation']
+                    },
+                    {
+                        week: 'Week 21-22',
+                        title: 'AI Ethics & Security',
+                        tasks: [
+                            'Implement bias detection systems',
+                            'Build AI security frameworks',
+                            'Create ethical AI guidelines',
+                            'Develop compliance processes'
+                        ],
+                        deliverables: ['AI ethics framework', 'Security protocols']
+                    },
+                    {
+                        week: 'Week 23-24',
+                        title: 'Team AI Leadership',
+                        tasks: [
+                            'Train team members on AI tools',
+                            'Lead AI adoption initiatives',
+                            'Mentor junior developers',
+                            'Present AI strategy to leadership'
+                        ],
+                        deliverables: ['Team training program', 'AI strategy presentation']
+                    }
+                ],
+                skills: [
+                    {
+                        name: 'Machine Learning Implementation',
+                        description: 'Deploy ML models in production applications',
+                        details: 'Learn to take ML models from development to production, including deployment, monitoring, and maintenance. Master MLOps practices.',
+                        resources: ['MLOps Fundamentals', 'Model Deployment Guide', 'Production ML Best Practices']
+                    },
+                    {
+                        name: 'AI Integration Architecture',
+                        description: 'Design systems that seamlessly integrate AI services',
+                        details: 'Develop expertise in designing and implementing architectures that effectively integrate AI capabilities into existing systems.',
+                        resources: ['AI Architecture Patterns', 'Microservices Design', 'API Gateway Implementation']
+                    },
+                    {
+                        name: 'AI Ethics & Security',
+                        description: 'Implement responsible AI practices and security measures',
+                        details: 'Build comprehensive understanding of AI ethics, bias mitigation, and security considerations for AI systems.',
+                        resources: ['AI Ethics Guidelines', 'Bias Detection Tools', 'AI Security Framework']
+                    },
+                    {
+                        name: 'Team AI Leadership',
+                        description: 'Train and lead teams in AI adoption',
+                        details: 'Develop leadership skills to guide teams through AI transformation, including training, mentoring, and strategic planning.',
+                        resources: ['Leadership in AI Transformation', 'Team Training Methods', 'Change Management']
+                    }
+                ],
+                resources: [
+                    { name: 'AWS ML Certification', type: 'Certification', link: '#' },
+                    { name: 'Google Cloud AI Platform', type: 'Platform', link: '#' },
+                    { name: 'MLOps Specialization', type: 'Course', link: '#' }
+                ],
+                targetRoles: ['AI Engineer', 'ML Engineer', 'Technical AI Lead'],
+                salary: '$100,000 - $150,000',
+                timeline: '3 months intensive',
+                nextPhase: 'ai-dev-phase3'
+            },
+            'ai-dev-phase3': {
+                title: 'Phase 3: Strategic AI Leadership',
+                subtitle: 'AI-Augmented Developer Transformation (Months 7-12)',
+                objective: 'Become indispensable as AI strategy leader',
+                riskLevel: 'LOW RISK: Strategic Leadership',
+                color: '#eab308',
+                weeks: [
+                    {
+                        week: 'Month 7-8',
+                        title: 'AI Strategy & ROI',
+                        tasks: [
+                            'Develop business cases for AI implementations',
+                            'Calculate ROI for AI projects',
+                            'Create AI transformation roadmaps',
+                            'Present to executive leadership'
+                        ],
+                        deliverables: ['Business case portfolio', 'ROI analysis framework']
+                    },
+                    {
+                        week: 'Month 9-10',
+                        title: 'Cross-functional AI Leadership',
+                        tasks: [
+                            'Lead AI initiatives across departments',
+                            'Coordinate with business stakeholders',
+                            'Manage AI project portfolios',
+                            'Build cross-functional AI teams'
+                        ],
+                        deliverables: ['Cross-functional AI strategy', 'Project portfolio']
+                    },
+                    {
+                        week: 'Month 11-12',
+                        title: 'Innovation & Future-Proofing',
+                        tasks: [
+                            'Research emerging AI technologies',
+                            'Build innovation pipeline',
+                            'Create future-ready AI architectures',
+                            'Establish thought leadership'
+                        ],
+                        deliverables: ['Innovation roadmap', 'Thought leadership content']
+                    }
+                ],
+                skills: [
+                    {
+                        name: 'AI Strategy & ROI',
+                        description: 'Develop business cases for AI implementations',
+                        details: 'Master the business side of AI, including ROI calculation, business case development, and strategic planning for AI initiatives.',
+                        resources: ['AI Business Strategy', 'ROI Calculation Methods', 'Executive Presentation Skills']
+                    },
+                    {
+                        name: 'Cross-functional AI Leadership',
+                        description: 'Lead AI initiatives across departments',
+                        details: 'Develop skills to lead AI transformation across entire organizations, working with diverse stakeholders and departments.',
+                        resources: ['Cross-functional Leadership', 'Stakeholder Management', 'AI Project Management']
+                    }
+                ],
+                resources: [
+                    { name: 'AI Strategy Certification', type: 'Certification', link: '#' },
+                    { name: 'Executive AI Program', type: 'Course', link: '#' },
+                    { name: 'AI Leadership Community', type: 'Community', link: '#' }
+                ],
+                targetRoles: ['AI Director', 'Chief AI Officer', 'VP of Engineering'],
+                salary: '$150,000 - $250,000+',
+                timeline: '6 months strategic',
+                nextPhase: null
+            },
+            'cx-phase1': {
+                title: 'Phase 1: AI Tool Mastery',
+                subtitle: 'Customer Experience Transformation (Months 1-3)',
+                objective: 'Master AI-powered customer service and experience tools',
+                riskLevel: 'HIGH RISK: Customer Service & Sales',
+                color: '#ef4444',
+                weeks: [
+                    {
+                        week: 'Week 1-2',
+                        title: 'AI Customer Service Tools',
+                        tasks: [
+                            'Master AI chatbot platforms (Zendesk, Intercom)',
+                            'Learn conversational AI design principles',
+                            'Practice AI-assisted ticket resolution',
+                            'Understand AI sentiment analysis tools'
+                        ],
+                        deliverables: ['Configured AI chatbot', 'Customer service AI workflow']
+                    },
+                    {
+                        week: 'Week 3-4',
+                        title: 'Personalization & Analytics',
+                        tasks: [
+                            'Learn customer journey mapping with AI',
+                            'Master AI-driven personalization tools',
+                            'Practice predictive customer analytics',
+                            'Build customer insight dashboards'
+                        ],
+                        deliverables: ['Customer journey maps', 'Analytics dashboard']
+                    },
+                    {
+                        week: 'Week 5-8',
+                        title: 'Voice & Omnichannel AI',
+                        tasks: [
+                            'Master voice AI assistants and IVR',
+                            'Learn omnichannel AI orchestration',
+                            'Practice social media AI monitoring',
+                            'Implement AI-powered help desk'
+                        ],
+                        deliverables: ['Voice AI system', 'Omnichannel strategy']
+                    },
+                    {
+                        week: 'Week 9-12',
+                        title: 'Customer Success AI',
+                        tasks: [
+                            'Learn AI-driven customer success metrics',
+                            'Master churn prediction algorithms',
+                            'Practice upselling/cross-selling AI',
+                            'Build customer health scoring'
+                        ],
+                        deliverables: ['Customer success AI system', 'Retention strategy']
+                    }
+                ],
+                skills: [
+                    {
+                        name: 'AI Customer Service Platforms',
+                        description: 'Master Zendesk, Intercom, and other AI-powered support tools',
+                        details: 'Learn to configure and optimize AI chatbots, automated ticket routing, and intelligent support systems for maximum efficiency.',
+                        resources: ['Zendesk AI Certification', 'Intercom Product Certification', 'Customer Service AI Course']
+                    },
+                    {
+                        name: 'Conversational AI Design',
+                        description: 'Design effective AI conversation flows and experiences',
+                        details: 'Develop expertise in creating natural, helpful AI conversations that improve customer satisfaction and reduce support costs.',
+                        resources: ['Conversational Design Guide', 'Chatbot Best Practices', 'UX for AI Conversations']
+                    },
+                    {
+                        name: 'Customer Analytics & Insights',
+                        description: 'Use AI to analyze customer behavior and predict needs',
+                        details: 'Master predictive analytics, customer segmentation, and AI-driven insights to improve customer experience and business outcomes.',
+                        resources: ['Google Analytics AI', 'Customer Analytics Platform', 'Predictive Modeling Course']
+                    },
+                    {
+                        name: 'Omnichannel AI Orchestration',
+                        description: 'Coordinate AI across all customer touchpoints',
+                        details: 'Learn to create seamless customer experiences across web, mobile, voice, and social channels using AI orchestration.',
+                        resources: ['Omnichannel Strategy Guide', 'AI Orchestration Tools', 'Multi-channel Customer Experience']
+                    }
+                ],
+                resources: [
+                    { name: 'Zendesk AI Certification', type: 'Certification', link: '#' },
+                    { name: 'Customer Experience AI Course', type: 'Course', link: '#' },
+                    { name: 'Conversational Design Workshop', type: 'Workshop', link: '#' }
+                ],
+                targetRoles: ['Customer Experience Specialist', 'AI Support Manager', 'Customer Success Manager'],
+                salary: '$60,000 - $90,000',
+                timeline: '3 months intensive',
+                nextPhase: 'cx-phase2'
+            },
+            'cx-phase2': {
+                title: 'Phase 2: Customer Experience Design',
+                subtitle: 'Customer Experience Transformation (Months 4-8)',
+                objective: 'Lead customer experience transformation initiatives',
+                riskLevel: 'MODERATE RISK: Customer Experience',
+                color: '#f97316',
+                weeks: [
+                    {
+                        week: 'Month 4-5',
+                        title: 'Advanced CX Design',
+                        tasks: [
+                            'Design end-to-end AI customer journeys',
+                            'Create AI-enhanced customer personas',
+                            'Build predictive customer experience models',
+                            'Implement AI-driven A/B testing'
+                        ],
+                        deliverables: ['Complete customer journey design', 'AI persona models']
+                    },
+                    {
+                        week: 'Month 6-7',
+                        title: 'Strategic CX Leadership',
+                        tasks: [
+                            'Lead cross-functional CX initiatives',
+                            'Develop CX measurement frameworks',
+                            'Create AI-powered feedback systems',
+                            'Build customer advocacy programs'
+                        ],
+                        deliverables: ['CX strategy framework', 'Measurement dashboard']
+                    },
+                    {
+                        week: 'Month 8',
+                        title: 'Innovation & Optimization',
+                        tasks: [
+                            'Implement emerging CX technologies',
+                            'Build continuous improvement processes',
+                            'Create innovation pipelines',
+                            'Establish thought leadership'
+                        ],
+                        deliverables: ['Innovation roadmap', 'Optimization processes']
+                    }
+                ],
+                skills: [
+                    {
+                        name: 'Advanced Journey Design',
+                        description: 'Create sophisticated AI-enhanced customer journeys',
+                        details: 'Design complex, multi-touchpoint customer experiences that leverage AI for personalization, prediction, and optimization.',
+                        resources: ['Journey Mapping Mastery', 'AI Personalization Guide', 'Advanced CX Design']
+                    },
+                    {
+                        name: 'CX Strategy & Leadership',
+                        description: 'Lead organization-wide customer experience transformation',
+                        details: 'Develop strategic thinking and leadership skills to drive customer experience initiatives across entire organizations.',
+                        resources: ['CX Leadership Program', 'Strategic CX Planning', 'Cross-functional Leadership']
+                    }
+                ],
+                resources: [
+                    { name: 'Advanced CX Certification', type: 'Certification', link: '#' },
+                    { name: 'CX Leadership Program', type: 'Program', link: '#' },
+                    { name: 'Customer Experience Community', type: 'Community', link: '#' }
+                ],
+                targetRoles: ['CX Director', 'Head of Customer Experience', 'VP Customer Success'],
+                salary: '$90,000 - $140,000',
+                timeline: '5 months strategic',
+                nextPhase: null
+            },
+            'content-phase1': {
+                title: 'Phase 1: AI Content Mastery',
+                subtitle: 'Content Marketing Transformation (Months 1-3)',
+                objective: 'Master AI-powered content creation and optimization tools',
+                riskLevel: 'HIGH RISK: Content & Marketing',
+                color: '#ef4444',
+                weeks: [
+                    {
+                        week: 'Week 1-2',
+                        title: 'AI Writing Tools Mastery',
+                        tasks: [
+                            'Master ChatGPT, Claude, and Jasper for content',
+                            'Learn AI prompt engineering for writing',
+                            'Practice AI-assisted research and fact-checking',
+                            'Understand AI content optimization'
+                        ],
+                        deliverables: ['AI writing workflow', 'Content optimization process']
+                    },
+                    {
+                        week: 'Week 3-4',
+                        title: 'Visual Content AI',
+                        tasks: [
+                            'Learn Midjourney, DALL-E for image creation',
+                            'Master AI video editing tools',
+                            'Practice AI-generated graphics design',
+                            'Build visual content libraries'
+                        ],
+                        deliverables: ['Visual content portfolio', 'AI design templates']
+                    },
+                    {
+                        week: 'Week 5-8',
+                        title: 'Content Strategy AI',
+                        tasks: [
+                            'Use AI for content planning and calendars',
+                            'Master AI-driven SEO optimization',
+                            'Learn AI audience analysis tools',
+                            'Implement content performance AI'
+                        ],
+                        deliverables: ['AI content strategy', 'Performance tracking system']
+                    },
+                    {
+                        week: 'Week 9-12',
+                        title: 'Multi-channel Content AI',
+                        tasks: [
+                            'Adapt content for multiple platforms with AI',
+                            'Master AI social media management',
+                            'Learn AI email marketing optimization',
+                            'Build automated content workflows'
+                        ],
+                        deliverables: ['Multi-channel content system', 'Automation workflows']
+                    }
+                ],
+                skills: [
+                    {
+                        name: 'AI Writing & Research',
+                        description: 'Master ChatGPT, Claude, and specialized writing AI tools',
+                        details: 'Learn to use AI for research, writing, editing, and fact-checking while maintaining quality and authenticity.',
+                        resources: ['AI Writing Masterclass', 'Prompt Engineering for Writers', 'AI Research Techniques']
+                    },
+                    {
+                        name: 'Visual Content AI',
+                        description: 'Create stunning visuals using Midjourney, DALL-E, and AI design tools',
+                        details: 'Develop expertise in AI-generated images, graphics, and video content for marketing and communication.',
+                        resources: ['Midjourney Pro Guide', 'AI Design Fundamentals', 'Visual Content Strategy']
+                    },
+                    {
+                        name: 'SEO & Content Optimization',
+                        description: 'Use AI to optimize content for search engines and audiences',
+                        details: 'Master AI-driven SEO tools, content optimization, and performance analysis for maximum reach and engagement.',
+                        resources: ['AI SEO Tools', 'Content Optimization Guide', 'SEO Analytics Platform']
+                    },
+                    {
+                        name: 'Content Strategy & Planning',
+                        description: 'Develop AI-enhanced content strategies and editorial calendars',
+                        details: 'Learn to use AI for content planning, audience analysis, and strategic content development.',
+                        resources: ['Content Strategy Course', 'AI Content Planning', 'Editorial Calendar Tools']
+                    }
+                ],
+                resources: [
+                    { name: 'AI Content Creator Certification', type: 'Certification', link: '#' },
+                    { name: 'Midjourney Mastery Course', type: 'Course', link: '#' },
+                    { name: 'Content Marketing AI Tools', type: 'Tool Suite', link: '#' }
+                ],
+                targetRoles: ['AI Content Creator', 'Content Marketing Specialist', 'Digital Marketing Manager'],
+                salary: '$50,000 - $80,000',
+                timeline: '3 months intensive',
+                nextPhase: 'content-phase2'
+            },
+            'content-phase2': {
+                title: 'Phase 2: Strategic Content Leadership',
+                subtitle: 'Content Marketing Transformation (Months 4-8)',
+                objective: 'Lead content strategy and team transformation',
+                riskLevel: 'MODERATE RISK: Content Strategy',
+                color: '#f97316',
+                weeks: [
+                    {
+                        week: 'Month 4-5',
+                        title: 'Content Strategy Leadership',
+                        tasks: [
+                            'Develop AI-driven content strategies',
+                            'Lead content team AI adoption',
+                            'Create content governance frameworks',
+                            'Build brand voice AI guidelines'
+                        ],
+                        deliverables: ['Content strategy framework', 'AI governance policies']
+                    },
+                    {
+                        week: 'Month 6-7',
+                        title: 'Performance & Analytics',
+                        tasks: [
+                            'Implement advanced content analytics',
+                            'Build ROI measurement systems',
+                            'Create content attribution models',
+                            'Optimize content for conversions'
+                        ],
+                        deliverables: ['Analytics dashboard', 'ROI tracking system']
+                    },
+                    {
+                        week: 'Month 8',
+                        title: 'Innovation & Scaling',
+                        tasks: [
+                            'Implement cutting-edge content technologies',
+                            'Scale content production with AI',
+                            'Build content innovation processes',
+                            'Establish thought leadership'
+                        ],
+                        deliverables: ['Scaling framework', 'Innovation pipeline']
+                    }
+                ],
+                skills: [
+                    {
+                        name: 'Strategic Content Leadership',
+                        description: 'Lead organization-wide content transformation',
+                        details: 'Develop strategic thinking and leadership skills to guide content teams through AI transformation.',
+                        resources: ['Content Leadership Program', 'Team Management for Creatives', 'Strategic Content Planning']
+                    },
+                    {
+                        name: 'Advanced Analytics & ROI',
+                        description: 'Measure and optimize content performance with AI',
+                        details: 'Master advanced analytics, attribution modeling, and ROI measurement for content marketing.',
+                        resources: ['Content Analytics Mastery', 'ROI Measurement Guide', 'Attribution Modeling Course']
+                    }
+                ],
+                resources: [
+                    { name: 'Content Strategy Certification', type: 'Certification', link: '#' },
+                    { name: 'Content Leadership Program', type: 'Program', link: '#' },
+                    { name: 'Marketing AI Community', type: 'Community', link: '#' }
+                ],
+                targetRoles: ['Content Director', 'Head of Content Marketing', 'VP Marketing'],
+                salary: '$80,000 - $120,000',
+                timeline: '5 months strategic',
+                nextPhase: null
+            }
+        };
+
+        // Get phase from URL parameters
+        function getPhaseFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('phase') || 'ai-dev-phase1';
+        }
+
+        // Load phase content
+        function loadPhaseContent(phaseId) {
+            const phase = phaseData[phaseId];
+            if (!phase) {
+                document.getElementById('phase-content').innerHTML = '<h2>Phase not found</h2>';
+                return;
+            }
+
+            const content = `
+                <div class="detail-section" style="text-align: center;">
+                    <div style="background: ${phase.color}; color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; display: inline-block; margin-bottom: 1rem; text-align: center;">
+                        ${phase.riskLevel}
+                    </div>
+                    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: ${phase.color}; text-align: center;">${phase.title}</h1>
+                    <h2 style="font-size: 1.5rem; margin-bottom: 1rem; opacity: 0.9; text-align: center;">${phase.subtitle}</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; text-align: center;"><strong>Objective:</strong> ${phase.objective}</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; text-align: center;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <h4 style="color: #67e8f9; margin-bottom: 0.5rem; text-align: center;">💰 Salary Range</h4>
+                            <p style="text-align: center;">${phase.salary}</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <h4 style="color: #67e8f9; margin-bottom: 0.5rem; text-align: center;">⏰ Timeline</h4>
+                            <p style="text-align: center;">${phase.timeline}</p>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <h4 style="color: #67e8f9; margin-bottom: 0.5rem; text-align: center;">🎯 Target Roles</h4>
+                            <p style="text-align: center;">${phase.targetRoles.join(', ')}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-section" style="text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: ${phase.color}; text-align: center;">📚 Core Skills Development</h3>
+                    ${phase.skills.map(skill => `
+                        <div class="skill-detail" style="text-align: center; border-left-color: ${phase.color};">
+                            <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: ${phase.color}; text-align: center;">
+                                <a href="skill-detail.html?skill=${skill.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}&phase=${phaseId}" 
+                                   style="color: ${phase.color}; text-decoration: none; cursor: pointer;">
+                                    ${skill.name} →
+                                </a>
+                            </h4>
+                            <p style="margin-bottom: 1rem; opacity: 0.9; text-align: center;">${skill.description}</p>
+                            <p style="margin-bottom: 1rem; text-align: center;">${skill.details}</p>
+                            <div style="text-align: center;">
+                                <strong style="color: #67e8f9;">Resources:</strong> ${skill.resources.join(', ')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div class="detail-section" style="text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: ${phase.color}; text-align: center;">🗓️ Weekly Implementation Timeline</h3>
+                    <div class="timeline-detailed">
+                        ${phase.weeks.map(week => `
+                            <div class="week-item" style="text-align: center;">
+                                <h4 style="font-size: 1.2rem; margin-bottom: 0.5rem; color: ${phase.color}; text-align: center;">${week.week}: ${week.title}</h4>
+                                <ul style="text-align: center; list-style: none; padding: 0;">
+                                    ${week.tasks.map(task => `<li style="margin: 0.5rem 0; text-align: center;">✅ ${task}</li>`).join('')}
+                                </ul>
+                                <p style="margin-top: 1rem; text-align: center;"><strong style="color: #67e8f9;">Deliverables:</strong> ${week.deliverables.join(', ')}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="detail-section" style="text-align: center;">
+                    <h3 style="font-size: 2rem; margin-bottom: 1.5rem; color: ${phase.color}; text-align: center;">🔗 Essential Resources</h3>
+                    <div class="resource-grid">
+                        ${phase.resources.map(resource => `
+                            <div class="resource-card" style="text-align: center;">
+                                <h4 style="color: ${phase.color}; margin-bottom: 0.5rem; text-align: center;">${resource.name}</h4>
+                                <p style="opacity: 0.8; text-align: center;">${resource.type}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                ${phase.nextPhase ? `
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="phase-detail.html?phase=${phase.nextPhase}" class="btn-primary" style="text-align: center;">
+                            Next Phase →
+                        </a>
+                    </div>
+                ` : ''}
+            `;
+
+            document.getElementById('phase-content').innerHTML = content;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            const phaseId = getPhaseFromURL();
+            loadPhaseContent(phaseId);
+        });
+    </script>
+</body>
+</html>

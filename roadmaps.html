@@ -1,0 +1,2820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Critical career roadmaps for AI-driven transformation">
+    <title>Critical Roadmaps | AI RECKONING</title>
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* NUCLEAR OPTION - FORCE CENTER ALIGNMENT EVERYWHERE */
+        * {
+            text-align: center !important;
+            box-sizing: border-box !important;
+        }
+        
+        html, body {
+            text-align: center !important;
+            width: 100% !important;
+        }
+        
+        /* Override ALL Tailwind utility classes */
+        .text-left, .text-right, .text-justify, .text-start, .text-end,
+        .sm\\:text-left, .md\\:text-left, .lg\\:text-left, .xl\\:text-left,
+        .justify-start, .justify-end, .justify-between, .justify-around, .justify-evenly,
+        .items-start, .items-end, .self-start, .self-end {
+            text-align: center !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        
+        /* Force ALL flex containers to center */
+        .flex, .flex-col, .flex-row, .inline-flex {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+        
+        /* Force ALL grid containers to center */
+        .grid {
+            display: grid !important;
+            justify-items: center !important;
+            text-align: center !important;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            color: white;
+            text-align: center !important;
+        }
+        main { flex: 1; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+        .btn-primary { 
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+            padding: 1rem 2rem; 
+            border-radius: 0.75rem; 
+            color: white; 
+            font-weight: 600; 
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+        }
+        .nav-active { 
+            color: #ef4444; 
+            font-weight: 600; 
+            position: relative; 
+        }
+        .nav-active:after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -4px; 
+            left: 0; 
+            width: 100%; 
+            height: 2px; 
+            background: #ef4444; 
+        }
+        
+        /* Enhanced Navigation Styles - Force Visibility */
+        header {
+            background: rgba(26, 26, 46, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            position: relative !important;
+            z-index: 1000 !important;
+        }
+        .header-container {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 1rem !important;
+            padding: 1rem !important;
+        }
+        .logo-section {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.75rem !important;
+        }
+        nav {
+            width: 100% !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 0.5rem !important;
+            max-width: 100% !important;
+            overflow: visible !important;
+        }
+        nav a {
+            display: block !important;
+            padding: 0.75rem 1rem !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 0.5rem !important;
+            color: white !important;
+            text-decoration: none !important;
+            font-size: 0.875rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            min-width: 100px !important;
+            transition: all 0.3s ease !important;
+            white-space: nowrap !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            color: #fecaca !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        /* Desktop styles - Force visibility */
+        @media (min-width: 1024px) {
+            .header-container {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 1.5rem !important;
+            }
+            nav {
+                width: auto !important;
+                justify-content: flex-end !important;
+            }
+            nav a {
+                background: rgba(255, 255, 255, 0.12) !important;
+                border: 2px solid rgba(255, 255, 255, 0.2) !important;
+                min-width: auto !important;
+                padding: 0.625rem 1.25rem !important;
+                font-size: 0.9rem !important;
+                font-weight: 500 !important;
+            }
+            nav a:hover {
+                background: rgba(255, 255, 255, 0.2) !important;
+                border-color: rgba(255, 255, 255, 0.4) !important;
+            }
+        }
+        
+        /* Color Contrast Fixes for Better Visibility */
+        .text-blue-400, 
+        .bg-blue-400 {
+            color: #67e8f9 !important;
+            background-color: #67e8f9 !important;
+        }
+        .text-blue-600 {
+            color: #60a5fa !important;
+        }
+        .bg-blue-600 {
+            background-color: #2563eb !important;
+        }
+        .border-blue-500 {
+            border-color: #3b82f6 !important;
+        }
+        /* Ensure all blue text is readable */
+        .text-blue-400 {
+            color: #67e8f9 !important;
+        }
+        
+        /* Additional overrides for specific classes */
+        p.text-blue-400,
+        span.text-blue-400,
+        i.text-blue-400 {
+            color: #67e8f9 !important;
+        }
+        
+        /* Force all blue text to be cyan with inline style override */
+        * {
+            --tw-text-opacity: 1;
+        }
+        .text-blue-400 {
+            color: rgb(103 232 249 / var(--tw-text-opacity)) !important;
+        }
+        
+        .warning-icon { 
+            animation: pulse 2s infinite; 
+        }
+        @keyframes pulse { 
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 
+            70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); } 
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } 
+        }
+        #loading { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background: rgba(0, 0, 0, 0.8); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            z-index: 9999; 
+        }
+        .hidden { 
+            display: none; 
+        }
+        
+        /* Roadmap-specific styles */
+        .roadmap-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+        
+        .roadmap-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .risk-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+        
+        .risk-critical {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+        
+        .risk-high {
+            background: rgba(249, 115, 22, 0.2);
+            color: #f97316;
+            border: 1px solid #f97316;
+        }
+        
+        .risk-medium {
+            background: rgba(234, 179, 8, 0.2);
+            color: #eab308;
+            border: 1px solid #eab308;
+        }
+        
+        .timeline {
+            margin: 2rem 0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ef4444;
+        }
+        
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .skill-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .collapsible-roadmap {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .collapsible-roadmap-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            background: rgba(239, 68, 68, 0.1);
+            border-bottom: 1px solid rgba(239, 68, 68, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .collapsible-roadmap-header:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+        
+        .collapsible-roadmap-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            opacity: 0;
+            padding: 0 1.5rem;
+        }
+        
+        .collapsible-roadmap-content.active {
+            max-height: none;
+            opacity: 1;
+            padding: 1.5rem;
+        }
+        
+        .quick-selector-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .quick-selector-btn:hover {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .quick-selector-btn i {
+            font-size: 1.5rem;
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quick-selector-btn span {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        /* Enhanced Success Metrics Styles */
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #34d399);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .skill-metric {
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .metric-item {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .metric-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Animation for metric cards */
+        .glass:hover .skill-metric,
+        .glass:hover .metric-item {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-1px);
+            transition: all 0.2s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" class="hidden">
+        <div class="text-center">
+            <i class="fas fa-spinner fa-spin text-4xl text-red-500"></i>
+            <p class="mt-4 text-lg">Loading AI Reckoning...</p>
+        </div>
+    </div>
+    <script>
+        // Immediately hide loading screen
+        document.getElementById('loading').style.display = 'none';
+
+        // Collapsible roadmap sections
+        function toggleRoadmapContent(sectionId) {
+            const content = document.getElementById(sectionId);
+            const chevron = document.getElementById(sectionId + '_chevron');
+            
+            if (content.classList.contains('active')) {
+                content.classList.remove('active');
+                content.style.maxHeight = '0px';
+                content.style.opacity = '0';
+                content.style.padding = '0 1.5rem';
+                chevron.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.opacity = '1';
+                content.style.padding = '1.5rem';
+                chevron.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Initialize collapsible sections
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial state for roadmap sections
+            const roadmapContents = document.querySelectorAll('.collapsible-roadmap-content');
+            roadmapContents.forEach(content => {
+                content.style.maxHeight = '0px';
+                content.style.opacity = '0';
+            });
+
+            // Add smooth scroll to assessment button
+            const assessmentBtns = document.querySelectorAll('a[href="assessment.html"]');
+            assessmentBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Add loading animation
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading Assessment...';
+                    
+                    // Navigate after animation
+                    setTimeout(() => {
+                        window.location.href = 'assessment.html';
+                    }, 500);
+                });
+            });
+
+            // Check if user came from assessment with results
+            const urlParams = new URLSearchParams(window.location.search);
+            const riskLevel = urlParams.get('risk');
+            const industry = urlParams.get('industry');
+            
+            if (riskLevel) {
+                // Auto-expand relevant risk level section
+                let sectionToExpand = '';
+                if (riskLevel === 'critical') {
+                    sectionToExpand = 'criticalContent';
+                } else if (riskLevel === 'high') {
+                    sectionToExpand = 'highRiskContent';
+                } else if (riskLevel === 'medium') {
+                    sectionToExpand = 'mediumRiskContent';
+                }
+                
+                if (sectionToExpand) {
+                    setTimeout(() => {
+                        toggleRoadmapContent(sectionToExpand);
+                        document.getElementById(sectionToExpand.replace('Content', 'Roadmaps')).scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }, 500);
+                }
+            }
+
+            // Add dynamic risk badge animation
+            const badges = document.querySelectorAll('.risk-badge');
+            badges.forEach(badge => {
+                badge.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.transition = 'transform 0.2s ease';
+                });
+                
+                badge.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+
+        // Quick roadmap selector functionality
+        function expandRoadmapByIndustry(riskLevel, industry) {
+            // Close all sections first
+            const allContents = document.querySelectorAll('.collapsible-roadmap-content');
+            allContents.forEach(content => {
+                content.style.maxHeight = '0px';
+                content.style.opacity = '0';
+            });
+
+            // Reset all chevrons
+            const allChevrons = document.querySelectorAll('[id$="_chevron"]');
+            allChevrons.forEach(chevron => {
+                chevron.style.transform = 'rotate(0deg)';
+            });
+
+            // Determine which section to expand
+            let sectionToExpand = '';
+            if (riskLevel === 'critical') {
+                sectionToExpand = 'criticalContent';
+            } else if (riskLevel === 'high') {
+                sectionToExpand = 'highRiskContent';
+            } else if (riskLevel === 'medium') {
+                sectionToExpand = 'mediumRiskContent';
+            }
+
+            // Expand the relevant section
+            if (sectionToExpand) {
+                setTimeout(() => {
+                    toggleRoadmapContent(sectionToExpand);
+                    
+                    // Scroll to the relevant section
+                    const targetSection = document.getElementById(sectionToExpand.replace('Content', 'Roadmaps'));
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }
+
+                    // Add visual feedback
+                    const button = event.target.closest('.quick-selector-btn');
+                    if (button) {
+                        button.style.background = 'rgba(34, 197, 94, 0.2)';
+                        button.style.borderColor = 'rgba(34, 197, 94, 0.5)';
+                        
+                        // Reset after 2 seconds
+                        setTimeout(() => {
+                            button.style.background = 'rgba(255, 255, 255, 0.05)';
+                            button.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                        }, 2000);
+                    }
+                }, 100);
+            }
+        }
+
+        // Add success metrics counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('[data-count]');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const increment = target / 100;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current).toLocaleString() + '+';
+                }, 20);
+            });
+        }
+
+        // Initialize counter animation when section comes into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe the call-to-action section for counter animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctaSection = document.querySelector('section:last-of-type');
+            if (ctaSection) {
+                observer.observe(ctaSection);
+            }
+        });
+
+        // Test function to verify JavaScript is working
+        function testClick() {
+            alert('JavaScript is working! Metrics should be clickable.');
+        }
+
+        // Interactive Success Metrics Functions
+        function showMetricDetails(metricType) {
+            const modalHTML = `
+                <div id="metricModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+                    <div class="bg-gray-900 rounded-2xl p-8 max-w-2xl mx-4 border border-gray-700">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold">${getMetricTitle(metricType)}</h3>
+                            <button onclick="closeModal()" class="text-gray-400 hover:text-white">
+                                <i class="fas fa-times text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-4">
+                            ${getMetricDetails(metricType)}
+                        </div>
+                        <div class="mt-6 flex gap-4">
+                            <button onclick="updateMetric('${metricType}')" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">
+                                Update Progress
+                            </button>
+                            <button onclick="closeModal()" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        function getMetricTitle(metricType) {
+            const titles = {
+                'ai-resistance': '🛡️ AI-Resistance Score Details',
+                'salary': '💰 Salary Growth Analytics',
+                'timeline': '⏱️ Transformation Timeline',
+                'security': '🔒 Job Security Analysis'
+            };
+            return titles[metricType] || 'Metric Details';
+        }
+
+        function getMetricDetails(metricType) {
+            const details = {
+                'ai-resistance': `
+                    <div class="space-y-4">
+                        <div class="bg-green-600 bg-opacity-20 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Current Score: 85%</h4>
+                            <p class="text-sm opacity-90">Your current role has strong AI-resistance due to:</p>
+                            <ul class="text-sm mt-2 space-y-1">
+                                <li>• Complex problem-solving requirements</li>
+                                <li>• Human interaction and creativity</li>
+                                <li>• Strategic decision-making components</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Improvement Areas:</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• Learn AI collaboration tools (+5%)</li>
+                                <li>• Develop unique human skills (+10%)</li>
+                                <li>• Build AI oversight capabilities (+5%)</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                'salary': `
+                    <div class="space-y-4">
+                        <div class="bg-blue-600 bg-opacity-20 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Projected Growth: +47%</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <div class="font-medium">Current Salary:</div>
+                                    <div class="text-lg font-bold">$65,000</div>
+                                </div>
+                                <div>
+                                    <div class="font-medium">Target Salary:</div>
+                                    <div class="text-lg font-bold text-green-400">$95,000</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Growth Strategy:</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• Complete AI specialist certification (+$15K)</li>
+                                <li>• Build portfolio projects (+$10K)</li>
+                                <li>• Negotiate role upgrade (+$5K)</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                'timeline': `
+                    <div class="space-y-4">
+                        <div class="bg-purple-600 bg-opacity-20 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Transformation Timeline: 12 Months</h4>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span>Months 1-3:</span>
+                                    <span>Skills Assessment & Foundation</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Months 4-8:</span>
+                                    <span>Certification & Portfolio Building</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Months 9-12:</span>
+                                    <span>Job Search & Transition</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Accelerate Your Timeline:</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• Intensive bootcamp approach (-3 months)</li>
+                                <li>• Part-time transition (-2 months)</li>
+                                <li>• Industry networking (-1 month)</li>
+                            </ul>
+                        </div>
+                    </div>
+                `,
+                'security': `
+                    <div class="space-y-4">
+                        <div class="bg-orange-600 bg-opacity-20 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Job Security Score: 94%</h4>
+                            <p class="text-sm opacity-90">Your transformation path leads to high-security roles in:</p>
+                            <ul class="text-sm mt-2 space-y-1">
+                                <li>• AI/ML Engineering (96% security)</li>
+                                <li>• Cloud Architecture (93% security)</li>
+                                <li>• Data Science (91% security)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Security Factors:</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• High demand, low supply</li>
+                                <li>• AI-complementary skills</li>
+                                <li>• Strategic business value</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            };
+            return details[metricType] || '<p>No details available.</p>';
+        }
+
+        function showCareerPathDetails(pathType) {
+            const modalHTML = `
+                <div id="careerModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+                    <div class="bg-gray-900 rounded-2xl p-8 max-w-4xl mx-4 border border-gray-700 max-h-[90vh] overflow-y-auto">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-2xl font-bold">${getCareerPathTitle(pathType)}</h3>
+                            <button onclick="closeModal()" class="text-gray-400 hover:text-white">
+                                <i class="fas fa-times text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-6">
+                            ${getCareerPathDetails(pathType)}
+                        </div>
+                        <div class="mt-6 flex gap-4">
+                            <button onclick="startCareerPath('${pathType}')" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg">
+                                Start This Path
+                            </button>
+                            <button onclick="closeModal()" class="bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg">
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        function getCareerPathTitle(pathType) {
+            const titles = {
+                'ai-specialist': '🤖 AI Specialist Career Path',
+                'data-analytics': '📊 Data Analytics Career Path',
+                'cloud-engineer': '☁️ Cloud Engineer Career Path'
+            };
+            return titles[pathType] || 'Career Path Details';
+        }
+
+        function getCareerPathDetails(pathType) {
+            // Detailed path information with learning tracks, certifications, and job opportunities
+            const details = {
+                'ai-specialist': `
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="bg-red-600 bg-opacity-20 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">🎯 Learning Path</h4>
+                                <ul class="text-sm space-y-2">
+                                    <li><span class="text-green-400">✓</span> Python Programming (4 weeks)</li>
+                                    <li><span class="text-yellow-400">◐</span> Machine Learning Basics (6 weeks)</li>
+                                    <li><span class="text-gray-400">○</span> Deep Learning & Neural Networks (8 weeks)</li>
+                                    <li><span class="text-gray-400">○</span> AI Ethics & Governance (2 weeks)</li>
+                                    <li><span class="text-gray-400">○</span> Industry Specialization (4 weeks)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">📜 Certifications</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Google AI/ML Professional Certificate</li>
+                                    <li>• AWS Machine Learning Specialty</li>
+                                    <li>• Microsoft Azure AI Engineer</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-blue-600 bg-opacity-20 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">💼 Job Opportunities</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• AI/ML Engineer: $90K-$140K</li>
+                                    <li>• AI Product Manager: $85K-$125K</li>
+                                    <li>• AI Research Scientist: $100K-$160K</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-600 bg-opacity-20 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">🚀 Portfolio Projects</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>1. Customer Churn Prediction Model</li>
+                                    <li>2. Natural Language Processing Chatbot</li>
+                                    <li>3. Computer Vision Image Classifier</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                'data-analytics': `
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="bg-blue-600 bg-opacity-20 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">🎯 Learning Path</h4>
+                                <ul class="text-sm space-y-2">
+                                    <li><span class="text-green-400">✓</span> Excel & Statistics (2 weeks)</li>
+                                    <li><span class="text-green-400">✓</span> SQL Database Querying (3 weeks)</li>
+                                    <li><span class="text-yellow-400">◐</span> Python for Data Analysis (4 weeks)</li>
+                                    <li><span class="text-gray-400">○</span> Data Visualization (3 weeks)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">📜 Certifications</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Google Data Analytics Certificate</li>
+                                    <li>• Microsoft Power BI Data Analyst</li>
+                                    <li>• Tableau Desktop Specialist</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-purple-600 bg-opacity-20 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">💼 Job Opportunities</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Data Analyst: $60K-$85K</li>
+                                    <li>• Business Intelligence Analyst: $65K-$90K</li>
+                                    <li>• Marketing Data Analyst: $58K-$82K</li>
+                                </ul>
+                            </div>
+                            <div class="bg-orange-600 bg-opacity-20 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">🚀 Portfolio Projects</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>1. Sales Performance Dashboard</li>
+                                    <li>2. Customer Segmentation Analysis</li>
+                                    <li>3. Financial Trends Reporting</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `,
+                'cloud-engineer': `
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="bg-green-600 bg-opacity-20 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">🎯 Learning Path</h4>
+                                <ul class="text-sm space-y-2">
+                                    <li><span class="text-yellow-400">◐</span> Cloud Computing Fundamentals (3 weeks)</li>
+                                    <li><span class="text-gray-400">○</span> Linux System Administration (4 weeks)</li>
+                                    <li><span class="text-gray-400">○</span> Infrastructure as Code (5 weeks)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">📜 Certifications</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• AWS Solutions Architect Associate</li>
+                                    <li>• Microsoft Azure Fundamentals</li>
+                                    <li>• Google Cloud Professional</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="bg-cyan-600 bg-opacity-20 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">💼 Job Opportunities</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• Cloud Engineer: $75K-$110K</li>
+                                    <li>• DevOps Engineer: $80K-$120K</li>
+                                    <li>• Cloud Solutions Architect: $95K-$140K</li>
+                                </ul>
+                            </div>
+                            <div class="bg-teal-600 bg-opacity-20 p-4 rounded-lg">
+                                <h4 class="font-bold mb-3">🚀 Portfolio Projects</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>1. Multi-tier Web Application Deployment</li>
+                                    <li>2. Infrastructure Automation Scripts</li>
+                                    <li>3. Monitoring & Alerting System</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            };
+            return details[pathType] || '<p>No details available.</p>';
+        }
+
+        function startCareerPath(pathType) {
+            localStorage.setItem('selectedCareerPath', pathType);
+            showToast(`Career path selected! Redirecting to resources...`);
+            setTimeout(() => {
+                window.location.href = 'resources.html';
+            }, 2000);
+        }
+
+        function closeModal() {
+            const modals = document.querySelectorAll('#metricModal, #careerModal');
+            modals.forEach(modal => modal.remove());
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg z-50 transition-opacity';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+    <div id="app" class="min-h-screen">
+        <header role="banner">
+            <div class="max-w-7xl mx-auto">
+                <div class="header-container">
+                    <!-- Logo and brand -->
+                    <div class="logo-section">
+                        <div class="bg-red-600 p-2 rounded-xl warning-icon">
+                            <i class="fas fa-exclamation-triangle text-xl"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-xl font-bold">AI RECKONING</h1>
+                            <p class="text-xs opacity-90">Emergency Career Transformation System</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <nav role="navigation">
+                        <a href="index.html">Home</a>
+                        <a href="assessment.html">Assessment</a>
+                        <a href="roadmaps.html" class="nav-active" aria-current="page">Critical Roadmaps</a>
+                        <a href="resources.html">Survival Resources</a>
+                        <a href="community.html">Community</a>
+                        <a href="about.html">About</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" role="main">
+            <!-- Emergency Alert Banner -->
+            <div style="background: rgba(239, 68, 68, 0.15); border: 2px solid #ef4444; border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; text-align: center;">
+                <h2 class="text-2xl font-bold mb-2" style="color: #ef4444;">🛡️ CRITICAL SURVIVAL ROADMAPS</h2>
+                <p class="text-lg">Emergency career transformation paths for AI-threatened roles</p>
+                <p class="text-sm mt-2" style="color: #d1d5db;">⚡ Choose your roadmap based on risk level and industry</p>
+            </div>
+
+            <!-- Roadmap Overview -->
+            <section class="glass rounded-2xl p-8 mb-8">
+                <h3 class="text-3xl font-bold mb-6 text-center">Emergency Career Transformation Roadmaps</h3>
+                <p class="text-center mb-8 opacity-90">Detailed 12-month survival plans for different risk levels and career goals</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="text-center">
+                        <div class="text-4xl mb-2">🔴</div>
+                        <h4 class="text-lg font-bold text-red-400">CRITICAL RISK</h4>
+                        <p class="text-sm" style="color: #d1d5db;">6-12 month emergency transformation</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-2">🟠</div>
+                        <h4 class="text-lg font-bold text-orange-400">HIGH RISK</h4>
+                        <p class="text-sm" style="color: #d1d5db;">12-18 month strategic pivot</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-2">🟡</div>
+                        <h4 class="text-lg font-bold text-yellow-400">MEDIUM RISK</h4>
+                        <p class="text-sm" style="color: #d1d5db;">18-24 month skill upgrade</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Critical Risk Roadmaps -->
+            <div class="collapsible-roadmap" id="criticalRoadmaps">
+                <div class="collapsible-roadmap-header" onclick="toggleRoadmapContent('criticalContent')">
+                    <span><i class="fas fa-exclamation-triangle mr-2"></i>🔴 CRITICAL RISK ROADMAPS - Immediate Action Required</span>
+                    <i class="fas fa-chevron-down" id="criticalContent_chevron"></i>
+                </div>
+                <div class="collapsible-roadmap-content" id="criticalContent">
+                    <!-- AI-Augmented Developer Roadmap -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-critical">CRITICAL RISK: IT & Software Development</div>
+                        <h4 class="text-2xl font-bold mb-4">🤖 AI-Augmented Developer Transformation</h4>
+                        <p class="text-lg mb-6 opacity-90">For software developers facing AI code generation threats</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #ef4444;">
+                                    <a href="phase-detail.html?phase=ai-dev-phase1" style="color: #ef4444; text-decoration: none; cursor: pointer;">
+                                        Phase 1: Emergency AI Integration (Months 1-3) →
+                                    </a>
+                                </h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI coding tools to become AI-augmented rather than replaced</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-coding-tools" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Coding Tools Mastery →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">GitHub Copilot, ChatGPT for code, Claude for complex logic</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=prompt-engineering-code" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Prompt Engineering for Code →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Write precise prompts for code generation and debugging</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-code-review" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Code Review & Quality →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Learn to validate, improve, and secure AI-generated code</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=system-architecture" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                System Architecture Focus →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Move from coding to designing AI-integrated systems</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Deliverables:</strong> Portfolio of AI-assisted projects, AI tool certifications</p>
+                                <p><strong>Resources:</strong> GitHub Copilot certification, OpenAI API documentation, AI coding courses</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #f97316;">
+                                    <a href="phase-detail.html?phase=ai-dev-phase2" style="color: #f97316; text-decoration: none; cursor: pointer;">
+                                        Phase 2: AI Specialization (Months 4-6) →
+                                    </a>
+                                </h5>
+                                <p class="mb-3"><strong>Objective:</strong> Become the AI expert in your organization</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=machine-learning-implementation" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Machine Learning Implementation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Deploy ML models in production applications</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-integration-architecture" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Integration Architecture →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Design systems that seamlessly integrate AI services</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-ethics-security" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Ethics & Security →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Implement responsible AI practices and security measures</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=team-ai-leadership" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Team AI Leadership →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Train and lead teams in AI adoption</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Deliverables:</strong> Lead AI integration project, mentor junior developers</p>
+                                <p><strong>Target Roles:</strong> AI Engineer, ML Engineer, Technical AI Lead</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #eab308;">
+                                    <a href="phase-detail.html?phase=ai-dev-phase3" style="color: #eab308; text-decoration: none; cursor: pointer;">
+                                        Phase 3: Strategic AI Leadership (Months 7-12) →
+                                    </a>
+                                </h5>
+                                <p class="mb-3"><strong>Objective:</strong> Become indispensable as AI strategy leader</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-strategy-roi" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Strategy & ROI →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Develop business cases for AI implementations</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=cross-functional-ai-leadership" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Cross-functional AI Leadership →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Lead AI initiatives across departments</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-governance" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Governance →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Establish AI policies and best practices</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=innovation-pipeline" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Innovation Pipeline →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Identify and prototype new AI opportunities</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Chief AI Officer, AI Strategy Director, VP of AI Engineering</p>
+                                <p><strong>Salary Range:</strong> ₹40L - ₹80L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Customer Experience AI Specialist -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-critical">CRITICAL RISK: Customer Support</div>
+                        <h4 class="text-2xl font-bold mb-4">🎯 Customer Experience AI Specialist</h4>
+                        <p class="text-lg mb-6 opacity-90">Transform from support agent to AI-human collaboration expert</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #ef4444;">
+                                    <a href="phase-detail.html?phase=cx-phase1" style="color: #ef4444; text-decoration: none; cursor: pointer;">
+                                        Phase 1: AI Tool Mastery (Months 1-3) →
+                                    </a>
+                                </h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI-powered customer service tools</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=conversational-ai-platforms" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Conversational AI Platforms →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Zendesk AI, Salesforce Einstein, Microsoft Copilot</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-chatbot-management" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Chatbot Management →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Configure, train, and optimize chatbot responses</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=sentiment-analysis-tools" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Sentiment Analysis Tools →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Use AI to understand customer emotions and intent</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=complex-problem-escalation" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Complex Problem Escalation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Handle cases AI cannot resolve independently</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Deliverables:</strong> Improved customer satisfaction scores, AI tool certifications</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #f97316;">
+                                    <a href="phase-detail.html?phase=cx-phase2" style="color: #f97316; text-decoration: none; cursor: pointer;">
+                                        Phase 2: Customer Experience Design (Months 4-8) →
+                                    </a>
+                                </h5>
+                                <p class="mb-3"><strong>Objective:</strong> Design AI-enhanced customer journeys</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=customer-journey-mapping" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Customer Journey Mapping →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Design optimal human-AI interaction points</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-training-optimization" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Training & Optimization →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Improve AI responses based on customer feedback</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=customer-data-analytics" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Data Analytics →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Analyze customer interactions for insights</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=process-automation" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Process Automation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Automate repetitive customer service workflows</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> CX Designer, AI Training Specialist, Customer Success Manager</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #22c55e;">Phase 3: Strategic CX Leadership (Months 9-12)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead customer experience transformation</p>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Head of Customer Experience, Director of AI Customer Solutions</p>
+                                <p><strong>Salary Range:</strong> ₹25L - ₹50L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Creation AI Specialist -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-critical">CRITICAL RISK: Content & Marketing</div>
+                        <h4 class="text-2xl font-bold mb-4">✍️ AI-Human Content Strategy Specialist</h4>
+                        <p class="text-lg mb-6 opacity-90">Transform from content creator to AI-augmented strategic content architect</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #ef4444;">
+                                    <a href="phase-detail.html?phase=content-phase1" style="color: #ef4444; text-decoration: none; cursor: pointer;">
+                                        Phase 1: AI Content Mastery (Months 1-3) →
+                                    </a>
+                                </h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI content tools while developing unique human insight</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-writing-tools" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Writing Tools Mastery →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">ChatGPT, Claude, Jasper, Copy.ai for content generation</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=prompt-engineering-content" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Prompt Engineering for Content →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Create sophisticated prompts for brand-aligned content</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-content-quality-control" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Content Quality Control →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Edit, fact-check, and humanize AI-generated content</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=strategic-content-planning" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Strategic Content Planning →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Develop content strategies AI cannot replicate</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Deliverables:</strong> AI-assisted content portfolio, brand voice guidelines</p>
+                                <p><strong>Resources:</strong> Content AI tool certifications, advanced copywriting courses</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #f97316;">
+                                    <a href="phase-detail.html?phase=content-phase2" style="color: #f97316; text-decoration: none; cursor: pointer;">
+                                        Phase 2: Strategic Content Leadership (Months 4-8) →
+                                    </a>
+                                </h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead AI-integrated content strategy teams</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=content-strategy-analytics" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Content Strategy & Analytics →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Data-driven content performance optimization</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=team-ai-training-content" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Team AI Training →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Train content teams in AI tool adoption</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=brand-ai-guidelines" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Brand AI Guidelines →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Develop AI usage policies for brand consistency</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=cross-channel-integration" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Cross-Channel Integration →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Coordinate AI content across all marketing channels</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Content Strategy Director, AI Content Lead, Chief Marketing Officer</p>
+                                <p><strong>Salary Range:</strong> ₹30L - ₹60L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Entry AI Automation Specialist -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-critical">CRITICAL RISK: Data Entry & Administration</div>
+                        <h4 class="text-2xl font-bold mb-4">🔄 Process Automation & AI Operations Manager</h4>
+                        <p class="text-lg mb-6 opacity-90">Pivot from manual data entry to designing and managing automated workflows</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #ef4444;">Phase 1: Automation Tools Mastery (Months 1-4)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master business process automation tools</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=rpa-tools" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                RPA Tools (UiPath, Automation Anywhere) →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Build automated workflows for data processing</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=no-code-platforms" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                No-Code/Low-Code Platforms →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Microsoft Power Platform, Zapier, Bubble</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=database-management" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Database Management →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">SQL, data validation, and quality control systems</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=process-documentation" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Process Documentation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Map current processes for automation opportunities</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Deliverables:</strong> Automated workflow implementations, process efficiency reports</p>
+                                <p><strong>Target Roles:</strong> RPA Developer, Process Analyst, Automation Specialist</p>
+                                <p><strong>Salary Range:</strong> ₹15L - ₹28L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #f97316;">Phase 2: Strategic Process Leadership (Months 5-8)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead digital transformation initiatives</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=digital-transformation-strategy" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Digital Transformation Strategy →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Plan and execute organization-wide automation initiatives</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=change-management" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Change Management →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Lead teams through automation transitions</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=roi-analysis" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                ROI Analysis →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Measure and optimize automation business impact</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=process-excellence" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Process Excellence →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Continuous improvement and optimization methodologies</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Head of Process Excellence, Digital Transformation Manager, Operations Director</p>
+                                <p><strong>Salary Range:</strong> ₹25L - ₹45L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Legal AI Research Specialist -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-critical">CRITICAL RISK: Legal & Paralegal</div>
+                        <h4 class="text-2xl font-bold mb-4">⚖️ Legal AI Research & Compliance Specialist</h4>
+                        <p class="text-lg mb-6 opacity-90">Evolution from traditional legal research to AI-augmented legal analysis</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #ef4444;">Phase 1: Legal AI Tools (Months 1-6)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI-powered legal research and analysis tools</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=legal-ai-research-tools" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Legal AI Research Tools →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Westlaw Edge AI, LexisNexis+, Casetext CARA</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=contract-analysis-ai" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Contract Analysis AI →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Automated contract review and risk assessment</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=legal-document-automation" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Legal Document Automation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Template creation and document generation systems</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=compliance-monitoring" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Compliance Monitoring →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-powered regulatory change tracking</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Legal Research Analyst, Compliance Specialist, Legal Tech Coordinator</p>
+                                <p><strong>Salary Range:</strong> ₹12L - ₹25L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #22c55e;">Phase 2: Legal Technology Leadership (Months 7-12)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead legal technology adoption in law firms</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=legal-tech-strategy" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Legal Tech Strategy →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Plan and implement legal technology transformation</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=legal-process-optimization" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Legal Process Optimization →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Streamline legal workflows with AI automation</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=legal-ai-ethics" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Legal AI Ethics →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Ensure responsible AI use in legal practice</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=legal-team-training" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Legal Team Training →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Train legal professionals in AI tool adoption</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Legal Operations Manager, Chief Legal Technology Officer</p>
+                                <p><strong>Salary Range:</strong> ₹20L - ₹40L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- High Risk Roadmaps -->
+            <div class="collapsible-roadmap" id="highRiskRoadmaps">
+                <div class="collapsible-roadmap-header" onclick="toggleRoadmapContent('highRiskContent')">
+                    <span><i class="fas fa-bolt mr-2"></i>🟠 HIGH RISK ROADMAPS - Strategic Transformation Required</span>
+                    <i class="fas fa-chevron-down" id="highRiskContent_chevron"></i>
+                </div>
+                <div class="collapsible-roadmap-content" id="highRiskContent">
+                    <!-- Financial AI Analyst -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-high">HIGH RISK: Banking & Finance</div>
+                        <h4 class="text-2xl font-bold mb-4">💰 Financial AI Analyst & Advisor</h4>
+                        <p class="text-lg mb-6 opacity-90">Evolution from traditional banking roles to AI-powered financial advisory</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #f97316;">Phase 1: AI Finance Tools (Months 1-4)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI-powered financial analysis tools</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-risk-assessment" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Risk Assessment →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Use ML models for credit risk and fraud detection</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=algorithmic-trading" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Algorithmic Trading Understanding →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Understand AI-driven investment strategies</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=financial-data-analysis" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Financial Data Analysis →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Advanced analytics with Python/R for finance</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=regtech" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Regulatory Technology (RegTech) →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-powered compliance and reporting systems</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Quantitative Analyst, Risk AI Specialist, RegTech Analyst</p>
+                                <p><strong>Salary Range:</strong> ₹18L - ₹35L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #eab308;">Phase 2: Strategic Financial Advisory (Months 5-12)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Become high-touch financial advisor with AI support</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=wealth-management-ai" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Wealth Management AI →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-powered portfolio optimization and advice</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=client-relationship-management" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Client Relationship Management →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">High-value personal financial advisory</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-ethics-finance" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Ethics in Finance →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Responsible AI implementation in financial services</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=fintech-innovation" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                FinTech Innovation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Lead digital transformation initiatives</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Senior Financial Advisor, FinTech Product Manager, Head of Digital Banking</p>
+                                <p><strong>Salary Range:</strong> ₹30L - ₹60L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Manufacturing AI Operations -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-high">HIGH RISK: Manufacturing</div>
+                        <h4 class="text-2xl font-bold mb-4">🏭 Smart Manufacturing Operations Specialist</h4>
+                        <p class="text-lg mb-6 opacity-90">Transition from manual operations to AI-driven smart factory management</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #f97316;">Phase 1: Industry 4.0 Fundamentals (Months 1-6)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Understand smart manufacturing technologies</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=iot-sensor-networks" style="color: inherit; text-decoration: none; cursor: pointer;">
+                                                IoT & Sensor Networks →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Industrial IoT implementation and management</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=predictive-maintenance-ai" style="color: inherit; text-decoration: none; cursor: pointer;">
+                                                Predictive Maintenance AI →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI models for equipment failure prediction</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=quality-control-automation" style="color: inherit; text-decoration: none; cursor: pointer;">
+                                                Quality Control Automation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Computer vision for automated quality inspection</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=supply-chain-optimization" style="color: inherit; text-decoration: none; cursor: pointer;">
+                                                Supply Chain Optimization →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-driven demand forecasting and logistics</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Smart Factory Technician, IoT Operations Specialist, Predictive Maintenance Engineer</p>
+                                <p><strong>Salary Range:</strong> ₹15L - ₹28L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #22c55e;">Phase 2: Manufacturing AI Leadership (Months 7-12)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead digital transformation in manufacturing</p>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Manufacturing AI Manager, Smart Factory Director, Industry 4.0 Consultant</p>
+                                <p><strong>Salary Range:</strong> ₹25L - ₹45L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Human Resources AI Transformation Specialist -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-high">HIGH RISK: Human Resources</div>
+                        <h4 class="text-2xl font-bold mb-4">👥 HR AI Transformation & People Analytics Specialist</h4>
+                        <p class="text-lg mb-6 opacity-90">Evolution from traditional HR to AI-powered talent management and people analytics</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #f97316;">Phase 1: HR AI Tools Mastery (Months 1-6)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI-powered HR tools and people analytics</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-recruitment-tools" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Recruitment Tools →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">HiredScore, Pymetrics, AI-powered applicant tracking</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=people-analytics-platforms" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                People Analytics Platforms →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Workday, BambooHR analytics, employee sentiment analysis</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=performance-management-ai" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Performance Management AI →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-driven performance insights and career pathing</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=hr-process-automation" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                HR Process Automation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Chatbots, automated onboarding, policy management</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> People Analytics Specialist, AI Recruitment Manager, HR Technology Lead</p>
+                                <p><strong>Salary Range:</strong> ₹18L - ₹35L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #22c55e;">Phase 2: Strategic HR Leadership (Months 7-12)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead organizational AI transformation and workforce planning</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=workforce-planning-ai" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Workforce Planning AI →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Predictive models for talent needs and skills gaps</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=change-management-hr" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Change Management →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Lead AI adoption across the organization</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=hr-ethics-compliance" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Ethics & Compliance →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Responsible AI implementation in HR processes</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=strategic-business-partnership" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Strategic Business Partnership →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Align HR AI initiatives with business objectives</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Chief People Officer, VP of People Analytics, Director of HR Innovation</p>
+                                <p><strong>Salary Range:</strong> ₹30L - ₹60L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Supply Chain AI Optimization Specialist -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-high">HIGH RISK: Supply Chain & Logistics</div>
+                        <h4 class="text-2xl font-bold mb-4">🚚 AI-Driven Supply Chain Optimization Specialist</h4>
+                        <p class="text-lg mb-6 opacity-90">Transform from traditional logistics to AI-powered supply chain intelligence</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #f97316;">Phase 1: Supply Chain AI Fundamentals (Months 1-6)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI applications in supply chain management</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=demand-forecasting-ai" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Demand Forecasting AI →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Machine learning models for demand prediction</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=inventory-optimization" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Inventory Optimization →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-powered inventory management and optimization</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=route-optimization" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Route Optimization →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI algorithms for logistics and delivery optimization</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=supplier-risk-analytics" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Supplier Risk Analytics →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-driven supplier performance and risk assessment</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Supply Chain Analyst, Logistics AI Specialist, Operations Research Analyst</p>
+                                <p><strong>Salary Range:</strong> ₹16L - ₹30L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #22c55e;">Phase 2: Strategic Supply Chain Leadership (Months 7-12)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead supply chain digital transformation</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=warehouse-automation" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Warehouse Automation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Robotic process automation for warehouse operations</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=supply-chain-transparency" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Supply Chain Transparency →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Blockchain and AI for supply chain visibility</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=sustainability-analytics" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Sustainability Analytics →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-powered environmental impact assessment</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=strategic-supply-management" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Strategic Supply Management →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-enhanced strategic supply chain planning</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Chief Supply Chain Officer, Director of Supply Chain Innovation</p>
+                                <p><strong>Salary Range:</strong> ₹25L - ₹50L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medium Risk Roadmaps -->
+            <div class="collapsible-roadmap" id="mediumRiskRoadmaps">
+                <div class="collapsible-roadmap-header" onclick="toggleRoadmapContent('mediumRiskContent')">
+                    <span><i class="fas fa-chart-line mr-2"></i>🟡 MEDIUM RISK ROADMAPS - Strategic Skill Enhancement</span>
+                    <i class="fas fa-chevron-down" id="mediumRiskContent_chevron"></i>
+                </div>
+                <div class="collapsible-roadmap-content" id="mediumRiskContent">
+                    <!-- Healthcare AI Coordinator -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-medium">MEDIUM RISK: Healthcare</div>
+                        <h4 class="text-2xl font-bold mb-4">🏥 Healthcare AI Coordinator</h4>
+                        <p class="text-lg mb-6 opacity-90">Bridge healthcare operations with AI technology implementation</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #eab308;">Phase 1: Healthcare AI Literacy (Months 1-8)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Understand AI applications in healthcare</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=health-informatics" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Health Informatics →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Electronic health records and data management</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=medical-ai-applications" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Medical AI Applications →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Diagnostic AI, treatment optimization, patient monitoring</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=healthcare-compliance" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Healthcare Compliance →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">HIPAA, data privacy, medical device regulations</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=patient-care-coordination" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Patient Care Coordination →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-assisted care pathway optimization</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Health Informatics Specialist, Medical AI Coordinator, Patient Care Navigator</p>
+                                <p><strong>Salary Range:</strong> ₹12L - ₹25L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #22c55e;">Phase 2: Strategic Healthcare Innovation (Months 9-18)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead healthcare digital transformation initiatives</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=digital-health-strategy" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Digital Health Strategy →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Strategic planning for healthcare digital transformation</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=healthcare-ai-implementation" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Healthcare AI Implementation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Large-scale AI deployment in healthcare systems</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=clinical-decision-support" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Clinical Decision Support →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-powered clinical decision support systems</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=healthcare-change-management" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Healthcare Change Management →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Managing organizational change in healthcare AI adoption</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Healthcare Innovation Manager, Digital Health Director, Chief Medical Information Officer</p>
+                                <p><strong>Salary Range:</strong> ₹20L - ₹40L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data-Driven Business Analyst -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-medium">MEDIUM RISK: Business Analysis</div>
+                        <h4 class="text-2xl font-bold mb-4">📊 AI-Powered Business Intelligence Analyst</h4>
+                        <p class="text-lg mb-6 opacity-90">Evolution from traditional analysis to AI-augmented business intelligence</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #eab308;">Phase 1: Advanced Analytics (Months 1-6)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI-powered analytics tools</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=machine-learning-business" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Machine Learning for Business →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Predictive analytics, forecasting, pattern recognition</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=advanced-bi-tools" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Advanced BI Tools →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Tableau AI, Power BI AI, Qlik Sense AI insights</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=statistical-analysis" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Statistical Analysis →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Python/R for statistical modeling and hypothesis testing</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=data-storytelling" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Data Storytelling →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Communicate complex insights to stakeholders</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Senior Business Analyst, Data Scientist, BI Developer</p>
+                                <p><strong>Salary Range:</strong> ₹15L - ₹30L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #22c55e;">Phase 2: Strategic Business Intelligence (Months 7-12)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead data-driven decision making</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=strategic-analytics" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Strategic Analytics →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Enterprise-level analytics and business strategy</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-business-optimization" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Business Optimization →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-driven process optimization and efficiency</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=executive-reporting" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Executive Reporting →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">C-level dashboards and strategic insights</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=data-governance" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Data Governance →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Data quality, privacy, and compliance frameworks</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Head of Analytics, Chief Data Officer, Director of Business Intelligence</p>
+                                <p><strong>Salary Range:</strong> ₹25L - ₹50L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education AI Integration Specialist -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-medium">MEDIUM RISK: Education & Training</div>
+                        <h4 class="text-2xl font-bold mb-4">🎓 AI-Enhanced Learning Experience Designer</h4>
+                        <p class="text-lg mb-6 opacity-90">Transform traditional education into AI-augmented personalized learning</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #eab308;">Phase 1: Educational Technology (Months 1-8)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI-powered educational tools and methodologies</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-tutoring-systems" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Tutoring Systems →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Personalized AI tutors and adaptive learning platforms</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=learning-analytics" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Learning Analytics →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-driven student performance analysis and insights</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=content-creation-ai" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Content Creation AI →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-assisted curriculum and assessment development</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=instructional-design" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Instructional Design →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Design effective human-AI collaborative learning experiences</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Learning Experience Designer, Educational Technology Specialist, AI Training Developer</p>
+                                <p><strong>Salary Range:</strong> ₹12L - ₹22L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #22c55e;">Phase 2: Educational Innovation Leadership (Months 9-16)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead institutional AI transformation in education</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=educational-ai-strategy" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Educational AI Strategy →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Institutional AI transformation planning and implementation</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=learning-platform-integration" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Learning Platform Integration →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Enterprise-wide AI learning system implementation</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=faculty-ai-training" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Faculty AI Training →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Training programs for educators on AI integration</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=educational-innovation-management" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Educational Innovation Management →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Leading innovation initiatives in educational institutions</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Chief Learning Officer, Director of Educational Innovation, VP of Academic Technology</p>
+                                <p><strong>Salary Range:</strong> ₹20L - ₹40L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sales AI Enablement Specialist -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-medium">MEDIUM RISK: Sales & Business Development</div>
+                        <h4 class="text-2xl font-bold mb-4">📈 AI-Powered Sales Strategy & Enablement Specialist</h4>
+                        <p class="text-lg mb-6 opacity-90">Evolution from traditional sales to AI-augmented customer relationship management</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #eab308;">Phase 1: Sales AI Tools Mastery (Months 1-6)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI-powered sales and CRM tools</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-powered-crm" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI-Powered CRM →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Salesforce Einstein, HubSpot AI, predictive lead scoring</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=sales-analytics-forecasting" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Sales Analytics & Forecasting →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-driven sales predictions and performance optimization</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=customer-intelligence" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Customer Intelligence →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI customer behavior analysis and personalization</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=sales-process-automation" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Sales Process Automation →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Automated follow-ups, proposal generation, and pipeline management</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Sales Operations Analyst, CRM Administrator, Sales Enablement Specialist</p>
+                                <p><strong>Salary Range:</strong> ₹14L - ₹26L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #22c55e;">Phase 2: Strategic Sales Leadership (Months 7-12)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead AI-driven sales transformation</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=sales-ai-strategy" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Sales AI Strategy →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Strategic planning for AI-powered sales transformation</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=revenue-optimization" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Revenue Optimization →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-driven pricing strategies and revenue maximization</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=sales-team-enablement" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Sales Team Enablement →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Training and enabling sales teams with AI tools</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=customer-experience-ai" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Customer Experience AI →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-powered customer journey optimization</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> VP of Sales Operations, Chief Revenue Officer, Director of Sales Technology</p>
+                                <p><strong>Salary Range:</strong> ₹22L - ₹45L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Management AI Orchestrator -->
+                    <div class="roadmap-card">
+                        <div class="risk-badge risk-medium">MEDIUM RISK: Project Management</div>
+                        <h4 class="text-2xl font-bold mb-4">🎯 AI-Enabled Project & Program Management Specialist</h4>
+                        <p class="text-lg mb-6 opacity-90">Transform traditional project management with AI-powered insights and automation</p>
+                        
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #eab308;">Phase 1: PM AI Tools Integration (Months 1-6)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Master AI-enhanced project management tools and methodologies</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-project-planning" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Project Planning →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Monday.com AI, Asana Intelligence, predictive project planning</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=risk-analytics" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Risk Analytics →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-powered risk assessment and mitigation strategies</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=resource-optimization" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Resource Optimization →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI-driven resource allocation and capacity planning</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=performance-analytics" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Performance Analytics →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">AI insights for team productivity and project success metrics</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Senior Project Manager, PMO Analyst, Agile Coach</p>
+                                <p><strong>Salary Range:</strong> ₹16L - ₹32L annually</p>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <h5 class="text-lg font-bold mb-2" style="color: #22c55e;">Phase 2: Strategic Program Leadership (Months 7-12)</h5>
+                                <p class="mb-3"><strong>Objective:</strong> Lead enterprise-wide project transformation</p>
+                                
+                                <div class="skill-grid">
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-program-strategy" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Program Strategy →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Strategic planning for AI-enhanced program management</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=digital-transformation-leadership" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Digital Transformation Leadership →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Leading organizational change and AI adoption</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=ai-ethics-governance" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                AI Ethics & Governance →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Implement responsible AI practices and security measures</p>
+                                    </div>
+                                    <div class="skill-item">
+                                        <h6 class="font-bold mb-1">
+                                            <a href="component-detail.html?component=team-ai-leadership" style="color: #67e8f9; text-decoration: none; cursor: pointer;">
+                                                Team AI Leadership →
+                                            </a>
+                                        </h6>
+                                        <p class="text-sm opacity-90">Train and lead teams in AI adoption</p>
+                                    </div>
+                                </div>
+                                
+                                <p class="mt-3"><strong>Target Roles:</strong> Program Director, Chief Project Officer, VP of Operations</p>
+                                <p><strong>Salary Range:</strong> ₹25L - ₹50L+ annually</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Roadmap Success Metrics -->
+            <section class="glass rounded-2xl p-8 mt-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">📊 Comprehensive Success Metrics & KPIs</h3>
+                
+                <!-- Performance Dashboard -->
+                <div class="mb-8">
+                    <h4 class="text-xl font-bold mb-4 text-center">🎯 Your Transformation Dashboard</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                        <div onclick="alert('AI-Resistance Score: 85%\\n\\nYour current role has strong AI-resistance due to:\\n• Complex problem-solving requirements\\n• Human interaction and creativity\\n• Strategic decision-making components\\n\\nImprovement Areas:\\n• Learn AI collaboration tools (+5%)\\n• Develop unique human skills (+10%)\\n• Build AI oversight capabilities (+5%)')" class="text-center p-4 rounded-xl bg-green-600 bg-opacity-20 border border-green-500 border-opacity-30 cursor-pointer hover:bg-opacity-30 transition-all">
+                            <div class="text-3xl mb-2">85%</div>
+                            <h5 class="text-sm font-bold mb-1">AI-Resistance Score</h5>
+                            <p class="text-xs" style="color: #d1d5db;">Target: 80%+ for safety</p>
+                            <p class="text-xs text-cyan-300 mt-1">Click for details</p>
+                        </div>
+                        <div onclick="alert('Salary Growth: +47%\\n\\nCurrent Salary: $65,000\\nTarget Salary: $95,000\\n\\nGrowth Strategy:\\n• Complete AI specialist certification (+$15K)\\n• Build portfolio projects (+$10K)\\n• Negotiate role upgrade (+$5K)\\n\\nTimeline: 8-12 months')" class="text-center p-4 rounded-xl bg-blue-600 bg-opacity-20 border border-blue-500 border-opacity-30 cursor-pointer hover:bg-opacity-30 transition-all">
+                            <div class="text-3xl mb-2">+47%</div>
+                            <h5 class="text-sm font-bold mb-1">Salary Increase</h5>
+                            <p class="text-xs" style="color: #d1d5db;">Target: +30-60%</p>
+                            <p class="text-xs text-cyan-300 mt-1">Click for details</p>
+                        </div>
+                        <div onclick="alert('Transformation Timeline: 12 Months\\n\\nPhase Breakdown:\\nMonths 1-3: Skills Assessment & Foundation\\nMonths 4-8: Certification & Portfolio Building\\nMonths 9-12: Job Search & Transition\\n\\nAccelerate Your Timeline:\\n• Intensive bootcamp approach (-3 months)\\n• Part-time transition (-2 months)\\n• Industry networking (-1 month)')" class="text-center p-4 rounded-xl bg-purple-600 bg-opacity-20 border border-purple-500 border-opacity-30 cursor-pointer hover:bg-opacity-30 transition-all">
+                            <div class="text-3xl mb-2">12</div>
+                            <h5 class="text-sm font-bold mb-1">Months to Success</h5>
+                            <p class="text-xs" style="color: #d1d5db;">Target: 6-18 months</p>
+                            <p class="text-xs text-cyan-300 mt-1">Click for details</p>
+                        </div>
+                        <div onclick="alert('Job Security Score: 94%\\n\\nYour transformation path leads to high-security roles in:\\n• AI/ML Engineering (96% security)\\n• Cloud Architecture (93% security)\\n• Data Science (91% security)\\n\\nSecurity Factors:\\n• High demand, low supply\\n• AI-complementary skills\\n• Strategic business value')" class="text-center p-4 rounded-xl bg-orange-600 bg-opacity-20 border border-orange-500 border-opacity-30 cursor-pointer hover:bg-opacity-30 transition-all">
+                            <div class="text-3xl mb-2">94%</div>
+                            <h5 class="text-sm font-bold mb-1">Job Security</h5>
+                            <p class="text-xs" style="color: #d1d5db;">Target: 90%+ confidence</p>
+                            <p class="text-xs text-cyan-300 mt-1">Click for details</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Success Metrics by Category -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Technical Skills Metrics -->
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6">
+                        <h4 class="text-lg font-bold mb-4 flex items-center">
+                            <i class="fas fa-code mr-2 text-cyan-300"></i>
+                            Technical Skills Progress
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="skill-metric">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">AI Tool Proficiency</span>
+                                    <span class="text-sm text-green-400">78%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 78%"></div>
+                                </div>
+                                <p class="text-xs opacity-75 mt-1">Target: Master 5+ AI tools (GitHub Copilot, ChatGPT, etc.)</p>
+                            </div>
+                            
+                            <div class="skill-metric">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Cloud Certifications</span>
+                                    <span class="text-sm text-yellow-400">45%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill bg-yellow-400" style="width: 45%"></div>
+                                </div>
+                                <p class="text-xs opacity-75 mt-1">Target: 2+ cloud certs (AWS, Azure, GCP)</p>
+                            </div>
+                            
+                            <div class="skill-metric">
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium">Programming Skills</span>
+                                    <span class="text-sm text-blue-400">62%</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill bg-blue-400" style="width: 62%"></div>
+                                </div>
+                                <p class="text-xs opacity-75 mt-1">Target: Python, JavaScript, or SQL proficiency</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Career Advancement Metrics -->
+                    <div class="bg-gray-800 bg-opacity-50 rounded-xl p-6">
+                        <h4 class="text-lg font-bold mb-4 flex items-center">
+                            <i class="fas fa-chart-line mr-2 text-green-400"></i>
+                            Career Advancement KPIs
+                        </h4>
+                        <div class="space-y-4">
+                            <div class="metric-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium">Salary Growth</span>
+                                    <span class="text-green-400 font-bold">+$23,000</span>
+                                </div>
+                                <div class="text-xs opacity-75">
+                                    <div>📈 Current: $65,000 → Target: $88,000</div>
+                                    <div>⏱️ Timeline: 8-12 months</div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium">Job Opportunities</span>
+                                    <span class="text-blue-400 font-bold">4.2x increase</span>
+                                </div>
+                                <div class="text-xs opacity-75">
+                                    <div>📊 From 12 → 50+ relevant positions weekly</div>
+                                    <div>🎯 Match rate improvement: 340%</div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric-item">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm font-medium">Industry Recognition</span>
+                                    <span class="text-purple-400 font-bold">Portfolio Ready</span>
+                                </div>
+                                <div class="text-xs opacity-75">
+                                    <div>🏆 3+ completed projects showcased</div>
+                                    <div>📜 2+ industry certifications earned</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Benchmarks by Career Path -->
+                <div class="mt-8">
+                    <h4 class="text-xl font-bold mb-6 text-center">🎯 Success Benchmarks by Career Path</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        
+                        <!-- AI Specialist Path -->
+                        <div onclick="alert('🤖 AI Specialist Career Path\\n\\nSalary Range: $75K - $120K\\nTransformation Time: 6-9 months\\nJob Growth: +23% YoY\\nSuccess Rate: 87%\\n\\nLearning Path:\\n✓ Python Programming (4 weeks)\\n◐ Machine Learning Basics (6 weeks)\\n○ Deep Learning & Neural Networks (8 weeks)\\n○ AI Ethics & Governance (2 weeks)\\n\\nCertifications:\\n• Google AI/ML Professional Certificate\\n• AWS Machine Learning Specialty\\n• Microsoft Azure AI Engineer\\n\\nJob Opportunities:\\n• AI/ML Engineer: $90K-$140K\\n• AI Product Manager: $85K-$125K\\n• AI Research Scientist: $100K-$160K')" class="bg-red-600 bg-opacity-20 border border-red-500 border-opacity-30 rounded-xl p-4 cursor-pointer hover:bg-opacity-30 transition-all">
+                            <h5 class="font-bold mb-3 flex items-center">
+                                <i class="fas fa-robot mr-2 text-red-400"></i>
+                                AI Specialist Track
+                            </h5>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span>💰 Salary Range:</span>
+                                    <span class="font-bold">$75K - $120K</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>⏱️ Transformation Time:</span>
+                                    <span class="font-bold">6-9 months</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>📈 Job Growth:</span>
+                                    <span class="font-bold text-green-400">+23% YoY</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>🎯 Success Rate:</span>
+                                    <span class="font-bold text-green-400">87%</span>
+                                </div>
+                                <div class="mt-3 pt-2 border-t border-gray-600">
+                                    <div class="text-xs opacity-75">
+                                        <div>✅ AI literacy certification</div>
+                                        <div>✅ 3+ AI projects completed</div>
+                                        <div>✅ Prompt engineering mastery</div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-blue-400 mt-2 text-center">Click for detailed roadmap</p>
+                            </div>
+                        </div>
+
+                        <!-- Data Analytics Path -->
+                        <div onclick="alert('📊 Data Analytics Career Path\\n\\nSalary Range: $65K - $95K\\nTransformation Time: 4-6 months\\nJob Growth: +8.5% YoY\\nSuccess Rate: 92%\\n\\nLearning Path:\\n✓ Excel & Statistics (2 weeks)\\n✓ SQL Database Querying (3 weeks)\\n◐ Python for Data Analysis (4 weeks)\\n○ Data Visualization (3 weeks)\\n\\nCertifications:\\n• Google Data Analytics Certificate\\n• Microsoft Power BI Data Analyst\\n• Tableau Desktop Specialist\\n\\nJob Opportunities:\\n• Data Analyst: $60K-$85K\\n• Business Intelligence Analyst: $65K-$90K\\n• Marketing Data Analyst: $58K-$82K')" class="bg-blue-600 bg-opacity-20 border border-blue-500 border-opacity-30 rounded-xl p-4 cursor-pointer hover:bg-opacity-30 transition-all">
+                            <h5 class="font-bold mb-3 flex items-center">
+                                <i class="fas fa-chart-bar mr-2 text-blue-400"></i>
+                                Data Analytics Track
+                            </h5>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span>💰 Salary Range:</span>
+                                    <span class="font-bold">$65K - $95K</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>⏱️ Transformation Time:</span>
+                                    <span class="font-bold">4-6 months</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>📈 Job Growth:</span>
+                                    <span class="font-bold text-green-400">+8.5% YoY</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>🎯 Success Rate:</span>
+                                    <span class="font-bold text-green-400">92%</span>
+                                </div>
+                                <div class="mt-3 pt-2 border-t border-gray-600">
+                                    <div class="text-xs opacity-75">
+                                        <div>✅ Google Data Analytics cert</div>
+                                        <div>✅ SQL + Python proficiency</div>
+                                        <div>✅ 5+ analysis projects</div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-blue-400 mt-2 text-center">Click for detailed roadmap</p>
+                            </div>
+                        </div>
+
+                        <!-- Cloud Engineer Path -->
+                        <div onclick="alert('☁️ Cloud Engineer Career Path\\n\\nSalary Range: $80K - $130K\\nTransformation Time: 8-12 months\\nJob Growth: +15% YoY\\nSuccess Rate: 84%\\n\\nLearning Path:\\n◐ Cloud Computing Fundamentals (3 weeks)\\n○ Linux System Administration (4 weeks)\\n○ Infrastructure as Code (5 weeks)\\n○ DevOps & CI/CD (6 weeks)\\n\\nCertifications:\\n• AWS Solutions Architect Associate\\n• Microsoft Azure Fundamentals\\n• Google Cloud Professional\\n• Kubernetes Administrator (CKA)\\n\\nJob Opportunities:\\n• Cloud Engineer: $75K-$110K\\n• DevOps Engineer: $80K-$120K\\n• Cloud Solutions Architect: $95K-$140K')" class="bg-green-600 bg-opacity-20 border border-green-500 border-opacity-30 rounded-xl p-4 cursor-pointer hover:bg-opacity-30 transition-all">
+                            <h5 class="font-bold mb-3 flex items-center">
+                                <i class="fas fa-cloud mr-2 text-green-400"></i>
+                                Cloud Engineer Track
+                            </h5>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span>💰 Salary Range:</span>
+                                    <span class="font-bold">$80K - $130K</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>⏱️ Transformation Time:</span>
+                                    <span class="font-bold">8-12 months</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>📈 Job Growth:</span>
+                                    <span class="font-bold text-green-400">+15% YoY</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>🎯 Success Rate:</span>
+                                    <span class="font-bold text-green-400">84%</span>
+                                </div>
+                                <div class="mt-3 pt-2 border-t border-gray-600">
+                                    <div class="text-xs opacity-75">
+                                        <div>✅ AWS/Azure certification</div>
+                                        <div>✅ Infrastructure automation</div>
+                                        <div>✅ DevOps tool mastery</div>
+                                    </div>
+                                </div>
+                                <p class="text-xs text-blue-400 mt-2 text-center">Click for detailed roadmap</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Tracking Tools -->
+                <div class="mt-8 bg-gray-800 bg-opacity-30 rounded-xl p-6">
+                    <h4 class="text-lg font-bold mb-4 text-center">📊 Track Your Progress</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-medium mb-3">Weekly Milestones</h5>
+                            <div class="space-y-2 text-sm progress-tracking">
+                                <div onclick="this.querySelector('input').checked = !this.querySelector('input').checked; this.style.opacity = this.querySelector('input').checked ? '0.7' : '1'; this.querySelector('span').style.textDecoration = this.querySelector('input').checked ? 'line-through' : 'none';" class="flex items-center cursor-pointer hover:bg-gray-700 hover:bg-opacity-30 p-2 rounded">
+                                    <input type="checkbox" class="mr-2" checked onclick="event.stopPropagation()">
+                                    <span class="opacity-75">Complete skills assessment</span>
+                                </div>
+                                <div onclick="this.querySelector('input').checked = !this.querySelector('input').checked; this.style.opacity = this.querySelector('input').checked ? '0.7' : '1'; this.querySelector('span').style.textDecoration = this.querySelector('input').checked ? 'line-through' : 'none';" class="flex items-center cursor-pointer hover:bg-gray-700 hover:bg-opacity-30 p-2 rounded">
+                                    <input type="checkbox" class="mr-2" checked onclick="event.stopPropagation()">
+                                    <span class="opacity-75">Start first certification course</span>
+                                </div>
+                                <div onclick="this.querySelector('input').checked = !this.querySelector('input').checked; this.style.opacity = this.querySelector('input').checked ? '0.7' : '1'; this.querySelector('span').style.textDecoration = this.querySelector('input').checked ? 'line-through' : 'none';" class="flex items-center cursor-pointer hover:bg-gray-700 hover:bg-opacity-30 p-2 rounded">
+                                    <input type="checkbox" class="mr-2" onclick="event.stopPropagation()">
+                                    <span>Build portfolio project #1</span>
+                                </div>
+                                <div onclick="this.querySelector('input').checked = !this.querySelector('input').checked; this.style.opacity = this.querySelector('input').checked ? '0.7' : '1'; this.querySelector('span').style.textDecoration = this.querySelector('input').checked ? 'line-through' : 'none';" class="flex items-center cursor-pointer hover:bg-gray-700 hover:bg-opacity-30 p-2 rounded">
+                                    <input type="checkbox" class="mr-2" onclick="event.stopPropagation()">
+                                    <span>Network with 5 industry professionals</span>
+                                </div>
+                                <div onclick="this.querySelector('input').checked = !this.querySelector('input').checked; this.style.opacity = this.querySelector('input').checked ? '0.7' : '1'; this.querySelector('span').style.textDecoration = this.querySelector('input').checked ? 'line-through' : 'none';" class="flex items-center cursor-pointer hover:bg-gray-700 hover:bg-opacity-30 p-2 rounded">
+                                    <input type="checkbox" class="mr-2" onclick="event.stopPropagation()">
+                                    <span>Apply to 10 target positions</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="font-medium mb-3">Monthly Targets</h5>
+                            <div class="space-y-2 text-sm">
+                                <div class="flex justify-between">
+                                    <span>Skills gained:</span>
+                                    <span class="font-bold text-blue-400">3/5</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Certifications earned:</span>
+                                    <span class="font-bold text-green-400">1/2</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Projects completed:</span>
+                                    <span class="font-bold text-purple-400">2/4</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Job applications:</span>
+                                    <span class="font-bold text-orange-400">15/30</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Network connections:</span>
+                                    <span class="font-bold text-yellow-400">12/20</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Roadmap Selector -->
+            <section class="glass rounded-2xl p-8 mt-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">⚡ Quick Roadmap Selector</h3>
+                <p class="text-center mb-6 opacity-90">Don't have time for the full assessment? Choose your industry for instant roadmap access</p>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                    <button onclick="expandRoadmapByIndustry('critical', 'tech')" class="quick-selector-btn">
+                        <i class="fas fa-code mb-2"></i>
+                        <span>Tech & IT</span>
+                    </button>
+                    <button onclick="expandRoadmapByIndustry('high', 'finance')" class="quick-selector-btn">
+                        <i class="fas fa-chart-line mb-2"></i>
+                        <span>Finance</span>
+                    </button>
+                    <button onclick="expandRoadmapByIndustry('high', 'manufacturing')" class="quick-selector-btn">
+                        <i class="fas fa-industry mb-2"></i>
+                        <span>Manufacturing</span>
+                    </button>
+                    <button onclick="expandRoadmapByIndustry('medium', 'healthcare')" class="quick-selector-btn">
+                        <i class="fas fa-heartbeat mb-2"></i>
+                        <span>Healthcare</span>
+                    </button>
+                    <button onclick="expandRoadmapByIndustry('critical', 'content')" class="quick-selector-btn">
+                        <i class="fas fa-edit mb-2"></i>
+                        <span>Content</span>
+                    </button>
+                    <button onclick="expandRoadmapByIndustry('high', 'hr')" class="quick-selector-btn">
+                        <i class="fas fa-users mb-2"></i>
+                        <span>HR</span>
+                    </button>
+                    <button onclick="expandRoadmapByIndustry('medium', 'education')" class="quick-selector-btn">
+                        <i class="fas fa-graduation-cap mb-2"></i>
+                        <span>Education</span>
+                    </button>
+                    <button onclick="expandRoadmapByIndustry('medium', 'sales')" class="quick-selector-btn">
+                        <i class="fas fa-handshake mb-2"></i>
+                        <span>Sales</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="glass rounded-2xl p-8 mt-8 text-center">
+                <h3 class="text-2xl font-bold mb-4">🚀 Ready to Start Your Transformation?</h3>
+                <p class="text-lg mb-6 opacity-90">Get your personalized roadmap and start building your AI-resistant career today</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="p-6 rounded-xl bg-red-600 bg-opacity-20 border border-red-500">
+                        <h4 class="text-lg font-bold mb-3">🔥 Emergency Assessment</h4>
+                        <p class="text-sm mb-4 opacity-90">Complete risk analysis and personalized recommendations</p>
+                        <a href="assessment.html" class="btn-primary w-full">
+                            <i class="fas fa-bolt mr-2"></i>
+                            TAKE ASSESSMENT NOW
+                        </a>
+                    </div>
+                    <div class="p-6 rounded-xl bg-green-600 bg-opacity-20 border border-green-500">
+                        <h4 class="text-lg font-bold mb-3">📚 Learning Resources</h4>
+                        <p class="text-sm mb-4 opacity-90">Access courses, certifications, and training materials</p>
+                        <a href="resources.html" class="btn-primary w-full" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);">
+                            <i class="fas fa-toolbox mr-2"></i>
+                            VIEW RESOURCES
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mt-6 pt-6 border-t border-gray-600">
+                    <p class="text-sm opacity-75 mb-4">🤝 Join thousands of professionals already transforming their careers</p>
+                    <div class="flex justify-center space-x-6 text-sm">
+                        <div><strong>15,000+</strong> assessments completed</div>
+                        <div><strong>8,500+</strong> successful transitions</div>
+                        <div><strong>₹25L+</strong> average salary increase</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="mt-16 py-8 px-4 border-t border-gray-700" style="background: rgba(17, 24, 39, 0.8); backdrop-filter: blur(10px);" role="contentinfo">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4" style="color: white;">AI RECKONING</h4>
+                        <p class="text-sm mb-4" style="color: #d1d5db;">Emergency response for AI-driven workforce transformation.</p>
+                        <div class="mt-4 space-y-2">
+                            <a href="about.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">About Us</a>
+                            <a href="methodology.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Our Methodology</a>
+                            <a href="research.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Research & Data</a>
+                            <a href="privacy.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Privacy Policy</a>
+                            <a href="terms.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Terms of Service</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4" style="color: white;">Resources</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://futureskillsprime.in" target="_blank" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">FutureSkills Prime</a></li>
+                            <li><a href="https://www.skillindia.gov.in" target="_blank" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Skill India</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4" style="color: white;">Industries</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="resources.html#it-bpm" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">IT & BPM</a></li>
+                            <li><a href="resources.html#banking" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Banking</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4" style="color: white;">Support</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="help.html" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Help Center</a></li>
+                            <li><a href="contact.html" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+                    <p style="color: #9ca3af;">&copy; 2025 AI RECKONING. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
