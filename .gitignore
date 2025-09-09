@@ -1,0 +1,11 @@
+# GitHub Pages and development files
+.DS_Store
+Thumbs.db
+*.log
+node_modules/
+.vscode/
+.idea/
+
+# Local testing
+__pycache__/
+*.pyc
