@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component Data Debug Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .result { margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .success { background: #d4edda; border-color: #c3e6cb; }
+        .error { background: #f8d7da; border-color: #f5c6cb; }
+        .info { background: #d1ecf1; border-color: #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>Component Data Debug Test</h1>
+    <div id="results"></div>
+
+    <script>
+        const results = document.getElementById('results');
+        
+        function addResult(message, type = 'info') {
+            const div = document.createElement('div');
+            div.className = `result ${type}`;
+            div.textContent = message;
+            results.appendChild(div);
+        }
+        
+        // Test 1: Load the component-detail.html in an iframe to check for syntax errors
+        addResult('Test 1: Loading component-detail.html to check for JavaScript errors...');
+        
+        fetch('component-detail.html')
+            .then(response => response.text())
+            .then(html => {
+                addResult('✅ component-detail.html loaded successfully', 'success');
+                
+                // Test 2: Extract and test the componentData object
+                try {
+                    // Find the componentData definition
+                    const componentDataMatch = html.match(/const componentData = \{[\s\S]*?\n\s*\};/);
+                    if (componentDataMatch) {
+                        addResult('✅ componentData object found in HTML', 'success');
+                        
+                        // Test 3: Try to parse it
+                        const componentDataCode = componentDataMatch[0];
+                        eval(componentDataCode);
+                        addResult('✅ componentData object parsed successfully', 'success');
+                        
+                        // Test 4: Check specific components
+                        const testComponents = [
+                            'ai-recruitment-tools',
+                            'demand-forecasting-ai', 
+                            'health-informatics',
+                            'machine-learning-business',
+                            'change-management-hr',
+                            'strategic-business-partnership'
+                        ];
+                        
+                        testComponents.forEach(componentId => {
+                            if (componentData[componentId]) {
+                                addResult(`✅ Component '${componentId}' exists`, 'success');
+                            } else {
+                                addResult(`❌ Component '${componentId}' NOT found`, 'error');
+                            }
+                        });
+                        
+                        // Test 5: Count total components
+                        const totalComponents = Object.keys(componentData).length;
+                        addResult(`📊 Total components in componentData: ${totalComponents}`, 'info');
+                        
+                    } else {
+                        addResult('❌ componentData object not found in HTML', 'error');
+                    }
+                } catch (error) {
+                    addResult(`❌ Error parsing componentData: ${error.message}`, 'error');
+                }
+            })
+            .catch(error => {
+                addResult(`❌ Failed to load component-detail.html: ${error.message}`, 'error');
+            });
+        
+        // Test 6: Direct URL test
+        addResult('Test 6: Testing direct component URLs...');
+        const testUrls = [
+            'component-detail.html?component=ai-recruitment-tools',
+            'component-detail.html?component=demand-forecasting-ai',
+            'component-detail.html?component=change-management-hr'
+        ];
+        
+        testUrls.forEach(url => {
+            fetch(url)
+                .then(response => response.text())
+                .then(html => {
+                    if (html.includes('No Links')) {
+                        addResult(`❌ ${url} shows "No Links"`, 'error');
+                    } else if (html.includes('Skills & Learning Path')) {
+                        addResult(`✅ ${url} loads successfully`, 'success');
+                    } else {
+                        addResult(`⚠️ ${url} loads but content unclear`, 'info');
+                    }
+                })
+                .catch(error => {
+                    addResult(`❌ ${url} failed: ${error.message}`, 'error');
+                });
+        });
+    </script>
+</body>
+</html>

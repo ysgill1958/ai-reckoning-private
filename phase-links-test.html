@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase Links Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }
+        .test-section { background: white; margin: 15px 0; padding: 20px; border-radius: 8px; border: 1px solid #ddd; }
+        .phase-link { display: block; margin: 10px 0; padding: 15px; background: #007cba; color: white; text-decoration: none; border-radius: 5px; text-align: center; }
+        .phase-link:hover { background: #005a87; }
+        .manufacturing { background: #f97316; }
+        .manufacturing:hover { background: #e76b13; }
+        .success { background: #22c55e; }
+        .success:hover { background: #16a34a; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Phase Links Test</h1>
+    <p>Test all phase links to see which ones are working:</p>
+
+    <div class="test-section">
+        <h2>🏭 Manufacturing Phases</h2>
+        <a href="phase-detail.html?phase=manufacturing-phase1" class="phase-link manufacturing">
+            Phase 1: Industry 4.0 Fundamentals (Months 1-6) →
+        </a>
+        <a href="phase-detail.html?phase=manufacturing-phase2" class="phase-link success">
+            Phase 2: Manufacturing AI Leadership (Months 7-12) →
+        </a>
+    </div>
+
+    <div class="test-section">
+        <h2>💻 AI Development Phases</h2>
+        <a href="phase-detail.html?phase=ai-dev-phase1" class="phase-link">
+            Phase 1: Emergency AI Integration (Months 1-3) →
+        </a>
+        <a href="phase-detail.html?phase=ai-dev-phase2" class="phase-link">
+            Phase 2: AI Architecture Mastery (Months 4-6) →
+        </a>
+        <a href="phase-detail.html?phase=ai-dev-phase3" class="phase-link">
+            Phase 3: AI Innovation Leadership (Months 7-12) →
+        </a>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 Customer Experience Phases</h2>
+        <a href="phase-detail.html?phase=cx-phase1" class="phase-link">
+            Phase 1: CX AI Foundation (Months 1-3) →
+        </a>
+        <a href="phase-detail.html?phase=cx-phase2" class="phase-link">
+            Phase 2: Advanced CX Analytics (Months 4-6) →
+        </a>
+    </div>
+
+    <div class="test-section">
+        <h2>📝 Content Creation Phases</h2>
+        <a href="phase-detail.html?phase=content-phase1" class="phase-link">
+            Phase 1: AI Content Mastery (Months 1-3) →
+        </a>
+        <a href="phase-detail.html?phase=content-phase2" class="phase-link">
+            Phase 2: Content Strategy Leadership (Months 4-6) →
+        </a>
+    </div>
+
+    <div class="test-section">
+        <h2>🔄 Test Results</h2>
+        <p>Click each link above. Each should:</p>
+        <ul>
+            <li>✅ Take you to a phase detail page</li>
+            <li>✅ Show specific phase information</li>
+            <li>❌ NOT show "Phase not found"</li>
+        </ul>
+        <p><strong>Back to main site:</strong> <a href="roadmaps.html">roadmaps.html</a></p>
+    </div>
+
+    <script>
+        // Log all clicks for debugging
+        document.querySelectorAll('.phase-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                console.log('Clicked phase link:', this.href);
+                console.log('Target phase:', this.href.split('phase=')[1]);
+            });
+        });
+    </script>
+</body>
+</html>

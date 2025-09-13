@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Component ID Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: white; color: black; }
+        .component-list { background: #f5f5f5; padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .component-id { font-family: monospace; background: #e9ecef; padding: 2px 6px; margin: 2px; border-radius: 3px; display: inline-block; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Component ID Debug Tool</h1>
+    
+    <div class="test-section">
+        <h2>Current URL Component</h2>
+        <p><strong>Component ID from URL:</strong> <span id="current-component">Loading...</span></p>
+        <p><strong>Component Found:</strong> <span id="component-exists">Checking...</span></p>
+    </div>
+
+    <div class="test-section">
+        <h2>Available Component IDs</h2>
+        <div id="component-list">Loading component list...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Quick Tests</h2>
+        <p>Try these component links:</p>
+        <a href="component-detail.html?component=demand-forecasting-ai">demand-forecasting-ai</a> |
+        <a href="component-detail.html?component=ai-recruitment-tools">ai-recruitment-tools</a> |
+        <a href="component-detail.html?component=health-informatics">health-informatics</a> |
+        <a href="component-detail.html?component=inventory-optimization">inventory-optimization</a>
+    </div>
+
+    <script>
+        // Get component from URL
+        function getComponentFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('component');
+        }
+
+        // Load and parse the component data
+        fetch('component-detail.html')
+            .then(response => response.text())
+            .then(html => {
+                // Extract componentData from the HTML
+                const match = html.match(/const componentData = ({[\s\S]*?});/);
+                if (match) {
+                    try {
+                        const componentDataStr = match[1];
+                        const componentData = eval('(' + componentDataStr + ')');
+                        
+                        // Show current component info
+                        const currentComponent = getComponentFromURL();
+                        document.getElementById('current-component').textContent = currentComponent || 'None (no ?component= in URL)';
+                        
+                        if (currentComponent) {
+                            const exists = componentData[currentComponent] ? 'YES ✅' : 'NO ❌';
+                            document.getElementById('component-exists').textContent = exists;
+                        } else {
+                            document.getElementById('component-exists').textContent = 'N/A';
+                        }
+                        
+                        // List all available components
+                        const componentIds = Object.keys(componentData);
+                        const listHtml = componentIds.map(id => 
+                            `<span class="component-id">${id}</span>`
+                        ).join(' ');
+                        
+                        document.getElementById('component-list').innerHTML = 
+                            `<p><strong>Total Components Found:</strong> ${componentIds.length}</p>` +
+                            `<div>${listHtml}</div>`;
+                            
+                    } catch (error) {
+                        document.getElementById('component-list').innerHTML = 
+                            '<p style="color: red;">Error parsing componentData: ' + error.message + '</p>';
+                    }
+                } else {
+                    document.getElementById('component-list').innerHTML = 
+                        '<p style="color: red;">Could not find componentData in HTML</p>';
+                }
+            })
+            .catch(error => {
+                document.getElementById('component-list').innerHTML = 
+                    '<p style="color: red;">Error loading component data: ' + error.message + '</p>';
+            });
+    </script>
+</body>
+</html>
