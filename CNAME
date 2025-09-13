@@ -1,0 +1,18 @@
+# Surge.sh deployment configuration
+# Simple static hosting with public access
+
+# To deploy:
+# npm install -g surge
+# surge . your-domain.surge.sh
+
+# Domain suggestions:
+# ai-career-transformation.surge.sh
+# ai-reckoning.surge.sh
+# career-ai-guide.surge.sh
+
+# Files to ignore during deployment
+.git/
+.github/
+*.md
+node_modules/
+.env

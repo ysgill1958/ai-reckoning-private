@@ -5,19 +5,49 @@
   # Build settings
   publish = "."
   
+[build.environment]
+  # Ensure public access
+  NODE_VERSION = "18"
+
 [[headers]]
   # Cache static assets
   for = "/css/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
+    Access-Control-Allow-Origin = "*"
     
 [[headers]]
   for = "/js/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
+    Access-Control-Allow-Origin = "*"
 
 [[headers]]
   for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+    Access-Control-Allow-Origin = "*"
+
+# Redirect rules for clean URLs
+[[redirects]]
+  from = "/roadmaps"
+  to = "/roadmaps.html"
+  status = 200
+
+[[redirects]]
+  from = "/components"
+  to = "/component-detail.html"
+  status = 200
   [headers.values]
     Cache-Control = "public, max-age=31536000"
 
