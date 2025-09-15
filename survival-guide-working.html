@@ -173,7 +173,7 @@
 
     <!-- Include jsPDF library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="js/pdf-generator.js"></script>
+    <script src="js/simple-pdf-generator.js"></script>
 
     <script>
         function log(message) {
@@ -219,7 +219,7 @@
                 }
                 log('✅ jsPDF library loaded');
                 
-                if (typeof AICareerSurvivalGuideGenerator === 'undefined') {
+                if (typeof SimpleAIGuideGenerator === 'undefined') {
                     throw new Error('PDF generator class not loaded');
                 }
                 log('✅ PDF generator class loaded');
@@ -244,11 +244,11 @@
                 log(`📋 Profile created for ${name} (${industry})`);
                 
                 // Generate PDF
-                log('🔧 Initializing PDF generator...');
-                const generator = new AICareerSurvivalGuideGenerator();
+                log('🔧 Initializing simple PDF generator...');
+                const generator = new SimpleAIGuideGenerator();
                 
                 log('🚀 Generating personalized content...');
-                const success = await generator.generateFullGuide(userProfile);
+                const success = await generator.generateGuide(userProfile);
                 
                 if (success) {
                     log('🎉 SUCCESS! PDF generated and downloaded!');
@@ -291,7 +291,7 @@
                     log('❌ jsPDF library not found');
                 }
                 
-                if (typeof AICareerSurvivalGuideGenerator !== 'undefined') {
+                if (typeof SimpleAIGuideGenerator !== 'undefined') {
                     log('✅ AI Career Guide generator loaded successfully');
                 } else {
                     log('❌ AI Career Guide generator not found');

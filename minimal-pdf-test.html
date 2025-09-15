@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimal PDF Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a2e;
+            color: white;
+        }
+        button {
+            background: #10b981;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        #log {
+            background: #333;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Minimal PDF Test</h1>
+    <p>This tests the absolute minimum PDF generation to isolate issues.</p>
+    
+    <button onclick="testMinimalPDF()">📄 Test Minimal PDF</button>
+    <button onclick="testBasicGuide()">📚 Test Basic AI Guide</button>
+    
+    <div id="log">Ready to test...</div>
+
+    <!-- Include jsPDF only -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            logDiv.textContent += '[' + new Date().toLocaleTimeString() + '] ' + message + '\n';
+            console.log(message);
+        }
+
+        function testMinimalPDF() {
+            log('🔄 Testing minimal PDF generation...');
+            
+            try {
+                // Check jsPDF
+                if (typeof window.jspdf === 'undefined') {
+                    throw new Error('jsPDF not loaded');
+                }
+                log('✅ jsPDF available');
+                
+                // Create document
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                log('✅ PDF document created');
+                
+                // Add simple content
+                doc.setFontSize(16);
+                doc.text('AI Career Survival Guide', 20, 30);
+                doc.setFontSize(12);
+                doc.text('Test document created successfully!', 20, 50);
+                doc.text('Date: ' + new Date().toLocaleDateString(), 20, 70);
+                log('✅ Content added');
+                
+                // Save
+                doc.save('Minimal_Test.pdf');
+                log('🎉 SUCCESS! Minimal PDF downloaded');
+                
+            } catch (error) {
+                log('❌ ERROR: ' + error.message);
+                console.error(error);
+            }
+        }
+
+        function testBasicGuide() {
+            log('🔄 Testing basic AI guide...');
+            
+            try {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                // Cover page
+                doc.setFontSize(20);
+                doc.text('AI CAREER SURVIVAL GUIDE', 20, 30);
+                doc.setFontSize(14);
+                doc.text('Your Personalized Transformation Roadmap', 20, 50);
+                doc.setFontSize(12);
+                doc.text('Generated on: ' + new Date().toLocaleDateString(), 20, 70);
+                
+                log('✅ Cover page created');
+                
+                // Add new page
+                doc.addPage();
+                
+                // Chapter 1
+                doc.setFontSize(16);
+                doc.text('CHAPTER 1: THE AI EMERGENCY', 20, 30);
+                doc.setFontSize(12);
+                doc.text('Artificial Intelligence is transforming every industry', 20, 50);
+                doc.text('at an unprecedented pace. This chapter outlines', 20, 65);
+                doc.text('the critical steps you need to take right now.', 20, 80);
+                
+                log('✅ Chapter 1 created');
+                
+                // Add page numbers
+                const pageCount = doc.internal.getNumberOfPages();
+                for (let i = 1; i <= pageCount; i++) {
+                    doc.setPage(i);
+                    doc.setFontSize(8);
+                    doc.text('Page ' + i + ' of ' + pageCount, 180, 285);
+                }
+                
+                log('✅ Page numbers added');
+                
+                // Save
+                doc.save('Basic_AI_Guide.pdf');
+                log('🎉 SUCCESS! Basic AI guide downloaded');
+                
+            } catch (error) {
+                log('❌ ERROR: ' + error.message);
+                console.error(error);
+            }
+        }
+
+        // Test on load
+        window.onload = function() {
+            setTimeout(() => {
+                if (typeof window.jspdf !== 'undefined') {
+                    log('✅ jsPDF library loaded successfully');
+                    log('📝 Ready to test PDF generation');
+                } else {
+                    log('❌ jsPDF library failed to load');
+                }
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
