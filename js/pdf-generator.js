@@ -12,10 +12,23 @@ class AICareerSurvivalGuideGenerator {
         this.currentY = this.topMargin;
     }
 
+    // Simplified method for external calls
+    async generateFullGuide(userProfile, assessmentResults = null) {
+        return await this.generatePersonalizedGuide(userProfile, assessmentResults);
+    }
+
     async generatePersonalizedGuide(userProfile, assessmentResults = null) {
-        // Initialize jsPDF
+        // Initialize jsPDF with correct API
+        if (typeof window.jspdf === 'undefined') {
+            throw new Error('jsPDF library not loaded');
+        }
+        
         const { jsPDF } = window.jspdf;
-        this.doc = new jsPDF('p', 'mm', 'a4');
+        this.doc = new jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: 'a4'
+        });
         this.currentY = this.topMargin;
 
         try {

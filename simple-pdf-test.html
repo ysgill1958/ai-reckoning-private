@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple PDF Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+        }
+        button {
+            background: #10b981;
+            color: white;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        button:hover {
+            background: #059669;
+        }
+        .result {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Simple PDF Test</h1>
+    <p>This page tests basic PDF generation functionality.</p>
+    
+    <button onclick="testSimplePDF()">📄 Generate Simple PDF</button>
+    <button onclick="testAdvancedPDF()">🚀 Generate AI Guide PDF</button>
+    
+    <div id="result" class="result">
+        Click a button to test PDF generation
+    </div>
+
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/pdf-generator.js"></script>
+
+    <script>
+        function log(message) {
+            document.getElementById('result').innerHTML += message + '<br>';
+            console.log(message);
+        }
+
+        function testSimplePDF() {
+            log('🔄 Testing basic PDF generation...');
+            
+            try {
+                // Check if jsPDF is available
+                if (typeof window.jspdf === 'undefined') {
+                    throw new Error('jsPDF library not loaded');
+                }
+                
+                log('✅ jsPDF library detected');
+                
+                // Create a simple PDF
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+                
+                log('✅ jsPDF document created');
+                
+                // Add content
+                doc.setFontSize(20);
+                doc.text('AI Career Survival Guide', 20, 30);
+                
+                doc.setFontSize(14);
+                doc.text('Test Document Generated Successfully!', 20, 50);
+                doc.text('This confirms PDF generation is working.', 20, 65);
+                
+                doc.setFontSize(12);
+                doc.text('Date: ' + new Date().toLocaleDateString(), 20, 85);
+                doc.text('Time: ' + new Date().toLocaleTimeString(), 20, 100);
+                
+                log('✅ Content added to PDF');
+                
+                // Save the PDF
+                doc.save('Simple_PDF_Test.pdf');
+                
+                log('🎉 SUCCESS! PDF generated and downloaded!');
+                log('📁 Check your Downloads folder for "Simple_PDF_Test.pdf"');
+                
+            } catch (error) {
+                log('❌ ERROR: ' + error.message);
+                console.error('Full error:', error);
+            }
+        }
+        
+        function testAdvancedPDF() {
+            log('🔄 Testing AI Career Guide PDF generation...');
+            
+            try {
+                // Check if our generator class is available
+                if (typeof AICareerSurvivalGuideGenerator === 'undefined') {
+                    throw new Error('AICareerSurvivalGuideGenerator class not loaded');
+                }
+                
+                log('✅ AI Guide generator class detected');
+                
+                const generator = new AICareerSurvivalGuideGenerator();
+                log('✅ Generator instance created');
+                
+                // Test profile
+                const userProfile = {
+                    name: 'Test User',
+                    email: 'test@example.com',
+                    industry: 'Technology',
+                    experience: '3-5 years',
+                    goal: 'Get Promoted',
+                    urgency: 'High',
+                    aiKnowledge: 'Basic'
+                };
+                
+                log('✅ Test profile created');
+                log('🔄 Generating full AI Career Guide...');
+                
+                // Generate the full guide
+                generator.generateFullGuide(userProfile).then(success => {
+                    if (success) {
+                        log('🎉 SUCCESS! AI Career Guide generated and downloaded!');
+                        log('📁 Check your Downloads folder for the PDF');
+                    } else {
+                        log('❌ PDF generation failed');
+                    }
+                }).catch(error => {
+                    log('❌ ERROR: ' + error.message);
+                    console.error('Full error:', error);
+                });
+                
+            } catch (error) {
+                log('❌ ERROR: ' + error.message);
+                console.error('Full error:', error);
+            }
+        }
+        
+        // Test libraries on page load
+        window.onload = function() {
+            log('🔄 Page loaded, checking libraries...');
+            
+            setTimeout(() => {
+                if (typeof window.jspdf !== 'undefined') {
+                    log('✅ jsPDF library loaded successfully');
+                } else {
+                    log('❌ jsPDF library not found');
+                }
+                
+                if (typeof AICareerSurvivalGuideGenerator !== 'undefined') {
+                    log('✅ AI Career Guide generator loaded successfully');
+                } else {
+                    log('❌ AI Career Guide generator not found');
+                }
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
