@@ -460,7 +460,7 @@
             });
 
             // Add smooth scroll to assessment button
-            const assessmentBtns = document.querySelectorAll('a[href="assessment.html"]');
+            const assessmentBtns = document.querySelectorAll('a[href="ai-career-assessment.html"]');
             assessmentBtns.forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -470,7 +470,7 @@
                     
                     // Navigate after animation
                     setTimeout(() => {
-                        window.location.href = 'assessment.html';
+                        window.location.href = 'ai-career-assessment.html';
                     }, 500);
                 });
             });
@@ -967,7 +967,7 @@
                     <!-- Navigation -->
                     <nav role="navigation">
                         <a href="index.html">Home</a>
-                        <a href="assessment.html">Assessment</a>
+                        <a href="ai-career-assessment.html">Assessment</a>
                         <a href="roadmaps.html" class="nav-active" aria-current="page">Critical Roadmaps</a>
                         <a href="resources.html">Survival Resources</a>
                         <a href="community.html">Community</a>
@@ -1005,6 +1005,34 @@
                         <h4 class="text-lg font-bold text-yellow-400">MEDIUM RISK</h4>
                         <p class="text-sm" style="color: #d1d5db;">18-24 month skill upgrade</p>
                     </div>
+                </div>
+            </section>
+
+            <!-- Email Capture Section for Revenue Generation -->
+            <section class="glass rounded-2xl p-8 mb-8 text-center">
+                <h3 class="text-2xl font-bold mb-4">📧 Get Your Personalized Career Survival Plan</h3>
+                <p class="text-lg mb-6 opacity-90">Join 10,000+ professionals getting exclusive career transformation strategies, salary guides, and early access to premium assessments.</p>
+                
+                <form id="emailCaptureFormRoadmaps" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
+                    <input type="email" id="emailInputRoadmaps" placeholder="Enter your email address" 
+                           class="flex-1 px-4 py-3 rounded-lg border border-gray-300 text-gray-900 bg-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                           required>
+                    <button type="submit" 
+                            class="bg-gradient-to-r from-red-600 to-orange-600 text-white px-6 py-3 rounded-lg hover:from-red-700 hover:to-orange-700 transition-all transform hover:scale-105 font-semibold whitespace-nowrap">
+                        Get Survival Guide
+                    </button>
+                </form>
+                
+                <div class="flex flex-wrap justify-center gap-4 text-sm opacity-75">
+                    <span>🎯 Risk Assessment Tool</span>
+                    <span>💰 Salary Transition Guide</span>
+                    <span>⚡ Emergency Action Plans</span>
+                    <span>🔒 Privacy Protected</span>
+                </div>
+                
+                <!-- Success Message -->
+                <div id="successMessageRoadmaps" class="hidden mt-4 p-4 bg-green-100 border border-green-300 rounded-lg text-green-800">
+                    🎉 Thank you! Your Emergency Career Survival Guide is on its way to your inbox.
                 </div>
             </section>
 
@@ -2810,7 +2838,7 @@
                     <div class="p-6 rounded-xl bg-red-600 bg-opacity-20 border border-red-500">
                         <h4 class="text-lg font-bold mb-3">🔥 Emergency Assessment</h4>
                         <p class="text-sm mb-4 opacity-90">Complete risk analysis and personalized recommendations</p>
-                        <a href="assessment.html" class="btn-primary w-full">
+                        <a href="ai-career-assessment.html" class="btn-primary w-full">
                             <i class="fas fa-bolt mr-2"></i>
                             TAKE ASSESSMENT NOW
                         </a>
@@ -2877,6 +2905,54 @@
             </div>
         </footer>
     </div>
+    
+    <script>
+        // Email Capture Functionality for Revenue Generation - Roadmaps Page
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('emailCaptureFormRoadmaps');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('emailInputRoadmaps').value;
+                    const successMessage = document.getElementById('successMessageRoadmaps');
+                    
+                    // Basic email validation
+                    if (!email || !email.includes('@')) {
+                        alert('Please enter a valid email address');
+                        return;
+                    }
+                    
+                    // Store email in localStorage (for now - replace with actual email service)
+                    const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+                    if (!subscribers.find(sub => sub.email === email)) {
+                        subscribers.push({
+                            email: email,
+                            date: new Date().toISOString(),
+                            source: 'roadmaps_page'
+                        });
+                        localStorage.setItem('subscribers', JSON.stringify(subscribers));
+                    }
+                    
+                    // Show success message
+                    form.style.display = 'none';
+                    successMessage.classList.remove('hidden');
+                    
+                    // Track conversion for analytics
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'email_signup', {
+                            'event_category': 'engagement',
+                            'event_label': 'roadmaps_email_capture'
+                        });
+                    }
+                    
+                    // TODO: Replace with actual email service integration
+                    console.log('Email captured from roadmaps page:', email);
+                });
+            }
+        });
+    </script>
+    
     <script src="js/main.js"></script>
 </body>
 </html>

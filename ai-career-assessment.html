@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Assessment | AI Career Transformation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
+            min-height: 100vh; 
+            color: white;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="py-6 px-4 border-b border-gray-700">
+            <div class="max-w-4xl mx-auto flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold">AI Career Transformation</a>
+                <nav class="flex flex-wrap justify-end gap-4">
+                    <a href="index.html" class="text-blue-400 hover:text-blue-300">Home</a>
+                    <a href="ai-career-assessment.html" class="text-green-400 hover:text-green-300 font-semibold">Career Assessment</a>
+                    <a href="roadmaps.html" class="text-blue-400 hover:text-blue-300">Roadmaps</a>
+                    <a href="component-detail.html" class="text-blue-400 hover:text-blue-300">Components</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="max-w-4xl mx-auto px-4 py-8">
+            <!-- Assessment Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold mb-4">🎯 AI Career Assessment</h1>
+                <p class="text-xl opacity-90 mb-6">Complete evaluation of your AI readiness AND automation risk with personalized roadmap</p>
+                
+                <!-- Pricing Toggle -->
+                <div class="glass rounded-xl p-6 mb-8">
+                    <div class="text-center mb-4">
+                        <h3 class="text-2xl font-bold text-green-400 mb-2">🚀 Enhanced Assessment</h3>
+                        <p class="text-lg">Now includes both AI Readiness Score + Automation Risk Assessment</p>
+                        <p class="text-sm opacity-75 mt-2">19 comprehensive questions • Dual scoring system • Hyper-personalized roadmaps</p>
+                    </div>
+                    
+                    <div class="flex justify-center">
+                        <button id="startAssessment" class="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 px-8 py-4 rounded-lg font-semibold transition-all text-xl">
+                            Start Complete Assessment (FREE)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email Collection Section -->
+            <div id="emailCollection" class="hidden">
+                <div class="glass rounded-xl p-8 text-center">
+                    <div class="mb-6">
+                        <span class="text-5xl mb-4 block">📧</span>
+                        <h2 class="text-2xl font-bold mb-4">Get Your Results by Email</h2>
+                        <p class="text-lg opacity-90 mb-6">Enter your email to receive your comprehensive assessment results and personalized roadmap.</p>
+                    </div>
+
+                    <form id="assessmentEmailForm" class="max-w-md mx-auto mb-6">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input type="email" id="userEmailInput" placeholder="Enter your email address" 
+                                   class="flex-1 px-4 py-3 rounded-lg border border-gray-300 text-gray-900 bg-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                                   required>
+                            <button type="submit" 
+                                    class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-all font-semibold whitespace-nowrap">
+                                Start Assessment
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="flex flex-wrap justify-center gap-4 text-sm opacity-75 mb-4">
+                        <span>✅ AI Readiness Analysis</span>
+                        <span>✅ Automation Risk Assessment</span>
+                        <span>✅ Personalized Roadmap</span>
+                        <span>✅ Industry Insights</span>
+                    </div>
+                    
+                    <button onclick="skipEmail()" class="text-blue-400 hover:text-blue-300 underline text-sm">
+                        Skip and view results on screen only
+                    </button>
+                </div>
+            </div>
+
+            <!-- Assessment Form -->
+            <div id="assessmentForm" class="hidden">
+                <div class="glass rounded-xl p-8">
+                    <div class="mb-6">
+                        <h2 class="text-2xl font-bold mb-4">Comprehensive Career Assessment</h2>
+                        <div class="bg-gray-700 h-2 rounded-full mb-4">
+                            <div id="progressBar" class="bg-gradient-to-r from-green-500 to-blue-500 h-2 rounded-full transition-all" style="width: 0%"></div>
+                        </div>
+                        <p class="text-sm opacity-75">Question <span id="currentQuestion">1</span> of <span id="totalQuestions">19</span></p>
+                    </div>
+
+                    <!-- Question Container -->
+                    <div id="questionContainer" class="mb-8">
+                        <!-- Questions will be dynamically loaded here -->
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="flex justify-between">
+                        <button id="prevBtn" class="bg-gray-600 hover:bg-gray-700 px-6 py-3 rounded-lg font-semibold transition-all hidden">
+                            Previous
+                        </button>
+                        <button id="nextBtn" class="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 px-6 py-3 rounded-lg font-semibold transition-all ml-auto">
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="hidden">
+                <div class="glass rounded-xl p-8">
+                    <h2 class="text-3xl font-bold mb-6 text-center">Your Comprehensive Assessment Results</h2>
+                    
+                    <!-- Dual Score Display -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gradient-to-r from-green-900/40 to-blue-900/40 p-6 rounded-lg text-center">
+                            <h3 class="text-xl font-bold mb-2">AI Readiness Score</h3>
+                            <div class="text-4xl font-bold mb-2" id="readinessScore">--</div>
+                            <p id="readinessDescription">Calculating...</p>
+                        </div>
+                        <div class="bg-gradient-to-r from-red-900/40 to-orange-900/40 p-6 rounded-lg text-center">
+                            <h3 class="text-xl font-bold mb-2">Automation Risk Level</h3>
+                            <div class="text-4xl font-bold mb-2" id="riskScore">--</div>
+                            <p id="riskDescription">Analyzing...</p>
+                        </div>
+                    </div>
+
+                    <!-- Personalized Roadmap Display -->
+                    <div id="personalizedRoadmapSection" class="hidden mt-8">
+                        <div class="bg-gradient-to-r from-purple-900/40 to-blue-900/40 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold mb-4">🎯 Your Personalized Career Roadmap</h3>
+                            <div id="personalizedRoadmapContent" class="text-left bg-black/20 p-4 rounded border">
+                                <!-- Personalized content will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Section -->
+                    <div class="text-center mt-8">
+                        <button id="viewPersonalizedRoadmap" class="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 px-8 py-3 rounded-lg font-semibold transition-all inline-block">
+                            🎯 View Your Complete Personalized Roadmap
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-16 py-8 px-4 border-t border-gray-700">
+            <div class="max-w-4xl mx-auto text-center">
+                <p>&copy; 2025 AI Career Transformation Platform. All rights reserved.</p>
+                <div class="mt-4 space-x-4">
+                    <a href="privacy-policy.html" class="text-gray-400 hover:text-white">Privacy Policy</a>
+                    <a href="terms-of-service.html" class="text-gray-400 hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Comprehensive Assessment Questions
+        const questions = [
+            {
+                question: "What is your current industry?",
+                type: "select",
+                options: ["IT & Technology", "Banking & Finance", "Healthcare", "Manufacturing", "Education", "Retail & E-commerce", "Customer Support", "Transportation & Logistics", "Consulting", "Government", "Media & Entertainment", "Real Estate", "Other"]
+            },
+            {
+                question: "How many years of experience do you have?",
+                type: "select", 
+                options: ["0-2 years (Entry Level)", "3-5 years (Junior)", "6-10 years (Mid Level)", "11-15 years (Senior)", "15+ years (Leadership)"]
+            },
+            {
+                question: "What is your primary job function?",
+                type: "select",
+                options: ["Software Development/Coding", "Data Entry/Processing", "Customer Service/Support", "Data Analysis/Reporting", "Design/Creative", "Team Management", "Sales/Business Development", "Operations/Process Management", "Strategy/Planning", "Administrative", "Marketing", "Quality Assurance", "Other"]
+            },
+            {
+                question: "Where do you primarily work?",
+                type: "select",
+                options: ["Metro City (Mumbai, Delhi, Bangalore, Chennai, Hyderabad, Pune)", "Tier 2 City (Ahmedabad, Jaipur, Lucknow, Kochi, etc.)", "Tier 3 City/Town", "Remote/Work from Home", "International Location"]
+            },
+            {
+                question: "How familiar are you with AI tools? (ChatGPT, Copilot, Claude, etc.)",
+                type: "scale",
+                scale: ["Never used any", "Heard of them only", "Basic understanding", "Some hands-on experience", "Very experienced user"]
+            },
+            {
+                question: "How often do you currently use AI tools in your work?",
+                type: "scale",
+                scale: ["Never", "Rarely (monthly)", "Sometimes (weekly)", "Often (few times per week)", "Daily"]
+            },
+            {
+                question: "How often do you use data analysis in your work?",
+                type: "scale",
+                scale: ["Never", "Rarely", "Sometimes", "Often", "Daily basis"]
+            },
+            {
+                question: "What percentage of your daily tasks are repetitive/routine?",
+                type: "select",
+                options: ["0-25% (Mostly strategic/creative)", "26-50% (Balanced mix)", "51-75% (Mostly routine)", "76-100% (Almost all repetitive)"]
+            },
+            {
+                question: "How much customer/client interaction does your role involve?",
+                type: "select",
+                options: ["Primarily customer-facing", "Regular customer interaction", "Occasional customer contact", "Rarely interact with customers", "No customer interaction"]
+            },
+            {
+                question: "How would you rate the creativity/strategic thinking required in your role?",
+                type: "scale",
+                scale: ["Very low (follow procedures)", "Low (some decision making)", "Medium (regular problem solving)", "High (creative solutions)", "Very high (strategic planning)"]
+            },
+            {
+                question: "How would you rate your technical adaptability?",
+                type: "scale",
+                scale: ["Very low (struggle with new tech)", "Low (need significant help)", "Average (learn with guidance)", "High (quick to adapt)", "Very high (tech early adopter)"]
+            },
+            {
+                question: "Are you concerned about AI replacing your job?",
+                type: "scale",
+                scale: ["Not concerned at all", "Slightly concerned", "Moderately concerned", "Very concerned", "Extremely concerned"]
+            },
+            {
+                question: "How willing are you to learn new technology skills?",
+                type: "scale",
+                scale: ["Not willing", "Slightly willing", "Moderately willing", "Very willing", "Extremely eager"]
+            },
+            {
+                question: "What is your primary career goal?",
+                type: "select",
+                options: ["Stay in current role but upskill", "Get promoted within company", "Change to AI-related role", "Switch industries completely", "Start own business", "Become freelancer/consultant", "Retire early", "Complete career pivot"]
+            },
+            {
+                question: "How much time can you realistically dedicate to learning per week?",
+                type: "select",
+                options: ["1-2 hours (very limited)", "3-5 hours (weekends mostly)", "6-10 hours (dedicated effort)", "11-15 hours (serious commitment)", "15+ hours (intensive learning)"]
+            },
+            {
+                question: "What's your biggest career challenge right now?",
+                type: "select",
+                options: ["Lack of relevant skills", "No clear career direction", "Limited growth opportunities", "Work-life balance issues", "Financial constraints", "Age-related concerns", "Industry declining", "Competition from AI/automation", "Lack of networking", "Geographical limitations"]
+            },
+            {
+                question: "How would you rate your current job satisfaction?",
+                type: "scale",
+                scale: ["Very unsatisfied", "Unsatisfied", "Neutral", "Satisfied", "Very satisfied"]
+            },
+            {
+                question: "What is your annual income range? (This helps us provide relevant salary benchmarks)",
+                type: "select",
+                options: ["Below ₹3 LPA", "₹3-6 LPA", "₹6-10 LPA", "₹10-15 LPA", "₹15-25 LPA", "₹25-40 LPA", "₹40+ LPA", "Prefer not to say"]
+            },
+            {
+                question: "Which AI tools have you actually used? (Select all that apply)",
+                type: "multiselect",
+                options: ["ChatGPT", "Google Bard/Gemini", "Claude (Anthropic)", "Microsoft Copilot", "GitHub Copilot", "Midjourney/DALL-E", "Excel AI Features", "Grammarly AI", "Industry-specific AI tools", "None of these"]
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let answers = [];
+        let userEmail = '';
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('startAssessment').addEventListener('click', () => {
+                document.querySelector('.glass').style.display = 'none';
+                document.getElementById('emailCollection').classList.remove('hidden');
+            });
+            document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+            document.getElementById('prevBtn').addEventListener('click', prevQuestion);
+            
+            // Email collection form
+            document.getElementById('assessmentEmailForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('userEmailInput').value;
+                if (email && email.includes('@')) {
+                    userEmail = email;
+                    startQuestionnaire();
+                } else {
+                    alert('Please enter a valid email address');
+                }
+            });
+        });
+
+        function skipEmail() {
+            userEmail = '';
+            startQuestionnaire();
+        }
+        
+        function startQuestionnaire() {
+            document.getElementById('emailCollection').classList.add('hidden');
+            document.getElementById('assessmentForm').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const question = questions[currentQuestionIndex];
+            const container = document.getElementById('questionContainer');
+            
+            let html = `<h3 class="text-xl font-bold mb-4">${question.question}</h3>`;
+            
+            if (question.type === 'select') {
+                html += '<div class="space-y-2">';
+                question.options.forEach((option, index) => {
+                    html += `
+                        <label class="block p-3 bg-gray-700/50 rounded-lg cursor-pointer hover:bg-gray-700 transition-all">
+                            <input type="radio" name="question${currentQuestionIndex}" value="${index}" class="mr-3">
+                            ${option}
+                        </label>
+                    `;
+                });
+                html += '</div>';
+            } else if (question.type === 'scale') {
+                html += '<div class="space-y-2">';
+                question.scale.forEach((option, index) => {
+                    html += `
+                        <label class="block p-3 bg-gray-700/50 rounded-lg cursor-pointer hover:bg-gray-700 transition-all">
+                            <input type="radio" name="question${currentQuestionIndex}" value="${index}" class="mr-3">
+                            ${option}
+                        </label>
+                    `;
+                });
+                html += '</div>';
+            } else if (question.type === 'multiselect') {
+                html += '<div class="space-y-2">';
+                html += '<p class="text-sm text-gray-400 mb-3">You can select multiple options:</p>';
+                question.options.forEach((option, index) => {
+                    html += `
+                        <label class="block p-3 bg-gray-700/50 rounded-lg cursor-pointer hover:bg-gray-700 transition-all">
+                            <input type="checkbox" name="question${currentQuestionIndex}" value="${index}" class="mr-3">
+                            ${option}
+                        </label>
+                    `;
+                });
+                html += '</div>';
+            }
+            
+            container.innerHTML = html;
+            
+            // Update progress
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('totalQuestions').textContent = questions.length;
+            document.getElementById('progressBar').style.width = `${((currentQuestionIndex + 1) / questions.length) * 100}%`;
+            
+            // Update navigation
+            document.getElementById('prevBtn').classList.toggle('hidden', currentQuestionIndex === 0);
+            document.getElementById('nextBtn').textContent = currentQuestionIndex === questions.length - 1 ? 'Get Results' : 'Next';
+        }
+
+        function nextQuestion() {
+            const question = questions[currentQuestionIndex];
+            
+            if (question.type === 'multiselect') {
+                const selected = document.querySelectorAll(`input[name="question${currentQuestionIndex}"]:checked`);
+                if (selected.length === 0) {
+                    alert('Please select at least one option before proceeding.');
+                    return;
+                }
+                // Store array of selected values for multiselect
+                answers[currentQuestionIndex] = Array.from(selected).map(input => parseInt(input.value));
+            } else {
+                const selected = document.querySelector(`input[name="question${currentQuestionIndex}"]:checked`);
+                if (!selected) {
+                    alert('Please select an answer before proceeding.');
+                    return;
+                }
+                answers[currentQuestionIndex] = parseInt(selected.value);
+            }
+            
+            if (currentQuestionIndex === questions.length - 1) {
+                showResults();
+            } else {
+                currentQuestionIndex++;
+                loadQuestion();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('assessmentForm').classList.add('hidden');
+            document.getElementById('resultsSection').classList.remove('hidden');
+            
+            // Calculate comprehensive scores
+            const scores = calculateComprehensiveScores();
+            const readinessScore = scores.readiness;
+            const riskScore = scores.risk;
+            
+            // Display AI Readiness Score
+            document.getElementById('readinessScore').textContent = readinessScore + '%';
+            let readinessDescription = '';
+            if (readinessScore >= 80) readinessDescription = 'Excellent AI Readiness!';
+            else if (readinessScore >= 60) readinessDescription = 'Good Foundation for AI';
+            else if (readinessScore >= 40) readinessDescription = 'Moderate AI Readiness';
+            else readinessDescription = 'Needs AI Skill Development';
+            document.getElementById('readinessDescription').textContent = readinessDescription;
+            
+            // Display Automation Risk Score
+            document.getElementById('riskScore').textContent = riskScore + '%';
+            let riskDescription = '';
+            if (riskScore >= 70) riskDescription = 'High Risk - Immediate Action Required';
+            else if (riskScore >= 50) riskDescription = 'Medium Risk - Proactive Learning Needed';
+            else if (riskScore >= 30) riskDescription = 'Moderate Risk - Stay Ahead';
+            else riskDescription = 'Low Risk - Growth Opportunities';
+            document.getElementById('riskDescription').textContent = riskDescription;
+            
+            // Setup personalized roadmap functionality
+            setupPersonalizedRoadmapDisplay(readinessScore, riskScore);
+            
+            // Send results via email if provided
+            if (userEmail) {
+                sendResultsEmail(readinessScore, riskScore);
+            }
+        }
+        
+        function calculateComprehensiveScores() {
+            // AI Readiness Score calculation
+            let readinessScore = 0;
+            readinessScore += (answers[4] || 0) * 20; // AI familiarity
+            readinessScore += (answers[5] || 0) * 15; // AI usage frequency  
+            readinessScore += (answers[10] || 0) * 20; // Technical adaptability
+            readinessScore += (answers[12] || 0) * 25; // Learning willingness
+            readinessScore += (answers[6] || 0) * 10; // Data analysis usage
+            readinessScore = Math.min(100, readinessScore);
+            
+            // Automation Risk Score calculation
+            let riskScore = 50; // baseline risk
+            
+            // Industry risk factors
+            const industryRisk = [15, 20, 10, 25, 8, 18, 22, 20, 12, 5, 15, 10, 15];
+            riskScore += industryRisk[answers[0]] || 15;
+            
+            // Job function risk factors
+            const jobFunctionRisk = [8, 30, 25, 15, 5, 2, 8, 20, 0, 22, 12, 18, 15];
+            riskScore += jobFunctionRisk[answers[2]] || 15;
+            
+            // Routine tasks factor
+            const routineRisk = [5, 15, 25, 35];
+            riskScore += routineRisk[answers[7]] || 20;
+            
+            // Customer interaction (reduces risk)
+            const customerBonus = [-10, -5, 0, 5, 10];
+            riskScore += customerBonus[answers[8]] || 0;
+            
+            // Creativity level (reduces risk)
+            const creativityBonus = [15, 10, 5, 0, -10];
+            riskScore += creativityBonus[answers[9]] || 5;
+            
+            // AI familiarity reduces risk
+            const aiBonus = [10, 5, 0, -5, -10];
+            riskScore += aiBonus[answers[4]] || 5;
+            
+            // Technical adaptability reduces risk
+            const techBonus = [15, 10, 5, 0, -10];
+            riskScore += techBonus[answers[10]] || 5;
+            
+            riskScore = Math.max(0, Math.min(100, riskScore));
+            
+            return {
+                readiness: Math.round(readinessScore),
+                risk: Math.round(riskScore)
+            };
+        }
+        
+        function setupPersonalizedRoadmapDisplay(readinessScore, riskScore) {
+            // Set up button click handler
+            document.getElementById('viewPersonalizedRoadmap').addEventListener('click', function() {
+                showPersonalizedRoadmap(readinessScore, riskScore);
+            });
+        }
+        
+        function showPersonalizedRoadmap(readinessScore, riskScore) {
+            document.getElementById('personalizedRoadmapSection').classList.remove('hidden');
+            
+            // Generate comprehensive personalized roadmap
+            const roadmap = generateComprehensiveRoadmap(readinessScore, riskScore);
+            
+            const roadmapHTML = `
+                <div class="space-y-4">
+                    <div class="bg-gradient-to-r from-green-900/30 to-blue-900/30 p-4 rounded">
+                        <h4 class="text-lg font-bold text-green-400 mb-2">📊 Your Complete Assessment Summary</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p><strong>Industry:</strong> ${getAnswerText(0)}</p>
+                                <p><strong>Experience:</strong> ${getAnswerText(1)}</p>
+                                <p><strong>Job Function:</strong> ${getAnswerText(2)}</p>
+                                <p><strong>Location:</strong> ${getAnswerText(3)}</p>
+                            </div>
+                            <div>
+                                <p><strong>AI Readiness:</strong> ${readinessScore}%</p>
+                                <p><strong>Automation Risk:</strong> ${riskScore}%</p>
+                                <p><strong>Career Goal:</strong> ${getAnswerText(13)}</p>
+                                <p><strong>Time Available:</strong> ${getAnswerText(14)}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-purple-900/30 to-red-900/30 p-4 rounded">
+                        <h4 class="text-lg font-bold text-yellow-400 mb-2">🎯 Your Personalized Career Roadmap</h4>
+                        <pre class="text-sm text-left whitespace-pre-wrap font-mono text-gray-200 max-h-96 overflow-y-auto">${roadmap}</pre>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('personalizedRoadmapContent').innerHTML = roadmapHTML;
+            document.getElementById('personalizedRoadmapSection').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function generateComprehensiveRoadmap(readinessScore, riskScore) {
+            const industry = getAnswerText(0);
+            const experience = getAnswerText(1);
+            const jobFunction = getAnswerText(2);
+            const careerGoal = getAnswerText(13);
+            const timeAvailable = getAnswerText(14);
+            const biggestChallenge = getAnswerText(15);
+            
+            let roadmap = `🎯 COMPREHENSIVE AI CAREER TRANSFORMATION ROADMAP\n`;
+            roadmap += `=========================================================\n\n`;
+            
+            // Risk and readiness analysis
+            roadmap += `📊 YOUR ASSESSMENT RESULTS:\n`;
+            roadmap += `============================\n`;
+            roadmap += `• AI Readiness Score: ${readinessScore}% (${readinessScore >= 80 ? 'Excellent' : readinessScore >= 60 ? 'Good' : readinessScore >= 40 ? 'Moderate' : 'Developing'})\n`;
+            roadmap += `• Automation Risk Level: ${riskScore}% (${riskScore >= 70 ? 'High' : riskScore >= 50 ? 'Medium' : riskScore >= 30 ? 'Moderate' : 'Low'})\n`;
+            roadmap += `• Urgency Level: ${riskScore >= 70 && readinessScore < 60 ? 'CRITICAL' : riskScore >= 50 ? 'HIGH' : 'MODERATE'}\n`;
+            roadmap += `• Recommended Timeline: ${riskScore >= 70 ? '0-3 months' : riskScore >= 50 ? '3-6 months' : '6-12 months'}\n\n`;
+
+            // Industry-specific strategy
+            roadmap += `📍 ${industry.toUpperCase()} INDUSTRY STRATEGY:\n`;
+            roadmap += `===================================\n`;
+            if (industry.includes('IT')) {
+                roadmap += `• Focus: AI-augmented development, MLOps, AI system architecture\n`;
+                roadmap += `• Key Skills: Python/ML, AI frameworks, cloud AI services\n`;
+                roadmap += `• Opportunities: AI Engineer (+60%), ML DevOps (+55%)\n`;
+            } else if (industry.includes('Banking')) {
+                roadmap += `• Focus: Financial AI, risk modeling, regulatory compliance\n`;
+                roadmap += `• Key Skills: Financial modeling, AI ethics, risk analysis\n`;
+                roadmap += `• Opportunities: AI Risk Analyst (+50%), Fintech AI (+45%)\n`;
+            } else if (industry.includes('Healthcare')) {
+                roadmap += `• Focus: Medical AI, patient data analysis, clinical decision support\n`;
+                roadmap += `• Key Skills: Healthcare informatics, AI privacy, diagnostic AI\n`;
+                roadmap += `• Opportunities: Clinical AI Specialist (+40%), Health Informatics (+45%)\n`;
+            } else {
+                roadmap += `• Focus: Industry-specific AI applications and automation\n`;
+                roadmap += `• Key Skills: AI tool proficiency, process automation, data analysis\n`;
+                roadmap += `• Opportunities: AI Specialist roles (+40-50% salary increase)\n`;
+            }
+            roadmap += `\n`;
+
+            // Personalized action plan
+            roadmap += `🚀 YOUR PERSONALIZED ACTION PLAN:\n`;
+            roadmap += `=================================\n`;
+            
+            if (riskScore >= 70) {
+                roadmap += `IMMEDIATE PRIORITY (Next 30 Days):\n`;
+                roadmap += `• Start using AI tools DAILY in current role\n`;
+                roadmap += `• Complete AI fundamentals course (Coursera/edX)\n`;
+                roadmap += `• Update LinkedIn with AI-relevant keywords\n`;
+                roadmap += `• Join AI professional communities\n\n`;
+            }
+            
+            roadmap += `Phase 1 (Months 1-2): Foundation Building\n`;
+            roadmap += `• Complete: ${readinessScore < 50 ? 'Basic AI literacy course' : 'Intermediate AI applications course'}\n`;
+            roadmap += `• Practice: Use ChatGPT/Claude daily for work tasks\n`;
+            roadmap += `• Network: Join industry AI groups and forums\n`;
+            roadmap += `• Apply: Implement 1 AI tool in current workflow\n\n`;
+            
+            roadmap += `Phase 2 (Months 3-4): Skill Development\n`;
+            if (jobFunction.includes('Development')) {
+                roadmap += `• Learn: GitHub Copilot, AI coding assistants\n`;
+                roadmap += `• Build: AI-enhanced project portfolio\n`;
+            } else if (jobFunction.includes('Data')) {
+                roadmap += `• Master: AI data analysis tools, ML basics\n`;
+                roadmap += `• Build: Data science portfolio with AI components\n`;
+            } else {
+                roadmap += `• Master: Industry-specific AI tools\n`;
+                roadmap += `• Build: Case studies of AI implementation\n`;
+            }
+            roadmap += `• Certify: Relevant AI certification for your field\n`;
+            roadmap += `• Present: Share AI knowledge with colleagues\n\n`;
+            
+            roadmap += `Phase 3 (Months 5-6): Career Transition\n`;
+            if (careerGoal.includes('promoted')) {
+                roadmap += `• Propose: AI initiative for your current team\n`;
+                roadmap += `• Lead: AI training sessions for colleagues\n`;
+                roadmap += `• Position: Yourself as AI champion in organization\n`;
+            } else if (careerGoal.includes('AI-related')) {
+                roadmap += `• Apply: For AI-focused roles in your industry\n`;
+                roadmap += `• Build: Strong AI portfolio demonstrating capabilities\n`;
+                roadmap += `• Network: With AI professionals and recruiters\n`;
+            } else {
+                roadmap += `• Evaluate: How AI can enhance your chosen path\n`;
+                roadmap += `• Adapt: Your skills to include AI components\n`;
+                roadmap += `• Plan: AI integration in your future role\n`;
+            }
+            roadmap += `\n`;
+
+            // Time-optimized schedule
+            roadmap += `⏰ WEEKLY SCHEDULE (${timeAvailable}):\n`;
+            roadmap += `========================\n`;
+            if (timeAvailable.includes('1-2 hours')) {
+                roadmap += `• 30 min daily: AI news and updates\n`;
+                roadmap += `• 2 sessions: Focused learning (1 hour each)\n`;
+                roadmap += `• Weekend: Practice with AI tools (2-3 hours)\n`;
+            } else if (timeAvailable.includes('3-5 hours')) {
+                roadmap += `• 1 hour daily: Structured learning or practice\n`;
+                roadmap += `• 2-3 hours: Deep dive sessions weekly\n`;
+                roadmap += `• Projects: Build portfolio over weekends\n`;
+            } else {
+                roadmap += `• 1-2 hours daily: Intensive skill development\n`;
+                roadmap += `• 4-6 hours: Weekend project work\n`;
+                roadmap += `• Monthly: Complete major AI course or certification\n`;
+            }
+            roadmap += `\n`;
+
+            // Challenge-specific solutions
+            roadmap += `💡 ADDRESSING YOUR BIGGEST CHALLENGE (${biggestChallenge}):\n`;
+            roadmap += `====================================\n`;
+            if (biggestChallenge.includes('skills')) {
+                roadmap += `• Solution: Start with free online AI courses (Coursera, YouTube)\n`;
+                roadmap += `• Practice: Use AI tools for 15 minutes daily\n`;
+                roadmap += `• Build: Learning habit with small, consistent steps\n`;
+            } else if (biggestChallenge.includes('direction')) {
+                roadmap += `• Solution: Research AI applications in your current industry\n`;
+                roadmap += `• Explore: Informational interviews with AI professionals\n`;
+                roadmap += `• Clarify: Your interests through hands-on AI experimentation\n`;
+            } else if (biggestChallenge.includes('opportunities')) {
+                roadmap += `• Solution: Create your own opportunities through AI projects\n`;
+                roadmap += `• Network: Join AI meetups and online communities\n`;
+                roadmap += `• Visibility: Share your AI learning journey on LinkedIn\n`;
+            } else {
+                roadmap += `• Solution: Focus on high-impact, low-time AI learning\n`;
+                roadmap += `• Prioritize: Most relevant AI skills for immediate application\n`;
+                roadmap += `• Leverage: AI tools to solve your current challenges\n`;
+            }
+            roadmap += `\n`;
+
+            // Success metrics
+            roadmap += `📈 SUCCESS METRICS TO TRACK:\n`;
+            roadmap += `============================\n`;
+            roadmap += `Month 1: Using 2+ AI tools regularly in work\n`;
+            roadmap += `Month 2: Completed AI fundamentals course\n`;
+            roadmap += `Month 3: Led 1 AI initiative or presentation\n`;
+            roadmap += `Month 4: Earned relevant AI certification\n`;
+            roadmap += `Month 5: Applied AI knowledge to solve real problem\n`;
+            roadmap += `Month 6: ${careerGoal.includes('promoted') ? 'Secured promotion or new responsibilities' : careerGoal.includes('AI-related') ? 'Landed AI-focused role or project' : 'Successfully integrated AI into career path'}\n\n`;
+
+            roadmap += `🎯 NEXT IMMEDIATE ACTIONS:\n`;
+            roadmap += `=========================\n`;
+            roadmap += `1. Bookmark this roadmap and review weekly\n`;
+            roadmap += `2. Sign up for AI course starting this week\n`;
+            roadmap += `3. Download and start using ChatGPT daily\n`;
+            roadmap += `4. Update LinkedIn profile with AI interests\n`;
+            roadmap += `5. Join 2 AI communities relevant to your industry\n\n`;
+            
+            roadmap += `Continue your journey: https://ai-career-transformation.surge.sh\n`;
+            roadmap += `Return weekly to track progress and get updated insights!\n`;
+            
+            return roadmap;
+        }
+        
+        function getAnswerText(questionIndex) {
+            const question = questions[questionIndex];
+            const answerValue = answers[questionIndex];
+            
+            if (question.type === 'select') {
+                return question.options[answerValue] || 'Not specified';
+            } else if (question.type === 'scale') {
+                return question.scale[answerValue] || 'Not specified';
+            } else if (question.type === 'multiselect') {
+                if (Array.isArray(answerValue)) {
+                    return answerValue.map(val => question.options[val]).join(', ') || 'Not specified';
+                }
+                return 'Not specified';
+            }
+            return 'Not specified';
+        }
+        
+        function sendResultsEmail(readinessScore, riskScore) {
+            if (!userEmail) return;
+            
+            const roadmap = generateComprehensiveRoadmap(readinessScore, riskScore);
+            
+            const emailData = {
+                name: 'AI Career Transformation Team',
+                email: 'results@ai-career-transformation.com',
+                subject: `🎯 Your Comprehensive AI Career Assessment Results - ${readinessScore}% Readiness, ${riskScore}% Risk`,
+                message: `Hello!
+
+Congratulations on completing your comprehensive AI Career Assessment!
+
+ASSESSMENT RESULTS:
+==================
+• AI Readiness Score: ${readinessScore}%
+• Automation Risk Level: ${riskScore}%
+• Industry: ${getAnswerText(0)}
+• Experience: ${getAnswerText(1)}
+• Career Goal: ${getAnswerText(13)}
+
+${roadmap}
+
+Continue your transformation: https://ai-career-transformation.surge.sh
+
+Best regards,
+AI Career Transformation Team`,
+                _replyto: userEmail,
+                _template: 'box',
+                _captcha: false
+            };
+            
+            fetch(`https://formsubmit.co/${userEmail}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(emailData)
+            }).then(response => {
+                if (response.ok) {
+                    console.log('✅ Comprehensive assessment results sent successfully!');
+                } else {
+                    console.log('⚠️ Email delivery may have failed');
+                }
+            }).catch(error => {
+                console.log('⚠️ Email delivery error:', error);
+            });
+        }
+    </script>
+    
+    <!-- jsPDF Library for PDF Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/pdf-generator.js"></script>
+    
+    <script>
+        // Function to generate comprehensive PDF after assessment completion
+        function generateAssessmentPDF(userProfile, assessmentResults) {
+            try {
+                const generator = new AICareerSurvivalGuideGenerator();
+                generator.generateFullGuide(userProfile, assessmentResults);
+                
+                console.log('✅ 50-page personalized PDF generated and downloaded!');
+            } catch (error) {
+                console.error('PDF generation failed:', error);
+            }
+        }
+        
+        // Add PDF generation option to results display
+        window.addEventListener('DOMContentLoaded', function() {
+            // This will be called when assessment is completed
+            // The existing code will trigger this when results are shown
+        });
+    </script>
+</body>
+</html>

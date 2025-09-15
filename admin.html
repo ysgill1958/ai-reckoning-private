@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - AI Career Transformation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
+            min-height: 100vh; 
+            color: white;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen p-8">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold mb-2">📊 Admin Dashboard</h1>
+                <p class="text-xl opacity-90">AI Career Transformation - Subscriber Management</p>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="glass rounded-xl p-6 text-center">
+                    <i class="fas fa-users text-3xl text-blue-400 mb-3"></i>
+                    <h3 class="text-2xl font-bold" id="totalSubscribers">0</h3>
+                    <p class="opacity-75">Total Subscribers</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <i class="fas fa-chart-line text-3xl text-green-400 mb-3"></i>
+                    <h3 class="text-2xl font-bold" id="totalAssessments">0</h3>
+                    <p class="opacity-75">Assessments Taken</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <i class="fas fa-download text-3xl text-yellow-400 mb-3"></i>
+                    <h3 class="text-2xl font-bold" id="totalDownloads">0</h3>
+                    <p class="opacity-75">Guide Downloads</p>
+                </div>
+                <div class="glass rounded-xl p-6 text-center">
+                    <i class="fas fa-calendar text-3xl text-purple-400 mb-3"></i>
+                    <h3 class="text-2xl font-bold" id="todaySignups">0</h3>
+                    <p class="opacity-75">Today's Signups</p>
+                </div>
+            </div>
+
+            <!-- Data Tables -->
+            <div class="space-y-8">
+                <!-- Subscribers -->
+                <div class="glass rounded-xl p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">📧 Subscribers</h2>
+                        <button onclick="exportData('subscribers')" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg">
+                            <i class="fas fa-download mr-2"></i>Export CSV
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b border-gray-600">
+                                    <th class="text-left p-3">Email</th>
+                                    <th class="text-left p-3">Source</th>
+                                    <th class="text-left p-3">Date</th>
+                                    <th class="text-left p-3">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="subscribersTable">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Assessment Results -->
+                <div class="glass rounded-xl p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">🎯 Assessment Results</h2>
+                        <button onclick="exportData('assessments')" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg">
+                            <i class="fas fa-download mr-2"></i>Export CSV
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b border-gray-600">
+                                    <th class="text-left p-3">Email</th>
+                                    <th class="text-left p-3">Score</th>
+                                    <th class="text-left p-3">Level</th>
+                                    <th class="text-left p-3">Type</th>
+                                    <th class="text-left p-3">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="assessmentsTable">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Guide Downloads -->
+                <div class="glass rounded-xl p-6">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">📖 Guide Downloads</h2>
+                        <button onclick="exportData('downloads')" class="bg-yellow-600 hover:bg-yellow-700 px-4 py-2 rounded-lg">
+                            <i class="fas fa-download mr-2"></i>Export CSV
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b border-gray-600">
+                                    <th class="text-left p-3">Email</th>
+                                    <th class="text-left p-3">Source</th>
+                                    <th class="text-left p-3">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="downloadsTable">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="mt-8 text-center space-x-4">
+                <button onclick="refreshData()" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg">
+                    <i class="fas fa-refresh mr-2"></i>Refresh Data
+                </button>
+                <button onclick="clearAllData()" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg">
+                    <i class="fas fa-trash mr-2"></i>Clear All Data
+                </button>
+                <a href="index.html" class="bg-gray-600 hover:bg-gray-700 px-6 py-3 rounded-lg inline-block">
+                    <i class="fas fa-home mr-2"></i>Back to Site
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load and display all data
+        function loadData() {
+            // Get all stored data
+            const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+            const assessments = JSON.parse(localStorage.getItem('assessmentResults') || '[]');
+            const guideDownloads = JSON.parse(localStorage.getItem('guideDownloads') || '[]');
+            const basicDownloads = JSON.parse(localStorage.getItem('basicSurvivalDownloads') || '[]');
+            
+            // Update stats
+            document.getElementById('totalSubscribers').textContent = subscribers.length;
+            document.getElementById('totalAssessments').textContent = assessments.length;
+            document.getElementById('totalDownloads').textContent = guideDownloads.length + basicDownloads.length;
+            
+            // Count today's signups
+            const today = new Date().toDateString();
+            const todaySignups = subscribers.filter(sub => new Date(sub.date).toDateString() === today).length;
+            document.getElementById('todaySignups').textContent = todaySignups;
+            
+            // Populate tables
+            populateSubscribersTable(subscribers);
+            populateAssessmentsTable(assessments);
+            populateDownloadsTable([...guideDownloads, ...basicDownloads]);
+        }
+        
+        function populateSubscribersTable(subscribers) {
+            const table = document.getElementById('subscribersTable');
+            table.innerHTML = '';
+            
+            subscribers.forEach(sub => {
+                const row = document.createElement('tr');
+                row.className = 'border-b border-gray-700 hover:bg-gray-800';
+                row.innerHTML = `
+                    <td class="p-3">${sub.email}</td>
+                    <td class="p-3">${sub.source || 'Unknown'}</td>
+                    <td class="p-3">${new Date(sub.date).toLocaleString()}</td>
+                    <td class="p-3">
+                        <button onclick="copyEmail('${sub.email}')" class="text-blue-400 hover:text-blue-300">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </td>
+                `;
+                table.appendChild(row);
+            });
+        }
+        
+        function populateAssessmentsTable(assessments) {
+            const table = document.getElementById('assessmentsTable');
+            table.innerHTML = '';
+            
+            assessments.forEach(assessment => {
+                const row = document.createElement('tr');
+                row.className = 'border-b border-gray-700 hover:bg-gray-800';
+                row.innerHTML = `
+                    <td class="p-3">${assessment.email}</td>
+                    <td class="p-3"><span class="font-bold text-yellow-400">${assessment.score}/100</span></td>
+                    <td class="p-3">${assessment.description}</td>
+                    <td class="p-3">${assessment.type}</td>
+                    <td class="p-3">${new Date(assessment.date).toLocaleString()}</td>
+                `;
+                table.appendChild(row);
+            });
+        }
+        
+        function populateDownloadsTable(downloads) {
+            const table = document.getElementById('downloadsTable');
+            table.innerHTML = '';
+            
+            downloads.forEach(download => {
+                const row = document.createElement('tr');
+                row.className = 'border-b border-gray-700 hover:bg-gray-800';
+                row.innerHTML = `
+                    <td class="p-3">${download.email}</td>
+                    <td class="p-3">${download.source || 'Unknown'}</td>
+                    <td class="p-3">${new Date(download.date).toLocaleString()}</td>
+                `;
+                table.appendChild(row);
+            });
+        }
+        
+        function exportData(type) {
+            let data = [];
+            let filename = '';
+            
+            if (type === 'subscribers') {
+                data = JSON.parse(localStorage.getItem('subscribers') || '[]');
+                filename = 'ai-career-subscribers.csv';
+            } else if (type === 'assessments') {
+                data = JSON.parse(localStorage.getItem('assessmentResults') || '[]');
+                filename = 'ai-career-assessments.csv';
+            } else if (type === 'downloads') {
+                const guides = JSON.parse(localStorage.getItem('guideDownloads') || '[]');
+                const basic = JSON.parse(localStorage.getItem('basicSurvivalDownloads') || '[]');
+                data = [...guides, ...basic];
+                filename = 'ai-career-downloads.csv';
+            }
+            
+            if (data.length === 0) {
+                alert('No data to export');
+                return;
+            }
+            
+            // Convert to CSV
+            const csv = convertToCSV(data);
+            downloadCSV(csv, filename);
+        }
+        
+        function convertToCSV(data) {
+            if (data.length === 0) return '';
+            
+            const headers = Object.keys(data[0]);
+            const csvContent = [
+                headers.join(','),
+                ...data.map(row => headers.map(header => `"${row[header] || ''}"`).join(','))
+            ].join('\n');
+            
+            return csvContent;
+        }
+        
+        function downloadCSV(csv, filename) {
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        function copyEmail(email) {
+            navigator.clipboard.writeText(email).then(() => {
+                alert('Email copied to clipboard!');
+            });
+        }
+        
+        function refreshData() {
+            loadData();
+            alert('Data refreshed!');
+        }
+        
+        function clearAllData() {
+            if (confirm('Are you sure you want to clear ALL data? This cannot be undone!')) {
+                localStorage.removeItem('subscribers');
+                localStorage.removeItem('assessmentResults');
+                localStorage.removeItem('guideDownloads');
+                localStorage.removeItem('basicSurvivalDownloads');
+                loadData();
+                alert('All data cleared!');
+            }
+        }
+        
+        // Load data when page loads
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>

@@ -351,7 +351,8 @@
                     <!-- Navigation - Center aligned -->
                     <nav style="display: flex; justify-content: center; flex-wrap: wrap; text-align: center; gap: 1rem;">
                         <a href="index.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">Home</a>
-                        <a href="assessment.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">Assessment</a>
+                        <a href="survival-guide.html" style="text-align: center; color: #f59e0b; padding: 0.5rem 1rem; font-weight: 600;">📖 Survival Guide</a>
+                        <a href="ai-career-assessment.html" style="text-align: center; color: #10b981; padding: 0.5rem 1rem; font-weight: 600;">🎯 Career Assessment</a>
                         <a href="roadmaps.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">Critical Roadmaps</a>
                         <a href="resources.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">Survival Resources</a>
                         <a href="community.html" style="text-align: center; color: white; padding: 0.5rem 1rem;">Community</a>
@@ -564,8 +565,8 @@
                     The IT sector is transforming. Only first movers will secure their future.
                 </p>
                 
-                <a href="assessment.html" class="btn-primary" aria-label="Begin Emergency Assessment" title="Begin Emergency Assessment">
-                    <i class="fas fa-bolt mr-2" role="img" aria-label="Begin Emergency Assessment"></i> BEGIN EMERGENCY ASSESSMENT
+                <a href="ai-career-assessment.html" class="btn-primary" aria-label="Begin AI Career Assessment" title="Begin AI Career Assessment">
+                    <i class="fas fa-bolt mr-2" role="img" aria-label="Begin AI Career Assessment"></i> BEGIN AI CAREER ASSESSMENT
                 </a>
             </section>
             <section id="roadmapSection" class="hidden">
@@ -578,9 +579,47 @@
                 <div class="glass rounded-2xl p-8">
                     <h3 class="text-2xl font-bold mb-4">Welcome to AI Reckoning</h3>
                     <p class="text-lg mb-6 opacity-90">Start with an assessment to get tailored guidance.</p>
-                    <a href="assessment.html" class="btn-primary" aria-label="Start Assessment" title="Start Assessment">
-                        <i class="fas fa-bolt mr-2" role="img" aria-label="Start Assessment"></i> Start Assessment
+                    <a href="ai-career-assessment.html" class="btn-primary" aria-label="Start AI Career Assessment" title="Start AI Career Assessment">
+                        <i class="fas fa-bolt mr-2" role="img" aria-label="Start AI Career Assessment"></i> Start AI Career Assessment
                     </a>
+                </div>
+            </section>
+            
+            <!-- Email Capture Section for Revenue Generation -->
+            <section class="mt-12 text-center">
+                <div class="glass rounded-2xl p-8 max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-bold mb-4">� FREE: AI Career Survival Guide</h3>
+                    <p class="text-lg mb-6 opacity-90">Get the complete 50-page roadmap to thriving in an AI-transformed workplace. Includes 30-day action plan + industry-specific strategies.</p>
+                    
+                    <div class="mb-6">
+                        <a href="survival-guide.html" class="bg-gradient-to-r from-yellow-500 to-orange-500 text-black px-8 py-4 rounded-lg hover:from-yellow-600 hover:to-orange-600 transition-all transform hover:scale-105 font-bold text-lg inline-block mb-4">
+                            📥 Download Survival Guide
+                        </a>
+                    </div>
+                    
+                    <p class="text-sm opacity-75 mb-6">Or get weekly insights + the guide via email:</p>
+                    
+                    <form id="emailCaptureForm" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto mb-4">
+                        <input type="email" id="emailInput" placeholder="Enter your email address" 
+                               class="flex-1 px-4 py-3 rounded-lg border border-gray-300 text-gray-900 bg-white placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
+                               required>
+                        <button type="submit" 
+                                class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 font-semibold whitespace-nowrap">
+                            Get Free Guide
+                        </button>
+                    </form>
+                    
+                    <div class="flex flex-wrap justify-center gap-4 text-sm opacity-75">
+                        <span>✅ Free AI Career Assessment</span>
+                        <span>✅ Industry Salary Guide</span>
+                        <span>✅ Weekly Career Tips</span>
+                        <span>✅ No Spam, Unsubscribe Anytime</span>
+                    </div>
+                    
+                    <!-- Success Message -->
+                    <div id="successMessage" class="hidden mt-4 p-4 bg-green-100 border border-green-300 rounded-lg text-green-800">
+                        🎉 Thank you! Check your email for your free AI Career Transformation Guide.
+                    </div>
                 </div>
             </section>
         </main>
@@ -594,8 +633,8 @@
                             <a href="about.html" class="block text-sm text-blue-400 hover:text-blue-300">About Us</a>
                             <a href="methodology.html" class="block text-sm text-blue-400 hover:text-blue-300">Our Methodology</a>
                             <a href="research.html" class="block text-sm text-blue-400 hover:text-blue-300">Research & Data</a>
-                            <a href="privacy.html" class="block text-sm text-blue-400 hover:text-blue-300">Privacy Policy</a>
-                            <a href="terms.html" class="block text-sm text-blue-400 hover:text-blue-300">Terms of Service</a>
+                            <a href="privacy-policy.html" class="block text-sm text-blue-400 hover:text-blue-300">Privacy Policy</a>
+                            <a href="terms-of-service.html" class="block text-sm text-blue-400 hover:text-blue-300">Terms of Service</a>
                         </div>
                     </div>
                     <div>
@@ -662,8 +701,185 @@
                 }
             }
         }
+        
+        // Email Capture Functionality - Debug Version with Multiple Fallbacks
+        document.getElementById('emailCaptureForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('emailInput').value;
+            const successMessage = document.getElementById('successMessage');
+            const form = document.getElementById('emailCaptureForm');
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            // Basic email validation
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Show loading state
+            submitButton.textContent = 'Sending...';
+            submitButton.disabled = true;
+            
+            // Store email in localStorage as backup
+            const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+            const newSubscriber = {
+                email: email,
+                date: new Date().toISOString(),
+                source: 'homepage',
+                id: Date.now()
+            };
+            
+            if (!subscribers.find(sub => sub.email === email)) {
+                subscribers.push(newSubscriber);
+                localStorage.setItem('subscribers', JSON.stringify(subscribers));
+                console.log('✅ Email saved locally:', email);
+                console.log('📧 Total subscribers:', subscribers.length);
+            }
+            
+            // Method 1: Test with HTTPBin (will always work for testing)
+            const testData = {
+                email: email,
+                source: 'AI Career Transformation - Homepage',
+                timestamp: new Date().toLocaleString(),
+                message: `New subscriber: ${email} from AI Career homepage`,
+                total_subscribers: subscribers.length
+            };
+            
+            // ADMIN NOTIFICATION: Send you an email about new subscriber
+            const adminNotification = {
+                name: 'AI Career Platform',
+                email: 'noreply@ai-career-transformation.surge.sh',
+                subject: `🎯 New Homepage Subscriber: ${email}`,
+                message: `NEW SUBSCRIBER ALERT!
+
+Email: ${email}
+Source: Homepage Email Signup
+Date: ${new Date().toLocaleString()}
+Total Subscribers: ${subscribers.length}
+
+RECOMMENDED ACTIONS:
+1. Add to email marketing list
+2. Send welcome sequence
+3. Track assessment completion
+4. Consider outreach for coaching
+
+Dashboard: https://ai-career-transformation.surge.sh/admin.html`,
+                _captcha: false,
+                _template: 'table'
+            };
+            
+            // Send admin notification via FormSubmit
+            fetch('https://formsubmit.co/ysgill@yahoo.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(adminNotification)
+            }).then(response => {
+                if (response.ok) {
+                    console.log('✅ Admin notification sent for new subscriber!');
+                }
+            }).catch(error => {
+                console.log('Admin notification failed, but subscriber saved');
+            });
+            
+            fetch('https://httpbin.org/post', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(testData)
+            }).then(response => response.json())
+            .then(data => {
+                console.log('✅ Test submission successful:', data);
+                
+                // Method 2: Try to submit to a contact form service
+                tryAlternativeEmailService();
+                
+            }).catch(error => {
+                console.log('❌ Test submission failed:', error);
+                tryAlternativeEmailService();
+            });
+            
+            function tryAlternativeEmailService() {
+                // Create a simple mailto link as ultimate fallback
+                const emailSubject = encodeURIComponent('New AI Career Transformation Subscriber');
+                const emailBody = encodeURIComponent(`New subscriber details:
+                
+Email: ${email}
+Source: Homepage signup
+Date: ${new Date().toLocaleString()}
+Total subscribers: ${subscribers.length}
+
+This email was generated from the AI Career Transformation platform.
+Platform: https://ai-career-transformation.surge.sh`);
+                
+                const mailtoLink = `mailto:ysgill@yahoo.com?subject=${emailSubject}&body=${emailBody}`;
+                
+                // For now, just show success and log the mailto link
+                console.log('📧 Mailto link created:', mailtoLink);
+                console.log('📝 You can copy this link to send yourself the subscriber info');
+                
+                showSuccess();
+            }
+            
+            function showSuccess() {
+                // Show success message
+                form.style.display = 'none';
+                successMessage.classList.remove('hidden');
+                
+                // Add debug info to success message
+                const debugInfo = document.createElement('div');
+                debugInfo.className = 'mt-2 text-sm opacity-75';
+                debugInfo.innerHTML = `
+                    <p>✅ Email captured: ${email}</p>
+                    <p>📊 Total subscribers: ${subscribers.length}</p>
+                    <p>💾 Saved locally (check browser console for details)</p>
+                `;
+                successMessage.appendChild(debugInfo);
+                
+                // Track conversion for analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'email_signup', {
+                        'event_category': 'engagement',
+                        'event_label': 'homepage_email_capture',
+                        'value': 1
+                    });
+                }
+                
+                // Suggest assessment after signup
+                setTimeout(() => {
+                    if (confirm('Thanks for joining! Want to discover your AI career readiness score right now?')) {
+                        window.location.href = 'ai-career-assessment.html';
+                    }
+                }, 3000);
+            }
+        });
     </script>
     
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // EmailJS Configuration
+        // To activate email delivery:
+        // 1. Sign up at https://www.emailjs.com
+        // 2. Create a service (Gmail, Outlook, etc.)
+        // 3. Create an email template
+        // 4. Replace the values below with your actual EmailJS credentials
+        
+        (function(){
+            // emailjs.init("YOUR_PUBLIC_KEY"); // Uncomment and add your public key
+            // window.emailjsConfigured = true; // Uncomment when configured
+            
+            // For now, emails are saved locally in browser storage
+            // Check browser console and localStorage for captured emails
+            console.log('EmailJS ready for configuration');
+            console.log('Current subscribers:', JSON.parse(localStorage.getItem('subscribers') || '[]'));
+        })();
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>

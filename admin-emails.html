@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Subscribers - Admin Dashboard</title>
+    <link href="https://cdn.tailwindcss.com/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-gray-900">📧 Email Subscribers</h1>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="index.html" class="text-gray-600 hover:text-blue-600 font-medium">← Back to Site</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Email Dashboard -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-2 bg-blue-100 rounded-lg">
+                        <span class="text-2xl">📊</span>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">Email Subscribers</p>
+                        <p class="text-2xl font-bold text-gray-900" id="totalCount">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-2 bg-purple-100 rounded-lg">
+                        <span class="text-2xl">🎯</span>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">Assessments Taken</p>
+                        <p class="text-2xl font-bold text-gray-900" id="assessmentCount">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-2 bg-green-100 rounded-lg">
+                        <span class="text-2xl">📈</span>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">This Week</p>
+                        <p class="text-2xl font-bold text-gray-900" id="weekCount">0</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex items-center">
+                    <div class="p-2 bg-yellow-100 rounded-lg">
+                        <span class="text-2xl">💰</span>
+                    </div>
+                    <div class="ml-4">
+                        <p class="text-sm font-medium text-gray-600">Premium Taken</p>
+                        <p class="text-2xl font-bold text-gray-900" id="premiumCount">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EmailJS Setup Instructions -->
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <span class="text-2xl">🔧</span>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-lg font-medium text-blue-800">Set Up Email Delivery</h3>
+                    <div class="mt-2 text-sm text-blue-700">
+                        <p class="mb-2">To receive emails directly in your inbox:</p>
+                        <ol class="list-decimal ml-4 space-y-1">
+                            <li>Sign up at <a href="https://www.emailjs.com" target="_blank" class="underline font-medium">EmailJS.com</a></li>
+                            <li>Create an email service (Gmail, Outlook, etc.)</li>
+                            <li>Create a template with fields: user_email, message, timestamp</li>
+                            <li>Get your Public Key, Service ID, and Template ID</li>
+                            <li>Update the configuration in index.html</li>
+                        </ol>
+                        <p class="mt-3 font-medium">For now, emails are saved in browser storage and shown below.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="mb-8">
+            <div class="border-b border-gray-200">
+                <nav class="-mb-px flex space-x-8">
+                    <button onclick="showTab('subscribers')" id="subscribersTab" class="tab-button py-2 px-1 border-b-2 border-blue-500 font-medium text-sm text-blue-600">
+                        📧 Email Subscribers
+                    </button>
+                    <button onclick="showTab('assessments')" id="assessmentsTab" class="tab-button py-2 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300">
+                        🎯 Assessment Results
+                    </button>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Subscribers Table -->
+        <div id="subscribersSection" class="bg-white shadow rounded-lg overflow-hidden">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-lg font-medium text-gray-900">Email Subscribers</h3>
+                    <div class="flex space-x-3">
+                        <button onclick="exportEmails()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">
+                            📥 Export CSV
+                        </button>
+                        <button onclick="refreshData()" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 text-sm">
+                            🔄 Refresh
+                        </button>
+                        <button onclick="clearData()" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 text-sm">
+                            🗑️ Clear All
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Source</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="subscribersTable" class="bg-white divide-y divide-gray-200">
+                        <!-- Email rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="emptyState" class="hidden p-12 text-center">
+                <span class="text-6xl mb-4 block">📭</span>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">No subscribers yet</h3>
+                <p class="text-gray-600">Email signups will appear here once people start subscribing.</p>
+            </div>
+        </div>
+
+        <!-- Assessment Results Table -->
+        <div id="assessmentsSection" class="bg-white shadow rounded-lg overflow-hidden hidden">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-lg font-medium text-gray-900">Assessment Results</h3>
+                    <div class="flex space-x-3">
+                        <button onclick="exportAssessments()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm">
+                            📥 Export CSV
+                        </button>
+                        <button onclick="refreshData()" class="bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 text-sm">
+                            🔄 Refresh
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Score</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Level</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="assessmentsTable" class="bg-white divide-y divide-gray-200">
+                        <!-- Assessment rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="assessmentEmptyState" class="hidden p-12 text-center">
+                <span class="text-6xl mb-4 block">🎯</span>
+                <h3 class="text-lg font-medium text-gray-900 mb-2">No assessments taken yet</h3>
+                <p class="text-gray-600">Assessment results will appear here once people complete the AI Career Assessment.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadSubscribers() {
+            const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+            const tableBody = document.getElementById('subscribersTable');
+            const emptyState = document.getElementById('emptyState');
+            
+            if (subscribers.length === 0) {
+                tableBody.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                updateStats(subscribers);
+                return;
+            }
+            
+            emptyState.classList.add('hidden');
+            
+            // Sort by most recent first
+            const sortedSubscribers = subscribers.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            tableBody.innerHTML = sortedSubscribers.map((subscriber, index) => {
+                const date = new Date(subscriber.date);
+                const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                
+                return `
+                    <tr class="${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}">
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">📧</span>
+                                <div>
+                                    <div class="text-sm font-medium text-gray-900">${subscriber.email}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                                ${subscriber.source || 'homepage'}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            ${formattedDate}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                            <button onclick="copyEmail('${subscriber.email}')" class="text-blue-600 hover:text-blue-900 mr-3">Copy</button>
+                            <button onclick="removeEmail('${subscriber.email}')" class="text-red-600 hover:text-red-900">Remove</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+            
+            updateStats(subscribers);
+        }
+        
+        function updateStats(subscribers) {
+            const assessments = JSON.parse(localStorage.getItem('assessmentResults') || '[]');
+            
+            const total = subscribers.length;
+            const now = new Date();
+            const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+            
+            const weekCount = subscribers.filter(sub => new Date(sub.date) >= weekAgo).length;
+            const premiumCount = assessments.filter(ass => ass.type === 'premium').length;
+            
+            document.getElementById('totalCount').textContent = total;
+            document.getElementById('assessmentCount').textContent = assessments.length;
+            document.getElementById('weekCount').textContent = weekCount;
+            document.getElementById('premiumCount').textContent = premiumCount;
+        }
+        
+        function refreshData() {
+            loadSubscribers();
+            loadAssessments();
+        }
+        
+        function clearData() {
+            if (confirm('Are you sure you want to delete all subscriber data? This cannot be undone.')) {
+                localStorage.removeItem('subscribers');
+                loadSubscribers();
+            }
+        }
+        
+        function copyEmail(email) {
+            navigator.clipboard.writeText(email).then(() => {
+                alert(`Copied: ${email}`);
+            });
+        }
+        
+        function removeEmail(email) {
+            if (confirm(`Remove ${email} from subscribers?`)) {
+                const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+                const filtered = subscribers.filter(sub => sub.email !== email);
+                localStorage.setItem('subscribers', JSON.stringify(filtered));
+                loadSubscribers();
+            }
+        }
+        
+        function exportEmails() {
+            const subscribers = JSON.parse(localStorage.getItem('subscribers') || '[]');
+            if (subscribers.length === 0) {
+                alert('No subscribers to export');
+                return;
+            }
+            
+            const csv = 'Email,Source,Date\n' + 
+                subscribers.map(sub => `${sub.email},${sub.source || 'homepage'},${sub.date}`).join('\n');
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ai-career-subscribers-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+        
+        function loadAssessments() {
+            const assessments = JSON.parse(localStorage.getItem('assessmentResults') || '[]');
+            const tableBody = document.getElementById('assessmentsTable');
+            const emptyState = document.getElementById('assessmentEmptyState');
+            
+            if (assessments.length === 0) {
+                tableBody.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            
+            emptyState.classList.add('hidden');
+            
+            // Sort by most recent first
+            const sortedAssessments = assessments.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            tableBody.innerHTML = sortedAssessments.map((assessment, index) => {
+                const date = new Date(assessment.date);
+                const formattedDate = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+                const scoreColor = assessment.score >= 80 ? 'bg-green-100 text-green-800' : 
+                                 assessment.score >= 60 ? 'bg-blue-100 text-blue-800' : 
+                                 assessment.score >= 40 ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800';
+                
+                return `
+                    <tr class="${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}">
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <span class="text-2xl mr-3">🎯</span>
+                                <div>
+                                    <div class="text-sm font-medium text-gray-900">${assessment.email}</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${scoreColor}">
+                                ${assessment.score}%
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            ${assessment.description}
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${assessment.type === 'premium' ? 'bg-purple-100 text-purple-800' : 'bg-gray-100 text-gray-800'}">
+                                ${assessment.type.charAt(0).toUpperCase() + assessment.type.slice(1)}
+                            </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                            ${formattedDate}
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+        
+        function exportAssessments() {
+            const assessments = JSON.parse(localStorage.getItem('assessmentResults') || '[]');
+            if (assessments.length === 0) {
+                alert('No assessment results to export');
+                return;
+            }
+            
+            const csv = 'Email,Score,Description,Type,Date\n' + 
+                assessments.map(ass => `${ass.email},${ass.score},"${ass.description}",${ass.type},${ass.date}`).join('\n');
+            
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `ai-career-assessments-${new Date().toISOString().split('T')[0]}.csv`;
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+        
+        function showTab(tabName) {
+            // Hide all sections
+            document.getElementById('subscribersSection').classList.add('hidden');
+            document.getElementById('assessmentsSection').classList.add('hidden');
+            
+            // Remove active state from all tabs
+            document.querySelectorAll('.tab-button').forEach(tab => {
+                tab.classList.remove('border-blue-500', 'text-blue-600');
+                tab.classList.add('border-transparent', 'text-gray-500');
+            });
+            
+            // Show selected section and activate tab
+            if (tabName === 'subscribers') {
+                document.getElementById('subscribersSection').classList.remove('hidden');
+                document.getElementById('subscribersTab').classList.add('border-blue-500', 'text-blue-600');
+                document.getElementById('subscribersTab').classList.remove('border-transparent', 'text-gray-500');
+            } else {
+                document.getElementById('assessmentsSection').classList.remove('hidden');
+                document.getElementById('assessmentsTab').classList.add('border-blue-500', 'text-blue-600');
+                document.getElementById('assessmentsTab').classList.remove('border-transparent', 'text-gray-500');
+                loadAssessments();
+            }
+        }
+        
+        // Load data on page load
+        loadSubscribers();
+        loadAssessments();
+        
+        // Auto-refresh every 30 seconds
+        setInterval(() => {
+            loadSubscribers();
+            loadAssessments();
+        }, 30000);
+    </script>
+</body>
+</html>

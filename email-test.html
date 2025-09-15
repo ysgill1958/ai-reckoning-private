@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Notification Test - AI Career Transformation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
+            min-height: 100vh; 
+            color: white;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen p-8">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+                <h1 class="text-4xl font-bold mb-2">📧 Email Notification Test</h1>
+                <p class="text-xl opacity-90">Test admin email notifications for AI Career Transformation</p>
+            </div>
+
+            <div class="glass rounded-xl p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-6">🧪 Test Email Notifications</h2>
+                
+                <div class="space-y-6">
+                    <!-- Test User Email Delivery -->
+                    <div class="border border-green-600 rounded-lg p-6 bg-green-900 bg-opacity-20">
+                        <h3 class="text-xl font-semibold mb-4">🔥 NEW: Test User Email Delivery</h3>
+                        <p class="text-sm opacity-90 mb-4">Test that users actually receive their survival guide in their email inbox</p>
+                        <form id="testUserEmailForm" class="space-y-4">
+                            <input type="email" id="testUserEmail" placeholder="Enter YOUR email to test user delivery" 
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white" required>
+                            <button type="submit" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg font-bold">
+                                📧 Test Survival Guide Delivery to User Email
+                            </button>
+                        </form>
+                        <div id="user-email-result" class="mt-4 hidden"></div>
+                    </div>
+
+                    <!-- Test Homepage Signup -->
+                    <div class="border border-gray-600 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">1. Test Homepage Signup Notification (Admin)</h3>
+                        <form id="testHomepageForm" class="space-y-4">
+                            <input type="email" id="testEmail1" placeholder="Enter test email" 
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white" required>
+                            <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg font-bold">
+                                🏠 Test Homepage Signup Notification
+                            </button>
+                        </form>
+                        <div id="homepage-result" class="mt-4 hidden"></div>
+                    </div>
+
+                    <!-- Test Survival Guide Request -->
+                    <div class="border border-gray-600 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">2. Test Survival Guide Request Notification</h3>
+                        <form id="testSurvivalForm" class="space-y-4">
+                            <input type="email" id="testEmail2" placeholder="Enter test email" 
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white" required>
+                            <button type="submit" class="bg-yellow-600 hover:bg-yellow-700 px-6 py-3 rounded-lg font-bold">
+                                📖 Test Survival Guide Notification
+                            </button>
+                        </form>
+                        <div id="survival-result" class="mt-4 hidden"></div>
+                    </div>
+
+                    <!-- Test Assessment Completion -->
+                    <div class="border border-gray-600 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4">3. Test Assessment Completion Notification</h3>
+                        <form id="testAssessmentForm" class="space-y-4">
+                            <input type="email" id="testEmail3" placeholder="Enter test email" 
+                                   class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white" required>
+                            <select id="testScore" class="w-full p-3 bg-gray-800 border border-gray-600 rounded-lg text-white">
+                                <option value="95">High Score (95/100) - Advanced Leader</option>
+                                <option value="75">Medium-High Score (75/100) - Rapid Integration</option>
+                                <option value="55">Medium Score (55/100) - Essential Skills</option>
+                                <option value="25">Low Score (25/100) - Urgent Transformation</option>
+                            </select>
+                            <button type="submit" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg font-bold">
+                                🎯 Test Assessment Notification
+                            </button>
+                        </form>
+                        <div id="assessment-result" class="mt-4 hidden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass rounded-xl p-6">
+                <h3 class="text-xl font-bold mb-4">📋 Instructions</h3>
+                <div class="space-y-3 text-sm opacity-90">
+                    <p>• Each test will send an email notification to <strong>ysgill@yahoo.com</strong></p>
+                    <p>• Check your inbox (and spam folder) after testing</p>
+                    <p>• Notifications include subscriber details and recommended actions</p>
+                    <p>• All test data is also saved to your admin dashboard</p>
+                </div>
+                
+                <div class="mt-6 text-center">
+                    <a href="admin.html" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg font-bold inline-block">
+                        📊 View Admin Dashboard
+                    </a>
+                    <a href="index.html" class="bg-gray-600 hover:bg-gray-700 px-6 py-3 rounded-lg font-bold inline-block ml-4">
+                        🏠 Back to Homepage
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test User Email Delivery
+        document.getElementById('testUserEmailForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('testUserEmail').value;
+            const resultDiv = document.getElementById('user-email-result');
+            
+            const survivalGuideContent = `AI CAREER SURVIVAL - BASIC TIPS
+===============================
+
+⚠️  THE AI EMERGENCY IS REAL
+• 40% of jobs will be transformed by 2030
+• Companies are adopting AI faster than employees are adapting
+• The time to act is NOW, not later
+
+🛡️  IMMEDIATE SURVIVAL ACTIONS (This Week):
+1. Learn what AI means for YOUR specific job
+2. Start using ChatGPT for daily work tasks
+3. Join one AI-focused LinkedIn group
+4. Read 1 article daily about AI in your industry
+
+🚀  ESSENTIAL AI SKILLS TO DEVELOP:
+• AI tool proficiency (ChatGPT, Canva AI, etc.)
+• Human + AI collaboration
+• Data interpretation and analysis
+• Prompt engineering basics
+
+📚  FREE RESOURCES TO START TODAY:
+• Coursera: "AI for Everyone" (free course)
+• YouTube: Search "AI tools for [your job]"
+• LinkedIn Learning: AI productivity courses
+• ChatGPT: Practice using it for your work
+
+⏰  YOUR NEXT STEP:
+These basic tips are just the beginning. For your complete personalized transformation roadmap based on your current AI readiness level:
+
+👉 Take our AI Career Assessment (2 minutes): 
+   https://ai-career-transformation.surge.sh/ai-career-assessment.html`;
+            
+            const userEmailData = {
+                name: 'AI Career Transformation Team',
+                email: 'support@ai-career-transformation.com',
+                subject: '🚨 TEST: Your AI Career Survival Guide - URGENT Action Required!',
+                message: `Hello!
+
+This is a TEST of the user email delivery system.
+
+Thank you for requesting your AI Career Survival Guide. Here's your personalized emergency action plan:
+
+${survivalGuideContent}
+
+🎯 YOUR NEXT CRITICAL STEP:
+Complete your AI Career Assessment to get your full personalized 90-day transformation roadmap:
+https://ai-career-transformation.surge.sh/ai-career-assessment.html
+
+Continue your transformation: https://ai-career-transformation.surge.sh
+
+Best regards,
+AI Career Transformation Team
+
+P.S. This was a test email. Reply if you received it successfully!`,
+                _replyto: email,
+                _autoresponse: `Thank you for testing our AI Career Survival Guide delivery! You should receive the guide in your inbox within the next few minutes.`,
+                _template: 'box',
+                _captcha: false
+            };
+            
+            fetch(`https://formsubmit.co/${email}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(userEmailData)
+            }).then(response => {
+                resultDiv.classList.remove('hidden');
+                if (response.ok) {
+                    resultDiv.innerHTML = `<div class="p-3 bg-green-800 rounded">
+                        ✅ TEST: Survival guide sent to ${email}!<br>
+                        📧 Check your inbox (and spam folder) for the email<br>
+                        🔄 This tests the actual user experience
+                    </div>`;
+                } else {
+                    resultDiv.innerHTML = '<div class="p-3 bg-red-800 rounded">❌ Failed to send test email to user</div>';
+                }
+            }).catch(error => {
+                resultDiv.classList.remove('hidden');
+                resultDiv.innerHTML = '<div class="p-3 bg-red-800 rounded">❌ Error sending test email to user</div>';
+            });
+        });
+
+        // Test Homepage Signup Notification
+        document.getElementById('testHomepageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('testEmail1').value;
+            const resultDiv = document.getElementById('homepage-result');
+            
+            const adminNotification = {
+                name: 'AI Career Platform',
+                email: 'noreply@ai-career-transformation.surge.sh',
+                subject: `🎯 TEST: New Homepage Subscriber - ${email}`,
+                message: `TEST EMAIL NOTIFICATION
+                
+Email: ${email}
+Source: Homepage Email Signup (TEST)
+Date: ${new Date().toLocaleString()}
+Total Subscribers: TEST MODE
+
+This is a test of the homepage signup notification system.
+
+RECOMMENDED ACTIONS:
+1. Add to email marketing list
+2. Send welcome sequence
+3. Track assessment completion
+4. Consider outreach for coaching
+
+Dashboard: https://ai-career-transformation.surge.sh/admin.html`,
+                _captcha: false,
+                _template: 'table'
+            };
+            
+            fetch('https://formsubmit.co/ysgill@yahoo.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(adminNotification)
+            }).then(response => {
+                resultDiv.classList.remove('hidden');
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="p-3 bg-green-800 rounded">✅ Homepage signup notification sent successfully!</div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="p-3 bg-red-800 rounded">❌ Failed to send notification</div>';
+                }
+            }).catch(error => {
+                resultDiv.classList.remove('hidden');
+                resultDiv.innerHTML = '<div class="p-3 bg-red-800 rounded">❌ Error sending notification</div>';
+            });
+        });
+
+        // Test Survival Guide Notification
+        document.getElementById('testSurvivalForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('testEmail2').value;
+            const resultDiv = document.getElementById('survival-result');
+            
+            const adminNotification = {
+                name: 'AI Career Platform',
+                email: 'noreply@ai-career-transformation.surge.sh',
+                subject: `🚨 TEST: New Survival Guide Request - ${email}`,
+                message: `TEST EMAIL NOTIFICATION
+
+Email: ${email}
+Source: Survival Guide Request (TEST)
+Date: ${new Date().toLocaleString()}
+Total Subscribers: TEST MODE
+
+This is a test of the survival guide request notification system.
+
+RECOMMENDED ACTIONS:
+1. Add to email marketing list
+2. Follow up within 24 hours
+3. Track assessment completion
+4. Consider reaching out for coaching services
+
+Dashboard: https://ai-career-transformation.surge.sh/admin.html`,
+                _captcha: false,
+                _template: 'table'
+            };
+            
+            fetch('https://formsubmit.co/ysgill@yahoo.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(adminNotification)
+            }).then(response => {
+                resultDiv.classList.remove('hidden');
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="p-3 bg-green-800 rounded">✅ Survival guide notification sent successfully!</div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="p-3 bg-red-800 rounded">❌ Failed to send notification</div>';
+                }
+            }).catch(error => {
+                resultDiv.classList.remove('hidden');
+                resultDiv.innerHTML = '<div class="p-3 bg-red-800 rounded">❌ Error sending notification</div>';
+            });
+        });
+
+        // Test Assessment Notification
+        document.getElementById('testAssessmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('testEmail3').value;
+            const score = document.getElementById('testScore').value;
+            const resultDiv = document.getElementById('assessment-result');
+            
+            const levels = {
+                95: 'Advanced AI Leader',
+                75: 'Rapid Integration Track',
+                55: 'Essential Skills Track',
+                25: 'Urgent Transformation Track'
+            };
+            
+            const adminNotification = {
+                name: 'AI Career Assessment Platform',
+                email: 'noreply@ai-career-transformation.surge.sh',
+                subject: `🎯 TEST: Assessment Completed - ${score}/100 - ${email}`,
+                message: `TEST EMAIL NOTIFICATION
+
+Email: ${email}
+Score: ${score}/100
+Level: ${levels[score]}
+Type: TEST
+Date: ${new Date().toLocaleString()}
+
+This is a test of the assessment completion notification system.
+
+RECOMMENDED ACTIONS:
+1. ${score >= 80 ? 'Offer advanced coaching services ($300/hour)' : score >= 60 ? 'Offer integration coaching ($150/hour)' : score >= 40 ? 'Offer skills development program' : 'Offer emergency transformation plan'}
+2. Follow up within 2 hours while interest is high
+3. Send personalized content based on score
+4. Track premium upgrade potential
+
+Dashboard: https://ai-career-transformation.surge.sh/admin.html
+User Level: ${levels[score]}`,
+                _captcha: false,
+                _template: 'table'
+            };
+            
+            fetch('https://formsubmit.co/ysgill@yahoo.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(adminNotification)
+            }).then(response => {
+                resultDiv.classList.remove('hidden');
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="p-3 bg-green-800 rounded">✅ Assessment notification sent successfully!</div>';
+                } else {
+                    resultDiv.innerHTML = '<div class="p-3 bg-red-800 rounded">❌ Failed to send notification</div>';
+                }
+            }).catch(error => {
+                resultDiv.classList.remove('hidden');
+                resultDiv.innerHTML = '<div class="p-3 bg-red-800 rounded">❌ Error sending notification</div>';
+            });
+        });
+    </script>
+</body>
+</html>

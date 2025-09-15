@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Fixed styles with black background and no overlapping */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: white;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        
+        a, p, h1, h2, h3, h4, h5, h6 {
+            color: #fff !important;
+            text-shadow: 0 1px 3px #000;
+            text-align: center;
+        }
+        
+        a:hover, a:focus { color: #f3f4f6; text-decoration: underline; }
+        
+        header, main, footer {
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        main { 
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        nav { 
+            text-align: center;
+        }
+        
+        nav a { 
+            margin: 0 0.75rem; 
+            padding: 0.5rem;
+            display: inline-block;
+            text-align: center;
+        }
+        
+        .btn-primary { 
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
+            padding: 1rem 2rem; 
+            border-radius: 0.75rem; 
+            color: white; 
+            font-weight: 600; 
+            display: inline-block; 
+            margin: 1rem auto;
+            text-decoration: none;
+        }
+        
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            padding: 2rem; 
+            margin: 1rem auto;
+            border-radius: 1rem;
+        }
+    </style>
+    <style>
+        /* Remove conflicting styles */
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Assess your career readiness for AI-driven changes">
+    <title>Quick Risk Assessment | AI RECKONING</title>
+    <link rel="stylesheet" href="css/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .btn-primary:hover { transform: translateY(-2px); }
+        .nav-active { color: #ef4444; font-weight: 600; }
+        .warning-icon { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
+        #loading { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.95); display: none; align-items: center; justify-content: center; z-index: 1000; }
+        .hidden { display: none; }
+        #loading { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div id="loading" class="hidden">
+        <div class="text-center">
+            <i class="fas fa-spinner fa-spin text-4xl text-red-500"></i>
+            <p class="mt-4 text-lg">Loading AI Reckoning...</p>
+        </div>
+    </div>
+    <script>
+        // Immediately hide loading screen
+        document.getElementById('loading').style.display = 'none';
+    </script>
+    <div id="app" class="min-h-screen">
+        <header class="py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-700" role="banner">
+            <div class="max-w-7xl mx-auto">
+                <!-- Main header row -->
+                <div class="flex flex-col lg:flex-row justify-between items-center">
+                    <!-- Logo and brand -->
+                    <div class="flex items-center space-x-3 mb-4 lg:mb-0">
+                        <div class="bg-red-600 p-2 rounded-xl warning-icon">
+                            <i class="fas fa-exclamation-triangle text-2xl"></i>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl font-bold">AI RECKONING</h1>
+                            <p class="text-sm opacity-90">Emergency Career Transformation System</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <nav class="flex flex-wrap justify-center lg:justify-end gap-4 lg:gap-6" role="navigation">
+                        <a href="index.html" class="font-medium hover:text-red-300 transition px-2 py-1">Home</a>
+                        <a href="assessment.html" class="font-medium hover:text-red-300 transition nav-active px-2 py-1" aria-current="page">Quick Risk Check</a>
+                        <a href="ai-career-assessment.html" class="font-medium hover:text-green-300 transition px-2 py-1 bg-green-600/20 rounded">Complete Assessment</a>
+                        <a href="roadmaps.html" class="font-medium hover:text-red-300 transition px-2 py-1">Critical Roadmaps</a>
+                        <a href="resources.html" class="font-medium hover:text-red-300 transition px-2 py-1">Survival Resources</a>
+                        <a href="community.html" class="font-medium hover:text-red-300 transition px-2 py-1">Community</a>
+                        <a href="about.html" class="font-medium hover:text-red-300 transition px-2 py-1">About</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" role="main">
+            <!-- Emergency Alert Banner -->
+            <div style="background: rgba(239, 68, 68, 0.15); border: 2px solid #ef4444; border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; text-align: center;">
+                <h2 class="text-2xl font-bold mb-2" style="color: #ef4444;">⚡ QUICK: AI Displacement Risk Assessment</h2>
+                <p class="text-lg">Fast 5-minute risk check to assess your vulnerability to AI automation</p>
+                <p class="text-sm opacity-75 mt-2">⏰ Quick risk evaluation • Immediate insights • Basic recommendations</p>
+                
+                <!-- Upgrade Notice -->
+                <div style="background: rgba(34, 197, 94, 0.15); border: 1px solid #22c55e; border-radius: 0.5rem; padding: 1rem; margin-top: 1rem;">
+                    <p class="text-sm" style="color: #22c55e; margin: 0;">
+                        🎯 Want comprehensive analysis? Take our 
+                        <a href="ai-career-assessment.html" style="color: #22c55e; text-decoration: underline; font-weight: bold;">Complete Career Assessment (15 min)</a>
+                        for detailed roadmaps and personalized strategies
+                    </p>
+                </div>
+            </div>
+
+            <!-- Assessment Form -->
+            <section id="assessment" class="glass rounded-2xl p-8">
+                <h3 class="text-3xl font-bold mb-6 text-center">Quick Risk Assessment (5 minutes)</h3>
+                <p class="text-center mb-8 opacity-90">Fast evaluation to understand your immediate AI automation risk level</p>
+                
+                <form id="assessmentForm" class="space-y-8 max-w-4xl mx-auto">
+                    <!-- Step 1: Basic Info -->
+                    <div class="assessment-step" id="step1">
+                        <h4 class="text-xl font-bold mb-4 text-red-400">📋 Step 1: Current Situation</h4>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Current Industry</label>
+                                <select name="industry" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white">
+                                    <option value="">Select your industry</option>
+                                    <option value="it-bpm">IT & BPM</option>
+                                    <option value="banking">Banking & Finance</option>
+                                    <option value="customer-support">Customer Support</option>
+                                    <option value="healthcare">Healthcare Administration</option>
+                                    <option value="retail">Retail & E-commerce</option>
+                                    <option value="manufacturing">Manufacturing</option>
+                                    <option value="accounting">Accounting & Finance</option>
+                                    <option value="transport">Transportation & Logistics</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Current Role Level</label>
+                                <select name="roleLevel" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white">
+                                    <option value="">Select your level</option>
+                                    <option value="entry">Entry Level (0-2 years)</option>
+                                    <option value="mid">Mid Level (3-7 years)</option>
+                                    <option value="senior">Senior Level (8-15 years)</option>
+                                    <option value="leadership">Leadership (15+ years)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Primary Job Function</label>
+                                <select name="jobFunction" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white">
+                                    <option value="">Select primary function</option>
+                                    <option value="coding">Software Development/Coding</option>
+                                    <option value="data-entry">Data Entry/Processing</option>
+                                    <option value="customer-service">Customer Service</option>
+                                    <option value="analysis">Data Analysis/Reporting</option>
+                                    <option value="design">Design/Creative</option>
+                                    <option value="management">Team Management</option>
+                                    <option value="sales">Sales/Business Development</option>
+                                    <option value="operations">Operations/Process</option>
+                                    <option value="strategy">Strategy/Planning</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Work Location</label>
+                                <select name="workLocation" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white">
+                                    <option value="">Select location type</option>
+                                    <option value="metro">Metro City (Mumbai, Delhi, Bangalore, etc.)</option>
+                                    <option value="tier2">Tier 2 City (Pune, Chennai, Hyderabad, etc.)</option>
+                                    <option value="tier3">Tier 3 City/Town</option>
+                                    <option value="remote">Remote/Work from Home</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: AI Readiness -->
+                    <div class="assessment-step" id="step2">
+                        <h4 class="text-xl font-bold mb-4 text-red-400">🤖 Step 2: AI Familiarity & Skills</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">How often do you use AI tools? (ChatGPT, Copilot, etc.)</label>
+                                <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="aiUsage" value="never" class="text-red-500">
+                                        <span>Never</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="aiUsage" value="rarely" class="text-red-500">
+                                        <span>Rarely</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="aiUsage" value="weekly" class="text-red-500">
+                                        <span>Weekly</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="aiUsage" value="daily" class="text-red-500">
+                                        <span>Daily</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Which AI tools have you used? (Select all that apply)</label>
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="checkbox" name="aiTools" value="chatgpt" class="text-red-500">
+                                        <span>ChatGPT</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="checkbox" name="aiTools" value="copilot" class="text-red-500">
+                                        <span>GitHub Copilot</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="checkbox" name="aiTools" value="claude" class="text-red-500">
+                                        <span>Claude</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="checkbox" name="aiTools" value="midjourney" class="text-red-500">
+                                        <span>Midjourney/DALL-E</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="checkbox" name="aiTools" value="excel-ai" class="text-red-500">
+                                        <span>Excel AI/Copilot</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="checkbox" name="aiTools" value="none" class="text-red-500">
+                                        <span>None of these</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">How would you rate your technical adaptability?</label>
+                                <div class="grid grid-cols-1 md:grid-cols-5 gap-2">
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="techAdaptability" value="1" class="text-red-500">
+                                        <span>Very Low</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="techAdaptability" value="2" class="text-red-500">
+                                        <span>Low</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="techAdaptability" value="3" class="text-red-500">
+                                        <span>Average</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="techAdaptability" value="4" class="text-red-500">
+                                        <span>High</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="techAdaptability" value="5" class="text-red-500">
+                                        <span>Very High</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Automation Risk -->
+                    <div class="assessment-step" id="step3">
+                        <h4 class="text-xl font-bold mb-4 text-red-400">⚠️ Step 3: Automation Vulnerability</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">What percentage of your daily tasks are repetitive/routine?</label>
+                                <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="routineTasks" value="low" class="text-red-500">
+                                        <span>0-25%</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="routineTasks" value="medium" class="text-red-500">
+                                        <span>26-50%</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="routineTasks" value="high" class="text-red-500">
+                                        <span>51-75%</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="routineTasks" value="critical" class="text-red-500">
+                                        <span>76-100%</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">How often do you interact directly with customers/clients?</label>
+                                <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="customerInteraction" value="never" class="text-red-500">
+                                        <span>Never</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="customerInteraction" value="rarely" class="text-red-500">
+                                        <span>Rarely</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="customerInteraction" value="regularly" class="text-red-500">
+                                        <span>Regularly</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="customerInteraction" value="primarily" class="text-red-500">
+                                        <span>Primarily</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">How creative/strategic is your role?</label>
+                                <div class="grid grid-cols-1 md:grid-cols-4 gap-2">
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="creativity" value="low" class="text-red-500">
+                                        <span>Mostly Following Procedures</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="creativity" value="medium" class="text-red-500">
+                                        <span>Some Problem Solving</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="creativity" value="high" class="text-red-500">
+                                        <span>Regular Creative Thinking</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg cursor-pointer hover:bg-gray-700">
+                                        <input type="radio" name="creativity" value="strategic" class="text-red-500">
+                                        <span>Strategic/Highly Creative</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center pt-6">
+                        <button type="submit" class="btn-primary text-lg px-8 py-4">
+                            <i class="fas fa-bolt mr-2"></i>
+                            GET MY QUICK RISK ASSESSMENT
+                        </button>
+                        <p class="text-sm opacity-75 mt-2">Results include personalized risk level and action plan</p>
+                    </div>
+                </form>
+
+                <!-- Results Section (Hidden Initially) -->
+                <div id="assessmentResults" class="hidden mt-8">
+                    <div class="border-t border-gray-600 pt-8">
+                        <h3 class="text-2xl font-bold text-center mb-6">⚡ Your Quick Risk Assessment Results</h3>
+                        <div id="riskLevel" class="text-center mb-6"></div>
+                        <div id="detailedResults" class="space-y-4"></div>
+                        <div class="text-center mt-8 space-y-4">
+                            <a href="roadmaps.html" class="btn-primary block sm:inline-block">
+                                <i class="fas fa-route mr-2"></i>
+                                VIEW MY SURVIVAL ROADMAP
+                            </a>
+                            <div class="mt-4 p-4 bg-green-600/20 border border-green-500/30 rounded-xl">
+                                <p class="text-sm mb-3">🚀 <strong>Want deeper insights and personalized roadmaps?</strong></p>
+                                <a href="ai-career-assessment.html" class="btn-secondary bg-green-600 hover:bg-green-700 text-white">
+                                    <i class="fas fa-chart-line mr-2"></i>
+                                    Take Complete Career Assessment (15 min)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="mt-16 py-8 px-4 border-t border-gray-700" role="contentinfo" title="Footer">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">AI RECKONING</h4>
+                        <p class="text-sm opacity-75">Emergency response for AI-driven workforce transformation.</p>
+                        <div class="mt-4 space-y-2">
+                            <a href="about.html" class="block text-sm text-blue-400 hover:text-blue-300">About Us</a>
+                            <a href="methodology.html" class="block text-sm text-blue-400 hover:text-blue-300">Our Methodology</a>
+                            <a href="research.html" class="block text-sm text-blue-400 hover:text-blue-300">Research & Data</a>
+                            <a href="privacy.html" class="block text-sm text-blue-400 hover:text-blue-300">Privacy Policy</a>
+                            <a href="terms.html" class="block text-sm text-blue-400 hover:text-blue-300">Terms of Service</a>
+                        </div>
+                    </div>
+                        <div title="Resources">
+                        <h5 class="font-medium mb-4">Resources</h5>
+                        <ul class="space-y-2 text-sm opacity-75">
+                            <li><a href="https://futureskillsprime.in" target="_blank" class="hover:text-red-300 transition">FutureSkills Prime</a></li>
+                            <li><a href="https://www.skillindia.gov.in" target="_blank" class="hover:text-red-300 transition">Skill India</a></li>
+                        </ul>
+                    </div>
+                        <div title="Industries">
+                        <h5 class="font-medium mb-4">Industries</h5>
+                        <ul class="space-y-2 text-sm opacity-75">
+                            <li><a href="resources.html#it-bpm" class="hover:text-red-300 transition">IT & BPM</a></li>
+                            <li><a href="resources.html#banking" class="hover:text-red-300 transition">Banking</a></li>
+                        </ul>
+                    </div>
+                        <div title="Support">
+                        <h5 class="font-medium mb-4">Support</h5>
+                        <ul class="space-y-2 text-sm opacity-75">
+                            <li><a href="help.html" class="hover:text-red-300 transition">Help Center</a></li>
+                            <li><a href="contact.html" class="hover:text-red-300 transition">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm opacity-75">
+                    <p>&copy; 2025 AI RECKONING. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+        // Comprehensive Assessment Logic
+        document.getElementById('assessmentForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(e.target);
+            const data = {};
+            
+            // Get all form fields
+            for (let [key, value] of formData.entries()) {
+                if (data[key]) {
+                    // Handle multiple values (checkboxes)
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+            
+            // Get AI tools as array
+            const aiTools = formData.getAll('aiTools');
+            data.aiTools = aiTools;
+            
+            // Calculate risk score
+            const riskScore = calculateRiskScore(data);
+            
+            // Generate results
+            displayResults(riskScore, data);
+            
+            // Save assessment data
+            localStorage.setItem('assessmentData', JSON.stringify({...data, riskScore}));
+        });
+        
+        function calculateRiskScore(data) {
+            let riskScore = 0;
+            let maxScore = 100;
+            
+            // Industry risk (30 points)
+            const industryRisk = {
+                'it-bpm': 25,
+                'customer-support': 30,
+                'manufacturing': 25,
+                'banking': 20,
+                'retail': 22,
+                'accounting': 20,
+                'transport': 15,
+                'healthcare': 12,
+                'other': 15
+            };
+            riskScore += industryRisk[data.industry] || 15;
+            
+            // Role level risk (15 points)
+            const roleLevelRisk = {
+                'entry': 15,
+                'mid': 12,
+                'senior': 8,
+                'leadership': 5
+            };
+            riskScore += roleLevelRisk[data.roleLevel] || 10;
+            
+            // Job function risk (20 points)
+            const jobFunctionRisk = {
+                'data-entry': 20,
+                'customer-service': 18,
+                'coding': 15,
+                'analysis': 12,
+                'operations': 10,
+                'design': 8,
+                'sales': 6,
+                'management': 5,
+                'strategy': 3
+            };
+            riskScore += jobFunctionRisk[data.jobFunction] || 10;
+            
+            // AI familiarity (reduce risk based on usage)
+            const aiUsageBonus = {
+                'daily': -10,
+                'weekly': -5,
+                'rarely': 0,
+                'never': 8
+            };
+            riskScore += aiUsageBonus[data.aiUsage] || 5;
+            
+            // AI tools familiarity
+            if (data.aiTools && data.aiTools.length > 0 && !data.aiTools.includes('none')) {
+                riskScore -= Math.min(data.aiTools.length * 2, 8);
+            }
+            
+            // Technical adaptability
+            const techAdapt = parseInt(data.techAdaptability) || 3;
+            riskScore += (5 - techAdapt) * 3;
+            
+            // Routine tasks (higher routine = higher risk)
+            const routineRisk = {
+                'low': 2,
+                'medium': 6,
+                'high': 12,
+                'critical': 18
+            };
+            riskScore += routineRisk[data.routineTasks] || 8;
+            
+            // Customer interaction (reduce risk)
+            const customerBonus = {
+                'primarily': -5,
+                'regularly': -3,
+                'rarely': 0,
+                'never': 5
+            };
+            riskScore += customerBonus[data.customerInteraction] || 0;
+            
+            // Creativity/strategy (reduce risk)
+            const creativityBonus = {
+                'strategic': -8,
+                'high': -5,
+                'medium': -2,
+                'low': 3
+            };
+            riskScore += creativityBonus[data.creativity] || 0;
+            
+            // Ensure score is within bounds
+            return Math.max(0, Math.min(100, riskScore));
+        }
+        
+        function displayResults(riskScore, data) {
+            const resultsDiv = document.getElementById('assessmentResults');
+            const riskLevelDiv = document.getElementById('riskLevel');
+            const detailedResultsDiv = document.getElementById('detailedResults');
+            
+            // Determine risk level and styling
+            let riskLevel, riskColor, riskIcon, urgency, timeline;
+            
+            if (riskScore >= 70) {
+                riskLevel = 'CRITICAL RISK';
+                riskColor = '#ef4444';
+                riskIcon = '🔴';
+                urgency = 'IMMEDIATE ACTION REQUIRED';
+                timeline = '6-12 months';
+            } else if (riskScore >= 50) {
+                riskLevel = 'HIGH RISK';
+                riskColor = '#f97316';
+                riskIcon = '🟠';
+                urgency = 'URGENT ACTION NEEDED';
+                timeline = '12-18 months';
+            } else if (riskScore >= 30) {
+                riskLevel = 'MEDIUM RISK';
+                riskColor = '#eab308';
+                riskIcon = '🟡';
+                urgency = 'ACTION RECOMMENDED';
+                timeline = '18-24 months';
+            } else {
+                riskLevel = 'LOW RISK';
+                riskColor = '#22c55e';
+                riskIcon = '🟢';
+                urgency = 'MONITOR & PREPARE';
+                timeline = '24+ months';
+            }
+            
+            // Display risk level
+            riskLevelDiv.innerHTML = `
+                <div style="background: rgba(255,255,255,0.05); border: 2px solid ${riskColor}; border-radius: 1rem; padding: 2rem; margin-bottom: 2rem;">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">${riskIcon}</div>
+                    <h3 style="font-size: 2rem; color: ${riskColor}; margin-bottom: 0.5rem;">${riskLevel}</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">${urgency}</p>
+                    <p style="opacity: 0.8;">Risk Score: ${riskScore}/100</p>
+                    <p style="opacity: 0.8;">Estimated Timeline: ${timeline}</p>
+                </div>
+            `;
+            
+            // Generate detailed recommendations
+            const recommendations = generateRecommendations(riskScore, data);
+            detailedResultsDiv.innerHTML = recommendations;
+            
+            // Show results
+            resultsDiv.classList.remove('hidden');
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function generateRecommendations(riskScore, data) {
+            let html = '<div class="space-y-6">';
+            
+            // Industry-specific insights
+            const industryInsights = {
+                'it-bpm': 'Your IT/BPM role faces significant automation pressure. Focus on AI-augmented development, system architecture, and human-AI collaboration skills.',
+                'customer-support': 'Customer support roles are being rapidly automated. Pivot to complex problem resolution, relationship management, and AI tool supervision.',
+                'banking': 'Banking operations are increasingly automated. Develop expertise in AI risk management, customer advisory, and regulatory compliance.',
+                'manufacturing': 'Manufacturing faces heavy automation. Focus on robotics oversight, predictive maintenance, and smart factory management.',
+                'accounting': 'Routine accounting tasks are being automated. Specialize in strategic analysis, AI audit trails, and advisory services.',
+                'retail': 'Retail automation is accelerating. Focus on customer experience design, AI-driven personalization, and omnichannel strategy.',
+                'transport': 'Transportation faces autonomous vehicle disruption. Develop skills in fleet management, route optimization, and logistics technology.',
+                'healthcare': 'Healthcare admin is being streamlined. Focus on patient advocacy, care coordination, and health informatics.'
+            };
+            
+            html += `
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h4 class="text-lg font-bold mb-3 text-blue-400">🎯 Industry-Specific Insight</h4>
+                    <p>${industryInsights[data.industry] || 'Focus on developing AI collaboration skills and strategic thinking capabilities.'}</p>
+                </div>
+            `;
+            
+            // Immediate actions based on risk level
+            if (riskScore >= 70) {
+                html += `
+                    <div class="bg-red-900 bg-opacity-30 p-6 rounded-lg border border-red-500">
+                        <h4 class="text-lg font-bold mb-3 text-red-400">🚨 Immediate Actions (Next 30 Days)</h4>
+                        <ul class="space-y-2">
+                            <li>• Start using AI tools daily in your current role</li>
+                            <li>• Begin an emergency reskilling program immediately</li>
+                            <li>• Network with AI-skilled professionals in your industry</li>
+                            <li>• Update LinkedIn profile with AI-relevant keywords</li>
+                            <li>• Consider internal role transitions to AI-adjacent positions</li>
+                        </ul>
+                    </div>
+                `;
+            } else if (riskScore >= 50) {
+                html += `
+                    <div class="bg-orange-900 bg-opacity-30 p-6 rounded-lg border border-orange-500">
+                        <h4 class="text-lg font-bold mb-3 text-orange-400">⚡ Priority Actions (Next 90 Days)</h4>
+                        <ul class="space-y-2">
+                            <li>• Enroll in AI/ML fundamentals course</li>
+                            <li>• Start experimenting with AI tools in your workflow</li>
+                            <li>• Identify AI-augmented opportunities in your role</li>
+                            <li>• Build a portfolio showcasing AI integration</li>
+                            <li>• Join AI communities and attend industry events</li>
+                        </ul>
+                    </div>
+                `;
+            } else {
+                html += `
+                    <div class="bg-blue-900 bg-opacity-30 p-6 rounded-lg border border-blue-500">
+                        <h4 class="text-lg font-bold mb-3 text-blue-400">📈 Strategic Actions (Next 6 Months)</h4>
+                        <ul class="space-y-2">
+                            <li>• Develop AI literacy and prompt engineering skills</li>
+                            <li>• Position yourself as an AI adoption leader</li>
+                            <li>• Explore advanced certifications in AI/Data Science</li>
+                            <li>• Mentor others in AI transformation</li>
+                            <li>• Consider entrepreneurial AI opportunities</li>
+                        </ul>
+                    </div>
+                `;
+            }
+            
+            // Skills to develop
+            html += `
+                <div class="bg-gray-800 p-6 rounded-lg">
+                    <h4 class="text-lg font-bold mb-3 text-green-400">🎓 Critical Skills to Develop</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <h5 class="font-semibold mb-2">Technical Skills</h5>
+                            <ul class="space-y-1 text-sm">
+                                <li>• AI/ML Fundamentals</li>
+                                <li>• Prompt Engineering</li>
+                                <li>• Data Analysis</li>
+                                <li>• Automation Tools</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold mb-2">Human-Edge Skills</h5>
+                            <ul class="space-y-1 text-sm">
+                                <li>• Strategic Thinking</li>
+                                <li>• Complex Problem Solving</li>
+                                <li>• Emotional Intelligence</li>
+                                <li>• Change Leadership</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            html += '</div>';
+            return html;
+        }
+    </script>
+</body>
+</html>
