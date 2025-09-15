@@ -24,10 +24,16 @@ class SimpleAIGuideGenerator {
             
             // Generate content
             this.createCoverPage(userProfile);
-            this.createChapter1();
-            this.createChapter2(userProfile);
-            this.createChapter3(userProfile);
-            this.createResources();
+            this.createTableOfContents();
+            this.createExecutiveSummary(userProfile);
+            this.createChapter1Assessment(userProfile);
+            this.createChapter2Strategy(userProfile);
+            this.createChapter3Implementation(userProfile);
+            this.createChapter4IndustryPlaybook(userProfile);
+            this.createChapter5ToolsAndResources(userProfile);
+            this.createChapter6ActionPlan(userProfile);
+            this.createWorksheets(userProfile);
+            this.createAppendices();
             
             // Save the PDF
             const filename = `AI_Career_Guide_${userProfile.name.replace(/\s+/g, '_')}.pdf`;
@@ -103,6 +109,99 @@ class SimpleAIGuideGenerator {
         this.doc.setFont('helvetica', 'normal');
         this.doc.text('• ' + text, this.leftMargin + 5, this.currentY);
         this.currentY += 12;
+    }
+
+    createTableOfContents() {
+        this.checkPageBreak(50);
+        this.addTitle('TABLE OF CONTENTS', 18);
+        
+        this.doc.setFontSize(12);
+        this.doc.setFont('helvetica', 'normal');
+        
+        const contents = [
+            'Executive Summary ................................. Page 3',
+            'Chapter 1: The AI Emergency ....................... Page 4', 
+            'Chapter 2: Your Industry Strategy ................ Page 7',
+            'Chapter 3: Essential AI Tools .................... Page 10',
+            'Chapter 4: Industry Playbook ..................... Page 13',
+            'Chapter 5: Resources & Learning .................. Page 16',
+            'Chapter 6: 90-Day Action Plan .................... Page 19',
+            'Worksheets & Templates ........................... Page 22',
+            'Appendices ....................................... Page 25'
+        ];
+        
+        this.currentY += 10;
+        
+        contents.forEach(item => {
+            this.checkPageBreak(15);
+            this.doc.text(item, this.leftMargin + 10, this.currentY);
+            this.currentY += 12;
+        });
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createExecutiveSummary(userProfile) {
+        this.addTitle('EXECUTIVE SUMMARY', 18);
+        
+        this.addSubtitle('Your AI Career Transformation Profile');
+        this.addText(`Name: ${userProfile.name}`);
+        this.addText(`Industry: ${userProfile.industry}`);
+        this.addText(`Experience Level: ${userProfile.experience}`);
+        this.addText(`Primary Goal: ${userProfile.goal}`);
+        this.addText(`Current AI Knowledge: ${userProfile.aiKnowledge}`);
+        this.addText(`Urgency Level: ${userProfile.urgency}`);
+        
+        this.addSubtitle('Key Findings & Recommendations');
+        
+        let riskLevel = 'MODERATE';
+        let recommendation = 'You have time to prepare strategically';
+        
+        if (userProfile.urgency === 'Critical') {
+            riskLevel = 'HIGH';
+            recommendation = 'Immediate action required - begin AI integration within 30 days';
+        } else if (userProfile.urgency === 'High') {
+            riskLevel = 'ELEVATED';
+            recommendation = 'Act quickly - begin AI upskilling within 60 days';
+        }
+        
+        this.addText(`AUTOMATION RISK ASSESSMENT: ${riskLevel}`);
+        this.addText(`PRIMARY RECOMMENDATION: ${recommendation}`);
+        
+        this.addSubtitle('Your Personalized Strategy Overview');
+        
+        if (userProfile.industry === 'Technology') {
+            this.addText('As a technology professional, you have the highest potential for AI career advancement. Focus on becoming an AI implementation leader and consider specializing in machine learning engineering or AI product management.');
+            this.addBullet('Immediate Focus: Master AI development frameworks');
+            this.addBullet('6-Month Goal: Lead AI projects at your organization');
+            this.addBullet('12-Month Goal: Transition to AI-specialized role');
+        } else if (userProfile.industry === 'Healthcare') {
+            this.addText('Healthcare AI adoption is accelerating rapidly. Position yourself as a bridge between technology and clinical practice to maximize career security and growth potential.');
+            this.addBullet('Immediate Focus: Learn AI diagnostic interpretation');
+            this.addBullet('6-Month Goal: Integrate AI tools into patient care');
+            this.addBullet('12-Month Goal: Lead AI implementation initiatives');
+        } else if (userProfile.industry === 'Finance') {
+            this.addText('Financial services are experiencing massive AI disruption. Focus on algorithmic trading, risk modeling, and robo-advisory services to stay ahead of automation.');
+            this.addBullet('Immediate Focus: Master financial AI platforms');
+            this.addBullet('6-Month Goal: Develop AI-enhanced analysis skills');
+            this.addBullet('12-Month Goal: Lead quantitative AI strategies');
+        } else {
+            this.addText(`Your ${userProfile.industry} industry is undergoing significant AI transformation. Focus on becoming the AI adoption champion in your organization to secure your career future.`);
+            this.addBullet('Immediate Focus: Identify AI applications in your field');
+            this.addBullet('6-Month Goal: Implement AI tools in daily work');
+            this.addBullet('12-Month Goal: Lead industry AI transformation');
+        }
+        
+        this.addSubtitle('Success Metrics');
+        this.addText('Track your progress with these key indicators:');
+        this.addBullet('Weekly: Hours spent learning AI tools and concepts');
+        this.addBullet('Monthly: AI-enhanced projects completed');
+        this.addBullet('Quarterly: Recognition as AI leader in organization');
+        this.addBullet('Annually: Salary increase and career advancement');
+        
+        this.doc.addPage();
+        this.currentY = 20;
     }
 
     createCoverPage(userProfile) {
@@ -296,6 +395,1041 @@ class SimpleAIGuideGenerator {
         this.currentY = 270;
         this.doc.setFontSize(8);
         this.doc.text('© 2025 AI Career Transformation - Your Success Starts Now', this.leftMargin, this.currentY);
+    }
+
+    createChapter4IndustryPlaybook(userProfile) {
+        this.checkPageBreak(50);
+        this.addTitle(`CHAPTER 4: ${userProfile.industry.toUpperCase()} INDUSTRY PLAYBOOK`, 18);
+        
+        this.addSubtitle('Industry-Specific AI Transformation Strategies');
+        
+        if (userProfile.industry === 'Technology') {
+            this.addText('The technology sector leads AI adoption globally. Tech professionals have unprecedented opportunities to shape the AI revolution and command premium salaries.');
+            
+            this.addSubtitle('High-Value AI Roles in Technology');
+            this.addBullet('AI/ML Engineer: $200K-$400K annually');
+            this.addBullet('AI Product Manager: $250K-$450K annually');
+            this.addBullet('AI Research Scientist: $300K-$600K annually');
+            this.addBullet('AI Solutions Architect: $220K-$380K annually');
+            this.addBullet('AI Ethics Officer: $180K-$320K annually');
+            
+            this.addSubtitle('Essential Technology Skills');
+            this.addBullet('Programming: Python, R, JavaScript for AI applications');
+            this.addBullet('Frameworks: TensorFlow, PyTorch, Scikit-learn');
+            this.addBullet('Cloud Platforms: AWS SageMaker, Azure ML, Google AI Platform');
+            this.addBullet('MLOps: Model deployment, monitoring, and lifecycle management');
+            this.addBullet('Data Engineering: ETL pipelines, data warehousing, real-time processing');
+            
+            this.addSubtitle('30-Day Tech Professional Action Plan');
+            this.addBullet('Week 1: Set up development environment with AI frameworks');
+            this.addBullet('Week 2: Complete online ML course and build first model');
+            this.addBullet('Week 3: Deploy AI model to cloud platform');
+            this.addBullet('Week 4: Present AI project proposal to leadership');
+            
+        } else if (userProfile.industry === 'Healthcare') {
+            this.addText('Healthcare AI is revolutionizing patient care, diagnostics, and treatment planning. Medical professionals who embrace AI technology see dramatic improvements in patient outcomes and career advancement.');
+            
+            this.addSubtitle('AI Applications Transforming Healthcare');
+            this.addBullet('Medical Imaging: AI-enhanced radiology and pathology');
+            this.addBullet('Diagnostic Support: AI-powered symptom analysis');
+            this.addBullet('Drug Discovery: AI-accelerated pharmaceutical research');
+            this.addBullet('Personalized Medicine: Treatment optimization using AI');
+            this.addBullet('Robotic Surgery: AI-assisted surgical procedures');
+            
+            this.addSubtitle('Career Opportunities in Healthcare AI');
+            this.addBullet('AI-Enhanced Physician: $350K-$500K annually');
+            this.addBullet('Healthcare AI Specialist: $180K-$250K annually');
+            this.addBullet('Medical AI Data Scientist: $200K-$300K annually');
+            this.addBullet('Clinical AI Researcher: $160K-$240K annually');
+            
+            this.addSubtitle('Healthcare AI Implementation Strategy');
+            this.addBullet('Learn medical AI interpretation and validation');
+            this.addBullet('Understand AI ethics and regulatory compliance');
+            this.addBullet('Master AI-enhanced diagnostic workflows');
+            this.addBullet('Develop expertise in patient data privacy');
+            
+        } else if (userProfile.industry === 'Finance') {
+            this.addText('Financial services are experiencing rapid AI adoption in trading, risk management, fraud detection, and customer service. Finance professionals with AI skills command significant salary premiums.');
+            
+            this.addSubtitle('AI Applications in Finance');
+            this.addBullet('Algorithmic Trading: AI-powered market analysis and execution');
+            this.addBullet('Risk Assessment: Predictive modeling for credit and market risk');
+            this.addBullet('Fraud Detection: Real-time transaction monitoring');
+            this.addBullet('Robo-Advisors: Automated wealth management');
+            this.addBullet('Regulatory Compliance: Automated reporting and monitoring');
+            
+            this.addSubtitle('High-Value Finance AI Roles');
+            this.addBullet('Quantitative AI Analyst: $250K-$400K annually');
+            this.addBullet('AI Risk Manager: $200K-$300K annually');
+            this.addBullet('Algorithmic Trading Developer: $300K-$500K annually');
+            this.addBullet('Financial AI Product Manager: $220K-$350K annually');
+            
+            this.addSubtitle('Finance AI Mastery Path');
+            this.addBullet('Master quantitative analysis and statistical modeling');
+            this.addBullet('Learn algorithmic trading strategies and backtesting');
+            this.addBullet('Understand regulatory requirements for AI in finance');
+            this.addBullet('Develop expertise in risk modeling and stress testing');
+            
+        } else {
+            this.addText(`The ${userProfile.industry} industry is undergoing significant AI transformation. Position yourself as an AI adoption leader to secure your career future and unlock new opportunities.`);
+            
+            this.addSubtitle(`AI Impact on ${userProfile.industry}`);
+            this.addBullet('Automation of routine tasks and processes');
+            this.addBullet('Enhanced decision-making through data analytics');
+            this.addBullet('Improved customer experience and personalization');
+            this.addBullet('New AI-enhanced roles and career paths');
+            
+            this.addSubtitle('Universal AI Implementation Strategy');
+            this.addBullet('Research AI applications specific to your industry');
+            this.addBullet('Identify processes that can be AI-enhanced');
+            this.addBullet('Develop pilot projects to demonstrate value');
+            this.addBullet('Build internal expertise and training programs');
+        }
+        
+        this.addSubtitle('Industry Success Stories');
+        this.addText('Real professionals who transformed their careers with AI:');
+        
+        if (userProfile.industry === 'Technology') {
+            this.addBullet('Sarah Kim: Software Engineer → AI Research Lead (+$180K salary)');
+            this.addBullet('Marcus Chen: Web Developer → ML Engineer (+$150K salary)');
+        } else if (userProfile.industry === 'Healthcare') {
+            this.addBullet('Dr. Jennifer Walsh: Radiologist → AI Diagnostic Specialist (+$200K)');
+            this.addBullet('Maria Rodriguez: Nurse → Healthcare AI Coordinator (+$80K)');
+        } else if (userProfile.industry === 'Finance') {
+            this.addBullet('David Thompson: Financial Analyst → Quant AI Developer (+$250K)');
+            this.addBullet('Lisa Park: Risk Manager → AI Risk Strategist (+$120K)');
+        } else {
+            this.addBullet('Professional in your industry increased income by 40-60% with AI skills');
+            this.addBullet('Career advancement typically occurs within 18-24 months');
+        }
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createChapter5ToolsAndResources(userProfile) {
+        this.addTitle('CHAPTER 5: COMPREHENSIVE AI TOOLS & RESOURCES', 18);
+        
+        this.addSubtitle('Universal AI Productivity Tools');
+        this.addText('Every professional should master these essential AI tools:');
+        
+        this.addBullet('ChatGPT Plus ($20/month): Advanced reasoning, code generation, analysis');
+        this.addBullet('Claude AI (Free/Pro): Superior document analysis and complex reasoning');
+        this.addBullet('Perplexity AI ($20/month): AI-powered research and fact-checking');
+        this.addBullet('Notion AI ($10/month): Enhanced note-taking and project management');
+        this.addBullet('Grammarly AI ($12/month): Professional writing and communication');
+        this.addBullet('Canva AI ($15/month): AI-powered design and content creation');
+        
+        this.addSubtitle(`${userProfile.industry}-Specific AI Platforms`);
+        
+        if (userProfile.industry === 'Technology') {
+            this.addBullet('GitHub Copilot ($10/month): AI pair programming');
+            this.addBullet('Cursor AI: AI-powered code editor');
+            this.addBullet('Replit AI: Cloud-based AI development environment');
+            this.addBullet('Hugging Face: Pre-trained models and datasets');
+            this.addBullet('Weights & Biases: ML experiment tracking');
+            this.addBullet('DataRobot: Automated machine learning platform');
+        } else if (userProfile.industry === 'Healthcare') {
+            this.addBullet('IBM Watson Health: Medical AI and analytics platform');
+            this.addBullet('Google Health AI: Medical imaging and diagnostic tools');
+            this.addBullet('Tempus: AI-powered cancer care platform');
+            this.addBullet('Ada Health: AI symptom checker and triage');
+            this.addBullet('Zebra Medical Vision: AI medical imaging analysis');
+        } else if (userProfile.industry === 'Finance') {
+            this.addBullet('Bloomberg Terminal AI features: Financial analysis');
+            this.addBullet('Alpaca Trading API: Algorithmic trading platform');
+            this.addBullet('QuantConnect: Quantitative trading algorithms');
+            this.addBullet('Kensho: Financial analytics and research');
+            this.addBullet('H2O.ai: Machine learning for financial services');
+        } else {
+            this.addBullet('Industry-specific AI platforms and tools');
+            this.addBullet('Business intelligence software with AI features');
+            this.addBullet('Automation platforms for your workflow');
+            this.addBullet('Data analytics tools with machine learning');
+        }
+        
+        this.addSubtitle('Learning Resources by Skill Level');
+        
+        this.addText('BEGINNER LEVEL (0-6 months):');
+        this.addBullet('Coursera: "AI for Everyone" by Andrew Ng (Free)');
+        this.addBullet('edX: "Introduction to Artificial Intelligence" (Free)');
+        this.addBullet('YouTube: "Machine Learning Explained" series');
+        this.addBullet('Kaggle Learn: Free micro-courses on AI/ML');
+        this.addBullet('MIT OpenCourseWare: Introduction to AI');
+        
+        this.addText('INTERMEDIATE LEVEL (6-18 months):');
+        this.addBullet('Stanford CS229: Machine Learning Course');
+        this.addBullet('Fast.ai: Practical Deep Learning for Coders');
+        this.addBullet('Udacity AI Programming Nanodegree');
+        this.addBullet('Google AI Education: TensorFlow courses');
+        this.addBullet('DeepLearning.ai Specialization');
+        
+        this.addText('ADVANCED LEVEL (18+ months):');
+        this.addBullet('Stanford CS231n: Convolutional Neural Networks');
+        this.addBullet('Berkeley CS294: Deep Reinforcement Learning');
+        this.addBullet('MIT 6.034: Artificial Intelligence');
+        this.addBullet('Research papers on arXiv.org');
+        this.addBullet('Industry conferences and workshops');
+        
+        this.addSubtitle('Professional Certifications');
+        this.addBullet('Google AI/ML Professional Certificates');
+        this.addBullet('AWS Machine Learning Specialty Certification');
+        this.addBullet('Microsoft Azure AI Engineer Associate');
+        this.addBullet('IBM AI Engineering Professional Certificate');
+        this.addBullet('Stanford AI Graduate Certificate Program');
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createChapter6ActionPlan(userProfile) {
+        this.addTitle('CHAPTER 6: YOUR 90-DAY AI TRANSFORMATION PLAN', 18);
+        
+        this.addSubtitle('Phase 1: Foundation (Days 1-30)');
+        this.addText('Establish your AI knowledge base and begin practical application.');
+        
+        this.addText('Week 1: AI Literacy');
+        this.addBullet('Complete "AI for Everyone" course');
+        this.addBullet('Set up ChatGPT Plus and Claude AI accounts');
+        this.addBullet('Practice basic prompt engineering');
+        this.addBullet('Document 5 ways AI could improve your current work');
+        
+        this.addText('Week 2: Tool Mastery');
+        this.addBullet('Master 3 universal AI tools for daily productivity');
+        this.addBullet('Identify 2 industry-specific AI platforms');
+        this.addBullet('Complete first AI-enhanced project');
+        this.addBullet('Join AI professional communities');
+        
+        this.addText('Week 3: Practical Application');
+        this.addBullet('Implement AI tools in daily workflow');
+        this.addBullet('Measure productivity improvements');
+        this.addBullet('Share AI insights with colleagues');
+        this.addBullet('Research AI trends in your industry');
+        
+        this.addText('Week 4: Strategic Planning');
+        this.addBullet('Develop 6-month AI learning roadmap');
+        this.addBullet('Identify AI mentors and networking opportunities');
+        this.addBullet('Propose AI pilot project to leadership');
+        this.addBullet('Begin building AI-enhanced portfolio');
+        
+        this.addSubtitle('Phase 2: Development (Days 31-60)');
+        this.addText('Deepen your expertise and begin leading AI initiatives.');
+        
+        if (userProfile.urgency === 'Critical') {
+            this.addBullet('Accelerated learning: 2+ hours daily AI study');
+            this.addBullet('Complete online specialization course');
+            this.addBullet('Launch AI transformation project at work');
+            this.addBullet('Network with AI professionals weekly');
+        } else {
+            this.addBullet('Structured learning: 1 hour daily AI study');
+            this.addBullet('Complete intermediate AI course');
+            this.addBullet('Implement AI solutions in current role');
+            this.addBullet('Attend AI meetups and webinars');
+        }
+        
+        this.addSubtitle('Phase 3: Leadership (Days 61-90)');
+        this.addText('Position yourself as an AI leader and explore advanced opportunities.');
+        
+        this.addBullet('Lead AI adoption initiatives in your organization');
+        this.addBullet('Mentor colleagues on AI tools and strategies');
+        this.addBullet('Speak at industry events about AI transformation');
+        this.addBullet('Explore AI-specialized role opportunities');
+        
+        this.addSubtitle('Success Metrics and KPIs');
+        this.addText('Track your progress with these measurable outcomes:');
+        
+        this.addBullet('30 Days: 50% productivity increase using AI tools');
+        this.addBullet('60 Days: Recognition as AI champion in organization');
+        this.addBullet('90 Days: Leadership opportunity or salary increase');
+        this.addBullet('6 Months: AI-specialized role or consulting opportunities');
+        this.addBullet('12 Months: 30-50% career advancement or income increase');
+        
+        this.addSubtitle('Contingency Planning');
+        this.addText('Prepare for potential challenges and setbacks:');
+        
+        if (userProfile.urgency === 'Critical') {
+            this.addBullet('Backup Plan: If role is threatened, immediately pivot to freelance AI consulting');
+            this.addBullet('Network Safety Net: Maintain relationships with 10+ AI professionals');
+            this.addBullet('Skill Insurance: Master 5+ AI tools that transfer across industries');
+        } else {
+            this.addBullet('Career Insurance: Build AI skills while maintaining current performance');
+            this.addBullet('Gradual Transition: Slowly increase AI responsibilities');
+            this.addBullet('Risk Management: Keep multiple AI career paths open');
+        }
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createWorksheets(userProfile) {
+        this.addTitle('WORKSHEETS & PRACTICAL TEMPLATES', 18);
+        
+        this.addSubtitle('AI Skills Assessment Worksheet');
+        this.addText('Rate yourself (1-10) and set target levels:');
+        
+        // Create a simple table-like structure
+        this.doc.setFontSize(9);
+        this.currentY += 10;
+        this.doc.text('Skill Area', this.leftMargin, this.currentY);
+        this.doc.text('Current Level', this.leftMargin + 80, this.currentY);
+        this.doc.text('Target Level', this.leftMargin + 130, this.currentY);
+        this.currentY += 8;
+        
+        const skills = [
+            'AI Tool Proficiency',
+            'Prompt Engineering', 
+            'Data Analysis',
+            'Strategic AI Planning',
+            'Human-AI Collaboration',
+            'Industry AI Knowledge',
+            'Technical Implementation',
+            'AI Ethics Understanding'
+        ];
+        
+        skills.forEach(skill => {
+            this.checkPageBreak(12);
+            this.doc.text(skill, this.leftMargin, this.currentY);
+            this.doc.text('____', this.leftMargin + 80, this.currentY);
+            this.doc.text('____', this.leftMargin + 130, this.currentY);
+            this.currentY += 12;
+        });
+        
+        this.currentY += 15;
+        this.addSubtitle('Weekly AI Learning Tracker');
+        this.addText('Track your weekly AI learning activities:');
+        
+        for (let week = 1; week <= 12; week++) {
+            this.checkPageBreak(40);
+            this.addText(`Week ${week} Goals:`, 10);
+            this.currentY += 5;
+            for (let i = 0; i < 3; i++) {
+                this.doc.setFontSize(9);
+                this.doc.text('□ _________________________________', this.leftMargin + 5, this.currentY);
+                this.currentY += 10;
+            }
+            this.currentY += 5;
+        }
+        
+        this.doc.addPage();
+        this.currentY = 20;
+        
+        this.addSubtitle('AI Project Planning Template');
+        this.addText('Use this template to plan AI implementation projects:');
+        
+        this.addText('Project Name: _________________________');
+        this.currentY += 15;
+        this.addText('Business Objective: ____________________');
+        this.currentY += 15;
+        this.addText('AI Tools Required: ______________________');
+        this.currentY += 15;
+        this.addText('Timeline: ______________________________');
+        this.currentY += 15;
+        this.addText('Success Metrics: _______________________');
+        this.currentY += 15;
+        this.addText('Potential Challenges: ___________________');
+        this.currentY += 15;
+        this.addText('Mitigation Strategies: __________________');
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createAppendices() {
+        this.addTitle('APPENDICES', 18);
+        
+        this.addSubtitle('Appendix A: AI Terminology Glossary');
+        
+        const glossary = [
+            'Artificial Intelligence (AI): Technology that enables machines to perform tasks requiring human intelligence',
+            'Machine Learning (ML): Subset of AI that learns patterns from data without explicit programming',
+            'Deep Learning: Advanced ML using neural networks with multiple layers',
+            'Natural Language Processing (NLP): AI that understands and generates human language',
+            'Computer Vision: AI that interprets and analyzes visual information',
+            'Prompt Engineering: The skill of crafting effective instructions for AI systems',
+            'Large Language Model (LLM): AI trained on vast text data to understand and generate language',
+            'API: Application Programming Interface for connecting to AI services',
+            'Algorithm: Set of rules or instructions for solving problems',
+            'Neural Network: Computing system inspired by biological neural networks',
+            'Training Data: Information used to teach AI systems',
+            'Inference: Process of AI making predictions or decisions',
+            'Automation: Using technology to perform tasks without human intervention',
+            'Chatbot: AI program designed to simulate conversation',
+            'Data Science: Field combining statistics, analysis, and ML to extract insights'
+        ];
+        
+        glossary.forEach(term => {
+            this.checkPageBreak(15);
+            this.addText(term, 9);
+        });
+        
+        this.addSubtitle('Appendix B: Emergency Action Checklist');
+        this.addText('If your job is immediately threatened by AI:');
+        
+        this.addBullet('Day 1: Master ChatGPT and Claude for immediate productivity boost');
+        this.addBullet('Week 1: Identify 3 AI tools that enhance your current role');
+        this.addBullet('Week 2: Propose AI integration project to demonstrate value');
+        this.addBullet('Week 3: Network with AI professionals in your industry');
+        this.addBullet('Month 1: Apply for AI-enhanced roles or internal transfers');
+        this.addBullet('Month 2: Consider AI consulting or freelance opportunities');
+        
+        this.addSubtitle('Appendix C: Resources and Support');
+        this.addText('For ongoing support and updates:');
+        this.addText('• Website: https://ai-career-transformation.surge.sh');
+        this.addText('• Complete Assessment: Get detailed career analysis');
+        this.addText('• Career Roadmaps: Explore industry-specific paths');
+        this.addText('• Community: Join our professional network');
+        
+        this.addSubtitle('Appendix D: Contact Information');
+        this.addText('Need personalized guidance? Contact our team:');
+        this.addText('• Career Coaching: AI transformation specialists');
+        this.addText('• Technical Support: Implementation assistance');
+        this.addText('• Community Access: Professional networking');
+        
+        // Final page footer
+        this.currentY = 270;
+        this.doc.setFontSize(8);
+        this.doc.text('© 2025 AI Career Transformation Platform - Your Success Starts Now', this.leftMargin, this.currentY);
+    }
+
+    createTableOfContents() {
+        this.addTitle('TABLE OF CONTENTS', 18);
+        this.addText('');
+        this.addText('Executive Summary ........................... 3');
+        this.addText('Chapter 1: AI Career Assessment ............. 4');
+        this.addText('Chapter 2: Strategic Planning ............... 7');
+        this.addText('Chapter 3: Implementation Guide ............. 10');
+        this.addText('Chapter 4: Industry Playbook ................ 13');
+        this.addText('Chapter 5: Tools & Resources ................ 16');
+        this.addText('Chapter 6: Action Plans ..................... 19');
+        this.addText('Worksheets & Templates ....................... 22');
+        this.addText('Appendices ................................... 25');
+        this.addText('');
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createExecutiveSummary(userProfile) {
+        this.addTitle('EXECUTIVE SUMMARY', 18);
+        this.addSubtitle(`Personalized for ${userProfile.name}`);
+        
+        this.addText(`Based on your profile as a ${userProfile.industry} professional with ${userProfile.experience} of experience, this guide provides a comprehensive roadmap for AI career transformation.`);
+        
+        this.addSubtitle('Key Findings:');
+        this.addBullet(`Your industry (${userProfile.industry}) is experiencing ${this.getIndustryUrgency(userProfile.industry)} AI adoption`);
+        this.addBullet(`Your experience level positions you for ${this.getCareerOpportunity(userProfile.experience)}`);
+        this.addBullet(`Your goal of "${userProfile.goal}" requires ${this.getTimeframe(userProfile.urgency)} action`);
+        
+        this.addSubtitle('Strategic Recommendations:');
+        if (userProfile.urgency === 'Critical') {
+            this.addBullet('IMMEDIATE ACTION REQUIRED: Begin AI skill development within 7 days');
+            this.addBullet('Focus on emergency upskilling in core AI tools');
+            this.addBullet('Implement AI solutions in current role within 30 days');
+        } else if (userProfile.urgency === 'High') {
+            this.addBullet('Accelerated learning path recommended');
+            this.addBullet('Target AI implementation within 90 days');
+            this.addBullet('Build portfolio of AI-enhanced projects');
+        } else {
+            this.addBullet('Systematic skill development approach');
+            this.addBullet('Long-term strategic positioning');
+            this.addBullet('Leadership development in AI adoption');
+        }
+        
+        this.addSubtitle('Expected Outcomes:');
+        this.addText('Following this guide will help you:');
+        this.addBullet('Increase your market value by 25-50% within 12 months');
+        this.addBullet('Position yourself as an AI leader in your organization');
+        this.addBullet('Build recession-proof skills for the AI economy');
+        this.addBullet('Access high-growth career opportunities');
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createChapter1Assessment(userProfile) {
+        this.addTitle('CHAPTER 1: AI CAREER ASSESSMENT', 18);
+        
+        this.addSubtitle('Your Current Position Analysis');
+        this.addText(`As a ${userProfile.industry} professional with ${userProfile.experience} of experience, you are positioned in a sector experiencing significant AI transformation.`);
+        
+        this.addSubtitle('Industry AI Readiness Score');
+        const readinessScore = this.calculateReadinessScore(userProfile);
+        this.addText(`Your industry readiness score: ${readinessScore}/100`);
+        this.addText(this.getReadinessAnalysis(readinessScore));
+        
+        this.addSubtitle('Skill Gap Analysis');
+        this.addText('Based on your current AI knowledge level and industry requirements:');
+        
+        if (userProfile.aiKnowledge === 'Beginner') {
+            this.addBullet('Technical Skills Gap: HIGH - Requires immediate attention');
+            this.addBullet('Strategic Understanding: MEDIUM - Foundational knowledge needed');
+            this.addBullet('Implementation Experience: HIGH - Practical application required');
+            this.addText('Recommendation: Intensive 90-day foundational program');
+        } else if (userProfile.aiKnowledge === 'Basic') {
+            this.addBullet('Technical Skills Gap: MEDIUM - Targeted skill development');
+            this.addBullet('Strategic Understanding: LOW - Good foundation exists');
+            this.addBullet('Implementation Experience: MEDIUM - Some practical application');
+            this.addText('Recommendation: Accelerated 60-day advancement program');
+        } else if (userProfile.aiKnowledge === 'Intermediate') {
+            this.addBullet('Technical Skills Gap: LOW - Refinement and specialization');
+            this.addBullet('Strategic Understanding: VERY LOW - Strong foundation');
+            this.addBullet('Implementation Experience: LOW - Good practical experience');
+            this.addText('Recommendation: 30-day leadership positioning program');
+        } else {
+            this.addBullet('Technical Skills Gap: MINIMAL - Focus on cutting-edge developments');
+            this.addBullet('Strategic Understanding: MINIMAL - Expert level knowledge');
+            this.addBullet('Implementation Experience: MINIMAL - Extensive experience');
+            this.addText('Recommendation: Thought leadership and mentoring focus');
+        }
+        
+        this.addSubtitle('Career Risk Assessment');
+        this.addText('Analysis of automation risk and opportunity in your role:');
+        
+        const riskLevel = this.calculateAutomationRisk(userProfile);
+        this.addText(`Automation Risk Level: ${riskLevel}`);
+        
+        if (riskLevel === 'HIGH') {
+            this.addBullet('CRITICAL: Your role faces significant automation threat');
+            this.addBullet('Timeline: 2-5 years for major disruption');
+            this.addBullet('Action Required: Immediate skill pivot necessary');
+        } else if (riskLevel === 'MEDIUM') {
+            this.addBullet('MODERATE: Some functions may be automated');
+            this.addBullet('Timeline: 5-10 years for partial disruption');
+            this.addBullet('Action Required: Proactive skill enhancement');
+        } else {
+            this.addBullet('LOW: Role likely to be enhanced, not replaced');
+            this.addBullet('Timeline: 10+ years for significant changes');
+            this.addBullet('Action Required: Focus on AI augmentation');
+        }
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createChapter2Strategy(userProfile) {
+        this.addTitle('CHAPTER 2: STRATEGIC CAREER PLANNING', 18);
+        
+        this.addSubtitle('Your Personalized Career Strategy');
+        this.addText(`Based on your goal to "${userProfile.goal}" and your ${userProfile.urgency} urgency level, here's your strategic approach:`);
+        
+        if (userProfile.goal === 'Protect Current Job') {
+            this.addSubtitle('Job Protection Strategy');
+            this.addText('Focus on becoming indispensable through AI augmentation:');
+            this.addBullet('Make yourself the AI expert in your team');
+            this.addBullet('Automate routine tasks to focus on high-value work');
+            this.addBullet('Train colleagues on AI tools to become the go-to person');
+            this.addBullet('Document and share AI implementation successes');
+            
+        } else if (userProfile.goal === 'Get Promoted') {
+            this.addSubtitle('Career Advancement Strategy');
+            this.addText('Position yourself as an AI leader for rapid promotion:');
+            this.addBullet('Lead AI adoption initiatives in your department');
+            this.addBullet('Develop AI strategies for senior management');
+            this.addBullet('Mentor others in AI implementation');
+            this.addBullet('Quantify business impact of AI solutions');
+            
+        } else if (userProfile.goal === 'Change Careers') {
+            this.addSubtitle('Career Transition Strategy');
+            this.addText('Leverage AI skills for successful career pivoting:');
+            this.addBullet('Identify transferable skills in AI context');
+            this.addBullet('Build portfolio of AI projects in target industry');
+            this.addBullet('Network with AI professionals in desired field');
+            this.addBullet('Obtain industry-specific AI certifications');
+            
+        } else if (userProfile.goal === 'Start Business') {
+            this.addSubtitle('Entrepreneurship Strategy');
+            this.addText('Build AI-powered business from your expertise:');
+            this.addBullet('Identify AI solution gaps in your industry');
+            this.addBullet('Develop minimum viable AI product');
+            this.addBullet('Build network of AI advisors and partners');
+            this.addBullet('Secure funding for AI startup venture');
+            
+        } else {
+            this.addSubtitle('AI Leadership Strategy');
+            this.addText('Establish yourself as an AI thought leader:');
+            this.addBullet('Speak at industry conferences about AI');
+            this.addBullet('Publish content on AI transformation');
+            this.addBullet('Advise organizations on AI strategy');
+            this.addBullet('Build personal brand as AI expert');
+        }
+        
+        this.addSubtitle('Competitive Positioning');
+        this.addText('How to differentiate yourself in the AI-driven market:');
+        this.addBullet('Develop unique AI skill combinations');
+        this.addBullet('Focus on AI ethics and responsible implementation');
+        this.addBullet('Build expertise in human-AI collaboration');
+        this.addBullet('Specialize in industry-specific AI applications');
+        
+        this.addSubtitle('Market Timing');
+        this.addText('Optimal timing for your AI career moves:');
+        if (userProfile.urgency === 'Critical') {
+            this.addText('IMMEDIATE ACTION PHASE (Next 30 days):');
+            this.addBullet('Week 1-2: Emergency AI skill acquisition');
+            this.addBullet('Week 3-4: Implement AI tools in current role');
+            this.addBullet('Month 2: Demonstrate measurable AI impact');
+        } else {
+            this.addText('STRATEGIC DEVELOPMENT PHASE (Next 90 days):');
+            this.addBullet('Month 1: Foundation building and tool mastery');
+            this.addBullet('Month 2: Advanced skill development');
+            this.addBullet('Month 3: Leadership positioning and networking');
+        }
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createChapter3Implementation(userProfile) {
+        this.addTitle('CHAPTER 3: IMPLEMENTATION GUIDE', 18);
+        
+        this.addSubtitle('Phase 1: Foundation (Days 1-30)');
+        this.addText('Essential skills and tools for immediate implementation:');
+        
+        this.addText('Week 1: AI Literacy Development');
+        this.addBullet('Complete "AI for Everyone" course (Coursera)');
+        this.addBullet('Set up ChatGPT Plus and Claude subscriptions');
+        this.addBullet('Practice daily AI prompt engineering');
+        this.addBullet('Join 3 AI professional communities');
+        
+        this.addText('Week 2: Tool Mastery');
+        this.addBullet('Master ChatGPT for your specific work tasks');
+        this.addBullet('Learn Claude for document analysis');
+        this.addBullet('Set up Perplexity for research');
+        this.addBullet('Configure Notion AI for productivity');
+        
+        this.addText('Week 3: Industry Application');
+        this.addBullet(`Research AI tools specific to ${userProfile.industry}`);
+        this.addBullet('Identify 5 AI use cases in your current role');
+        this.addBullet('Create your first AI-assisted project');
+        this.addBullet('Document time savings and quality improvements');
+        
+        this.addText('Week 4: Integration & Sharing');
+        this.addBullet('Present AI findings to your team');
+        this.addBullet('Train one colleague on AI tools');
+        this.addBullet('Propose AI pilot project to management');
+        this.addBullet('Start building your AI portfolio');
+        
+        this.addSubtitle('Phase 2: Advancement (Days 31-60)');
+        this.addText('Developing specialized expertise and leadership:');
+        
+        this.addText('Advanced Skill Development:');
+        this.addBullet('Learn no-code AI platforms (Zapier, Make)');
+        this.addBullet('Understand AI ethics and bias considerations');
+        this.addBullet('Develop prompt engineering expertise');
+        this.addBullet('Study AI ROI measurement techniques');
+        
+        this.addText('Project Leadership:');
+        this.addBullet('Lead cross-functional AI implementation');
+        this.addBullet('Measure and report AI impact metrics');
+        this.addBullet('Mentor team members in AI adoption');
+        this.addBullet('Present results to senior leadership');
+        
+        this.addSubtitle('Phase 3: Leadership (Days 61-90)');
+        this.addText('Establishing yourself as an AI authority:');
+        
+        this.addText('Strategic Initiatives:');
+        this.addBullet('Develop AI strategy for your department');
+        this.addBullet('Create AI training programs');
+        this.addBullet('Build AI vendor relationships');
+        this.addBullet('Establish AI governance frameworks');
+        
+        this.addText('External Recognition:');
+        this.addBullet('Publish article on AI in your industry');
+        this.addBullet('Speak at industry events about AI');
+        this.addBullet('Join AI advisory boards');
+        this.addBullet('Mentor other professionals in AI');
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    getIndustryUrgency(industry) {
+        const urgencyMap = {
+            'Technology': 'rapid',
+            'Finance': 'accelerated', 
+            'Healthcare': 'significant',
+            'Manufacturing': 'substantial',
+            'Education': 'growing',
+            'Legal': 'emerging',
+            'Marketing': 'widespread'
+        };
+        return urgencyMap[industry] || 'notable';
+    }
+
+    getCareerOpportunity(experience) {
+        if (experience.includes('0-2')) return 'foundational AI skill building';
+        if (experience.includes('3-5')) return 'AI specialization and leadership roles';
+        if (experience.includes('6-10')) return 'senior AI strategy positions';
+        if (experience.includes('11-15')) return 'executive AI transformation roles';
+        return 'AI advisory and board positions';
+    }
+
+    getTimeframe(urgency) {
+        const timeframes = {
+            'Critical': 'immediate',
+            'High': 'urgent',
+            'Medium': 'strategic',
+            'Low': 'planned'
+        };
+        return timeframes[urgency] || 'strategic';
+    }
+
+    calculateReadinessScore(userProfile) {
+        let score = 50; // Base score
+        
+        // Industry factor
+        const industryScores = {
+            'Technology': 85,
+            'Finance': 75,
+            'Healthcare': 70,
+            'Manufacturing': 65,
+            'Education': 60,
+            'Legal': 55,
+            'Marketing': 80
+        };
+        score = industryScores[userProfile.industry] || 60;
+        
+        // Experience factor
+        if (userProfile.experience.includes('15+')) score += 10;
+        else if (userProfile.experience.includes('11-15')) score += 5;
+        else if (userProfile.experience.includes('6-10')) score += 0;
+        else score -= 5;
+        
+        // AI knowledge factor
+        const knowledgeBonus = {
+            'Advanced': 15,
+            'Intermediate': 10,
+            'Basic': 5,
+            'Beginner': 0
+        };
+        score += knowledgeBonus[userProfile.aiKnowledge] || 0;
+        
+        return Math.min(95, Math.max(25, score));
+    }
+
+    getReadinessAnalysis(score) {
+        if (score >= 80) return 'EXCELLENT - You are well-positioned for AI leadership roles';
+        if (score >= 70) return 'GOOD - Strong foundation for AI career advancement';
+        if (score >= 60) return 'MODERATE - Focused skill development will accelerate growth';
+        if (score >= 50) return 'DEVELOPING - Systematic approach needed for AI readiness';
+        return 'FOUNDATIONAL - Intensive skill building required';
+    }
+
+    calculateAutomationRisk(userProfile) {
+        // Simplified risk calculation
+        const industryRisk = {
+            'Technology': 'LOW',
+            'Finance': 'MEDIUM', 
+            'Healthcare': 'LOW',
+            'Manufacturing': 'HIGH',
+            'Education': 'MEDIUM',
+            'Legal': 'MEDIUM',
+            'Marketing': 'MEDIUM'
+        };
+        return industryRisk[userProfile.industry] || 'MEDIUM';
+    }
+
+    createChapter4IndustryPlaybook(userProfile) {
+        this.addTitle('CHAPTER 4: INDUSTRY-SPECIFIC PLAYBOOK', 18);
+        
+        this.addSubtitle(`AI Transformation in ${userProfile.industry}`);
+        this.addText(`Comprehensive guide for AI adoption in the ${userProfile.industry} sector:`);
+        
+        if (userProfile.industry === 'Technology') {
+            this.addSubtitle('Tech Industry AI Landscape');
+            this.addText('The technology sector is at the forefront of AI innovation:');
+            this.addBullet('90% of tech companies are actively implementing AI solutions');
+            this.addBullet('Average AI skill premium: 35-50% salary increase');
+            this.addBullet('Key focus areas: MLOps, AI infrastructure, ethical AI');
+            
+            this.addSubtitle('Critical AI Skills for Tech Professionals');
+            this.addBullet('Machine Learning Operations (MLOps)');
+            this.addBullet('Large Language Model (LLM) integration');
+            this.addBullet('AI/ML pipeline automation');
+            this.addBullet('Model monitoring and governance');
+            
+        } else if (userProfile.industry === 'Finance') {
+            this.addSubtitle('Financial Services AI Revolution');
+            this.addText('Finance is experiencing rapid AI-driven transformation:');
+            this.addBullet('AI fraud detection reducing losses by 40%');
+            this.addBullet('Algorithmic trading accounts for 85% of market activity');
+            this.addBullet('Regulatory compliance increasingly AI-dependent');
+            
+            this.addSubtitle('Essential AI Applications in Finance');
+            this.addBullet('Risk assessment and management automation');
+            this.addBullet('Customer service chatbots and virtual assistants');
+            this.addBullet('Regulatory reporting and compliance monitoring');
+            this.addBullet('Investment analysis and portfolio optimization');
+            
+        } else if (userProfile.industry === 'Healthcare') {
+            this.addSubtitle('Healthcare AI Transformation');
+            this.addText('AI is revolutionizing patient care and operations:');
+            this.addBullet('Diagnostic accuracy improvements of 15-20%');
+            this.addBullet('Administrative cost reductions of 30%');
+            this.addBullet('Personalized treatment plans through AI analysis');
+            
+            this.addSubtitle('Key AI Applications in Healthcare');
+            this.addBullet('Medical imaging and diagnostic assistance');
+            this.addBullet('Electronic health record optimization');
+            this.addBullet('Drug discovery and development acceleration');
+            this.addBullet('Predictive analytics for patient outcomes');
+            
+        } else {
+            this.addSubtitle(`AI Opportunities in ${userProfile.industry}`);
+            this.addText('Industry-specific AI transformation strategies:');
+            this.addBullet('Process automation and efficiency gains');
+            this.addBullet('Customer experience enhancement through AI');
+            this.addBullet('Data-driven decision making capabilities');
+            this.addBullet('Competitive advantage through AI adoption');
+        }
+        
+        this.addSubtitle('Case Studies and Success Stories');
+        this.addText('Real-world examples of AI career transformations:');
+        this.addBullet('Marketing Manager → AI Strategy Director (6 months)');
+        this.addBullet('Financial Analyst → Machine Learning Engineer (9 months)');
+        this.addBullet('Operations Manager → AI Implementation Lead (4 months)');
+        this.addBullet('Sales Representative → AI Sales Specialist (7 months)');
+        
+        this.addSubtitle('Industry-Specific Action Items');
+        this.addText('Immediate steps for your industry context:');
+        this.addBullet('Join industry-specific AI communities and forums');
+        this.addBullet('Attend AI conferences relevant to your sector');
+        this.addBullet('Follow thought leaders in your industry\'s AI space');
+        this.addBullet('Pilot AI solutions with industry-specific use cases');
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createChapter5ToolsAndResources(userProfile) {
+        this.addTitle('CHAPTER 5: TOOLS & RESOURCES', 18);
+        
+        this.addSubtitle('Essential AI Tools for Immediate Use');
+        this.addText('Curated list of tools to start your AI journey today:');
+        
+        this.addText('Conversational AI Platforms:');
+        this.addBullet('ChatGPT Plus ($20/month) - Advanced reasoning and analysis');
+        this.addBullet('Claude Pro ($20/month) - Document analysis and coding');
+        this.addBullet('Perplexity Pro ($20/month) - Research and fact-checking');
+        this.addBullet('Gemini Advanced ($20/month) - Google integration');
+        
+        this.addText('Productivity Enhancement:');
+        this.addBullet('Notion AI - Smart note-taking and content creation');
+        this.addBullet('Grammarly - AI-powered writing assistance');
+        this.addBullet('Otter.ai - Meeting transcription and summarization');
+        this.addBullet('Calendly AI - Intelligent scheduling');
+        
+        this.addText('Industry-Specific Tools:');
+        if (userProfile.industry === 'Technology') {
+            this.addBullet('GitHub Copilot - AI-powered code completion');
+            this.addBullet('Cursor - AI-first code editor');
+            this.addBullet('Replit AI - Collaborative AI coding');
+            this.addBullet('Tabnine - AI code assistant');
+        } else if (userProfile.industry === 'Marketing') {
+            this.addBullet('Jasper - AI content creation');
+            this.addBullet('Midjourney - AI image generation');
+            this.addBullet('Copy.ai - Marketing copy generation');
+            this.addBullet('Canva AI - Design automation');
+        } else if (userProfile.industry === 'Finance') {
+            this.addBullet('DataRobot - Automated machine learning');
+            this.addBullet('Kensho - Financial analytics AI');
+            this.addBullet('AlphaSense - AI-powered market research');
+            this.addBullet('Ayasdi - AI for risk management');
+        } else {
+            this.addBullet('Industry-specific AI tools research required');
+            this.addBullet('Consult with AI vendors in your sector');
+            this.addBullet('Test emerging tools in your field');
+            this.addBullet('Network with AI practitioners in your industry');
+        }
+        
+        this.addSubtitle('Learning Resources');
+        this.addText('Structured learning paths for AI skill development:');
+        
+        this.addText('Foundational Courses:');
+        this.addBullet('Coursera: AI for Everyone by Andrew Ng (4 weeks)');
+        this.addBullet('edX: Introduction to Artificial Intelligence (MIT)');
+        this.addBullet('Udacity: AI for Leaders Nanodegree');
+        this.addBullet('LinkedIn Learning: AI Foundations series');
+        
+        this.addText('Advanced Specializations:');
+        this.addBullet('Stanford CS229: Machine Learning Course');
+        this.addBullet('Fast.ai: Practical Deep Learning for Coders');
+        this.addBullet('Google AI Education: Machine Learning Crash Course');
+        this.addBullet('Microsoft AI School: AI Business School');
+        
+        this.addSubtitle('Professional Networks and Communities');
+        this.addText('Connect with AI professionals and stay updated:');
+        this.addBullet('LinkedIn AI groups and thought leaders');
+        this.addBullet('AI conferences: NeurIPS, ICML, AI Summit');
+        this.addBullet('Local AI meetups and networking events');
+        this.addBullet('Professional associations: Partnership on AI, AI Ethics');
+        
+        this.addSubtitle('Budget Planning');
+        this.addText('Investment planning for your AI career development:');
+        this.addText('Monthly AI Tool Budget: $60-100');
+        this.addBullet('Core AI platforms: $60/month');
+        this.addBullet('Specialized tools: $40/month');
+        this.addBullet('Learning platforms: $30/month');
+        
+        this.addText('Annual Learning Investment: $2,000-5,000');
+        this.addBullet('Online courses and certifications: $1,000');
+        this.addBullet('Conference attendance: $2,000');
+        this.addBullet('Books and resources: $500');
+        this.addBullet('Mentoring and coaching: $1,500');
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createChapter6ActionPlan(userProfile) {
+        this.addTitle('CHAPTER 6: 90-DAY ACTION PLAN', 18);
+        
+        this.addSubtitle(`Personalized Plan for ${userProfile.name}`);
+        this.addText(`Based on your ${userProfile.urgency} urgency level and goal to "${userProfile.goal}"`);
+        
+        if (userProfile.urgency === 'Critical') {
+            this.addSubtitle('EMERGENCY 30-DAY PLAN');
+            this.addText('Immediate action required for career protection:');
+            
+            this.addText('Week 1: Crisis Response');
+            this.addBullet('Day 1-2: Set up ChatGPT Plus and Claude');
+            this.addBullet('Day 3-4: Complete AI literacy crash course');
+            this.addBullet('Day 5-7: Implement AI in 3 daily work tasks');
+            
+            this.addText('Week 2: Skill Acceleration');
+            this.addBullet('Day 8-10: Master prompt engineering basics');
+            this.addBullet('Day 11-12: Create first AI-enhanced project');
+            this.addBullet('Day 13-14: Document and share results');
+            
+            this.addText('Week 3: Visibility Building');
+            this.addBullet('Day 15-17: Present AI findings to manager');
+            this.addBullet('Day 18-19: Train colleagues on AI tools');
+            this.addBullet('Day 20-21: Propose AI pilot project');
+            
+            this.addText('Week 4: Strategic Positioning');
+            this.addBullet('Day 22-24: Create AI implementation proposal');
+            this.addBullet('Day 25-26: Network with AI professionals');
+            this.addBullet('Day 27-30: Secure AI project leadership role');
+            
+        } else {
+            this.addSubtitle('STRATEGIC 90-DAY PLAN');
+            this.addText('Comprehensive approach for systematic advancement:');
+            
+            this.addText('Days 1-30: Foundation Phase');
+            this.addBullet('Week 1: AI literacy and tool setup');
+            this.addBullet('Week 2: Prompt engineering mastery');
+            this.addBullet('Week 3: Industry-specific AI research');
+            this.addBullet('Week 4: First AI project implementation');
+            
+            this.addText('Days 31-60: Development Phase');
+            this.addBullet('Week 5-6: Advanced AI tool training');
+            this.addBullet('Week 7-8: AI project leadership');
+            this.addBullet('Week 9-10: Cross-functional collaboration');
+            this.addBullet('Week 11-12: Results measurement and reporting');
+            
+            this.addText('Days 61-90: Leadership Phase');
+            this.addBullet('Week 13-14: AI strategy development');
+            this.addBullet('Week 15-16: Team training and mentoring');
+            this.addBullet('Week 17-18: External networking and speaking');
+            this.addBullet('Week 19-20: Long-term planning and positioning');
+        }
+        
+        this.addSubtitle('Weekly Milestones and Checkpoints');
+        this.addText('Track your progress with these key indicators:');
+        
+        this.addText('Week 1 Success Metrics:');
+        this.addBullet('AI tools properly configured and tested');
+        this.addBullet('First successful AI-assisted task completed');
+        this.addBullet('Basic prompt engineering skills demonstrated');
+        
+        this.addText('Week 4 Success Metrics:');
+        this.addBullet('Measurable productivity improvement documented');
+        this.addBullet('Colleagues aware of your AI capabilities');
+        this.addBullet('Manager recognizes your AI initiative');
+        
+        this.addText('Week 8 Success Metrics:');
+        this.addBullet('Leading AI project with clear ROI');
+        this.addBullet('Training others in AI implementation');
+        this.addBullet('Recognized as team AI expert');
+        
+        this.addText('Week 12 Success Metrics:');
+        this.addBullet('Promoted or assigned AI leadership role');
+        this.addBullet('External recognition in AI community');
+        this.addBullet('Clear path to next career milestone');
+        
+        this.addSubtitle('Risk Mitigation Strategies');
+        this.addText('Common challenges and how to overcome them:');
+        this.addBullet('Resistance from colleagues: Lead by example, share wins');
+        this.addBullet('Technical difficulties: Join AI communities for support');
+        this.addBullet('Time constraints: Start with 15-minute daily practice');
+        this.addBullet('Imposter syndrome: Focus on continuous learning mindset');
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createWorksheets(userProfile) {
+        this.addTitle('WORKSHEETS & TEMPLATES', 18);
+        
+        this.addSubtitle('AI Skills Assessment Worksheet');
+        this.addText('Rate yourself on a scale of 1-10 for each skill area:');
+        
+        this.addText('Technical Skills:');
+        this.addBullet('Prompt Engineering: ___/10');
+        this.addBullet('AI Tool Proficiency: ___/10');
+        this.addBullet('Data Analysis: ___/10');
+        this.addBullet('Automation Setup: ___/10');
+        
+        this.addText('Strategic Skills:');
+        this.addBullet('AI Strategy Development: ___/10');
+        this.addBullet('ROI Measurement: ___/10');
+        this.addBullet('Change Management: ___/10');
+        this.addBullet('Team Leadership: ___/10');
+        
+        this.addSubtitle('Daily AI Practice Log');
+        this.addText('Track your daily AI learning and implementation:');
+        this.addText('');
+        this.addText('Date: _____________');
+        this.addText('AI Tool Used: ____________________');
+        this.addText('Task Completed: __________________');
+        this.addText('Time Saved: _____________________');
+        this.addText('Quality Improvement: _____________');
+        this.addText('Key Learning: ___________________');
+        this.addText('Tomorrow\'s Goal: ________________');
+        
+        this.addSubtitle('Project Planning Template');
+        this.addText('Use this template for your AI implementation projects:');
+        this.addText('');
+        this.addText('Project Name: ___________________');
+        this.addText('Business Problem: _______________');
+        this.addText('AI Solution: ____________________');
+        this.addText('Expected ROI: ___________________');
+        this.addText('Timeline: _______________________');
+        this.addText('Resources Needed: _______________');
+        this.addText('Success Metrics: ________________');
+        this.addText('Risk Factors: ___________________');
+        
+        this.addSubtitle('Weekly Progress Review');
+        this.addText('Complete this review every Friday:');
+        this.addText('');
+        this.addText('Week of: _______________________');
+        this.addText('Goals Achieved: ________________');
+        this.addText('Challenges Faced: ______________');
+        this.addText('Key Insights: __________________');
+        this.addText('Skills Developed: ______________');
+        this.addText('Next Week\'s Focus: _____________');
+        
+        this.addSubtitle('Network Building Tracker');
+        this.addText('Track your AI professional network growth:');
+        this.addText('');
+        this.addText('Contact Name: ___________________');
+        this.addText('Company/Role: ___________________');
+        this.addText('Expertise Area: _________________');
+        this.addText('Connection Source: ______________');
+        this.addText('Last Contact: ___________________');
+        this.addText('Next Follow-up: _________________');
+        this.addText('Potential Collaboration: ________');
+        
+        this.doc.addPage();
+        this.currentY = 20;
     }
 }
 
