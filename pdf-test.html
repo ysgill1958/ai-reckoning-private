@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Generation Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #1a1a2e;
+            color: white;
+        }
+        .form-group {
+            margin: 15px 0;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #666;
+            border-radius: 5px;
+            background: #333;
+            color: white;
+        }
+        button {
+            background: #10b981;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        button:hover {
+            background: #059669;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: #065f46;
+            border: 1px solid #10b981;
+        }
+        .error {
+            background: #7f1d1d;
+            border: 1px solid #ef4444;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 PDF Generation Test</h1>
+    <p>This page tests the PDF generation functionality with minimal setup.</p>
+    
+    <form id="testForm">
+        <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" value="John Doe" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" value="john@example.com" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="industry">Industry:</label>
+            <select id="industry" required>
+                <option value="">Select Industry</option>
+                <option value="Technology" selected>Technology</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Finance">Finance</option>
+                <option value="Manufacturing">Manufacturing</option>
+                <option value="Education">Education</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="experience">Experience:</label>
+            <select id="experience" required>
+                <option value="">Select Experience</option>
+                <option value="0-2 years">0-2 years</option>
+                <option value="3-5 years" selected>3-5 years</option>
+                <option value="6-10 years">6-10 years</option>
+                <option value="11-15 years">11-15 years</option>
+                <option value="15+ years">15+ years</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="goal">Primary Goal:</label>
+            <select id="goal" required>
+                <option value="">Select Goal</option>
+                <option value="Protect Current Job">Protect Job</option>
+                <option value="Get Promoted" selected>Get Promoted</option>
+                <option value="Change Careers">Change Careers</option>
+                <option value="Start Business">Start Business</option>
+                <option value="Leadership">AI Leadership</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="urgency">Urgency:</label>
+            <select id="urgency" required>
+                <option value="">Select Urgency</option>
+                <option value="Critical">Critical</option>
+                <option value="High" selected>High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="aiKnowledge">AI Knowledge:</label>
+            <select id="aiKnowledge" required>
+                <option value="">Select Level</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Basic" selected>Basic</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+            </select>
+        </div>
+        
+        <button type="button" onclick="testPDFGeneration()">
+            🧪 Test PDF Generation
+        </button>
+        
+        <button type="button" onclick="checkLibraries()">
+            🔍 Check Libraries
+        </button>
+    </form>
+    
+    <div id="status" class="status"></div>
+    
+    <div id="logs" style="background: #333; padding: 15px; border-radius: 5px; margin-top: 20px; font-family: monospace; font-size: 12px; height: 200px; overflow-y: auto;"></div>
+
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Include our PDF generator -->
+    <script src="js/pdf-generator.js"></script>
+    
+    <script>
+        function log(message) {
+            const logs = document.getElementById('logs');
+            const timestamp = new Date().toLocaleTimeString();
+            logs.innerHTML += `[${timestamp}] ${message}\n`;
+            logs.scrollTop = logs.scrollHeight;
+            console.log(message);
+        }
+        
+        function showStatus(message, isError = false) {
+            const status = document.getElementById('status');
+            status.textContent = message;
+            status.className = `status ${isError ? 'error' : 'success'}`;
+            status.style.display = 'block';
+            log(message);
+        }
+        
+        function checkLibraries() {
+            log('=== Checking Library Availability ===');
+            
+            // Check jsPDF
+            if (typeof window.jsPDF !== 'undefined') {
+                log('✅ jsPDF library loaded successfully');
+            } else {
+                log('❌ jsPDF library not found');
+            }
+            
+            // Check our PDF generator
+            if (typeof window.AICareerSurvivalGuideGenerator !== 'undefined') {
+                log('✅ AICareerSurvivalGuideGenerator class loaded successfully');
+            } else {
+                log('❌ AICareerSurvivalGuideGenerator class not found');
+            }
+            
+            // Try to create instance
+            try {
+                const generator = new AICareerSurvivalGuideGenerator();
+                log('✅ Successfully created generator instance');
+                showStatus('All libraries loaded successfully!');
+            } catch (error) {
+                log(`❌ Error creating generator instance: ${error.message}`);
+                showStatus('Error with PDF generator class', true);
+            }
+        }
+        
+        async function testPDFGeneration() {
+            log('=== Starting PDF Generation Test ===');
+            
+            try {
+                // Check libraries first
+                if (typeof window.AICareerSurvivalGuideGenerator === 'undefined') {
+                    throw new Error('AICareerSurvivalGuideGenerator class not loaded');
+                }
+                
+                const button = event.target;
+                button.disabled = true;
+                button.textContent = '🔄 Generating PDF...';
+                
+                // Get form data
+                const userProfile = {
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    industry: document.getElementById('industry').value,
+                    experience: document.getElementById('experience').value,
+                    goal: document.getElementById('goal').value,
+                    urgency: document.getElementById('urgency').value,
+                    aiKnowledge: document.getElementById('aiKnowledge').value
+                };
+                
+                log('User profile collected:');
+                log(JSON.stringify(userProfile, null, 2));
+                
+                // Create generator instance
+                const generator = new AICareerSurvivalGuideGenerator();
+                log('Generator instance created successfully');
+                
+                // Generate PDF
+                log('Starting PDF generation...');
+                await generator.generateFullGuide(userProfile);
+                
+                button.disabled = false;
+                button.textContent = '🧪 Test PDF Generation';
+                
+                showStatus('✅ PDF generated and downloaded successfully!');
+                log('=== PDF Generation Test Completed Successfully ===');
+                
+            } catch (error) {
+                log(`❌ PDF Generation Error: ${error.message}`);
+                log(`Stack trace: ${error.stack}`);
+                
+                const button = event.target;
+                button.disabled = false;
+                button.textContent = '🧪 Test PDF Generation';
+                
+                showStatus(`PDF Generation Failed: ${error.message}`, true);
+            }
+        }
+        
+        // Initialize
+        window.addEventListener('load', function() {
+            log('=== PDF Test Page Loaded ===');
+            checkLibraries();
+        });
+    </script>
+</body>
+</html>
