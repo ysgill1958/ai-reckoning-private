@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Survival Guide - Get Your FREE 50-Page PDF</title>
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link href="css/fontawesome/fontawesome.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+        .glass-dark {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4">
+                🚨 <span class="gradient-text">AI Career Survival Guide</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-6">
+                Get Your FREE Personalized 50-Page PDF Guide
+            </p>
+            <p class="text-lg text-yellow-400">
+                ⚡ Instant Download • 📧 No Email Required • 🎯 100% Personalized
+            </p>
+        </div>
+
+        <!-- Main Form -->
+        <div class="glass-dark rounded-2xl p-8 mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">Generate Your Personalized Guide</h2>
+            
+            <form id="pdfForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Full Name *</label>
+                        <input type="text" id="name" required
+                               class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                               placeholder="Your Full Name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email Address *</label>
+                        <input type="email" id="email" required
+                               class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 text-white focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+                               placeholder="your.email@company.com">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Industry *</label>
+                        <select id="industry" required
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 text-white focus:border-blue-500">
+                            <option value="">Select Your Industry</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Education">Education</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Legal">Legal</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="HR">Human Resources</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Experience Level *</label>
+                        <select id="experience" required
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 text-white focus:border-blue-500">
+                            <option value="">Select Experience</option>
+                            <option value="0-2 years">0-2 years</option>
+                            <option value="3-5 years">3-5 years</option>
+                            <option value="6-10 years">6-10 years</option>
+                            <option value="11-15 years">11-15 years</option>
+                            <option value="15+ years">15+ years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Primary Goal *</label>
+                        <select id="goal" required
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 text-white focus:border-blue-500">
+                            <option value="">Select Your Goal</option>
+                            <option value="Protect Current Job">Protect Current Job</option>
+                            <option value="Get Promoted">Get Promoted</option>
+                            <option value="Change Careers">Change Careers</option>
+                            <option value="Start Business">Start Business</option>
+                            <option value="AI Leadership">Become AI Leader</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">AI Knowledge Level *</label>
+                        <select id="aiKnowledge" required
+                                class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 text-white focus:border-blue-500">
+                            <option value="">Current AI Knowledge</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Basic">Basic</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium mb-2">Urgency Level *</label>
+                    <select id="urgency" required
+                            class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-600 text-white focus:border-blue-500">
+                        <option value="">How Urgent Is This?</option>
+                        <option value="Critical">Critical - Need help immediately</option>
+                        <option value="High">High - Within 30 days</option>
+                        <option value="Medium">Medium - Within 90 days</option>
+                        <option value="Low">Low - Planning ahead</option>
+                    </select>
+                </div>
+
+                <div class="text-center">
+                    <button type="button" onclick="generatePDF()" id="generateBtn"
+                            class="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white px-12 py-4 rounded-xl font-bold text-xl transition-all transform hover:scale-105 shadow-lg">
+                        <i class="fas fa-download mr-3"></i>Generate My FREE 50-Page PDF Guide
+                    </button>
+                </div>
+            </form>
+
+            <div class="text-center mt-6">
+                <p class="text-sm text-gray-400">
+                    ✅ Instant download • ✅ No spam • ✅ 100% personalized for your industry
+                </p>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="glass-dark rounded-xl p-6 text-center">
+                <div class="text-4xl mb-4">🎯</div>
+                <h3 class="font-bold mb-2">Personalized Content</h3>
+                <p class="text-gray-300 text-sm">Customized for your specific industry, experience level, and career goals</p>
+            </div>
+            <div class="glass-dark rounded-xl p-6 text-center">
+                <div class="text-4xl mb-4">📚</div>
+                <h3 class="font-bold mb-2">50+ Pages</h3>
+                <p class="text-gray-300 text-sm">Comprehensive survival guide with actionable strategies and real-world examples</p>
+            </div>
+            <div class="glass-dark rounded-xl p-6 text-center">
+                <div class="text-4xl mb-4">⚡</div>
+                <h3 class="font-bold mb-2">Instant Download</h3>
+                <p class="text-gray-300 text-sm">Generated in real-time and downloaded immediately to your device</p>
+            </div>
+        </div>
+
+        <!-- Status Log -->
+        <div id="statusLog" class="glass-dark rounded-xl p-6 hidden">
+            <h3 class="font-bold mb-4">📊 Generation Status</h3>
+            <div id="logContent" class="text-sm text-gray-300 space-y-2 font-mono">
+                <!-- Status messages will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/pdf-generator.js"></script>
+
+    <script>
+        function log(message) {
+            const logDiv = document.getElementById('statusLog');
+            const logContent = document.getElementById('logContent');
+            
+            logDiv.classList.remove('hidden');
+            
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logContent.appendChild(logEntry);
+            
+            // Scroll to bottom
+            logContent.scrollTop = logContent.scrollHeight;
+            
+            console.log(message);
+        }
+
+        async function generatePDF() {
+            log('🔄 Starting PDF generation...');
+            
+            try {
+                // Get form data
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const industry = document.getElementById('industry').value;
+                const experience = document.getElementById('experience').value;
+                const goal = document.getElementById('goal').value;
+                const urgency = document.getElementById('urgency').value;
+                const aiKnowledge = document.getElementById('aiKnowledge').value;
+                
+                // Validate required fields
+                if (!name || !email || !industry || !experience || !goal || !urgency || !aiKnowledge) {
+                    alert('Please fill in all required fields before generating your guide.');
+                    return;
+                }
+                
+                log('✅ Form validation passed');
+                
+                // Check libraries
+                if (typeof window.jspdf === 'undefined') {
+                    throw new Error('jsPDF library not loaded');
+                }
+                log('✅ jsPDF library loaded');
+                
+                if (typeof AICareerSurvivalGuideGenerator === 'undefined') {
+                    throw new Error('PDF generator class not loaded');
+                }
+                log('✅ PDF generator class loaded');
+                
+                // Update button state
+                const button = document.getElementById('generateBtn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Generating Your 50-Page Guide...';
+                button.disabled = true;
+                
+                // Create user profile
+                const userProfile = {
+                    name,
+                    email,
+                    industry,
+                    experience,
+                    goal,
+                    urgency,
+                    aiKnowledge
+                };
+                
+                log(`📋 Profile created for ${name} (${industry})`);
+                
+                // Generate PDF
+                log('🔧 Initializing PDF generator...');
+                const generator = new AICareerSurvivalGuideGenerator();
+                
+                log('🚀 Generating personalized content...');
+                const success = await generator.generateFullGuide(userProfile);
+                
+                if (success) {
+                    log('🎉 SUCCESS! PDF generated and downloaded!');
+                    log('📁 Check your Downloads folder for the PDF file');
+                    
+                    // Show success message
+                    setTimeout(() => {
+                        alert('🎉 Your personalized 50-page AI Career Survival Guide has been generated and downloaded!\\n\\n📁 Check your Downloads folder for the PDF file.\\n\\n🚀 Next step: Complete the full assessment for even more detailed insights!');
+                    }, 1000);
+                    
+                } else {
+                    throw new Error('PDF generation returned false');
+                }
+                
+                // Restore button
+                button.innerHTML = originalText;
+                button.disabled = false;
+                
+            } catch (error) {
+                log('❌ ERROR: ' + error.message);
+                console.error('PDF Generation Error:', error);
+                
+                // Restore button
+                const button = document.getElementById('generateBtn');
+                button.innerHTML = '<i class="fas fa-download mr-3"></i>Generate My FREE 50-Page PDF Guide';
+                button.disabled = false;
+                
+                alert('Sorry, there was an issue generating your PDF. Please try again or contact support.\\n\\nError: ' + error.message);
+            }
+        }
+
+        // Test libraries on page load
+        window.onload = function() {
+            setTimeout(() => {
+                log('🔄 Page loaded, checking libraries...');
+                
+                if (typeof window.jspdf !== 'undefined') {
+                    log('✅ jsPDF library loaded successfully');
+                } else {
+                    log('❌ jsPDF library not found');
+                }
+                
+                if (typeof AICareerSurvivalGuideGenerator !== 'undefined') {
+                    log('✅ AI Career Guide generator loaded successfully');
+                } else {
+                    log('❌ AI Career Guide generator not found');
+                }
+                
+                log('📝 Ready to generate personalized guides!');
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
