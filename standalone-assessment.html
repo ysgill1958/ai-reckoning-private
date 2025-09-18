@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Assessment - Standalone Version</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+        .glass-dark {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .assessment-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .assessment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-6xl font-bold mb-6">
+                🚀 <span class="gradient-text">AI Career Assessment</span>
+            </h1>
+            <p class="text-2xl text-gray-300 mb-8">
+                Professional AI Readiness Evaluation - All-in-One Version
+            </p>
+            <p class="text-lg text-blue-400 max-w-3xl mx-auto">
+                Choose your assessment level below. Get honest feedback, actionable insights, and a personalized roadmap for AI career success.
+            </p>
+        </div>
+
+        <!-- Assessment Selection -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+            <!-- Quick Assessment Card -->
+            <div class="assessment-card glass-dark rounded-2xl p-8 text-center" onclick="showAssessment('quick')">
+                <div class="text-6xl mb-6">⚡</div>
+                <h3 class="text-2xl font-bold mb-4 text-green-400">Quick Assessment</h3>
+                <div class="text-4xl font-bold mb-4 text-white">5 Minutes</div>
+                <p class="text-gray-300 mb-6">5 essential questions for busy professionals</p>
+                <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                    Start Quick Assessment →
+                </button>
+            </div>
+
+            <!-- Comprehensive Assessment Card -->
+            <div class="assessment-card glass-dark rounded-2xl p-8 text-center border-2 border-blue-500" onclick="showAssessment('comprehensive')">
+                <div class="absolute top-2 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                    RECOMMENDED
+                </div>
+                <div class="text-6xl mb-6">📊</div>
+                <h3 class="text-2xl font-bold mb-4 text-blue-400">Comprehensive Assessment</h3>
+                <div class="text-4xl font-bold mb-4 text-white">15 Minutes</div>
+                <p class="text-gray-300 mb-6">10 strategic questions with detailed analysis</p>
+                <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                    Start Comprehensive Assessment →
+                </button>
+            </div>
+
+            <!-- Technical Assessment Card -->
+            <div class="assessment-card glass-dark rounded-2xl p-8 text-center" onclick="showAssessment('technical')">
+                <div class="text-6xl mb-6">🔧</div>
+                <h3 class="text-2xl font-bold mb-4 text-purple-400">Technical Assessment</h3>
+                <div class="text-4xl font-bold mb-4 text-white">25 Minutes</div>
+                <p class="text-gray-300 mb-6">15 advanced questions for technical roles</p>
+                <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                    Start Technical Assessment →
+                </button>
+            </div>
+        </div>
+
+        <!-- Assessment Forms -->
+        <div id="assessment-form" class="glass-dark rounded-2xl p-8 hidden">
+            <div id="form-content"></div>
+        </div>
+
+        <!-- Status Log -->
+        <div class="glass-dark rounded-xl p-6" id="statusLog" style="display: none;">
+            <h3 class="text-lg font-bold mb-4">Assessment Progress</h3>
+            <div id="logContent" class="bg-gray-900 p-4 rounded text-sm font-mono min-h-[100px] overflow-y-auto">
+                Ready to start your assessment...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentAssessmentType = '';
+
+        function log(message) {
+            const logDiv = document.getElementById('statusLog');
+            const logContent = document.getElementById('logContent');
+            
+            if (logDiv && logContent) {
+                logDiv.style.display = 'block';
+                const timestamp = new Date().toLocaleTimeString();
+                logContent.innerHTML += `<div>[${timestamp}] ${message}</div>`;
+                logContent.scrollTop = logContent.scrollHeight;
+            }
+            console.log(message);
+        }
+
+        function showAssessment(type) {
+            currentAssessmentType = type;
+            const formDiv = document.getElementById('assessment-form');
+            const formContent = document.getElementById('form-content');
+            
+            formDiv.classList.remove('hidden');
+            
+            if (type === 'quick') {
+                formContent.innerHTML = getQuickAssessmentForm();
+            } else if (type === 'comprehensive') {
+                formContent.innerHTML = getComprehensiveAssessmentForm();
+            } else if (type === 'technical') {
+                formContent.innerHTML = getTechnicalAssessmentForm();
+            }
+            
+            formDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function getQuickAssessmentForm() {
+            return `
+                <h2 class="text-2xl font-bold mb-6 text-center">⚡ Quick AI Assessment (5 Minutes)</h2>
+                <form id="quickForm" onsubmit="submitAssessment(event, 'quick')" class="space-y-6">
+                    <!-- Basic Info -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Full Name *</label>
+                            <input type="text" name="name" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white" placeholder="Enter your full name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Industry *</label>
+                            <select name="industry" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select your industry</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Finance">Finance & Banking</option>
+                                <option value="Education">Education</option>
+                                <option value="Marketing">Marketing & Advertising</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Questions -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">1. How would you describe your current understanding of AI?</label>
+                            <select name="q1" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select your level</option>
+                                <option value="20">Expert: I can explain AI concepts and implement solutions</option>
+                                <option value="15">Advanced: I understand AI principles and can apply them</option>
+                                <option value="10">Intermediate: I know the basics and some applications</option>
+                                <option value="5">Beginner: I've heard of AI but know limited details</option>
+                                <option value="0">New: I'm just starting to learn about AI</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">2. How is AI currently impacting your industry?</label>
+                            <select name="q2" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select impact level</option>
+                                <option value="20">Revolutionary: AI is transforming everything we do</option>
+                                <option value="15">Significant: AI is changing key processes and roles</option>
+                                <option value="10">Moderate: Some AI adoption, gradual changes</option>
+                                <option value="5">Minimal: Limited AI use, traditional methods dominate</option>
+                                <option value="0">None: No AI impact visible yet</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">3. Which AI tools have you used in your work?</label>
+                            <select name="q3" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select your experience</option>
+                                <option value="20">Multiple tools: ChatGPT, automation, analytics, custom solutions</option>
+                                <option value="15">Several tools: ChatGPT, business software with AI features</option>
+                                <option value="10">Some tools: ChatGPT or similar AI assistants</option>
+                                <option value="5">Tried once: Tested AI tools briefly</option>
+                                <option value="0">None: Haven't used AI tools professionally</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">4. How prepared do you feel for the AI-driven future of work?</label>
+                            <select name="q4" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select readiness level</option>
+                                <option value="20">Very prepared: I'm leading AI initiatives and staying ahead</option>
+                                <option value="15">Well prepared: I'm actively learning and adapting</option>
+                                <option value="10">Somewhat prepared: I'm aware but need more skills</option>
+                                <option value="5">Concerned: I'm worried about being left behind</option>
+                                <option value="0">Unprepared: I haven't thought about AI's impact on my career</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">5. How much time can you dedicate to AI learning per week?</label>
+                            <select name="q5" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select time commitment</option>
+                                <option value="20">5+ hours: I'm committed to becoming an AI expert</option>
+                                <option value="15">3-5 hours: I want to build strong AI skills</option>
+                                <option value="10">1-3 hours: I'll learn at a steady pace</option>
+                                <option value="5">30-60 minutes: I have limited time but will try</option>
+                                <option value="0">No time: I can't commit to regular learning right now</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                            🚀 Generate My Quick AI Assessment Report
+                        </button>
+                    </div>
+                </form>
+            `;
+        }
+
+        function getComprehensiveAssessmentForm() {
+            return `
+                <h2 class="text-2xl font-bold mb-6 text-center">📊 Comprehensive AI Assessment (15 Minutes)</h2>
+                <form id="comprehensiveForm" onsubmit="submitAssessment(event, 'comprehensive')" class="space-y-6">
+                    <!-- Basic Info -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Full Name *</label>
+                            <input type="text" name="name" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white" placeholder="Enter your full name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Industry *</label>
+                            <select name="industry" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select your industry</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Finance">Finance & Banking</option>
+                                <option value="Education">Education</option>
+                                <option value="Marketing">Marketing & Advertising</option>
+                                <option value="Manufacturing">Manufacturing</option>
+                                <option value="Consulting">Consulting</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Role Level *</label>
+                            <select name="roleLevel" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select your level</option>
+                                <option value="Individual Contributor">Individual Contributor</option>
+                                <option value="Team Lead">Team Lead</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Director">Director</option>
+                                <option value="VP/C-Level">VP/C-Level</option>
+                                <option value="Consultant">Consultant</option>
+                                <option value="Entrepreneur">Entrepreneur</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 10 Comprehensive Questions -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">1. How well do you understand AI's strategic impact on business transformation?</label>
+                            <select name="q1" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select your level</option>
+                                <option value="10">Expert: I can lead AI transformation initiatives and strategy</option>
+                                <option value="8">Advanced: I understand AI strategy and can contribute to planning</option>
+                                <option value="6">Intermediate: I grasp the basics of AI business strategy</option>
+                                <option value="4">Beginner: I know AI is important but limited strategic understanding</option>
+                                <option value="2">Minimal: I have heard about AI strategy but don't understand it</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">2. How familiar are you with AI applications specific to your industry?</label>
+                            <select name="q2" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select familiarity level</option>
+                                <option value="10">Expert: I can identify and implement industry-specific AI solutions</option>
+                                <option value="8">Well-versed: I know most AI applications in my industry</option>
+                                <option value="6">Familiar: I'm aware of some AI use cases in my field</option>
+                                <option value="4">Basic: I know AI is used but limited knowledge of specific applications</option>
+                                <option value="2">Unfamiliar: I don't know much about AI in my industry</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">3. Rate your practical experience with AI tools and platforms</label>
+                            <select name="q3" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select proficiency level</option>
+                                <option value="10">Advanced: I use multiple AI tools daily and can train others</option>
+                                <option value="8">Proficient: I regularly use several AI tools effectively</option>
+                                <option value="6">Intermediate: I use basic AI tools like ChatGPT competently</option>
+                                <option value="4">Beginner: I've tried AI tools but still learning best practices</option>
+                                <option value="2">Novice: I've used AI tools once or twice</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">4. How comfortable are you with data analysis and understanding data's role in AI?</label>
+                            <select name="q4" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select comfort level</option>
+                                <option value="10">Expert: I can work with complex datasets and understand AI data requirements</option>
+                                <option value="8">Strong: I'm comfortable with data analysis and basic AI data concepts</option>
+                                <option value="6">Moderate: I can handle basic data work and understand its importance for AI</option>
+                                <option value="4">Basic: I work with data occasionally but limited AI understanding</option>
+                                <option value="2">Limited: I avoid data work and don't understand AI's data needs</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">5. How prepared are you to lead or manage AI-driven organizational change?</label>
+                            <select name="q5" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select preparation level</option>
+                                <option value="10">Very prepared: I can lead AI transformation and change management</option>
+                                <option value="8">Well prepared: I understand AI change challenges and solutions</option>
+                                <option value="6">Somewhat prepared: I grasp the basics of managing AI-related changes</option>
+                                <option value="4">Limited preparation: I know change is needed but unsure how to manage it</option>
+                                <option value="2">Unprepared: I'm concerned about AI changes and resistance</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">6. How well do you track AI developments and competitive advantages in your market?</label>
+                            <select name="q6" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select awareness level</option>
+                                <option value="10">Highly aware: I actively monitor AI trends and competitor strategies</option>
+                                <option value="8">Well-informed: I keep up with major AI developments in my market</option>
+                                <option value="6">Moderately aware: I follow some AI news and industry updates</option>
+                                <option value="4">Basic awareness: I occasionally hear about AI developments</option>
+                                <option value="2">Limited awareness: I don't actively track AI trends or competition</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">7. How well do you understand AI ethics, bias, and responsible AI practices?</label>
+                            <select name="q7" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select understanding level</option>
+                                <option value="10">Expert: I can implement and oversee responsible AI practices</option>
+                                <option value="8">Strong: I understand AI ethics and can guide responsible implementation</option>
+                                <option value="6">Moderate: I'm aware of AI ethics issues and basic considerations</option>
+                                <option value="4">Basic: I know AI ethics is important but limited understanding</option>
+                                <option value="2">Minimal: I haven't considered AI ethics and bias issues</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">8. Can you evaluate and measure the business value and ROI of AI initiatives?</label>
+                            <select name="q8" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select capability level</option>
+                                <option value="10">Expert: I can design and implement AI ROI measurement frameworks</option>
+                                <option value="8">Strong: I understand how to measure AI value and track ROI</option>
+                                <option value="6">Moderate: I grasp basic concepts of AI business value assessment</option>
+                                <option value="4">Basic: I know ROI is important but unsure how to measure AI value</option>
+                                <option value="2">Limited: I don't know how to evaluate AI business impact</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">9. How capable are you of building AI-ready teams and developing AI skills in others?</label>
+                            <select name="q9" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select capability level</option>
+                                <option value="10">Expert: I can design AI training programs and build high-performing AI teams</option>
+                                <option value="8">Strong: I can identify AI skill gaps and guide team development</option>
+                                <option value="6">Moderate: I understand what AI skills teams need and can support development</option>
+                                <option value="4">Basic: I know teams need AI skills but unsure how to develop them</option>
+                                <option value="2">Limited: I haven't considered team AI development needs</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">10. How well-developed is your long-term vision for AI in your career and organization?</label>
+                            <select name="q10" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select vision development level</option>
+                                <option value="10">Clear vision: I have detailed 3-5 year AI plans and can lead others</option>
+                                <option value="8">Developing vision: I'm building comprehensive AI plans and strategies</option>
+                                <option value="6">Basic vision: I have general ideas about AI's future role</option>
+                                <option value="4">Uncertain: I know AI is important but unclear about long-term planning</option>
+                                <option value="2">No vision: I haven't thought about long-term AI implications</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                            📊 Generate My Comprehensive Assessment Report
+                        </button>
+                    </div>
+                </form>
+            `;
+        }
+
+        function getTechnicalAssessmentForm() {
+            return `
+                <h2 class="text-2xl font-bold mb-6 text-center">🔧 Technical AI Assessment (25 Minutes)</h2>
+                <form id="technicalForm" onsubmit="submitAssessment(event, 'technical')" class="space-y-6">
+                    <!-- Basic Info -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Full Name *</label>
+                            <input type="text" name="name" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white" placeholder="Enter your full name">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Technical Role *</label>
+                            <select name="role" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select your role</option>
+                                <option value="Software Developer">Software Developer</option>
+                                <option value="Data Scientist">Data Scientist</option>
+                                <option value="AI/ML Engineer">AI/ML Engineer</option>
+                                <option value="DevOps Engineer">DevOps Engineer</option>
+                                <option value="Technical Lead">Technical Lead</option>
+                                <option value="Solutions Architect">Solutions Architect</option>
+                                <option value="Other Technical">Other Technical</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Experience Level *</label>
+                            <select name="experience" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select experience</option>
+                                <option value="Junior (0-2 years)">Junior (0-2 years)</option>
+                                <option value="Mid-level (3-5 years)">Mid-level (3-5 years)</option>
+                                <option value="Senior (6-10 years)">Senior (6-10 years)</option>
+                                <option value="Lead (10+ years)">Lead (10+ years)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- 15 Technical Questions -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">1. Machine Learning Fundamentals: How well do you understand core ML algorithms and when to apply them?</label>
+                            <select name="q1" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select your level</option>
+                                <option value="7">Expert: I can implement algorithms from scratch and optimize for production</option>
+                                <option value="5">Advanced: I understand algorithms deeply and can tune hyperparameters</option>
+                                <option value="3">Intermediate: I can use ML libraries and understand basic concepts</option>
+                                <option value="1">Beginner: I've heard of ML but limited practical experience</option>
+                                <option value="0">No experience: I haven't worked with ML algorithms</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">2. Programming for AI: Rate your proficiency in Python/R for data science and AI development</label>
+                            <select name="q2" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select proficiency</option>
+                                <option value="7">Expert: I can architect complex AI systems and optimize performance</option>
+                                <option value="5">Advanced: I'm proficient with pandas, numpy, scikit-learn, TensorFlow/PyTorch</option>
+                                <option value="3">Intermediate: I can write basic data analysis and simple ML scripts</option>
+                                <option value="1">Beginner: I know basic Python but limited AI library experience</option>
+                                <option value="0">No experience: I haven't used Python/R for AI development</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">3. Deep Learning: How comfortable are you with neural networks and deep learning frameworks?</label>
+                            <select name="q3" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select comfort level</option>
+                                <option value="7">Expert: I can design custom architectures and implement research papers</option>
+                                <option value="5">Advanced: I can build and train complex neural networks</option>
+                                <option value="3">Intermediate: I can use pre-trained models and fine-tune them</option>
+                                <option value="1">Beginner: I understand the concepts but limited hands-on experience</option>
+                                <option value="0">No experience: I haven't worked with neural networks</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">4. Data Engineering: How skilled are you at preparing and managing data for AI systems?</label>
+                            <select name="q4" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select skill level</option>
+                                <option value="7">Expert: I can design scalable data pipelines and handle big data for AI</option>
+                                <option value="5">Advanced: I'm skilled with ETL processes and data preprocessing</option>
+                                <option value="3">Intermediate: I can clean and prepare datasets for analysis</option>
+                                <option value="1">Beginner: I have basic data manipulation skills</option>
+                                <option value="0">No experience: I haven't worked with data engineering</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">5. AI Model Deployment: How experienced are you with deploying AI models to production?</label>
+                            <select name="q5" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select experience level</option>
+                                <option value="7">Expert: I can deploy at scale with monitoring, A/B testing, and CI/CD</option>
+                                <option value="5">Advanced: I can deploy models using cloud services and containers</option>
+                                <option value="3">Intermediate: I can create basic APIs and deploy simple models</option>
+                                <option value="1">Beginner: I understand deployment concepts but limited practice</option>
+                                <option value="0">No experience: I haven't deployed AI models</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">6. Cloud AI Services: How proficient are you with cloud platforms (AWS, Azure, GCP) for AI/ML?</label>
+                            <select name="q6" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select proficiency level</option>
+                                <option value="7">Expert: I can architect and manage complex cloud AI infrastructures</option>
+                                <option value="5">Advanced: I regularly use cloud AI services and can optimize costs</option>
+                                <option value="3">Intermediate: I can use basic cloud AI services and APIs</option>
+                                <option value="1">Beginner: I've tried cloud AI services but limited experience</option>
+                                <option value="0">No experience: I haven't used cloud AI platforms</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">7. Statistical Analysis: How strong is your foundation in statistics and probability for AI?</label>
+                            <select name="q7" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select strength level</option>
+                                <option value="7">Expert: I can apply advanced statistical methods and design experiments</option>
+                                <option value="5">Strong: I understand key statistical concepts and can interpret results</option>
+                                <option value="3">Moderate: I know basic statistics and can apply common tests</option>
+                                <option value="1">Basic: I have some statistics knowledge but struggle with applications</option>
+                                <option value="0">Weak: I don't have a solid statistics background</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">8. Computer Vision: Rate your experience with image processing and computer vision</label>
+                            <select name="q8" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select experience level</option>
+                                <option value="7">Expert: I can develop custom CV solutions and work with cutting-edge research</option>
+                                <option value="5">Advanced: I can build CV applications using frameworks like OpenCV</option>
+                                <option value="3">Intermediate: I can implement basic image processing and recognition</option>
+                                <option value="1">Beginner: I understand CV concepts but limited hands-on experience</option>
+                                <option value="0">No experience: I haven't worked with computer vision</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">9. Natural Language Processing: How skilled are you with text analysis and NLP techniques?</label>
+                            <select name="q9" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select skill level</option>
+                                <option value="7">Expert: I can build custom NLP models and work with transformers</option>
+                                <option value="5">Advanced: I can implement NLP solutions using modern libraries</option>
+                                <option value="3">Intermediate: I can perform basic text analysis and sentiment analysis</option>
+                                <option value="1">Beginner: I understand NLP concepts but limited practice</option>
+                                <option value="0">No experience: I haven't worked with NLP</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">10. Model Evaluation: How well do you understand metrics, validation, and testing for AI models?</label>
+                            <select name="q10" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select understanding level</option>
+                                <option value="7">Expert: I can design comprehensive evaluation frameworks and A/B tests</option>
+                                <option value="5">Strong: I understand key metrics and can implement proper validation</option>
+                                <option value="3">Moderate: I know basic metrics like accuracy, precision, recall</option>
+                                <option value="1">Basic: I can calculate simple metrics but limited understanding</option>
+                                <option value="0">Weak: I don't know how to properly evaluate AI models</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">11. MLOps and DevOps: How experienced are you with ML operations and production workflows?</label>
+                            <select name="q11" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select experience level</option>
+                                <option value="7">Expert: I can build end-to-end MLOps pipelines with monitoring and automation</option>
+                                <option value="5">Advanced: I understand MLOps principles and can implement CI/CD for ML</option>
+                                <option value="3">Intermediate: I know basic versioning and deployment practices</option>
+                                <option value="1">Beginner: I'm learning about MLOps but limited practical experience</option>
+                                <option value="0">No experience: I haven't worked with ML production workflows</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">12. Big Data Technologies: How proficient are you with distributed computing for large-scale AI?</label>
+                            <select name="q12" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select proficiency level</option>
+                                <option value="7">Expert: I can architect and optimize distributed AI systems (Spark, Hadoop)</option>
+                                <option value="5">Advanced: I regularly work with big data tools for AI projects</option>
+                                <option value="3">Intermediate: I have experience with basic distributed processing</option>
+                                <option value="1">Beginner: I understand concepts but limited hands-on experience</option>
+                                <option value="0">No experience: I haven't worked with big data technologies</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">13. AI Security and Privacy: How well do you understand security considerations in AI systems?</label>
+                            <select name="q13" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select understanding level</option>
+                                <option value="7">Expert: I can implement comprehensive AI security and privacy frameworks</option>
+                                <option value="5">Strong: I understand key security risks and can implement protections</option>
+                                <option value="3">Moderate: I'm aware of basic AI security and privacy concerns</option>
+                                <option value="1">Basic: I know security is important but limited specific knowledge</option>
+                                <option value="0">Limited: I haven't considered AI security and privacy issues</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">14. Research and Innovation: How capable are you of staying current with AI research and implementing new techniques?</label>
+                            <select name="q14" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select capability level</option>
+                                <option value="7">Expert: I actively contribute to AI research and can implement cutting-edge papers</option>
+                                <option value="5">Strong: I regularly read research papers and can adapt new techniques</option>
+                                <option value="3">Moderate: I follow AI research but struggle with implementation</option>
+                                <option value="1">Basic: I occasionally read about new AI developments</option>
+                                <option value="0">Limited: I don't actively follow AI research and innovation</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-2">15. Problem-Solving Architecture: How skilled are you at designing AI solutions for complex business problems?</label>
+                            <select name="q15" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select skill level</option>
+                                <option value="7">Expert: I can architect comprehensive AI solutions for complex enterprise problems</option>
+                                <option value="5">Advanced: I can design effective AI solutions for well-defined problems</option>
+                                <option value="3">Intermediate: I can break down problems and identify AI opportunities</option>
+                                <option value="1">Beginner: I understand problems but struggle with AI solution design</option>
+                                <option value="0">No experience: I haven't designed AI solutions for business problems</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="bg-gradient-to-r from-purple-600 to-red-600 hover:from-purple-700 hover:to-red-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                            🔧 Generate My Technical Assessment Report
+                        </button>
+                    </div>
+                </form>
+            `;
+        }
+
+        function submitAssessment(event, type) {
+            event.preventDefault();
+            log('🚀 Starting assessment submission...');
+            
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Calculate score based on assessment type
+            let totalScore = 0;
+            let maxPossible = 0;
+            
+            for (let key in data) {
+                if (key.startsWith('q')) {
+                    totalScore += parseInt(data[key]) || 0;
+                }
+            }
+            
+            // Set max possible scores for each assessment type
+            if (type === 'quick') {
+                maxPossible = 100; // 5 questions × 20 max points
+            } else if (type === 'comprehensive') {
+                maxPossible = 100; // 10 questions × 10 max points  
+            } else if (type === 'technical') {
+                maxPossible = 105; // 15 questions × 7 max points
+            }
+            
+            // Calculate percentage and scale to realistic 15-75% range
+            const rawPercentage = (totalScore / maxPossible) * 100;
+            const scaledScore = Math.round(15 + (rawPercentage * 0.6));
+            
+            log(`📊 Assessment Score: ${scaledScore}/100 (Type: ${type})`);
+            
+            // Generate PDF
+            generateStandalonePDF(data, scaledScore, type);
+        }
+
+        function generateStandalonePDF(userData, score, type) {
+            try {
+                log('📄 Generating PDF report...');
+                
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                let currentY = 20;
+                
+                // Header
+                doc.setFontSize(24);
+                doc.text(`${type.charAt(0).toUpperCase() + type.slice(1)} AI Assessment`, 20, currentY);
+                currentY += 15;
+                
+                doc.setFontSize(16);
+                doc.text(`Results for ${userData.name}`, 20, currentY);
+                currentY += 20;
+                
+                // Score
+                doc.setFontSize(20);
+                doc.text(`Your AI Readiness Score: ${score}/100`, 20, currentY);
+                currentY += 15;
+                
+                // Level
+                let level = 'Getting Started';
+                if (score >= 80) level = 'AI Leader';
+                else if (score >= 60) level = 'AI Ready';
+                else if (score >= 40) level = 'Developing';
+                
+                doc.setFontSize(16);
+                doc.text(`Readiness Level: ${level}`, 20, currentY);
+                currentY += 20;
+                
+                // Recommendations
+                doc.setFontSize(14);
+                doc.text('Personalized Recommendations:', 20, currentY);
+                currentY += 10;
+                
+                doc.setFontSize(12);
+                const recommendations = getRecommendations(score, type);
+                recommendations.forEach(rec => {
+                    doc.text(`• ${rec}`, 30, currentY);
+                    currentY += 8;
+                });
+                
+                currentY += 10;
+                doc.text(`Generated: ${new Date().toLocaleDateString()}`, 20, currentY);
+                currentY += 5;
+                doc.text(`Industry: ${userData.industry}`, 20, currentY);
+                
+                // Save PDF
+                const filename = `AI_Assessment_${userData.name.replace(/\s+/g, '_')}_${score}.pdf`;
+                doc.save(filename);
+                
+                log('✅ PDF report generated successfully!');
+                
+                setTimeout(() => {
+                    alert(`🎉 Your AI Assessment is Complete!\\n\\n📊 Your Score: ${score}/100\\n🎯 Level: ${level}\\n📁 Report downloaded: ${filename}\\n\\nThank you for using our AI Career Assessment!`);
+                }, 500);
+                
+            } catch (error) {
+                log(`❌ PDF generation error: ${error.message}`);
+                alert('Error generating PDF. Please try again.');
+            }
+        }
+
+        function getRecommendations(score, type) {
+            if (type === 'quick') {
+                if (score >= 60) {
+                    return [
+                        'Excellent foundation! Consider taking the Technical Assessment to dive deeper',
+                        'Look into advanced AI certifications and specialized training',
+                        'Consider leading AI initiatives in your organization',
+                        'Explore cutting-edge AI tools and emerging technologies'
+                    ];
+                } else if (score >= 40) {
+                    return [
+                        'Good progress! Take the Comprehensive Assessment for detailed analysis',
+                        'Focus on practical AI tool usage in your daily work',
+                        'Invest in AI courses relevant to your industry',
+                        'Start building an AI learning routine'
+                    ];
+                } else {
+                    return [
+                        'Great starting point! Begin with AI fundamentals',
+                        'Try ChatGPT and other user-friendly AI tools',
+                        'Follow AI news and industry developments',
+                        'Consider beginner-friendly AI courses'
+                    ];
+                }
+            } else if (type === 'comprehensive') {
+                if (score >= 65) {
+                    return [
+                        'Outstanding strategic AI understanding! You are ready to lead transformation',
+                        'Consider pursuing AI leadership roles and certifications',
+                        'Develop AI governance and ethics frameworks for your organization',
+                        'Mentor others and build AI-ready teams',
+                        'Take the Technical Assessment if you want to deepen technical skills'
+                    ];
+                } else if (score >= 45) {
+                    return [
+                        'Strong foundation with room for strategic growth',
+                        'Focus on AI implementation planning and change management',
+                        'Develop your understanding of AI ROI measurement',
+                        'Build cross-functional AI collaboration skills',
+                        'Consider advanced AI strategy courses'
+                    ];
+                } else {
+                    return [
+                        'Solid beginning - focus on building AI business acumen',
+                        'Start with AI strategy fundamentals and industry applications',
+                        'Practice with AI tools to gain hands-on experience',
+                        'Develop your data literacy and analytical thinking',
+                        'Consider the Quick Assessment to build confidence first'
+                    ];
+                }
+            } else if (type === 'technical') {
+                if (score >= 60) {
+                    return [
+                        'Excellent technical AI skills! You are ready for advanced challenges',
+                        'Consider contributing to open-source AI projects',
+                        'Explore cutting-edge research and implement novel solutions',
+                        'Mentor junior developers and lead technical AI initiatives',
+                        'Stay current with latest ML/AI research and frameworks'
+                    ];
+                } else if (score >= 40) {
+                    return [
+                        'Good technical foundation - focus on practical application',
+                        'Build more hands-on experience with real-world projects',
+                        'Deepen your knowledge in specific AI domains',
+                        'Practice deployment and production AI systems',
+                        'Consider specialized AI/ML certifications'
+                    ];
+                } else {
+                    return [
+                        'Starting your technical AI journey - build fundamentals first',
+                        'Master Python/R and essential data science libraries',
+                        'Complete structured AI/ML courses with hands-on projects',
+                        'Practice with simple datasets and basic algorithms',
+                        'Consider the Comprehensive Assessment to understand business context'
+                    ];
+                }
+            }
+            
+            return ['Continue your AI learning journey']; // Default fallback
+        }
+
+        // Initialize
+        window.onload = function() {
+            log('🚀 AI Assessment System Ready!');
+            log('📝 Choose an assessment level to get started');
+        };
+    </script>
+</body>
+</html>
