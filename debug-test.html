@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Test</title>
+</head>
+<body>
+    <h1>Debug Test</h1>
+    <button onclick="testLibraries()">Test Libraries</button>
+    <div id="results"></div>
+
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/simple-pdf-generator.js"></script>
+
+    <script>
+        function testLibraries() {
+            const results = document.getElementById('results');
+            results.innerHTML = '';
+            
+            function log(message) {
+                results.innerHTML += '<div>' + message + '</div>';
+            }
+            
+            // Test 1: Check if jsPDF is loaded
+            log('Testing jsPDF...');
+            if (typeof window.jspdf !== 'undefined') {
+                log('✅ jsPDF library loaded successfully');
+                log('jsPDF version: ' + (window.jspdf.jsPDF.version || 'unknown'));
+            } else {
+                log('❌ jsPDF library not found');
+            }
+            
+            // Test 2: Check if SimpleAIGuideGenerator is loaded
+            log('Testing SimpleAIGuideGenerator...');
+            if (typeof SimpleAIGuideGenerator !== 'undefined') {
+                log('✅ SimpleAIGuideGenerator class loaded successfully');
+                
+                // Test 3: Try to create an instance
+                try {
+                    const generator = new SimpleAIGuideGenerator();
+                    log('✅ Successfully created SimpleAIGuideGenerator instance');
+                } catch (error) {
+                    log('❌ Error creating instance: ' + error.message);
+                }
+            } else {
+                log('❌ SimpleAIGuideGenerator class not found');
+            }
+            
+            // Test 4: Check window object
+            log('Window object keys: ' + Object.keys(window).filter(k => k.includes('jspdf') || k.includes('Simple')).join(', '));
+        }
+        
+        // Auto-test on load
+        window.onload = function() {
+            setTimeout(testLibraries, 1000);
+        };
+    </script>
+</body>
+</html>

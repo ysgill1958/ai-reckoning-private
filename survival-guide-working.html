@@ -116,6 +116,263 @@
                     </div>
                 </div>
 
+                <!-- ADVANCED TECHNICAL ASSESSMENT SECTION -->
+                <div class="bg-gray-900 rounded-lg p-6 mt-8">
+                    <h3 class="text-xl font-bold mb-4 text-center gradient-text">🎯 Comprehensive AI Technical Assessment</h3>
+                    <p class="text-gray-300 mb-6 text-center">Complete this detailed assessment for accurate skill evaluation and personalized recommendations</p>
+                    
+                    <!-- AI Fundamentals -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-blue-400">1. AI & Machine Learning Fundamentals</h4>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Which best describes machine learning? *</label>
+                            <select id="mlDefinition" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="0">Programming computers to follow specific rules</option>
+                                <option value="10">Creating algorithms that can learn from data without explicit programming</option>
+                                <option value="3">Building robots that can think like humans</option>
+                                <option value="1">Advanced database management systems</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What is the difference between supervised and unsupervised learning? *</label>
+                            <select id="learningTypes" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="0">No significant difference, just terminology</option>
+                                <option value="10">Supervised uses labeled training data, unsupervised finds patterns in unlabeled data</option>
+                                <option value="2">Supervised is faster, unsupervised is more accurate</option>
+                                <option value="1">Supervised requires human oversight, unsupervised runs automatically</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What is neural network overfitting? *</label>
+                            <select id="overfitting" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="1">When the network processes data too quickly</option>
+                                <option value="10">When the model performs well on training data but poorly on new data</option>
+                                <option value="0">When the network has too few parameters</option>
+                                <option value="2">When the training process takes too long</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Large Language Models -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-green-400">2. Large Language Models (LLMs)</h4>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What is a transformer architecture in LLMs? *</label>
+                            <select id="transformer" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="0">A tool for converting text to speech</option>
+                                <option value="10">A neural network architecture using self-attention mechanisms to process sequences</option>
+                                <option value="1">A data preprocessing technique</option>
+                                <option value="2">A method for compressing language models</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What does "fine-tuning" an LLM involve? *</label>
+                            <select id="fineTuning" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="2">Adjusting the model's processing speed</option>
+                                <option value="10">Training a pre-trained model on domain-specific data for specialized tasks</option>
+                                <option value="0">Installing the model on different hardware</option>
+                                <option value="1">Changing the model's user interface</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What is the purpose of RLHF (Reinforcement Learning from Human Feedback)? *</label>
+                            <select id="rlhf" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="1">To make models run faster</option>
+                                <option value="0">To reduce model size</option>
+                                <option value="10">To align model outputs with human preferences and values</option>
+                                <option value="3">To improve data storage efficiency</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Prompt Engineering -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-purple-400">3. Prompt Engineering & Advanced Techniques</h4>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What is "Chain of Thought" prompting? *</label>
+                            <select id="chainOfThought" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="0">Asking multiple unrelated questions</option>
+                                <option value="10">Encouraging the model to show step-by-step reasoning</option>
+                                <option value="2">Using longer prompts with more context</option>
+                                <option value="1">Connecting multiple AI models together</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What is "few-shot learning" in prompt engineering? *</label>
+                            <select id="fewShot" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="10">Providing a few examples in the prompt to guide the model's responses</option>
+                                <option value="0">Using short prompts to save time</option>
+                                <option value="1">Training the model with minimal data</option>
+                                <option value="2">Running the model multiple times quickly</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">How can you mitigate hallucinations in LLM outputs? *</label>
+                            <select id="hallucinations" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="1">Use longer prompts</option>
+                                <option value="0">Increase model temperature</option>
+                                <option value="10">Use specific prompts, provide context, and implement fact-checking mechanisms</option>
+                                <option value="2">Run the model multiple times</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- AI Agents -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-yellow-400">4. AI Agents & Autonomous Systems</h4>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What defines an AI agent? *</label>
+                            <select id="aiAgent" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="0">Any AI model that processes text</option>
+                                <option value="10">An autonomous system that perceives its environment and takes actions to achieve goals</option>
+                                <option value="2">A large language model with internet access</option>
+                                <option value="1">A chatbot interface</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What is the purpose of ReAct (Reasoning and Acting) in AI agents? *</label>
+                            <select id="react" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="2">To make agents respond faster</option>
+                                <option value="10">To combine reasoning about tasks with taking actions based on that reasoning</option>
+                                <option value="0">To reduce computational requirements</option>
+                                <option value="1">To improve user interface design</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What are "tool-using agents"? *</label>
+                            <select id="toolAgents" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="1">Agents that require physical tools</option>
+                                <option value="10">AI systems that can access and use external APIs, databases, or software tools</option>
+                                <option value="0">Agents that only work with text</option>
+                                <option value="2">Agents designed for specific industries</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Technical Implementation -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-red-400">5. Technical Implementation & Tools</h4>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Which framework is primarily used for building LLM applications? *</label>
+                            <select id="frameworks" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="3">React.js</option>
+                                <option value="10">LangChain/LlamaIndex</option>
+                                <option value="0">Bootstrap</option>
+                                <option value="1">jQuery</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What is RAG (Retrieval-Augmented Generation)? *</label>
+                            <select id="rag" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="0">A type of neural network architecture</option>
+                                <option value="10">Combining retrieval of relevant documents with language generation</option>
+                                <option value="1">A data preprocessing technique</option>
+                                <option value="2">A model compression method</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">What is vector embedding in AI applications? *</label>
+                            <select id="vectorEmbedding" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                                <option value="">Select answer</option>
+                                <option value="1">A way to compress images</option>
+                                <option value="10">Converting text/data into numerical vectors that capture semantic meaning</option>
+                                <option value="0">A graphics rendering technique</option>
+                                <option value="2">A database optimization method</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Practical Experience -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-cyan-400">6. Practical Experience & Application</h4>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Which have you actually implemented? (Select all that apply) *</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="exp_chatbot" class="mr-2" value="10">
+                                    <span>Built a custom chatbot or conversational AI</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="exp_rag" class="mr-2" value="15">
+                                    <span>Implemented RAG system with document retrieval</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="exp_finetune" class="mr-2" value="20">
+                                    <span>Fine-tuned an LLM for specific tasks</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="exp_agents" class="mr-2" value="25">
+                                    <span>Built autonomous AI agents with tool usage</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="exp_api" class="mr-2" value="8">
+                                    <span>Integrated AI APIs into applications</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="exp_none" class="mr-2" value="0">
+                                    <span>None of the above</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-sm font-medium mb-2">Which programming languages have you used for AI projects? *</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="lang_python" class="mr-2" value="15">
+                                    <span>Python (pandas, numpy, scikit-learn)</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="lang_js" class="mr-2" value="8">
+                                    <span>JavaScript/TypeScript</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="lang_sql" class="mr-2" value="5">
+                                    <span>SQL for data analysis</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="lang_r" class="mr-2" value="8">
+                                    <span>R for statistics/ML</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" id="lang_none" class="mr-2" value="0">
+                                    <span>None - I use no-code tools only</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div>
                     <label class="block text-sm font-medium mb-2">Urgency Level *</label>
                     <select id="urgency" required
@@ -173,9 +430,21 @@
 
     <!-- Include jsPDF library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="js/simple-pdf-generator.js"></script>
+    <!-- Include EmailJS library for email delivery -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="js/simple-pdf-generator.js?v=2024091802"></script>
 
     <script>
+        // EmailJS Configuration
+        const EMAILJS_CONFIG = {
+            PUBLIC_KEY: 'YOUR_EMAILJS_PUBLIC_KEY', // Replace with your EmailJS public key
+            SERVICE_ID: 'service_gmail', // Replace with your service ID
+            TEMPLATE_ID: 'template_survival_guide' // Replace with your template ID
+        };
+        
+        // Initialize EmailJS
+        emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
+        
         function log(message) {
             const logDiv = document.getElementById('statusLog');
             const logContent = document.getElementById('logContent');
@@ -193,10 +462,10 @@
         }
 
         async function generatePDF() {
-            log('🔄 Starting PDF generation...');
+            log('🔄 Starting comprehensive technical assessment...');
             
             try {
-                // Get form data
+                // Get basic form data
                 const name = document.getElementById('name').value.trim();
                 const email = document.getElementById('email').value.trim();
                 const industry = document.getElementById('industry').value;
@@ -205,21 +474,69 @@
                 const urgency = document.getElementById('urgency').value;
                 const aiKnowledge = document.getElementById('aiKnowledge').value;
                 
-                // Validate required fields
+                // Get comprehensive technical assessment data
+                const technicalAssessment = {
+                    // AI Fundamentals
+                    mlDefinition: parseInt(document.getElementById('mlDefinition').value) || 0,
+                    learningTypes: parseInt(document.getElementById('learningTypes').value) || 0,
+                    overfitting: parseInt(document.getElementById('overfitting').value) || 0,
+                    
+                    // LLMs
+                    transformer: parseInt(document.getElementById('transformer').value) || 0,
+                    fineTuning: parseInt(document.getElementById('fineTuning').value) || 0,
+                    rlhf: parseInt(document.getElementById('rlhf').value) || 0,
+                    
+                    // Prompt Engineering
+                    chainOfThought: parseInt(document.getElementById('chainOfThought').value) || 0,
+                    fewShot: parseInt(document.getElementById('fewShot').value) || 0,
+                    hallucinations: parseInt(document.getElementById('hallucinations').value) || 0,
+                    
+                    // AI Agents
+                    aiAgent: parseInt(document.getElementById('aiAgent').value) || 0,
+                    react: parseInt(document.getElementById('react').value) || 0,
+                    toolAgents: parseInt(document.getElementById('toolAgents').value) || 0,
+                    
+                    // Technical Implementation
+                    frameworks: parseInt(document.getElementById('frameworks').value) || 0,
+                    rag: parseInt(document.getElementById('rag').value) || 0,
+                    vectorEmbedding: parseInt(document.getElementById('vectorEmbedding').value) || 0,
+                    
+                    // Practical Experience
+                    experiencePoints: calculateExperiencePoints(),
+                    languagePoints: calculateLanguagePoints()
+                };
+                
+                // Calculate comprehensive technical score
+                const technicalScore = calculateTechnicalScore(technicalAssessment);
+                log(`📊 Technical Assessment Score: ${technicalScore}/100`);
+                
+                // Validate all required fields including technical assessment
                 if (!name || !email || !industry || !experience || !goal || !urgency || !aiKnowledge) {
                     alert('Please fill in all required fields before generating your guide.');
                     return;
                 }
                 
-                log('✅ Form validation passed');
+                if (!validateTechnicalAssessment()) {
+                    alert('Please complete all technical assessment questions to receive your personalized guide.');
+                    return;
+                }
                 
-                // Check libraries
+                log('✅ Comprehensive assessment validation passed');
+                
+                // Wait a moment to ensure libraries are loaded
+                await new Promise(resolve => setTimeout(resolve, 500));
+                
+                // Check libraries with detailed error reporting
                 if (typeof window.jspdf === 'undefined') {
+                    log('❌ jsPDF library not found in window.jspdf');
+                    log('Available window properties: ' + Object.keys(window).filter(k => k.includes('jspdf')).join(', '));
                     throw new Error('jsPDF library not loaded');
                 }
                 log('✅ jsPDF library loaded');
                 
                 if (typeof SimpleAIGuideGenerator === 'undefined') {
+                    log('❌ SimpleAIGuideGenerator class not found');
+                    log('Available window properties: ' + Object.keys(window).filter(k => k.includes('Simple')).join(', '));
                     throw new Error('PDF generator class not loaded');
                 }
                 log('✅ PDF generator class loaded');
@@ -230,7 +547,7 @@
                 button.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>Generating Your 50-Page Guide...';
                 button.disabled = true;
                 
-                // Create user profile
+                // Create comprehensive user profile
                 const userProfile = {
                     name,
                     email,
@@ -238,29 +555,42 @@
                     experience,
                     goal,
                     urgency,
-                    aiKnowledge
+                    aiKnowledge,
+                    technicalAssessment: technicalAssessment,
+                    actualTechnicalScore: technicalScore
                 };
                 
                 log(`📋 Profile created for ${name} (${industry})`);
                 
                 // Generate PDF
-                log('🔧 Initializing simple PDF generator...');
+                log('🔧 Initializing advanced PDF generator...');
                 const generator = new SimpleAIGuideGenerator();
                 
-                log('🚀 Generating personalized content...');
-                const success = await generator.generateGuide(userProfile);
+                log('🚀 Generating personalized 50+ page guide...');
+                const result = await generator.generateGuide(userProfile);
                 
-                if (success) {
-                    log('🎉 SUCCESS! PDF generated and downloaded!');
-                    log('📁 Check your Downloads folder for the PDF file');
+                if (result && result.success) {
+                    log(`🎉 SUCCESS! Personalized guide generated - Score: ${result.analysis.readinessScore}/100`);
+                    log('📧 Sending your personalized guide via email...');
                     
-                    // Show success message
-                    setTimeout(() => {
-                        alert('🎉 Your personalized 50-page AI Career Survival Guide has been generated and downloaded!\\n\\n📁 Check your Downloads folder for the PDF file.\\n\\n🚀 Next step: Complete the full assessment for even more detailed insights!');
-                    }, 1000);
+                    // Send PDF via email
+                    const emailSent = await sendPDFByEmail(userProfile, result);
+                    
+                    if (emailSent) {
+                        log('✅ EMAIL SENT! Check your inbox for your personalized guide');
+                        log('📱 Also downloaded locally to your Downloads folder');
+                        
+                        // Show success message
+                        setTimeout(() => {
+                            alert(`🎉 SUCCESS! Your personalized ${Math.round(result.analysis.readinessScore)}/100 score AI Career Guide has been sent to ${email}!\\n\\n📧 Check your email inbox (and spam folder)\\n📁 Also saved to your Downloads folder\\n\\n🚀 Your guide includes:\\n• Personalized readiness assessment\\n• Individual strengths & weaknesses analysis\\n• ${userProfile.industry}-specific strategies\\n• Custom 90-day action plan`);
+                        }, 1000);
+                    } else {
+                        log('⚠️ Email delivery failed, but PDF downloaded locally');
+                        alert('⚠️ Your personalized guide was generated and downloaded, but email delivery failed.\\n\\n📁 Check your Downloads folder for the PDF file.\\n\\n� Try generating again or contact support if the issue persists.');
+                    }
                     
                 } else {
-                    throw new Error('PDF generation returned false');
+                    throw new Error('PDF generation failed - no result returned');
                 }
                 
                 // Restore button
@@ -278,6 +608,159 @@
                 
                 alert('Sorry, there was an issue generating your PDF. Please try again or contact support.\\n\\nError: ' + error.message);
             }
+        }
+
+        // Technical Assessment Helper Functions
+        function calculateExperiencePoints() {
+            let points = 0;
+            if (document.getElementById('exp_chatbot').checked) points += 10;
+            if (document.getElementById('exp_rag').checked) points += 15;
+            if (document.getElementById('exp_finetune').checked) points += 20;
+            if (document.getElementById('exp_agents').checked) points += 25;
+            if (document.getElementById('exp_api').checked) points += 8;
+            return Math.min(points, 50); // Cap at 50 points
+        }
+        
+        function calculateLanguagePoints() {
+            let points = 0;
+            if (document.getElementById('lang_python').checked) points += 15;
+            if (document.getElementById('lang_js').checked) points += 8;
+            if (document.getElementById('lang_sql').checked) points += 5;
+            if (document.getElementById('lang_r').checked) points += 8;
+            return Math.min(points, 25); // Cap at 25 points
+        }
+        
+        function calculateTechnicalScore(assessment) {
+            // Theoretical Knowledge (60 points max)
+            const theoryScore = assessment.mlDefinition + assessment.learningTypes + assessment.overfitting +
+                              assessment.transformer + assessment.fineTuning + assessment.rlhf +
+                              assessment.chainOfThought + assessment.fewShot + assessment.hallucinations +
+                              assessment.aiAgent + assessment.react + assessment.toolAgents +
+                              assessment.frameworks + assessment.rag + assessment.vectorEmbedding;
+            
+            // Practical Experience (25 points max)
+            const practicalScore = assessment.experiencePoints;
+            
+            // Programming Skills (15 points max)  
+            const programmingScore = assessment.languagePoints;
+            
+            // Total possible: 100 points
+            const totalScore = Math.min(100, theoryScore + practicalScore + programmingScore);
+            
+            log(`📊 Score Breakdown: Theory=${theoryScore}/60, Practical=${practicalScore}/25, Programming=${programmingScore}/15`);
+            
+            return totalScore;
+        }
+        
+        function validateTechnicalAssessment() {
+            // Check all select questions are answered
+            const selectIds = [
+                'mlDefinition', 'learningTypes', 'overfitting',
+                'transformer', 'fineTuning', 'rlhf',
+                'chainOfThought', 'fewShot', 'hallucinations',
+                'aiAgent', 'react', 'toolAgents',
+                'frameworks', 'rag', 'vectorEmbedding'
+            ];
+            
+            for (const id of selectIds) {
+                const element = document.getElementById(id);
+                if (!element || !element.value) {
+                    return false;
+                }
+            }
+            
+            // At least one experience checkbox must be selected
+            const expCheckboxes = ['exp_chatbot', 'exp_rag', 'exp_finetune', 'exp_agents', 'exp_api', 'exp_none'];
+            const expSelected = expCheckboxes.some(id => document.getElementById(id).checked);
+            
+            // At least one language checkbox must be selected
+            const langCheckboxes = ['lang_python', 'lang_js', 'lang_sql', 'lang_r', 'lang_none'];
+            const langSelected = langCheckboxes.some(id => document.getElementById(id).checked);
+            
+            return expSelected && langSelected;
+        }
+
+        // Email sending function
+        async function sendPDFByEmail(userProfile, pdfResult) {
+            try {
+                log('📧 Preparing email with personalized guide...');
+                
+                // Create email template parameters
+                const templateParams = {
+                    to_name: userProfile.name,
+                    to_email: userProfile.email,
+                    user_score: pdfResult.analysis.readinessScore,
+                    user_industry: userProfile.industry,
+                    user_goal: userProfile.goal,
+                    readiness_level: getReadinessLevel(pdfResult.analysis.readinessScore),
+                    pdf_filename: pdfResult.filename,
+                    
+                    // Create personalized email content
+                    personalized_message: createPersonalizedEmailMessage(userProfile, pdfResult.analysis),
+                    
+                    // PDF attachment (base64)
+                    pdf_attachment: pdfResult.pdfBase64.split(',')[1] // Remove data:application/pdf;base64, prefix
+                };
+                
+                log('🔄 Sending email via EmailJS...');
+                
+                const response = await emailjs.send(
+                    EMAILJS_CONFIG.SERVICE_ID,
+                    EMAILJS_CONFIG.TEMPLATE_ID,
+                    templateParams
+                );
+                
+                if (response.status === 200) {
+                    log('✅ Email sent successfully!');
+                    return true;
+                } else {
+                    log('❌ Email sending failed: ' + response.text);
+                    return false;
+                }
+                
+            } catch (error) {
+                log('❌ Email error: ' + error.message);
+                console.error('Email sending error:', error);
+                return false;
+            }
+        }
+        
+        function getReadinessLevel(score) {
+            if (score >= 80) return 'EXCELLENT - AI Leadership Ready';
+            if (score >= 70) return 'GOOD - Strong AI Foundation';
+            if (score >= 60) return 'MODERATE - Focused Development Needed';
+            if (score >= 50) return 'DEVELOPING - Systematic Approach Required';
+            return 'FOUNDATIONAL - Intensive Skill Building Needed';
+        }
+        
+        function createPersonalizedEmailMessage(userProfile, analysis) {
+            return `Hi ${userProfile.name},
+
+Your personalized AI Career Readiness Assessment is complete!
+
+🎯 YOUR RESULTS:
+• AI Readiness Score: ${analysis.readinessScore}/100
+• Industry: ${userProfile.industry}
+• Career Goal: ${userProfile.goal}
+• Risk Level: ${analysis.riskLevel}
+
+📋 YOUR PERSONALIZED GUIDE INCLUDES:
+• Individual strengths and weaknesses analysis
+• ${userProfile.industry}-specific AI strategies
+• Targeted skill development recommendations
+• Custom 90-day transformation plan
+• Industry-specific tools and resources
+
+🚀 NEXT STEPS:
+1. Review your detailed analysis in the attached PDF
+2. Start with the Priority 1 actions in your plan
+3. Join our AI Career Transformation community
+4. Schedule a strategy call if you need guidance
+
+Your AI career transformation starts now!
+
+Best regards,
+The AI Career Transformation Team`;
         }
 
         // Test libraries on page load

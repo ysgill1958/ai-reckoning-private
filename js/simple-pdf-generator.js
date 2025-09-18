@@ -7,6 +7,285 @@ class SimpleAIGuideGenerator {
         this.currentY = 20;
         this.leftMargin = 20;
         this.pageHeight = 280;
+        this.userAnalysis = null;
+    }
+
+    // Comprehensive User Analysis System
+    analyzeUser(userProfile) {
+        const analysis = {
+            readinessScore: this.calculateReadinessScore(userProfile),
+            riskLevel: this.calculateAutomationRisk(userProfile),
+            strengths: this.identifyStrengths(userProfile),
+            weaknesses: this.identifyWeaknesses(userProfile),
+            opportunities: this.identifyOpportunities(userProfile),
+            threats: this.identifyThreats(userProfile),
+            personalizedPlan: this.createPersonalizedPlan(userProfile),
+            industryInsights: this.getIndustryInsights(userProfile.industry),
+            skillGaps: this.analyzeSkillGaps(userProfile),
+            careerPath: this.suggestCareerPath(userProfile)
+        };
+        
+        this.userAnalysis = analysis;
+        return analysis;
+    }
+
+    identifyStrengths(userProfile) {
+        const strengths = [];
+        
+        // Experience-based strengths
+        if (userProfile.experience.includes('15+')) {
+            strengths.push('Extensive industry experience and leadership credentials');
+            strengths.push('Deep understanding of business processes and stakeholder management');
+            strengths.push('Proven track record of managing change and complex initiatives');
+        } else if (userProfile.experience.includes('11-15')) {
+            strengths.push('Strong senior-level experience with strategic thinking skills');
+            strengths.push('Established professional network and industry relationships');
+            strengths.push('Experience mentoring and developing junior staff');
+        } else if (userProfile.experience.includes('6-10')) {
+            strengths.push('Solid mid-level experience with project management skills');
+            strengths.push('Good balance of technical expertise and business understanding');
+            strengths.push('Proven ability to execute on initiatives and deliver results');
+        } else {
+            strengths.push('Fresh perspective and adaptability to new technologies');
+            strengths.push('High learning agility and openness to innovation');
+            strengths.push('Energy and enthusiasm for career development');
+        }
+
+        // AI Knowledge strengths
+        if (userProfile.aiKnowledge === 'Advanced') {
+            strengths.push('Advanced AI/ML technical expertise and implementation experience');
+            strengths.push('Ability to architect and lead complex AI initiatives');
+            strengths.push('Deep understanding of AI ethics, governance, and best practices');
+        } else if (userProfile.aiKnowledge === 'Intermediate') {
+            strengths.push('Solid foundation in AI concepts and practical application');
+            strengths.push('Experience with AI tools and basic implementation');
+            strengths.push('Understanding of AI business value and ROI measurement');
+        } else if (userProfile.aiKnowledge === 'Basic') {
+            strengths.push('Foundational AI awareness and eagerness to learn');
+            strengths.push('Practical experience with consumer AI tools');
+            strengths.push('Growing understanding of AI business applications');
+        }
+
+        // Industry-specific strengths
+        this.addIndustryStrengths(strengths, userProfile.industry);
+
+        return strengths;
+    }
+
+    identifyWeaknesses(userProfile) {
+        const weaknesses = [];
+        
+        // AI Knowledge gaps
+        if (userProfile.aiKnowledge === 'Beginner') {
+            weaknesses.push('LIMITED AI KNOWLEDGE: Requires immediate foundational training');
+            weaknesses.push('TECHNICAL SKILLS GAP: Need hands-on experience with AI tools');
+            weaknesses.push('STRATEGIC UNDERSTANDING: Lack awareness of AI business impact');
+        } else if (userProfile.aiKnowledge === 'Basic') {
+            weaknesses.push('TECHNICAL DEPTH: Need advanced AI implementation skills');
+            weaknesses.push('LEADERSHIP READINESS: Require experience leading AI initiatives');
+            weaknesses.push('STRATEGIC PLANNING: Limited AI strategy development experience');
+        } else if (userProfile.aiKnowledge === 'Intermediate') {
+            weaknesses.push('CUTTING-EDGE EXPERTISE: Need exposure to latest AI developments');
+            weaknesses.push('THOUGHT LEADERSHIP: Require platform to share AI insights');
+            weaknesses.push('ENTERPRISE SCALE: Limited experience with large-scale AI deployment');
+        }
+
+        // Experience-based weaknesses
+        if (userProfile.experience.includes('0-2')) {
+            weaknesses.push('LIMITED EXPERIENCE: Need to build credibility and track record');
+            weaknesses.push('NETWORK BUILDING: Require professional relationship development');
+            weaknesses.push('STRATEGIC THINKING: Need development of long-term planning skills');
+        }
+
+        // Industry-specific weaknesses
+        this.addIndustryWeaknesses(weaknesses, userProfile.industry);
+
+        // Urgency-based weaknesses
+        if (userProfile.urgency === 'Critical') {
+            weaknesses.push('TIME PRESSURE: Limited time for comprehensive skill development');
+            weaknesses.push('STRESS FACTORS: May compromise thorough learning approach');
+        }
+
+        return weaknesses;
+    }
+
+    identifyOpportunities(userProfile) {
+        const opportunities = [];
+        
+        // Goal-specific opportunities
+        if (userProfile.goal === 'Get Promoted') {
+            opportunities.push('AI LEADERSHIP ROLES: Growing demand for AI-savvy managers');
+            opportunities.push('STRATEGIC INITIATIVES: Lead digital transformation projects');
+            opportunities.push('CROSS-FUNCTIONAL IMPACT: Influence multiple departments through AI');
+        } else if (userProfile.goal === 'Change Careers') {
+            opportunities.push('EMERGING AI ROLES: New positions being created across industries');
+            opportunities.push('SKILL TRANSFER: Leverage existing expertise in AI context');
+            opportunities.push('INDUSTRY PIVOT: Apply AI knowledge to new sectors');
+        } else if (userProfile.goal === 'Start Business') {
+            opportunities.push('AI CONSULTING: Growing market for AI implementation guidance');
+            opportunities.push('INDUSTRY SOLUTIONS: Develop AI tools for specific sectors');
+            opportunities.push('TRAINING SERVICES: Educate others on AI adoption');
+        }
+
+        // Industry opportunities
+        opportunities.push(...this.getIndustryOpportunities(userProfile.industry));
+
+        // Market timing opportunities
+        opportunities.push('FIRST-MOVER ADVANTAGE: Early AI adoption provides competitive edge');
+        opportunities.push('SKILLS SHORTAGE: High demand for AI-capable professionals');
+        opportunities.push('INVESTMENT CLIMATE: Significant funding available for AI initiatives');
+
+        return opportunities;
+    }
+
+    identifyThreats(userProfile) {
+        const threats = [];
+        
+        // Automation threats based on industry and role
+        const automationRisk = this.calculateAutomationRisk(userProfile);
+        if (automationRisk === 'HIGH') {
+            threats.push('AUTOMATION DISPLACEMENT: High risk of job automation within 2-5 years');
+            threats.push('SKILL OBSOLESCENCE: Current skills may become irrelevant quickly');
+            threats.push('COMPETITIVE PRESSURE: Colleagues adopting AI faster gaining advantage');
+        } else if (automationRisk === 'MEDIUM') {
+            threats.push('GRADUAL AUTOMATION: Partial job functions at risk over 5-10 years');
+            threats.push('PRODUCTIVITY EXPECTATIONS: Pressure to increase output using AI');
+            threats.push('ROLE EVOLUTION: Job requirements changing rapidly');
+        }
+
+        // Market threats
+        threats.push('RAPID TECHNOLOGICAL CHANGE: AI advancement pace accelerating');
+        threats.push('GENERATIONAL COMPETITION: Younger workers native to AI tools');
+        threats.push('GLOBAL COMPETITION: AI enabling remote and offshore competition');
+
+        // Personal threats based on urgency
+        if (userProfile.urgency === 'Low') {
+            threats.push('COMPLACENCY RISK: Delayed action may limit future options');
+            threats.push('OPPORTUNITY COST: Missing current market advantages');
+        }
+
+        return threats;
+    }
+
+    addIndustryStrengths(strengths, industry) {
+        const industryStrengths = {
+            'Technology': [
+                'Deep technical background ideal for AI implementation',
+                'Understanding of software development and system architecture',
+                'Familiarity with data structures and algorithmic thinking'
+            ],
+            'Finance': [
+                'Strong analytical and quantitative skills',
+                'Experience with data analysis and risk assessment',
+                'Understanding of regulatory compliance and governance'
+            ],
+            'Healthcare': [
+                'Domain expertise in complex, regulated environment',
+                'Experience with evidence-based decision making',
+                'Understanding of patient safety and ethical considerations'
+            ],
+            'Manufacturing': [
+                'Process optimization and efficiency improvement experience',
+                'Understanding of supply chain and operational complexity',
+                'Quality control and continuous improvement mindset'
+            ],
+            'Education': [
+                'Training and knowledge transfer expertise',
+                'Understanding of learning processes and curriculum design',
+                'Experience with diverse stakeholder management'
+            ],
+            'Legal': [
+                'Critical thinking and analytical reasoning skills',
+                'Experience with complex documentation and research',
+                'Understanding of compliance and risk management'
+            ],
+            'Marketing': [
+                'Understanding of customer behavior and segmentation',
+                'Creative problem-solving and campaign development',
+                'Data analysis and performance measurement experience'
+            ]
+        };
+        
+        const specific = industryStrengths[industry] || ['Industry expertise and domain knowledge'];
+        strengths.push(...specific);
+    }
+
+    addIndustryWeaknesses(weaknesses, industry) {
+        const industryWeaknesses = {
+            'Technology': [
+                'KEEPING PACE: Rapid technological change requires constant learning',
+                'BUSINESS CONTEXT: Need stronger connection between tech and business value'
+            ],
+            'Finance': [
+                'REGULATORY ADAPTATION: AI governance in heavily regulated environment',
+                'CULTURAL CHANGE: Traditional industry slow to adopt new technologies'
+            ],
+            'Healthcare': [
+                'REGULATORY HURDLES: Complex approval processes for AI implementation',
+                'PRIVACY CONCERNS: Strict data protection and patient confidentiality requirements'
+            ],
+            'Manufacturing': [
+                'INTEGRATION COMPLEXITY: Connecting AI with existing legacy systems',
+                'WORKFORCE TRANSITION: Managing human-AI collaboration in traditional roles'
+            ],
+            'Education': [
+                'BUDGET CONSTRAINTS: Limited funding for technology adoption',
+                'RESISTANCE TO CHANGE: Traditional academic culture may resist AI integration'
+            ],
+            'Legal': [
+                'ETHICAL CONCERNS: Professional responsibility and AI decision-making',
+                'BILLABLE HOUR MODEL: Business model challenges with AI efficiency gains'
+            ],
+            'Marketing': [
+                'DATA PRIVACY: Navigating consumer privacy regulations and AI',
+                'CREATIVE BALANCE: Maintaining human creativity while leveraging AI efficiency'
+            ]
+        };
+        
+        const specific = industryWeaknesses[industry] || ['Industry-specific AI adoption challenges'];
+        weaknesses.push(...specific);
+    }
+
+    getIndustryOpportunities(industry) {
+        const opportunities = {
+            'Technology': [
+                'AI PRODUCT DEVELOPMENT: Create next-generation AI-powered solutions',
+                'PLATFORM LEADERSHIP: Build AI infrastructure and tools for others',
+                'TECHNICAL CONSULTING: Help other industries implement AI solutions'
+            ],
+            'Finance': [
+                'FINTECH INNOVATION: Develop AI-powered financial services',
+                'RISK MANAGEMENT: Advanced AI models for credit and investment risk',
+                'REGULATORY COMPLIANCE: AI solutions for automated compliance monitoring'
+            ],
+            'Healthcare': [
+                'DIGITAL HEALTH: AI-powered diagnostic and treatment tools',
+                'PERSONALIZED MEDICINE: Custom treatment plans using AI analysis',
+                'OPERATIONAL EFFICIENCY: AI optimization of healthcare delivery'
+            ],
+            'Manufacturing': [
+                'SMART MANUFACTURING: AI-powered production optimization',
+                'PREDICTIVE MAINTENANCE: AI systems to prevent equipment failure',
+                'SUPPLY CHAIN OPTIMIZATION: AI-driven logistics and inventory management'
+            ],
+            'Education': [
+                'PERSONALIZED LEARNING: AI-customized educational experiences',
+                'ADMINISTRATIVE AUTOMATION: AI-powered student services and operations',
+                'SKILL DEVELOPMENT: AI training programs for workforce development'
+            ],
+            'Legal': [
+                'LEGAL TECH: AI-powered research and document analysis tools',
+                'CONTRACT AUTOMATION: AI systems for contract review and generation',
+                'COMPLIANCE MONITORING: Automated regulatory compliance tracking'
+            ],
+            'Marketing': [
+                'PERSONALIZATION: AI-driven customer experience optimization',
+                'PREDICTIVE ANALYTICS: AI forecasting for marketing campaign success',
+                'CONTENT AUTOMATION: AI-powered content creation and optimization'
+            ]
+        };
+        
+        return opportunities[industry] || ['Industry-specific AI implementation opportunities'];
     }
 
     async generateGuide(userProfile) {
@@ -22,25 +301,46 @@ class SimpleAIGuideGenerator {
             
             console.log('✅ PDF initialized');
             
-            // Generate content
-            this.createCoverPage(userProfile);
-            this.createTableOfContents();
-            this.createExecutiveSummary(userProfile);
-            this.createChapter1Assessment(userProfile);
-            this.createChapter2Strategy(userProfile);
-            this.createChapter3Implementation(userProfile);
-            this.createChapter4IndustryPlaybook(userProfile);
-            this.createChapter5ToolsAndResources(userProfile);
-            this.createChapter6ActionPlan(userProfile);
-            this.createWorksheets(userProfile);
-            this.createAppendices();
+            // STEP 1: Comprehensive User Analysis
+            console.log('🔍 Analyzing user profile and capabilities...');
+            const userAnalysis = this.analyzeUser(userProfile);
+            console.log('✅ User analysis complete - Score:', userAnalysis.readinessScore);
             
-            // Save the PDF
-            const filename = `AI_Career_Guide_${userProfile.name.replace(/\s+/g, '_')}.pdf`;
+            // STEP 2: Generate Personalized Content
+            console.log('📝 Generating personalized content...');
+            this.createCoverPage(userProfile, userAnalysis);
+            this.createTableOfContents();
+            this.createExecutiveSummary(userProfile, userAnalysis);
+            this.createPersonalizedAssessment(userProfile, userAnalysis);
+            this.createStrengthsAnalysis(userProfile, userAnalysis);
+            this.createWeaknessesAndGaps(userProfile, userAnalysis);
+            this.createOpportunitiesAndThreats(userProfile, userAnalysis);
+            this.createPersonalizedStrategy(userProfile, userAnalysis);
+            this.createImplementationRoadmap(userProfile, userAnalysis);
+            this.createIndustryPlaybook(userProfile, userAnalysis);
+            this.createSkillDevelopmentPlan(userProfile, userAnalysis);
+            this.createPersonalizedActionPlan(userProfile, userAnalysis);
+            this.createProgressTracking(userProfile, userAnalysis);
+            this.createResourcesAndTools(userProfile, userAnalysis);
+            this.createWorksheets(userProfile, userAnalysis);
+            this.createAppendices(userAnalysis);
+            
+            // STEP 3: Return PDF for email or download
+            const filename = `AI_Career_Guide_${userProfile.name.replace(/\s+/g, '_')}_Score_${userAnalysis.readinessScore}.pdf`;
+            
+            // Create base64 version for email
+            const pdfBase64 = this.doc.output('datauristring');
+            
+            // Also save locally
             this.doc.save(filename);
             
-            console.log('✅ PDF saved as:', filename);
-            return true;
+            console.log('✅ Personalized PDF generated:', filename);
+            return {
+                success: true,
+                filename: filename,
+                pdfBase64: pdfBase64,
+                analysis: userAnalysis
+            };
             
         } catch (error) {
             console.error('❌ PDF Generation Error:', error);
@@ -109,6 +409,256 @@ class SimpleAIGuideGenerator {
         this.doc.setFont('helvetica', 'normal');
         this.doc.text('• ' + text, this.leftMargin + 5, this.currentY);
         this.currentY += 12;
+    }
+
+    // ============= NEW PERSONALIZED CONTENT METHODS =============
+    
+    createPersonalizedAssessment(userProfile, analysis) {
+        this.checkPageBreak(50);
+        this.addTitle(`CHAPTER 1: YOUR PERSONALIZED AI READINESS ASSESSMENT`, 18);
+        
+        this.addSubtitle(`${userProfile.name}'s AI Career Readiness Score: ${analysis.readinessScore}/100`);
+        this.addText(`Assessment Level: ${this.getReadinessAnalysis(analysis.readinessScore)}`);
+        
+        this.addSubtitle('Your Individual Assessment Results');
+        this.addText('Based on your specific responses, here is your detailed analysis:');
+        
+        this.addText(`Industry Context: ${userProfile.industry}`);
+        this.addText(`Experience Level: ${userProfile.experience}`);
+        this.addText(`AI Knowledge: ${userProfile.aiKnowledge}`);
+        this.addText(`Career Goal: ${userProfile.goal}`);
+        this.addText(`Urgency Level: ${userProfile.urgency}`);
+        
+        this.addSubtitle('Personalized Risk Analysis');
+        this.addText(`Automation Risk Level: ${analysis.riskLevel}`);
+        if (analysis.riskLevel === 'HIGH') {
+            this.addText('⚠️ URGENT ACTION REQUIRED: Your role faces significant automation threat within 2-5 years.');
+            this.addText('Immediate AI skill development is critical for career protection.');
+        } else if (analysis.riskLevel === 'MEDIUM') {
+            this.addText('⚡ PROACTIVE APPROACH NEEDED: Some job functions may be automated in 5-10 years.');
+            this.addText('Strategic AI skill building will position you for advancement.');
+        } else {
+            this.addText('✅ ENHANCEMENT OPPORTUNITY: Your role will likely be enhanced by AI.');
+            this.addText('Focus on AI augmentation to maximize career potential.');
+        }
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createStrengthsAnalysis(userProfile, analysis) {
+        this.checkPageBreak(50);
+        this.addTitle(`CHAPTER 2: YOUR UNIQUE STRENGTHS & ADVANTAGES`, 18);
+        
+        this.addSubtitle(`${userProfile.name}'s Core Strengths`);
+        this.addText('These are your key assets for AI career transformation:');
+        
+        analysis.strengths.forEach((strength, index) => {
+            this.addBullet(`STRENGTH ${index + 1}: ${strength}`);
+        });
+        
+        this.addSubtitle('How to Leverage Your Strengths');
+        this.addText('Strategic recommendations for maximizing your unique advantages:');
+        
+        if (userProfile.experience.includes('15+')) {
+            this.addBullet('Position yourself as an AI transformation leader for your organization');
+            this.addBullet('Mentor junior staff in AI adoption to build your legacy');
+            this.addBullet('Speak at industry events about AI leadership and change management');
+        } else if (userProfile.experience.includes('11-15')) {
+            this.addBullet('Lead cross-functional AI initiatives to demonstrate strategic thinking');
+            this.addBullet('Build bridges between technical teams and business stakeholders');
+            this.addBullet('Develop AI training programs for your department');
+        } else {
+            this.addBullet('Become the go-to AI expert in your team through rapid skill development');
+            this.addBullet('Document and share your AI learning journey to build thought leadership');
+            this.addBullet('Network with AI professionals to accelerate career growth');
+        }
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createWeaknessesAndGaps(userProfile, analysis) {
+        this.checkPageBreak(50);
+        this.addTitle(`CHAPTER 3: TECHNICAL SKILL GAPS & IMPROVEMENT ROADMAP`, 18);
+        
+        this.addSubtitle(`${userProfile.name}'s Detailed Skill Gap Analysis`);
+        
+        if (analysis.skillGaps && analysis.skillGaps.gaps.length > 0) {
+            this.addText('Based on your comprehensive technical assessment, here are your specific skill gaps:');
+            
+            // Critical Gaps
+            const criticalGaps = analysis.skillGaps.gaps.filter(gap => gap.includes('CRITICAL'));
+            if (criticalGaps.length > 0) {
+                this.addText('🚨 CRITICAL GAPS (Address Immediately):');
+                criticalGaps.forEach(gap => {
+                    this.addBullet(gap);
+                });
+            }
+            
+            // Important Gaps
+            const importantGaps = analysis.skillGaps.gaps.filter(gap => gap.includes('IMPORTANT'));
+            if (importantGaps.length > 0) {
+                this.addText('⚡ IMPORTANT GAPS (Address Within 30 Days):');
+                importantGaps.forEach(gap => {
+                    this.addBullet(gap);
+                });
+            }
+            
+            // Advanced Gaps
+            const advancedGaps = analysis.skillGaps.gaps.filter(gap => gap.includes('ADVANCED'));
+            if (advancedGaps.length > 0) {
+                this.addText('🎯 ADVANCED GAPS (Long-term Development):');
+                advancedGaps.forEach(gap => {
+                    this.addBullet(gap);
+                });
+            }
+            
+            // Practical Gaps
+            const practicalGaps = analysis.skillGaps.gaps.filter(gap => gap.includes('PRACTICAL'));
+            if (practicalGaps.length > 0) {
+                this.addText('💻 PRACTICAL GAPS (Hands-on Experience Needed):');
+                practicalGaps.forEach(gap => {
+                    this.addBullet(gap);
+                });
+            }
+            
+        } else {
+            // Fallback for basic assessment
+            this.addText('General development areas based on your profile:');
+            analysis.weaknesses.forEach((weakness, index) => {
+                this.addBullet(`GAP ${index + 1}: ${weakness}`);
+            });
+        }
+        
+        this.addSubtitle('Prioritized Learning Roadmap');
+        
+        if (analysis.skillGaps && analysis.skillGaps.recommendations.length > 0) {
+            this.addText('Your personalized study plan with specific resources:');
+            
+            // Priority 0 (Most Critical)
+            const priority0 = analysis.skillGaps.recommendations.filter(rec => rec.includes('PRIORITY 0'));
+            if (priority0.length > 0) {
+                this.addText('🔥 IMMEDIATE ACTION (Start Today):');
+                priority0.forEach(rec => {
+                    this.addBullet(rec);
+                });
+            }
+            
+            // Priority 1
+            const priority1 = analysis.skillGaps.recommendations.filter(rec => rec.includes('PRIORITY 1'));
+            if (priority1.length > 0) {
+                this.addText('📚 PRIORITY 1 (Week 1-2):');
+                priority1.forEach(rec => {
+                    this.addBullet(rec);
+                });
+            }
+            
+            // Priority 2
+            const priority2 = analysis.skillGaps.recommendations.filter(rec => rec.includes('PRIORITY 2'));
+            if (priority2.length > 0) {
+                this.addText('📚 PRIORITY 2 (Week 3-4):');
+                priority2.forEach(rec => {
+                    this.addBullet(rec);
+                });
+            }
+            
+            // Priority 3
+            const priority3 = analysis.skillGaps.recommendations.filter(rec => rec.includes('PRIORITY 3'));
+            if (priority3.length > 0) {
+                this.addText('💻 PRIORITY 3 (Month 2):');
+                priority3.forEach(rec => {
+                    this.addBullet(rec);
+                });
+            }
+            
+            // Hands-on Projects
+            const projects = analysis.skillGaps.recommendations.filter(rec => rec.includes('PROJECT:'));
+            if (projects.length > 0) {
+                this.addText('🚀 HANDS-ON PROJECTS (Month 2-3):');
+                projects.forEach(rec => {
+                    this.addBullet(rec);
+                });
+            }
+            
+            // Actions
+            const actions = analysis.skillGaps.recommendations.filter(rec => rec.includes('ACTION:'));
+            if (actions.length > 0) {
+                this.addText('💪 ACTION ITEMS:');
+                actions.forEach(rec => {
+                    this.addBullet(rec);
+                });
+            }
+            
+            // General recommendations
+            const general = analysis.skillGaps.recommendations.filter(rec => 
+                !rec.includes('PRIORITY') && !rec.includes('PROJECT:') && !rec.includes('ACTION:')
+            );
+            if (general.length > 0) {
+                this.addText('📖 ADDITIONAL LEARNING:');
+                general.forEach(rec => {
+                    this.addBullet(rec);
+                });
+            }
+            
+        } else {
+            // Fallback recommendations
+            this.addText('Start with these foundational steps:');
+            this.addBullet('📚 Complete comprehensive AI fundamentals course');
+            this.addBullet('💻 Practice with AI tools daily');
+            this.addBullet('🚀 Build your first AI project');
+            this.addBullet('👥 Join AI communities and networking groups');
+        }
+        
+        this.addSubtitle('Success Metrics');
+        this.addText('Track your progress with these specific milestones:');
+        this.addBullet('✅ Complete 90% of correct answers on technical assessment retake');
+        this.addBullet('🏗️ Build and deploy 2-3 AI projects with documented results');
+        this.addBullet('📊 Demonstrate measurable productivity improvements using AI');
+        this.addBullet('👨‍🏫 Successfully teach AI concepts to a colleague');
+        this.addBullet('🗣️ Present AI project results to management');
+        
+        this.doc.addPage();
+        this.currentY = 20;
+    }
+
+    createOpportunitiesAndThreats(userProfile, analysis) {
+        this.checkPageBreak(50);
+        this.addTitle(`CHAPTER 4: YOUR MARKET OPPORTUNITIES & THREATS`, 18);
+        
+        this.addSubtitle(`${userProfile.name}'s Career Opportunities`);
+        this.addText('These opportunities align with your profile and goals:');
+        
+        analysis.opportunities.forEach((opportunity, index) => {
+            this.addBullet(`OPPORTUNITY ${index + 1}: ${opportunity}`);
+        });
+        
+        this.addSubtitle('Potential Threats to Address');
+        this.addText('Proactive strategies to mitigate career risks:');
+        
+        analysis.threats.forEach((threat, index) => {
+            this.addBullet(`THREAT ${index + 1}: ${threat}`);
+        });
+        
+        this.addSubtitle('Strategic Response Plan');
+        this.addText('How to capitalize on opportunities while mitigating threats:');
+        
+        if (userProfile.goal === 'Get Promoted') {
+            this.addText('🚀 PROMOTION STRATEGY:');
+            this.addBullet('Lead visible AI initiatives with measurable business impact');
+            this.addBullet('Build reputation as AI innovator within your organization');
+            this.addBullet('Develop AI skills that complement your existing expertise');
+            this.addBullet('Network with decision-makers who value AI transformation');
+        } else if (userProfile.goal === 'Change Careers') {
+            this.addText('🔄 CAREER PIVOT STRATEGY:');
+            this.addBullet('Build portfolio of AI projects in target industry');
+            this.addBullet('Obtain relevant AI certifications and credentials');
+            this.addBullet('Network with professionals in desired AI roles');
+            this.addBullet('Gain experience through consulting or volunteer projects');
+        }
+        
+        this.doc.addPage();
+        this.currentY = 20;
     }
 
     createTableOfContents() {
@@ -1073,44 +1623,153 @@ class SimpleAIGuideGenerator {
     }
 
     calculateReadinessScore(userProfile) {
-        let score = 50; // Base score
+        // Use actual technical assessment score if available
+        if (userProfile.actualTechnicalScore !== undefined) {
+            console.log('✅ Using rigorous technical assessment score:', userProfile.actualTechnicalScore);
+            return userProfile.actualTechnicalScore;
+        }
         
-        // Industry factor
-        const industryScores = {
-            'Technology': 85,
-            'Finance': 75,
-            'Healthcare': 70,
-            'Manufacturing': 65,
-            'Education': 60,
-            'Legal': 55,
-            'Marketing': 80
-        };
-        score = industryScores[userProfile.industry] || 60;
+        // Fallback to basic assessment for backward compatibility (but with realistic scoring)
+        let score = 20; // Lower base score for more realistic assessment
         
-        // Experience factor
-        if (userProfile.experience.includes('15+')) score += 10;
-        else if (userProfile.experience.includes('11-15')) score += 5;
-        else if (userProfile.experience.includes('6-10')) score += 0;
-        else score -= 5;
+        // Experience factor (more conservative)
+        if (userProfile.experience.includes('15+')) score += 25;
+        else if (userProfile.experience.includes('11-15')) score += 20;
+        else if (userProfile.experience.includes('6-10')) score += 15;
+        else if (userProfile.experience.includes('3-5')) score += 10;
+        else score += 5; // 0-2 years
         
-        // AI knowledge factor
+        // AI knowledge factor (stricter requirements)
         const knowledgeBonus = {
-            'Advanced': 15,
-            'Intermediate': 10,
-            'Basic': 5,
-            'Beginner': 0
+            'Advanced': 30,     // Requires demonstrated expertise
+            'Intermediate': 20, // Solid foundation
+            'Basic': 10,        // Some knowledge
+            'Beginner': 0       // Starting point
         };
         score += knowledgeBonus[userProfile.aiKnowledge] || 0;
         
-        return Math.min(95, Math.max(25, score));
+        // Industry factor (more realistic based on AI adoption maturity)
+        const industryModifier = {
+            'Technology': 15,      // High AI adoption
+            'Finance': 10,         // Growing adoption
+            'Healthcare': 8,       // Regulated but advancing
+            'Marketing': 12,       // Good AI tools available
+            'Manufacturing': 5,    // Traditional industry
+            'Education': 3,        // Slow adoption
+            'Legal': 2            // Very traditional
+        };
+        score += industryModifier[userProfile.industry] || 5;
+        
+        // Cap score more realistically (most people should score 30-70 range)
+        return Math.min(75, Math.max(15, score));
     }
 
     getReadinessAnalysis(score) {
-        if (score >= 80) return 'EXCELLENT - You are well-positioned for AI leadership roles';
-        if (score >= 70) return 'GOOD - Strong foundation for AI career advancement';
-        if (score >= 60) return 'MODERATE - Focused skill development will accelerate growth';
-        if (score >= 50) return 'DEVELOPING - Systematic approach needed for AI readiness';
-        return 'FOUNDATIONAL - Intensive skill building required';
+        // More realistic scoring bands
+        if (score >= 70) return 'EXCELLENT - Strong AI technical foundation with practical experience';
+        if (score >= 55) return 'GOOD - Solid AI knowledge with some practical gaps to fill';
+        if (score >= 40) return 'DEVELOPING - Basic AI understanding, needs focused skill development';
+        if (score >= 25) return 'BEGINNER - Limited AI knowledge, requires comprehensive training';
+        return 'FOUNDATIONAL - Starting point, needs intensive AI education and practice';
+    }
+
+    analyzeSkillGaps(userProfile) {
+        const gaps = [];
+        const recommendations = [];
+        
+        if (!userProfile.technicalAssessment) {
+            gaps.push('Complete technical assessment needed for detailed analysis');
+            return { gaps, recommendations };
+        }
+        
+        const assessment = userProfile.technicalAssessment;
+        
+        // AI Fundamentals Gaps
+        if (assessment.mlDefinition < 10) {
+            gaps.push('CRITICAL: Machine Learning fundamentals understanding');
+            recommendations.push('📚 PRIORITY 1: Take "Machine Learning Course" by Andrew Ng (Coursera)');
+        }
+        if (assessment.learningTypes < 10) {
+            gaps.push('CRITICAL: Supervised vs Unsupervised learning concepts');
+            recommendations.push('📚 Study: "Pattern Recognition and Machine Learning" chapters 1-3');
+        }
+        if (assessment.overfitting < 10) {
+            gaps.push('IMPORTANT: Model validation and overfitting prevention');
+            recommendations.push('📚 Learn: Cross-validation techniques and regularization methods');
+        }
+        
+        // LLM Knowledge Gaps
+        if (assessment.transformer < 10) {
+            gaps.push('CRITICAL: Transformer architecture understanding');
+            recommendations.push('📚 PRIORITY 2: Study "Attention Is All You Need" paper');
+            recommendations.push('🎥 Watch: "Transformer Neural Networks" by 3Blue1Brown');
+        }
+        if (assessment.fineTuning < 10) {
+            gaps.push('IMPORTANT: Fine-tuning and transfer learning');
+            recommendations.push('💻 HANDS-ON: Practice fine-tuning with Hugging Face Transformers');
+        }
+        if (assessment.rlhf < 10) {
+            gaps.push('ADVANCED: RLHF and AI alignment concepts');
+            recommendations.push('📚 Study: "Learning to Summarize from Human Feedback" paper');
+        }
+        
+        // Prompt Engineering Gaps
+        if (assessment.chainOfThought < 10) {
+            gaps.push('PRACTICAL: Advanced prompting techniques');
+            recommendations.push('💻 PRACTICE: Chain-of-Thought prompting with GPT-4');
+        }
+        if (assessment.fewShot < 10) {
+            gaps.push('PRACTICAL: Few-shot learning and in-context learning');
+            recommendations.push('💻 PRACTICE: Few-shot prompting exercises');
+        }
+        if (assessment.hallucinations < 10) {
+            gaps.push('CRITICAL: AI safety and reliability');
+            recommendations.push('📚 Study: "Constitutional AI" and fact-checking techniques');
+        }
+        
+        // AI Agents Gaps
+        if (assessment.aiAgent < 10) {
+            gaps.push('ADVANCED: AI agent architecture and design');
+            recommendations.push('📚 Study: "Artificial Intelligence: A Modern Approach" chapters on agents');
+        }
+        if (assessment.react < 10) {
+            gaps.push('ADVANCED: Reasoning and Acting (ReAct) frameworks');
+            recommendations.push('💻 HANDS-ON: Build ReAct agent with LangChain');
+        }
+        if (assessment.toolAgents < 10) {
+            gaps.push('PRACTICAL: Tool-using AI systems');
+            recommendations.push('💻 PROJECT: Create agent with API tool access');
+        }
+        
+        // Technical Implementation Gaps
+        if (assessment.frameworks < 10) {
+            gaps.push('CRITICAL: AI development frameworks');
+            recommendations.push('💻 PRIORITY 3: Learn LangChain or LlamaIndex');
+        }
+        if (assessment.rag < 10) {
+            gaps.push('IMPORTANT: RAG (Retrieval-Augmented Generation)');
+            recommendations.push('💻 PROJECT: Build RAG system with vector database');
+        }
+        if (assessment.vectorEmbedding < 10) {
+            gaps.push('IMPORTANT: Vector embeddings and semantic search');
+            recommendations.push('💻 HANDS-ON: Practice with OpenAI embeddings and Pinecone');
+        }
+        
+        // Experience Gaps
+        if (assessment.experiencePoints < 15) {
+            gaps.push('CRITICAL: Lack of hands-on AI project experience');
+            recommendations.push('💻 ACTION: Build 3 AI projects in next 90 days');
+            recommendations.push('🚀 Start with: Simple chatbot, document Q&A, text classifier');
+        }
+        
+        // Programming Gaps
+        if (assessment.languagePoints < 10) {
+            gaps.push('CRITICAL: Programming skills for AI development');
+            recommendations.push('💻 PRIORITY 0: Learn Python fundamentals and libraries (pandas, numpy)');
+            recommendations.push('📚 Complete: "Python for Data Science" course');
+        }
+        
+        return { gaps, recommendations };
     }
 
     calculateAutomationRisk(userProfile) {
