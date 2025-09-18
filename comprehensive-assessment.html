@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive AI Career Assessment - 15 Minutes</title>
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link href="css/fontawesome/fontawesome.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+        .glass-dark {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .question-section {
+            border-left: 4px solid #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="container mx-auto px-4 py-8 max-w-5xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4">
+                📊 <span class="gradient-text">Comprehensive AI Career Assessment</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-6">
+                Complete AI Readiness Evaluation for Business Professionals
+            </p>
+            <p class="text-lg text-blue-400">
+                🎯 15 Minutes • 📋 10 Strategic Questions • 📈 Detailed Analysis • 📄 Professional Report
+            </p>
+        </div>
+
+        <!-- Assessment Level Info -->
+        <div class="glass-dark rounded-2xl p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-center">📊 Level 2: Comprehensive Assessment</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                <div class="bg-blue-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">⏰</div>
+                    <div class="font-semibold">15 Minutes</div>
+                    <div class="text-sm text-gray-300">Balanced depth</div>
+                </div>
+                <div class="bg-green-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">📋</div>
+                    <div class="font-semibold">10 Questions</div>
+                    <div class="text-sm text-gray-300">Strategic focus</div>
+                </div>
+                <div class="bg-purple-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🎯</div>
+                    <div class="font-semibold">Business Level</div>
+                    <div class="text-sm text-gray-300">Professional insights</div>
+                </div>
+                <div class="bg-orange-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">📊</div>
+                    <div class="font-semibold">Detailed Report</div>
+                    <div class="text-sm text-gray-300">Action plan included</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Form -->
+        <div class="glass-dark rounded-2xl p-8 mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">Comprehensive Assessment Form</h2>
+            
+            <form id="comprehensiveAssessmentForm" class="space-y-8">
+                <!-- Basic Info -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Full Name *</label>
+                        <input type="text" id="name" required
+                               class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white"
+                               placeholder="Enter your full name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email Address *</label>
+                        <input type="email" id="email" required
+                               class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white"
+                               placeholder="your@email.com">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Industry *</label>
+                        <select id="industry" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select your industry</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Finance">Finance & Banking</option>
+                            <option value="Education">Education</option>
+                            <option value="Marketing">Marketing & Advertising</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Retail">Retail & E-commerce</option>
+                            <option value="Consulting">Consulting</option>
+                            <option value="Government">Government</option>
+                            <option value="Legal">Legal Services</option>
+                            <option value="Real Estate">Real Estate</option>
+                            <option value="Media">Media & Entertainment</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Role Level *</label>
+                        <select id="roleLevel" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select your level</option>
+                            <option value="Individual Contributor">Individual Contributor</option>
+                            <option value="Team Lead">Team Lead</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Director">Director</option>
+                            <option value="VP/C-Level">VP/C-Level</option>
+                            <option value="Consultant">Consultant</option>
+                            <option value="Entrepreneur">Entrepreneur</option>
+                            <option value="Student">Student</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Experience Level *</label>
+                        <select id="experience" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select experience level</option>
+                            <option value="0-2 years">0-2 years</option>
+                            <option value="3-5 years">3-5 years</option>
+                            <option value="6-10 years">6-10 years</option>
+                            <option value="11-15 years">11-15 years</option>
+                            <option value="15+ years">15+ years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Comprehensive Assessment Questions -->
+                <div class="bg-gray-900 rounded-lg p-6 mt-8">
+                    <h3 class="text-xl font-bold mb-4 text-center gradient-text">📊 Comprehensive AI Assessment (10 Questions)</h3>
+                    <p class="text-gray-300 mb-8 text-center">Evaluate your AI readiness across key business and technical dimensions</p>
+                    
+                    <!-- Question 1: Strategic AI Understanding -->
+                    <div class="question-section mb-8 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-blue-400">1. Strategic AI Understanding</h4>
+                        <label class="block text-sm font-medium mb-2">How well do you understand AI's strategic impact on business transformation?</label>
+                        <select id="strategicUnderstanding" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select your level</option>
+                            <option value="10">Expert: I can lead AI transformation initiatives and strategy</option>
+                            <option value="8">Advanced: I understand AI strategy and can contribute to planning</option>
+                            <option value="6">Intermediate: I grasp the basics of AI business strategy</option>
+                            <option value="4">Beginner: I know AI is important but limited strategic understanding</option>
+                            <option value="2">Minimal: I have heard about AI strategy but don't understand it</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 2: Industry AI Applications -->
+                    <div class="question-section mb-8 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-green-400">2. Industry-Specific AI Applications</h4>
+                        <label class="block text-sm font-medium mb-2">How familiar are you with AI applications specific to your industry?</label>
+                        <select id="industryApplications" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select familiarity level</option>
+                            <option value="10">Expert: I can identify and implement industry-specific AI solutions</option>
+                            <option value="8">Well-versed: I know most AI applications in my industry</option>
+                            <option value="6">Familiar: I'm aware of some AI use cases in my field</option>
+                            <option value="4">Basic: I know AI is used but limited knowledge of specific applications</option>
+                            <option value="2">Unfamiliar: I don't know much about AI in my industry</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 3: AI Tool Proficiency -->
+                    <div class="question-section mb-8 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-purple-400">3. AI Tool Proficiency</h4>
+                        <label class="block text-sm font-medium mb-2">Rate your practical experience with AI tools and platforms</label>
+                        <select id="toolProficiency" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select proficiency level</option>
+                            <option value="10">Advanced: I use multiple AI tools daily and can train others</option>
+                            <option value="8">Proficient: I regularly use several AI tools effectively</option>
+                            <option value="6">Intermediate: I use basic AI tools like ChatGPT competently</option>
+                            <option value="4">Beginner: I've tried AI tools but still learning best practices</option>
+                            <option value="2">Novice: I've used AI tools once or twice</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 4: Data Understanding -->
+                    <div class="question-section mb-8 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-orange-400">4. Data Literacy & AI Foundation</h4>
+                        <label class="block text-sm font-medium mb-2">How comfortable are you with data analysis and understanding data's role in AI?</label>
+                        <select id="dataLiteracy" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select comfort level</option>
+                            <option value="10">Expert: I can work with complex datasets and understand AI data requirements</option>
+                            <option value="8">Strong: I'm comfortable with data analysis and basic AI data concepts</option>
+                            <option value="6">Moderate: I can handle basic data work and understand its importance for AI</option>
+                            <option value="4">Basic: I work with data occasionally but limited AI understanding</option>
+                            <option value="2">Limited: I avoid data work and don't understand AI's data needs</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 5: Change Management -->
+                    <div class="question-section mb-8 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-red-400">5. AI Change Management</h4>
+                        <label class="block text-sm font-medium mb-2">How prepared are you to lead or manage AI-driven organizational change?</label>
+                        <select id="changeManagement" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select preparation level</option>
+                            <option value="10">Very prepared: I can lead AI transformation and change management</option>
+                            <option value="8">Well prepared: I understand AI change challenges and solutions</option>
+                            <option value="6">Somewhat prepared: I grasp the basics of managing AI-related changes</option>
+                            <option value="4">Limited preparation: I know change is needed but unsure how to manage it</option>
+                            <option value="2">Unprepared: I'm concerned about AI changes and resistance</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 6: Competitive Awareness -->
+                    <div class="question-section mb-8 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-cyan-400">6. Competitive AI Landscape</h4>
+                        <label class="block text-sm font-medium mb-2">How well do you track AI developments and competitive advantages in your market?</label>
+                        <select id="competitiveAwareness" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select awareness level</option>
+                            <option value="10">Highly aware: I actively monitor AI trends and competitor strategies</option>
+                            <option value="8">Well-informed: I keep up with major AI developments in my market</option>
+                            <option value="6">Moderately aware: I follow some AI news and industry updates</option>
+                            <option value="4">Basic awareness: I occasionally hear about AI developments</option>
+                            <option value="2">Limited awareness: I don't actively track AI trends or competition</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 7: Ethical AI Considerations -->
+                    <div class="question-section mb-8 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-pink-400">7. AI Ethics & Responsible Implementation</h4>
+                        <label class="block text-sm font-medium mb-2">How well do you understand AI ethics, bias, and responsible AI practices?</label>
+                        <select id="aiEthics" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select understanding level</option>
+                            <option value="10">Expert: I can implement and oversee responsible AI practices</option>
+                            <option value="8">Strong: I understand AI ethics and can guide responsible implementation</option>
+                            <option value="6">Moderate: I'm aware of AI ethics issues and basic considerations</option>
+                            <option value="4">Basic: I know AI ethics is important but limited understanding</option>
+                            <option value="2">Minimal: I haven't considered AI ethics and bias issues</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 8: ROI & Business Value -->
+                    <div class="question-section mb-8 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-yellow-400">8. AI ROI & Business Value Assessment</h4>
+                        <label class="block text-sm font-medium mb-2">Can you evaluate and measure the business value and ROI of AI initiatives?</label>
+                        <select id="roiAssessment" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select capability level</option>
+                            <option value="10">Expert: I can design and implement AI ROI measurement frameworks</option>
+                            <option value="8">Strong: I understand how to measure AI value and track ROI</option>
+                            <option value="6">Moderate: I grasp basic concepts of AI business value assessment</option>
+                            <option value="4">Basic: I know ROI is important but unsure how to measure AI value</option>
+                            <option value="2">Limited: I don't know how to evaluate AI business impact</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 9: Team & Skills Development -->
+                    <div class="question-section mb-8 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-indigo-400">9. AI Team Building & Skills Development</h4>
+                        <label class="block text-sm font-medium mb-2">How capable are you of building AI-ready teams and developing AI skills in others?</label>
+                        <select id="teamDevelopment" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select capability level</option>
+                            <option value="10">Expert: I can design AI training programs and build high-performing AI teams</option>
+                            <option value="8">Strong: I can identify AI skill gaps and guide team development</option>
+                            <option value="6">Moderate: I understand what AI skills teams need and can support development</option>
+                            <option value="4">Basic: I know teams need AI skills but unsure how to develop them</option>
+                            <option value="2">Limited: I haven't considered team AI development needs</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 10: Future AI Vision -->
+                    <div class="question-section mb-8 p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-3 text-teal-400">10. Long-term AI Vision & Planning</h4>
+                        <label class="block text-sm font-medium mb-2">How well-developed is your long-term vision for AI in your career and organization?</label>
+                        <select id="futureVision" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select vision development level</option>
+                            <option value="10">Clear vision: I have detailed 3-5 year AI plans and can lead others</option>
+                            <option value="8">Developing vision: I'm building comprehensive AI plans and strategies</option>
+                            <option value="6">Basic vision: I have general ideas about AI's future role</option>
+                            <option value="4">Uncertain: I know AI is important but unclear about long-term planning</option>
+                            <option value="2">No vision: I haven't thought about long-term AI implications</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center mt-8">
+                    <button type="submit" id="generateComprehensiveReport" 
+                            class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                        📊 Generate My Comprehensive AI Assessment Report
+                    </button>
+                    <p class="text-sm text-gray-400 mt-4">
+                        Your detailed analysis and personalized action plan will be generated and downloaded
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Other Assessment Options -->
+        <div class="glass-dark rounded-xl p-6 mb-8">
+            <h3 class="text-xl font-bold mb-4 text-center">Try Different Assessment Levels</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="quick-assessment.html" class="bg-green-600 bg-opacity-20 hover:bg-opacity-30 rounded-lg p-4 text-center transition-all">
+                    <div class="text-2xl mb-2">⚡</div>
+                    <div class="font-semibold">Quick Assessment</div>
+                    <div class="text-sm text-gray-300">5 minutes • 5 questions • Quick overview</div>
+                </a>
+                <a href="survival-guide-working.html" class="bg-purple-600 bg-opacity-20 hover:bg-opacity-30 rounded-lg p-4 text-center transition-all">
+                    <div class="text-2xl mb-2">🔧</div>
+                    <div class="font-semibold">Technical Assessment</div>
+                    <div class="text-sm text-gray-300">25 minutes • 15 questions • Technical depth</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Status Log -->
+        <div class="glass-dark rounded-xl p-6" id="statusLog" style="display: none;">
+            <h3 class="text-lg font-bold mb-4">Assessment Progress</h3>
+            <div id="logContent" class="bg-gray-900 p-4 rounded text-sm font-mono min-h-[100px] overflow-y-auto">
+                Ready to start your comprehensive assessment...
+            </div>
+        </div>
+    </div>
+
+    <!-- Core PDF generation library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        function log(message) {
+            const logDiv = document.getElementById('statusLog');
+            const logContent = document.getElementById('logContent');
+            
+            if (logDiv && logContent) {
+                logDiv.style.display = 'block';
+                const timestamp = new Date().toLocaleTimeString();
+                logContent.innerHTML += `<div>[${timestamp}] ${message}</div>`;
+                logContent.scrollTop = logContent.scrollHeight;
+            }
+            console.log(message);
+        }
+
+        document.getElementById('comprehensiveAssessmentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            log('📊 Starting Comprehensive AI Assessment...');
+            
+            try {
+                // Get form data
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const industry = document.getElementById('industry').value;
+                const roleLevel = document.getElementById('roleLevel').value;
+                const experience = document.getElementById('experience').value;
+                
+                // Get assessment answers
+                const strategicUnderstanding = parseInt(document.getElementById('strategicUnderstanding').value) || 0;
+                const industryApplications = parseInt(document.getElementById('industryApplications').value) || 0;
+                const toolProficiency = parseInt(document.getElementById('toolProficiency').value) || 0;
+                const dataLiteracy = parseInt(document.getElementById('dataLiteracy').value) || 0;
+                const changeManagement = parseInt(document.getElementById('changeManagement').value) || 0;
+                const competitiveAwareness = parseInt(document.getElementById('competitiveAwareness').value) || 0;
+                const aiEthics = parseInt(document.getElementById('aiEthics').value) || 0;
+                const roiAssessment = parseInt(document.getElementById('roiAssessment').value) || 0;
+                const teamDevelopment = parseInt(document.getElementById('teamDevelopment').value) || 0;
+                const futureVision = parseInt(document.getElementById('futureVision').value) || 0;
+                
+                // Validate form
+                if (!name || !email || !industry || !roleLevel || !experience) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                if (!strategicUnderstanding || !industryApplications || !toolProficiency || !dataLiteracy || 
+                    !changeManagement || !competitiveAwareness || !aiEthics || !roiAssessment || 
+                    !teamDevelopment || !futureVision) {
+                    alert('Please answer all 10 assessment questions.');
+                    return;
+                }
+                
+                log('✅ Form validation passed');
+                
+                // Calculate comprehensive score
+                const totalScore = strategicUnderstanding + industryApplications + toolProficiency + dataLiteracy + 
+                                 changeManagement + competitiveAwareness + aiEthics + roiAssessment + 
+                                 teamDevelopment + futureVision;
+                const maxScore = 100;
+                const scorePercentage = Math.round((totalScore / maxScore) * 100);
+                
+                log(`📊 Comprehensive Assessment Score: ${scorePercentage}/100`);
+                
+                // Generate PDF report
+                await generateComprehensivePDFReport({
+                    name,
+                    email,
+                    industry,
+                    roleLevel,
+                    experience,
+                    score: scorePercentage,
+                    breakdown: {
+                        strategicUnderstanding,
+                        industryApplications,
+                        toolProficiency,
+                        dataLiteracy,
+                        changeManagement,
+                        competitiveAwareness,
+                        aiEthics,
+                        roiAssessment,
+                        teamDevelopment,
+                        futureVision
+                    }
+                });
+                
+            } catch (error) {
+                log(`❌ Error: ${error.message}`);
+                alert('An error occurred. Please try again.');
+            }
+        });
+
+        async function generateComprehensivePDFReport(userProfile) {
+            try {
+                log('📄 Generating comprehensive assessment report...');
+                
+                // Check jsPDF
+                if (typeof window.jspdf === 'undefined') {
+                    throw new Error('PDF library not loaded');
+                }
+                
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                let currentY = 20;
+                
+                // Header
+                doc.setFontSize(24);
+                doc.text('Comprehensive AI Career Assessment', 20, currentY);
+                currentY += 15;
+                
+                doc.setFontSize(16);
+                doc.text(`Professional Analysis for ${userProfile.name}`, 20, currentY);
+                currentY += 20;
+                
+                // Executive Summary
+                doc.setFontSize(20);
+                doc.text(`Overall AI Readiness Score: ${userProfile.score}/100`, 20, currentY);
+                currentY += 15;
+                
+                // Readiness Level & Analysis
+                const analysis = getComprehensiveAnalysis(userProfile.score);
+                doc.setFontSize(16);
+                doc.text(`Readiness Level: ${analysis.level}`, 20, currentY);
+                currentY += 10;
+                
+                doc.setFontSize(12);
+                doc.text(`Status: ${analysis.status}`, 20, currentY);
+                currentY += 20;
+                
+                // Detailed Score Breakdown
+                doc.setFontSize(14);
+                doc.text('Detailed Score Analysis:', 20, currentY);
+                currentY += 10;
+                
+                doc.setFontSize(11);
+                const categories = [
+                    { name: 'Strategic AI Understanding', score: userProfile.breakdown.strategicUnderstanding },
+                    { name: 'Industry Applications Knowledge', score: userProfile.breakdown.industryApplications },
+                    { name: 'AI Tool Proficiency', score: userProfile.breakdown.toolProficiency },
+                    { name: 'Data Literacy', score: userProfile.breakdown.dataLiteracy },
+                    { name: 'Change Management', score: userProfile.breakdown.changeManagement },
+                    { name: 'Competitive Awareness', score: userProfile.breakdown.competitiveAwareness },
+                    { name: 'AI Ethics Understanding', score: userProfile.breakdown.aiEthics },
+                    { name: 'ROI Assessment Capability', score: userProfile.breakdown.roiAssessment },
+                    { name: 'Team Development Skills', score: userProfile.breakdown.teamDevelopment },
+                    { name: 'Future Vision & Planning', score: userProfile.breakdown.futureVision }
+                ];
+                
+                categories.forEach(cat => {
+                    doc.text(`• ${cat.name}: ${cat.score}/10`, 30, currentY);
+                    currentY += 6;
+                });
+                
+                currentY += 10;
+                
+                // Professional Recommendations
+                doc.setFontSize(14);
+                doc.text('Strategic Recommendations:', 20, currentY);
+                currentY += 10;
+                
+                doc.setFontSize(11);
+                const recommendations = getComprehensiveRecommendations(userProfile.score, userProfile.breakdown, userProfile.roleLevel);
+                recommendations.forEach(rec => {
+                    const lines = doc.splitTextToSize(`• ${rec}`, 170);
+                    doc.text(lines, 30, currentY);
+                    currentY += lines.length * 6;
+                });
+                
+                // New page for action plan
+                doc.addPage();
+                currentY = 20;
+                
+                doc.setFontSize(18);
+                doc.text('90-Day Action Plan', 20, currentY);
+                currentY += 15;
+                
+                const actionPlan = getActionPlan(userProfile.breakdown, userProfile.roleLevel);
+                
+                doc.setFontSize(14);
+                doc.text('Phase 1: Foundation (Days 1-30)', 20, currentY);
+                currentY += 8;
+                doc.setFontSize(11);
+                actionPlan.phase1.forEach(action => {
+                    const lines = doc.splitTextToSize(`• ${action}`, 170);
+                    doc.text(lines, 30, currentY);
+                    currentY += lines.length * 6;
+                });
+                
+                currentY += 8;
+                doc.setFontSize(14);
+                doc.text('Phase 2: Development (Days 31-60)', 20, currentY);
+                currentY += 8;
+                doc.setFontSize(11);
+                actionPlan.phase2.forEach(action => {
+                    const lines = doc.splitTextToSize(`• ${action}`, 170);
+                    doc.text(lines, 30, currentY);
+                    currentY += lines.length * 6;
+                });
+                
+                currentY += 8;
+                doc.setFontSize(14);
+                doc.text('Phase 3: Implementation (Days 61-90)', 20, currentY);
+                currentY += 8;
+                doc.setFontSize(11);
+                actionPlan.phase3.forEach(action => {
+                    const lines = doc.splitTextToSize(`• ${action}`, 170);
+                    doc.text(lines, 30, currentY);
+                    currentY += lines.length * 6;
+                });
+                
+                // Footer
+                currentY += 15;
+                doc.setFontSize(10);
+                doc.text(`Generated: ${new Date().toLocaleDateString()}`, 20, currentY);
+                currentY += 5;
+                doc.text(`Industry: ${userProfile.industry} | Role: ${userProfile.roleLevel} | Experience: ${userProfile.experience}`, 20, currentY);
+                
+                // Save PDF
+                const filename = `Comprehensive_AI_Assessment_${userProfile.name.replace(/\s+/g, '_')}_${userProfile.score}.pdf`;
+                doc.save(filename);
+                
+                log('✅ Comprehensive assessment report generated successfully!');
+                
+                // Show success message
+                setTimeout(() => {
+                    alert(`🎉 Your Comprehensive AI Assessment is Complete!\\n\\n📊 Your Score: ${userProfile.score}/100\\n🎯 Level: ${analysis.level}\\n📁 Report downloaded: ${filename}\\n\\nYour report includes:\\n• Detailed score breakdown across 10 dimensions\\n• Professional recommendations\\n• 90-day action plan\\n• Strategic insights for your role\\n\\nNext Steps:\\n• Review your personalized action plan\\n• Consider our Technical Assessment for deeper analysis\\n• Begin implementing Phase 1 recommendations\\n\\nThank you for completing our Comprehensive Assessment!`);
+                }, 500);
+                
+            } catch (error) {
+                log(`❌ PDF generation error: ${error.message}`);
+                throw error;
+            }
+        }
+
+        function getComprehensiveAnalysis(score) {
+            if (score >= 85) return { level: 'AI Leader', status: 'You are well-positioned to lead AI initiatives' };
+            if (score >= 70) return { level: 'AI Ready', status: 'You have strong AI capabilities with some growth areas' };
+            if (score >= 55) return { level: 'Developing', status: 'You have solid foundation but need focused development' };
+            if (score >= 40) return { level: 'Emerging', status: 'You show potential but need significant skill building' };
+            return { level: 'Getting Started', status: 'Focus on building fundamental AI knowledge and skills' };
+        }
+
+        function getComprehensiveRecommendations(score, breakdown, roleLevel) {
+            const recommendations = [];
+            
+            // Role-specific recommendations
+            if (roleLevel.includes('Manager') || roleLevel.includes('Director') || roleLevel.includes('VP')) {
+                recommendations.push('Focus on AI strategy and team development as a leader');
+                if (breakdown.changeManagement < 8) recommendations.push('Develop change management skills for AI transformation');
+                if (breakdown.teamDevelopment < 8) recommendations.push('Learn how to build and lead AI-ready teams');
+            }
+            
+            // Skill-specific recommendations
+            if (breakdown.strategicUnderstanding < 8) {
+                recommendations.push('Take an AI strategy course focused on business transformation');
+            }
+            if (breakdown.toolProficiency < 8) {
+                recommendations.push('Gain hands-on experience with industry-specific AI tools');
+            }
+            if (breakdown.dataLiteracy < 8) {
+                recommendations.push('Improve data analysis skills as foundation for AI work');
+            }
+            if (breakdown.aiEthics < 8) {
+                recommendations.push('Study AI ethics and responsible AI implementation practices');
+            }
+            if (breakdown.roiAssessment < 8) {
+                recommendations.push('Learn frameworks for measuring AI business value and ROI');
+            }
+            
+            // Score-based recommendations
+            if (score >= 70) {
+                recommendations.push('Consider advanced AI certification programs for your industry');
+                recommendations.push('Explore opportunities to mentor others in AI adoption');
+            } else if (score >= 55) {
+                recommendations.push('Focus on strengthening weakest areas identified in breakdown');
+                recommendations.push('Join AI communities and attend industry conferences');
+            } else {
+                recommendations.push('Start with foundational AI courses and basic tool familiarity');
+                recommendations.push('Read industry reports on AI trends and applications');
+            }
+            
+            return recommendations;
+        }
+
+        function getActionPlan(breakdown, roleLevel) {
+            const plan = {
+                phase1: [
+                    'Complete AI fundamentals course relevant to your industry',
+                    'Set up and practice with basic AI tools (ChatGPT, industry-specific)',
+                    'Read 2-3 AI strategy articles or reports weekly',
+                    'Identify AI use cases in your current role/organization'
+                ],
+                phase2: [
+                    'Take intermediate course in your weakest assessment area',
+                    'Start small AI pilot project or experiment',
+                    'Network with AI professionals in your industry',
+                    'Attend AI webinar or conference'
+                ],
+                phase3: [
+                    'Develop comprehensive AI learning plan for next 6 months',
+                    'Present AI opportunity analysis to your team/organization',
+                    'Consider advanced certification in your strongest area',
+                    'Begin mentoring others or sharing AI knowledge'
+                ]
+            };
+            
+            // Customize based on role level
+            if (roleLevel.includes('Manager') || roleLevel.includes('Director') || roleLevel.includes('VP')) {
+                plan.phase2.push('Assess team AI readiness and skill gaps');
+                plan.phase3.push('Create AI transformation roadmap for your organization');
+            }
+            
+            return plan;
+        }
+
+        // Initialize page
+        window.onload = function() {
+            setTimeout(() => {
+                log('📊 Comprehensive AI Assessment Ready!');
+                log('🎯 Complete 10 strategic questions for detailed analysis');
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

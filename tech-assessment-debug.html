@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Assessment Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #1a1a2e; color: white; }
+        .debug { background: #333; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        button { background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #45a049; }
+        select { padding: 5px; margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Technical Assessment Debug Tool</h1>
+    
+    <div class="debug">
+        <h3>Debug Console:</h3>
+        <div id="debugOutput"></div>
+    </div>
+    
+    <div>
+        <h3>Test Technical Assessment Questions:</h3>
+        
+        <div>
+            <label>ML Definition:</label>
+            <select id="mlDefinition">
+                <option value="">Select answer</option>
+                <option value="0">Programming computers to follow specific rules</option>
+                <option value="10">Creating algorithms that can learn from data without explicit programming</option>
+                <option value="3">Building robots that can think like humans</option>
+                <option value="1">Advanced database management systems</option>
+            </select>
+        </div>
+        
+        <div>
+            <label>Learning Types:</label>
+            <select id="learningTypes">
+                <option value="">Select answer</option>
+                <option value="0">No significant difference, just terminology</option>
+                <option value="10">Supervised uses labeled training data, unsupervised finds patterns in unlabeled data</option>
+                <option value="2">Supervised is faster, unsupervised is more accurate</option>
+                <option value="1">Supervised requires human oversight, unsupervised runs automatically</option>
+            </select>
+        </div>
+        
+        <div>
+            <h4>Experience (check any):</h4>
+            <input type="checkbox" id="exp_chatbot"> Built chatbots
+            <input type="checkbox" id="exp_rag"> RAG systems
+            <input type="checkbox" id="exp_none"> No experience
+        </div>
+        
+        <div>
+            <h4>Languages (check any):</h4>
+            <input type="checkbox" id="lang_python"> Python
+            <input type="checkbox" id="lang_js"> JavaScript
+            <input type="checkbox" id="lang_none"> No programming
+        </div>
+        
+        <button onclick="testValidation()">Test Validation</button>
+        <button onclick="testScoring()">Test Scoring</button>
+        <button onclick="clearDebug()">Clear Debug</button>
+    </div>
+
+    <script>
+        function log(message) {
+            const output = document.getElementById('debugOutput');
+            output.innerHTML += '<div>' + new Date().toLocaleTimeString() + ': ' + message + '</div>';
+            console.log(message);
+        }
+        
+        function clearDebug() {
+            document.getElementById('debugOutput').innerHTML = '';
+        }
+        
+        function calculateExperiencePoints() {
+            let points = 0;
+            const chatbot = document.getElementById('exp_chatbot').checked;
+            const rag = document.getElementById('exp_rag').checked;
+            
+            log(`Chatbot checked: ${chatbot}`);
+            log(`RAG checked: ${rag}`);
+            
+            if (chatbot) points += 10;
+            if (rag) points += 15;
+            
+            log(`Experience points calculated: ${points}`);
+            return Math.min(points, 50);
+        }
+        
+        function calculateLanguagePoints() {
+            let points = 0;
+            const python = document.getElementById('lang_python').checked;
+            const js = document.getElementById('lang_js').checked;
+            
+            log(`Python checked: ${python}`);
+            log(`JavaScript checked: ${js}`);
+            
+            if (python) points += 15;
+            if (js) points += 8;
+            
+            log(`Language points calculated: ${points}`);
+            return Math.min(points, 25);
+        }
+        
+        function testValidation() {
+            log('🔄 Testing validation...');
+            
+            // Check basic questions
+            const mlDef = document.getElementById('mlDefinition').value;
+            const learningTypes = document.getElementById('learningTypes').value;
+            
+            log(`ML Definition: "${mlDef}"`);
+            log(`Learning Types: "${learningTypes}"`);
+            
+            // Check experience
+            const expSelected = ['exp_chatbot', 'exp_rag', 'exp_none'].some(id => 
+                document.getElementById(id).checked
+            );
+            log(`Experience selected: ${expSelected}`);
+            
+            // Check languages
+            const langSelected = ['lang_python', 'lang_js', 'lang_none'].some(id => 
+                document.getElementById(id).checked
+            );
+            log(`Language selected: ${langSelected}`);
+            
+            const isValid = mlDef && learningTypes && expSelected && langSelected;
+            log(`✅ Validation result: ${isValid ? 'PASSED' : 'FAILED'}`);
+        }
+        
+        function testScoring() {
+            log('🔄 Testing scoring...');
+            
+            const mlDef = parseInt(document.getElementById('mlDefinition').value) || 0;
+            const learningTypes = parseInt(document.getElementById('learningTypes').value) || 0;
+            const expPoints = calculateExperiencePoints();
+            const langPoints = calculateLanguagePoints();
+            
+            log(`ML Definition score: ${mlDef}`);
+            log(`Learning Types score: ${learningTypes}`);
+            log(`Experience points: ${expPoints}`);
+            log(`Language points: ${langPoints}`);
+            
+            const totalScore = mlDef + learningTypes + expPoints + langPoints;
+            log(`📊 Total Score: ${totalScore}/100`);
+        }
+        
+        log('🎯 Technical Assessment Debug Tool Ready!');
+        log('Fill out some questions and test validation/scoring.');
+    </script>
+</body>
+</html>

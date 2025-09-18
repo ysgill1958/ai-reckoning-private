@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic JS Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #1a1a2e; color: white; }
+        .debug { background: #333; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        button { background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Basic JavaScript Test</h1>
+    
+    <div class="debug">
+        <h3>Debug Console:</h3>
+        <div id="debugOutput">Starting...</div>
+    </div>
+    
+    <button onclick="testBasics()">Test Basic Functions</button>
+    <button onclick="testJsPDF()">Test jsPDF Loading</button>
+    <button onclick="clearDebug()">Clear</button>
+
+    <script>
+        // Basic function test
+        function log(message) {
+            try {
+                const output = document.getElementById('debugOutput');
+                const time = new Date().toLocaleTimeString();
+                output.innerHTML += '<div>' + time + ': ' + message + '</div>';
+                console.log(message);
+            } catch (e) {
+                alert('Error in log function: ' + e.message);
+            }
+        }
+        
+        function clearDebug() {
+            document.getElementById('debugOutput').innerHTML = 'Cleared...<br>';
+        }
+        
+        function testBasics() {
+            log('🔄 Testing basic JavaScript...');
+            log('✅ JavaScript is working!');
+            log('✅ DOM manipulation working!');
+            log('✅ Functions working!');
+        }
+        
+        // Test immediately on load
+        log('🎯 Page loaded - JavaScript is working!');
+    </script>
+    
+    <!-- Load jsPDF after basic test -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script>
+        function testJsPDF() {
+            log('🔄 Testing jsPDF loading...');
+            
+            try {
+                if (typeof window.jspdf === 'undefined') {
+                    log('❌ window.jspdf is undefined');
+                    log('Available window properties with "js": ' + 
+                        Object.keys(window).filter(k => k.toLowerCase().includes('js')).join(', '));
+                    return;
+                }
+                
+                log('✅ window.jspdf found!');
+                
+                const { jsPDF } = window.jspdf;
+                log('✅ jsPDF destructured successfully');
+                
+                // Try creating a simple PDF
+                const doc = new jsPDF();
+                log('✅ PDF document created');
+                
+                doc.text('Hello Test!', 10, 10);
+                log('✅ Text added to PDF');
+                
+                // Try generating output
+                const pdfData = doc.output('datauristring');
+                log('✅ PDF output generated successfully');
+                log('📄 PDF data length: ' + pdfData.length);
+                
+                // Try saving
+                doc.save('test.pdf');
+                log('🎉 PDF save attempted - check downloads!');
+                
+            } catch (error) {
+                log('❌ jsPDF Error: ' + error.message);
+                log('❌ Error stack: ' + error.stack);
+            }
+        }
+        
+        // Test jsPDF loading after page loads
+        setTimeout(() => {
+            log('🔍 Checking if jsPDF loaded automatically...');
+            if (typeof window.jspdf !== 'undefined') {
+                log('✅ jsPDF loaded automatically!');
+            } else {
+                log('⚠️ jsPDF not loaded yet - use Test jsPDF button');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>

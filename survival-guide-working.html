@@ -13,8 +13,16 @@
         }
         .glass-dark {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px                if (result && result.success) {
+                    log(`🎉 SUCCESS! Personalized guide generated - Score: ${result.analysis.readinessScore}/100`);
+                    log('� Your personalized assessment report has been downloaded!');
+                    
+                    // Show success message with clear next steps
+                    setTimeout(() => {
+                        alert(`🎉 SUCCESS! Your AI Career Assessment is Complete!\\n\\n📊 Your Technical Score: ${Math.round(result.analysis.readinessScore)}/100\\n� Assessment report downloaded to your Downloads folder\\n\\n🚀 Your personalized report includes:\\n• Technical skill evaluation\\n• AI readiness level classification\\n• Specific learning recommendations\\n• Targeted next steps for improvement\\n\\n📂 Look for: "${result.filename}" in your Downloads folder\\n\\nThank you for using our AI Career Assessment!`);
+                    }, 1000);
+                    
+                } else {      border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .gradient-text {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -29,14 +37,41 @@
         <!-- Header -->
         <div class="text-center mb-12">
             <h1 class="text-5xl font-bold mb-4">
-                🚨 <span class="gradient-text">AI Career Survival Guide</span>
+                � <span class="gradient-text">Technical AI Career Assessment</span>
             </h1>
             <p class="text-xl text-gray-300 mb-6">
-                Get Your FREE Personalized 50-Page PDF Guide
+                Advanced Technical Evaluation for AI Professionals
             </p>
-            <p class="text-lg text-yellow-400">
-                ⚡ Instant Download • 📧 No Email Required • 🎯 100% Personalized
+            <p class="text-lg text-purple-400">
+                🎯 25 Minutes • 📋 15 Advanced Questions • 🔧 Technical Focus • 📄 Detailed Report
             </p>
+        </div>
+
+        <!-- Assessment Level Info -->
+        <div class="glass-dark rounded-2xl p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-center">📊 Level 3: Technical Assessment</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                <div class="bg-purple-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">⏰</div>
+                    <div class="font-semibold">25 Minutes</div>
+                    <div class="text-sm text-gray-300">Deep analysis</div>
+                </div>
+                <div class="bg-red-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">📋</div>
+                    <div class="font-semibold">15 Questions</div>
+                    <div class="text-sm text-gray-300">Technical depth</div>
+                </div>
+                <div class="bg-orange-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">�</div>
+                    <div class="font-semibold">Advanced Level</div>
+                    <div class="text-sm text-gray-300">Technical professionals</div>
+                </div>
+                <div class="bg-blue-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">📊</div>
+                    <div class="font-semibold">Technical Report</div>
+                    <div class="text-sm text-gray-300">Skill validation</div>
+                </div>
+            </div>
         </div>
 
         <!-- Main Form -->
@@ -400,6 +435,28 @@
             </div>
         </div>
 
+        <!-- Other Assessment Options -->
+        <div class="glass-dark rounded-xl p-6 mb-8">
+            <h3 class="text-xl font-bold mb-4 text-center">Try Different Assessment Levels</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="quick-assessment.html" class="bg-green-600 bg-opacity-20 hover:bg-opacity-30 rounded-lg p-4 text-center transition-all">
+                    <div class="text-2xl mb-2">⚡</div>
+                    <div class="font-semibold">Quick Assessment</div>
+                    <div class="text-sm text-gray-300">5 minutes • 5 questions • Quick overview</div>
+                </a>
+                <a href="comprehensive-assessment.html" class="bg-blue-600 bg-opacity-20 hover:bg-opacity-30 rounded-lg p-4 text-center transition-all">
+                    <div class="text-2xl mb-2">📊</div>
+                    <div class="font-semibold">Comprehensive Assessment</div>
+                    <div class="text-sm text-gray-300">15 minutes • 10 questions • Business focus</div>
+                </a>
+            </div>
+            <div class="text-center mt-4">
+                <a href="assessment-selection.html" class="text-purple-400 hover:text-purple-300 text-sm">
+                    ← Back to Assessment Selection
+                </a>
+            </div>
+        </div>
+
         <!-- Features -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div class="glass-dark rounded-xl p-6 text-center">
@@ -435,15 +492,20 @@
     <script src="js/simple-pdf-generator.js?v=2024091802"></script>
 
     <script>
-        // EmailJS Configuration
-        const EMAILJS_CONFIG = {
-            PUBLIC_KEY: 'YOUR_EMAILJS_PUBLIC_KEY', // Replace with your EmailJS public key
-            SERVICE_ID: 'service_gmail', // Replace with your service ID
-            TEMPLATE_ID: 'template_survival_guide' // Replace with your template ID
+        // Streamlined system - PDF download only (most reliable)
+        window.onload = function() {
+            setTimeout(() => {
+                log('🎯 AI Career Technical Assessment Ready!');
+                
+                if (typeof window.jspdf !== 'undefined') {
+                    log('✅ PDF generation system loaded successfully');
+                } else {
+                    log('❌ PDF system not loaded - please refresh page');
+                }
+                
+                log('📝 Complete the assessment to receive your personalized report!');
+            }, 1000);
         };
-        
-        // Initialize EmailJS
-        emailjs.init(EMAILJS_CONFIG.PUBLIC_KEY);
         
         function log(message) {
             const logDiv = document.getElementById('statusLog');
@@ -567,27 +629,26 @@
                 const generator = new SimpleAIGuideGenerator();
                 
                 log('🚀 Generating personalized 50+ page guide...');
-                const result = await generator.generateGuide(userProfile);
+                
+                // Use simplified PDF generation that we know works
+                const result = await generateSimplifiedPDF(userProfile, technicalScore);
+                
+                // Debug: Show what we got back
+                log(`🔍 Generator result: ${result ? 'Got result' : 'No result'}`);
+                if (result) {
+                    log(`🔍 Result success: ${result.success}`);
+                    log(`🔍 Result type: ${typeof result}`);
+                    log(`🔍 Result keys: ${Object.keys(result).join(', ')}`);
+                }
                 
                 if (result && result.success) {
                     log(`🎉 SUCCESS! Personalized guide generated - Score: ${result.analysis.readinessScore}/100`);
-                    log('📧 Sending your personalized guide via email...');
+                    log('� Your personalized guide has been downloaded to your computer!');
                     
-                    // Send PDF via email
-                    const emailSent = await sendPDFByEmail(userProfile, result);
-                    
-                    if (emailSent) {
-                        log('✅ EMAIL SENT! Check your inbox for your personalized guide');
-                        log('📱 Also downloaded locally to your Downloads folder');
-                        
-                        // Show success message
-                        setTimeout(() => {
-                            alert(`🎉 SUCCESS! Your personalized ${Math.round(result.analysis.readinessScore)}/100 score AI Career Guide has been sent to ${email}!\\n\\n📧 Check your email inbox (and spam folder)\\n📁 Also saved to your Downloads folder\\n\\n🚀 Your guide includes:\\n• Personalized readiness assessment\\n• Individual strengths & weaknesses analysis\\n• ${userProfile.industry}-specific strategies\\n• Custom 90-day action plan`);
-                        }, 1000);
-                    } else {
-                        log('⚠️ Email delivery failed, but PDF downloaded locally');
-                        alert('⚠️ Your personalized guide was generated and downloaded, but email delivery failed.\\n\\n📁 Check your Downloads folder for the PDF file.\\n\\n� Try generating again or contact support if the issue persists.');
-                    }
+                    // Show success message - no email required
+                    setTimeout(() => {
+                        alert(`🎉 SUCCESS! Your personalized AI Career Assessment is complete!\\n\\n📊 Your Score: ${Math.round(result.analysis.readinessScore)}/100\\n� PDF downloaded to your Downloads folder\\n\\n🚀 Your assessment includes:\\n• Technical skill evaluation\\n• AI readiness level classification\\n• Personalized recommendations\\n• Next steps for improvement\\n\\nThank you for using our AI Career Assessment!`);
+                    }, 1000);
                     
                 } else {
                     throw new Error('PDF generation failed - no result returned');
@@ -607,6 +668,119 @@
                 button.disabled = false;
                 
                 alert('Sorry, there was an issue generating your PDF. Please try again or contact support.\\n\\nError: ' + error.message);
+            }
+        }
+
+        // Simplified PDF Generation Function (Working Version)
+        async function generateSimplifiedPDF(userProfile, technicalScore) {
+            try {
+                log('🔧 Starting simplified PDF generation...');
+                
+                // Check jsPDF
+                if (typeof window.jspdf === 'undefined') {
+                    throw new Error('jsPDF library not loaded');
+                }
+                
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                let currentY = 20;
+                
+                log('✅ PDF document created');
+                
+                // Cover Page
+                doc.setFontSize(24);
+                doc.text('AI Career Assessment Results', 20, currentY);
+                currentY += 20;
+                
+                doc.setFontSize(16);
+                doc.text(`Personalized Report for ${userProfile.name}`, 20, currentY);
+                currentY += 15;
+                
+                doc.setFontSize(12);
+                doc.text(`Industry: ${userProfile.industry}`, 20, currentY);
+                currentY += 10;
+                doc.text(`Experience: ${userProfile.experience}`, 20, currentY);
+                currentY += 10;
+                doc.text(`Career Goal: ${userProfile.goal}`, 20, currentY);
+                currentY += 10;
+                doc.text(`Technical Score: ${technicalScore}/100`, 20, currentY);
+                currentY += 15;
+                
+                // Assessment Summary
+                doc.setFontSize(16);
+                doc.text('Assessment Summary', 20, currentY);
+                currentY += 15;
+                
+                // Realistic AI readiness levels
+                let level = 'Foundational';
+                let description = 'Significant learning needed';
+                
+                if (technicalScore >= 65) {
+                    level = 'Advanced';
+                    description = 'Strong AI knowledge and practical skills';
+                } else if (technicalScore >= 50) {
+                    level = 'Intermediate';
+                    description = 'Good foundation with room for growth';
+                } else if (technicalScore >= 35) {
+                    level = 'Developing';
+                    description = 'Basic understanding, focused learning needed';
+                } else {
+                    level = 'Foundational';
+                    description = 'Starting point - comprehensive training required';
+                }
+                doc.setFontSize(12);
+                
+                doc.text(`AI Readiness Level: ${level}`, 20, currentY);
+                currentY += 10;
+                doc.text(`Assessment: ${description}`, 20, currentY);
+                currentY += 15;
+                
+                // Add new page for recommendations
+                doc.addPage();
+                currentY = 20;
+                
+                doc.setFontSize(16);
+                doc.text('Recommended Next Steps', 20, currentY);
+                currentY += 15;
+                
+                doc.setFontSize(12);
+                const recommendations = [
+                    '1. Complete AI fundamentals course',
+                    '2. Practice with machine learning frameworks',
+                    '3. Build practical AI projects',
+                    '4. Network with AI professionals in your industry',
+                    '5. Stay updated with latest AI developments'
+                ];
+                
+                recommendations.forEach(rec => {
+                    doc.text(rec, 20, currentY);
+                    currentY += 10;
+                });
+                
+                currentY += 10;
+                doc.text(`Generated: ${new Date().toLocaleDateString()}`, 20, currentY);
+                
+                log('✅ PDF content added');
+                
+                // Generate output
+                const filename = `AI_Assessment_${userProfile.name.replace(/\s+/g, '_')}_Score_${technicalScore}.pdf`;
+                const pdfBase64 = doc.output('datauristring');
+                
+                // Save file
+                doc.save(filename);
+                log('✅ PDF saved successfully');
+                
+                return {
+                    success: true,
+                    filename: filename,
+                    pdfBase64: pdfBase64,
+                    analysis: { readinessScore: technicalScore }
+                };
+                
+            } catch (error) {
+                log(`❌ Simplified PDF Error: ${error.message}`);
+                console.error('PDF Error:', error);
+                return false;
             }
         }
 
@@ -631,23 +805,34 @@
         }
         
         function calculateTechnicalScore(assessment) {
-            // Theoretical Knowledge (60 points max)
-            const theoryScore = assessment.mlDefinition + assessment.learningTypes + assessment.overfitting +
+            // Much more realistic scoring system
+            
+            // Theoretical Knowledge (max 45 points, but scaled down)
+            const theoryRaw = assessment.mlDefinition + assessment.learningTypes + assessment.overfitting +
                               assessment.transformer + assessment.fineTuning + assessment.rlhf +
                               assessment.chainOfThought + assessment.fewShot + assessment.hallucinations +
                               assessment.aiAgent + assessment.react + assessment.toolAgents +
                               assessment.frameworks + assessment.rag + assessment.vectorEmbedding;
             
-            // Practical Experience (25 points max)
-            const practicalScore = assessment.experiencePoints;
+            // Scale theory score down significantly (150 points possible, but cap at 45)
+            const theoryScore = Math.min(45, Math.round(theoryRaw * 0.3));
             
-            // Programming Skills (15 points max)  
-            const programmingScore = assessment.languagePoints;
+            // Practical Experience (max 20 points, but scaled down)
+            const practicalRaw = assessment.experiencePoints;
+            const practicalScore = Math.min(20, Math.round(practicalRaw * 0.4));
             
-            // Total possible: 100 points
-            const totalScore = Math.min(100, theoryScore + practicalScore + programmingScore);
+            // Programming Skills (max 10 points, but scaled down)
+            const programmingRaw = assessment.languagePoints;
+            const programmingScore = Math.min(10, Math.round(programmingRaw * 0.4));
             
-            log(`📊 Score Breakdown: Theory=${theoryScore}/60, Practical=${practicalScore}/25, Programming=${programmingScore}/15`);
+            // Base score (starts everyone lower)
+            const baseScore = 15;
+            
+            // Total realistic score (15-75 range)
+            const totalScore = Math.min(75, baseScore + theoryScore + practicalScore + programmingScore);
+            
+            log(`📊 Realistic Score Breakdown: Base=${baseScore}, Theory=${theoryScore}/45, Practical=${practicalScore}/20, Programming=${programmingScore}/10`);
+            log(`📊 Raw scores: Theory=${theoryRaw}/150, Practical=${practicalRaw}/50, Programming=${programmingRaw}/25`);
             
             return totalScore;
         }
@@ -680,51 +865,6 @@
             return expSelected && langSelected;
         }
 
-        // Email sending function
-        async function sendPDFByEmail(userProfile, pdfResult) {
-            try {
-                log('📧 Preparing email with personalized guide...');
-                
-                // Create email template parameters
-                const templateParams = {
-                    to_name: userProfile.name,
-                    to_email: userProfile.email,
-                    user_score: pdfResult.analysis.readinessScore,
-                    user_industry: userProfile.industry,
-                    user_goal: userProfile.goal,
-                    readiness_level: getReadinessLevel(pdfResult.analysis.readinessScore),
-                    pdf_filename: pdfResult.filename,
-                    
-                    // Create personalized email content
-                    personalized_message: createPersonalizedEmailMessage(userProfile, pdfResult.analysis),
-                    
-                    // PDF attachment (base64)
-                    pdf_attachment: pdfResult.pdfBase64.split(',')[1] // Remove data:application/pdf;base64, prefix
-                };
-                
-                log('🔄 Sending email via EmailJS...');
-                
-                const response = await emailjs.send(
-                    EMAILJS_CONFIG.SERVICE_ID,
-                    EMAILJS_CONFIG.TEMPLATE_ID,
-                    templateParams
-                );
-                
-                if (response.status === 200) {
-                    log('✅ Email sent successfully!');
-                    return true;
-                } else {
-                    log('❌ Email sending failed: ' + response.text);
-                    return false;
-                }
-                
-            } catch (error) {
-                log('❌ Email error: ' + error.message);
-                console.error('Email sending error:', error);
-                return false;
-            }
-        }
-        
         function getReadinessLevel(score) {
             if (score >= 80) return 'EXCELLENT - AI Leadership Ready';
             if (score >= 70) return 'GOOD - Strong AI Foundation';

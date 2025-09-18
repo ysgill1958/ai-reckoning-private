@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Generator Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #1a1a2e; color: white; }
+        .debug { background: #333; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        button { background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🔧 PDF Generator Direct Test</h1>
+    
+    <div class="debug">
+        <h3>Debug Console:</h3>
+        <div id="debugOutput"></div>
+    </div>
+    
+    <button onclick="testPDFGeneration()">Test PDF Generation</button>
+    <button onclick="clearDebug()">Clear Debug</button>
+
+    <!-- Load libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="js/simple-pdf-generator.js?v=2024091803"></script>
+
+    <script>
+        function log(message) {
+            const output = document.getElementById('debugOutput');
+            output.innerHTML += '<div>' + new Date().toLocaleTimeString() + ': ' + message + '</div>';
+            console.log(message);
+        }
+        
+        function clearDebug() {
+            document.getElementById('debugOutput').innerHTML = '';
+        }
+        
+        async function testPDFGeneration() {
+            log('🔄 Starting PDF generator test...');
+            
+            try {
+                // Test 1: Check jsPDF
+                log('Test 1: Checking jsPDF...');
+                if (typeof window.jspdf === 'undefined') {
+                    log('❌ jsPDF not loaded');
+                    return;
+                }
+                log('✅ jsPDF loaded');
+                
+                // Test 2: Try creating a simple PDF
+                log('Test 2: Creating simple PDF...');
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                doc.text('Hello World!', 10, 10);
+                log('✅ Simple PDF created successfully');
+                
+                // Test 3: Check our generator class
+                log('Test 3: Checking SimpleAIGuideGenerator...');
+                if (typeof SimpleAIGuideGenerator === 'undefined') {
+                    log('❌ SimpleAIGuideGenerator not loaded');
+                    return;
+                }
+                log('✅ SimpleAIGuideGenerator loaded');
+                
+                // Test 4: Create generator instance
+                log('Test 4: Creating generator instance...');
+                const generator = new SimpleAIGuideGenerator();
+                log('✅ Generator instance created');
+                
+                // Test 5: Check if analyzeUser method exists
+                log('Test 5: Checking analyzeUser method...');
+                if (typeof generator.analyzeUser !== 'function') {
+                    log('❌ analyzeUser method missing');
+                    return;
+                }
+                log('✅ analyzeUser method exists');
+                
+                // Test 6: Create minimal test profile
+                log('Test 6: Testing analyzeUser...');
+                const testProfile = {
+                    name: "Test User",
+                    email: "test@example.com",
+                    industry: "Healthcare",
+                    experience: "6-10 years",
+                    goal: "Transition to AI leadership",
+                    urgency: "6-12 months",
+                    aiKnowledge: "Some experience",
+                    actualTechnicalScore: 70
+                };
+                
+                const analysis = generator.analyzeUser(testProfile);
+                log(`✅ User analysis complete - Score: ${analysis.readinessScore}`);
+                
+                // Test 7: Try minimal PDF generation
+                log('Test 7: Attempting minimal PDF generation...');
+                const result = await generator.generateGuide(testProfile);
+                
+                if (result && result.success) {
+                    log('🎉 PDF generation SUCCESS!');
+                    log(`📄 Filename: ${result.filename}`);
+                } else {
+                    log('❌ PDF generation FAILED');
+                    log(`Result: ${result}`);
+                }
+                
+            } catch (error) {
+                log(`❌ Error in test: ${error.message}`);
+                log(`❌ Error stack: ${error.stack}`);
+                console.error('Full error:', error);
+            }
+        }
+        
+        // Test on page load
+        window.onload = function() {
+            setTimeout(() => {
+                log('🎯 PDF Generator Test Ready!');
+                log('Click "Test PDF Generation" to test the generator.');
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

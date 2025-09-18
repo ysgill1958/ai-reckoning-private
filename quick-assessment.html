@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick AI Readiness Assessment - 5 Minutes</title>
+    <link href="css/tailwind.min.css" rel="stylesheet">
+    <link href="css/fontawesome/fontawesome.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+        }
+        .glass-dark {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="text-white">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4">
+                ⚡ <span class="gradient-text">Quick AI Readiness Assessment</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-6">
+                Get Your AI Readiness Score in Just 5 Minutes
+            </p>
+            <p class="text-lg text-yellow-400">
+                🚀 5 Essential Questions • 📊 Instant Results • 📄 Free PDF Report
+            </p>
+        </div>
+
+        <!-- Assessment Level Info -->
+        <div class="glass-dark rounded-2xl p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 text-center">📊 Level 1: Quick Assessment</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                <div class="bg-green-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">⏰</div>
+                    <div class="font-semibold">5 Minutes</div>
+                    <div class="text-sm text-gray-300">Quick overview</div>
+                </div>
+                <div class="bg-blue-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">📋</div>
+                    <div class="font-semibold">5 Questions</div>
+                    <div class="text-sm text-gray-300">Essential topics</div>
+                </div>
+                <div class="bg-purple-600 bg-opacity-20 rounded-lg p-4">
+                    <div class="text-2xl mb-2">🎯</div>
+                    <div class="font-semibold">Basic Level</div>
+                    <div class="text-sm text-gray-300">For everyone</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Form -->
+        <div class="glass-dark rounded-2xl p-8 mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">Quick Assessment Form</h2>
+            
+            <form id="quickAssessmentForm" class="space-y-6">
+                <!-- Basic Info -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Full Name *</label>
+                        <input type="text" id="name" required
+                               class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white"
+                               placeholder="Enter your full name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email Address *</label>
+                        <input type="email" id="email" required
+                               class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white"
+                               placeholder="your@email.com">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Industry *</label>
+                        <select id="industry" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select your industry</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Finance">Finance & Banking</option>
+                            <option value="Education">Education</option>
+                            <option value="Marketing">Marketing & Advertising</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Retail">Retail & E-commerce</option>
+                            <option value="Consulting">Consulting</option>
+                            <option value="Government">Government</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Experience Level *</label>
+                        <select id="experience" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select experience level</option>
+                            <option value="0-2 years">0-2 years</option>
+                            <option value="3-5 years">3-5 years</option>
+                            <option value="6-10 years">6-10 years</option>
+                            <option value="11-15 years">11-15 years</option>
+                            <option value="15+ years">15+ years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Quick Assessment Questions -->
+                <div class="bg-gray-900 rounded-lg p-6 mt-8">
+                    <h3 class="text-xl font-bold mb-4 text-center gradient-text">⚡ Quick AI Assessment (5 Questions)</h3>
+                    <p class="text-gray-300 mb-6 text-center">Answer these essential questions to get your AI readiness score</p>
+                    
+                    <!-- Question 1: AI Awareness -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-blue-400">1. AI Awareness & Understanding</h4>
+                        <label class="block text-sm font-medium mb-2">How would you describe your current understanding of AI?</label>
+                        <select id="aiAwareness" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select your level</option>
+                            <option value="20">Expert: I can explain AI concepts and implement solutions</option>
+                            <option value="15">Advanced: I understand AI principles and can apply them</option>
+                            <option value="10">Intermediate: I know the basics and some applications</option>
+                            <option value="5">Beginner: I've heard of AI but know limited details</option>
+                            <option value="0">New: I'm just starting to learn about AI</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 2: Business Impact -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-green-400">2. AI Business Impact</h4>
+                        <label class="block text-sm font-medium mb-2">How is AI currently impacting your industry?</label>
+                        <select id="businessImpact" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select impact level</option>
+                            <option value="20">Revolutionary: AI is transforming everything we do</option>
+                            <option value="15">Significant: AI is changing key processes and roles</option>
+                            <option value="10">Moderate: Some AI adoption, gradual changes</option>
+                            <option value="5">Minimal: Limited AI use, traditional methods dominate</option>
+                            <option value="0">None: No AI impact visible yet</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 3: Personal Experience -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-purple-400">3. Personal AI Experience</h4>
+                        <label class="block text-sm font-medium mb-2">Which AI tools have you used in your work?</label>
+                        <select id="personalExperience" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select your experience</option>
+                            <option value="20">Multiple tools: ChatGPT, automation, analytics, custom solutions</option>
+                            <option value="15">Several tools: ChatGPT, business software with AI features</option>
+                            <option value="10">Some tools: ChatGPT or similar AI assistants</option>
+                            <option value="5">Tried once: Tested AI tools briefly</option>
+                            <option value="0">None: Haven't used AI tools professionally</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 4: Future Readiness -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-orange-400">4. Future AI Readiness</h4>
+                        <label class="block text-sm font-medium mb-2">How prepared do you feel for the AI-driven future of work?</label>
+                        <select id="futureReadiness" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select readiness level</option>
+                            <option value="20">Very prepared: I'm leading AI initiatives and staying ahead</option>
+                            <option value="15">Well prepared: I'm actively learning and adapting</option>
+                            <option value="10">Somewhat prepared: I'm aware but need more skills</option>
+                            <option value="5">Concerned: I'm worried about being left behind</option>
+                            <option value="0">Unprepared: I haven't thought about AI's impact on my career</option>
+                        </select>
+                    </div>
+
+                    <!-- Question 5: Learning Commitment -->
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-3 text-pink-400">5. Learning & Development</h4>
+                        <label class="block text-sm font-medium mb-2">How much time can you dedicate to AI learning per week?</label>
+                        <select id="learningCommitment" required class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white">
+                            <option value="">Select time commitment</option>
+                            <option value="20">5+ hours: I'm committed to becoming an AI expert</option>
+                            <option value="15">3-5 hours: I want to build strong AI skills</option>
+                            <option value="10">1-3 hours: I'll learn at a steady pace</option>
+                            <option value="5">30-60 minutes: I have limited time but will try</option>
+                            <option value="0">No time: I can't commit to regular learning right now</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center mt-8">
+                    <button type="submit" id="generateQuickReport" 
+                            class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                        🚀 Get My Quick AI Readiness Report
+                    </button>
+                    <p class="text-sm text-gray-400 mt-4">
+                        Your personalized report will be generated and downloaded instantly
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Other Assessment Options -->
+        <div class="glass-dark rounded-xl p-6 mb-8">
+            <h3 class="text-xl font-bold mb-4 text-center">Need a Different Assessment Level?</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="comprehensive-assessment.html" class="bg-blue-600 bg-opacity-20 hover:bg-opacity-30 rounded-lg p-4 text-center transition-all">
+                    <div class="text-2xl mb-2">📊</div>
+                    <div class="font-semibold">Comprehensive Assessment</div>
+                    <div class="text-sm text-gray-300">15 minutes • 10 questions • Business focus</div>
+                </a>
+                <a href="survival-guide-working.html" class="bg-purple-600 bg-opacity-20 hover:bg-opacity-30 rounded-lg p-4 text-center transition-all">
+                    <div class="text-2xl mb-2">🔧</div>
+                    <div class="font-semibold">Technical Assessment</div>
+                    <div class="text-sm text-gray-300">25 minutes • 15 questions • Technical depth</div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Status Log -->
+        <div class="glass-dark rounded-xl p-6" id="statusLog" style="display: none;">
+            <h3 class="text-lg font-bold mb-4">Assessment Progress</h3>
+            <div id="logContent" class="bg-gray-900 p-4 rounded text-sm font-mono min-h-[100px] overflow-y-auto">
+                Ready to start your quick assessment...
+            </div>
+        </div>
+    </div>
+
+    <!-- Core PDF generation library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        function log(message) {
+            const logDiv = document.getElementById('statusLog');
+            const logContent = document.getElementById('logContent');
+            
+            if (logDiv && logContent) {
+                logDiv.style.display = 'block';
+                const timestamp = new Date().toLocaleTimeString();
+                logContent.innerHTML += `<div>[${timestamp}] ${message}</div>`;
+                logContent.scrollTop = logContent.scrollHeight;
+            }
+            console.log(message);
+        }
+
+        document.getElementById('quickAssessmentForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            log('🚀 Starting Quick AI Assessment...');
+            
+            try {
+                // Get form data
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const industry = document.getElementById('industry').value;
+                const experience = document.getElementById('experience').value;
+                
+                // Get assessment answers
+                const aiAwareness = parseInt(document.getElementById('aiAwareness').value) || 0;
+                const businessImpact = parseInt(document.getElementById('businessImpact').value) || 0;
+                const personalExperience = parseInt(document.getElementById('personalExperience').value) || 0;
+                const futureReadiness = parseInt(document.getElementById('futureReadiness').value) || 0;
+                const learningCommitment = parseInt(document.getElementById('learningCommitment').value) || 0;
+                
+                // Validate form
+                if (!name || !email || !industry || !experience) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+                
+                if (!aiAwareness || !businessImpact || !personalExperience || !futureReadiness || !learningCommitment) {
+                    alert('Please answer all 5 assessment questions.');
+                    return;
+                }
+                
+                log('✅ Form validation passed');
+                
+                // Calculate quick score
+                const totalScore = aiAwareness + businessImpact + personalExperience + futureReadiness + learningCommitment;
+                const maxScore = 100;
+                const scorePercentage = Math.round((totalScore / maxScore) * 100);
+                
+                log(`📊 Quick Assessment Score: ${scorePercentage}/100`);
+                
+                // Generate PDF report
+                await generateQuickPDFReport({
+                    name,
+                    email,
+                    industry,
+                    experience,
+                    score: scorePercentage,
+                    breakdown: {
+                        aiAwareness,
+                        businessImpact,
+                        personalExperience,
+                        futureReadiness,
+                        learningCommitment
+                    }
+                });
+                
+            } catch (error) {
+                log(`❌ Error: ${error.message}`);
+                alert('An error occurred. Please try again.');
+            }
+        });
+
+        async function generateQuickPDFReport(userProfile) {
+            try {
+                log('📄 Generating quick assessment report...');
+                
+                // Check jsPDF
+                if (typeof window.jspdf === 'undefined') {
+                    throw new Error('PDF library not loaded');
+                }
+                
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                let currentY = 20;
+                
+                // Header
+                doc.setFontSize(24);
+                doc.text('Quick AI Readiness Assessment', 20, currentY);
+                currentY += 15;
+                
+                doc.setFontSize(16);
+                doc.text(`Results for ${userProfile.name}`, 20, currentY);
+                currentY += 20;
+                
+                // Score Summary
+                doc.setFontSize(20);
+                doc.text(`Your AI Readiness Score: ${userProfile.score}/100`, 20, currentY);
+                currentY += 15;
+                
+                // Readiness Level
+                let level = 'Getting Started';
+                let color = 'needs attention';
+                if (userProfile.score >= 80) { level = 'AI Leader'; color = 'excellent'; }
+                else if (userProfile.score >= 60) { level = 'AI Ready'; color = 'good'; }
+                else if (userProfile.score >= 40) { level = 'Developing'; color = 'fair'; }
+                
+                doc.setFontSize(16);
+                doc.text(`Readiness Level: ${level}`, 20, currentY);
+                currentY += 20;
+                
+                // Score Breakdown
+                doc.setFontSize(14);
+                doc.text('Score Breakdown:', 20, currentY);
+                currentY += 10;
+                
+                doc.setFontSize(12);
+                doc.text(`• AI Awareness: ${userProfile.breakdown.aiAwareness}/20`, 30, currentY);
+                currentY += 8;
+                doc.text(`• Business Impact Understanding: ${userProfile.breakdown.businessImpact}/20`, 30, currentY);
+                currentY += 8;
+                doc.text(`• Personal Experience: ${userProfile.breakdown.personalExperience}/20`, 30, currentY);
+                currentY += 8;
+                doc.text(`• Future Readiness: ${userProfile.breakdown.futureReadiness}/20`, 30, currentY);
+                currentY += 8;
+                doc.text(`• Learning Commitment: ${userProfile.breakdown.learningCommitment}/20`, 30, currentY);
+                currentY += 15;
+                
+                // Recommendations
+                doc.setFontSize(14);
+                doc.text('Personalized Recommendations:', 20, currentY);
+                currentY += 10;
+                
+                doc.setFontSize(12);
+                const recommendations = getQuickRecommendations(userProfile.score, userProfile.breakdown);
+                recommendations.forEach(rec => {
+                    doc.text(`• ${rec}`, 30, currentY);
+                    currentY += 8;
+                });
+                
+                currentY += 10;
+                doc.text(`Generated: ${new Date().toLocaleDateString()}`, 20, currentY);
+                currentY += 5;
+                doc.text(`Industry: ${userProfile.industry} | Experience: ${userProfile.experience}`, 20, currentY);
+                
+                // Save PDF
+                const filename = `Quick_AI_Assessment_${userProfile.name.replace(/\s+/g, '_')}_${userProfile.score}.pdf`;
+                doc.save(filename);
+                
+                log('✅ Quick assessment report generated successfully!');
+                
+                // Show success message
+                setTimeout(() => {
+                    alert(`🎉 Your Quick AI Assessment is Complete!\\n\\n📊 Your Score: ${userProfile.score}/100\\n🎯 Level: ${level}\\n📁 Report downloaded: ${filename}\\n\\nNext Steps:\\n• Review your personalized recommendations\\n• Consider taking our Comprehensive Assessment for deeper insights\\n• Start with the suggested learning resources\\n\\nThank you for using our AI Career Assessment!`);
+                }, 500);
+                
+            } catch (error) {
+                log(`❌ PDF generation error: ${error.message}`);
+                throw error;
+            }
+        }
+
+        function getQuickRecommendations(score, breakdown) {
+            const recommendations = [];
+            
+            if (breakdown.aiAwareness < 15) {
+                recommendations.push('Start with AI fundamentals course to build basic understanding');
+            }
+            
+            if (breakdown.businessImpact < 15) {
+                recommendations.push('Research AI applications in your industry');
+            }
+            
+            if (breakdown.personalExperience < 15) {
+                recommendations.push('Begin experimenting with AI tools like ChatGPT for work tasks');
+            }
+            
+            if (breakdown.futureReadiness < 15) {
+                recommendations.push('Create a personal AI learning plan to stay competitive');
+            }
+            
+            if (breakdown.learningCommitment < 15) {
+                recommendations.push('Set aside 30 minutes daily for AI learning and practice');
+            }
+            
+            if (score >= 60) {
+                recommendations.push('Consider taking our Comprehensive Technical Assessment');
+                recommendations.push('Explore advanced AI certifications for your field');
+            }
+            
+            return recommendations.length ? recommendations : ['Continue building AI skills systematically', 'Network with AI professionals in your industry'];
+        }
+
+        // Initialize page
+        window.onload = function() {
+            setTimeout(() => {
+                log('⚡ Quick AI Assessment Ready!');
+                log('📝 Complete 5 questions to get your instant readiness score');
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

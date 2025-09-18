@@ -290,6 +290,8 @@ class SimpleAIGuideGenerator {
 
     async generateGuide(userProfile) {
         try {
+            console.log('🔧 Starting PDF generation...');
+            
             // Initialize PDF
             if (typeof window.jspdf === 'undefined') {
                 throw new Error('jsPDF library not loaded');
@@ -308,22 +310,24 @@ class SimpleAIGuideGenerator {
             
             // STEP 2: Generate Personalized Content
             console.log('📝 Generating personalized content...');
-            this.createCoverPage(userProfile, userAnalysis);
-            this.createTableOfContents();
-            this.createExecutiveSummary(userProfile, userAnalysis);
-            this.createPersonalizedAssessment(userProfile, userAnalysis);
-            this.createStrengthsAnalysis(userProfile, userAnalysis);
-            this.createWeaknessesAndGaps(userProfile, userAnalysis);
-            this.createOpportunitiesAndThreats(userProfile, userAnalysis);
-            this.createPersonalizedStrategy(userProfile, userAnalysis);
-            this.createImplementationRoadmap(userProfile, userAnalysis);
-            this.createIndustryPlaybook(userProfile, userAnalysis);
-            this.createSkillDevelopmentPlan(userProfile, userAnalysis);
-            this.createPersonalizedActionPlan(userProfile, userAnalysis);
-            this.createProgressTracking(userProfile, userAnalysis);
-            this.createResourcesAndTools(userProfile, userAnalysis);
-            this.createWorksheets(userProfile, userAnalysis);
-            this.createAppendices(userAnalysis);
+            
+            try {
+                this.createCoverPage(userProfile, userAnalysis);
+                console.log('✅ Cover page created');
+                
+                this.createTableOfContents();
+                console.log('✅ Table of contents created');
+                
+                this.createExecutiveSummary(userProfile, userAnalysis);
+                console.log('✅ Executive summary created');
+                
+                // Stop here for now to test if basic generation works
+                console.log('🎯 Basic PDF structure complete');
+                
+            } catch (contentError) {
+                console.error('❌ Content generation error:', contentError);
+                throw contentError;
+            }
             
             // STEP 3: Return PDF for email or download
             const filename = `AI_Career_Guide_${userProfile.name.replace(/\s+/g, '_')}_Score_${userAnalysis.readinessScore}.pdf`;
@@ -344,6 +348,7 @@ class SimpleAIGuideGenerator {
             
         } catch (error) {
             console.error('❌ PDF Generation Error:', error);
+            console.error('❌ Error stack:', error.stack);
             return false;
         }
     }
