@@ -33,6 +33,23 @@
     </style>
 </head>
 <body class="text-white">
+    <!-- Navigation Header -->
+    <nav class="bg-black bg-opacity-50 backdrop-blur-md border-b border-gray-700">
+        <div class="container mx-auto px-4 py-3 max-w-6xl">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-6">
+                    <a href="index.html" class="text-xl font-bold text-white hover:text-blue-400 transition-colors">
+                        🚀 AI Career Survival Guide
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="assessment-selection.html" class="text-gray-300 hover:text-white transition-colors">Assessment Hub</a>
+                    <a href="index.html" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition-colors">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
     <div class="container mx-auto px-4 py-8 max-w-6xl">
         <!-- Header -->
         <div class="text-center mb-12">
@@ -77,10 +94,10 @@
             <!-- Technical Assessment Card -->
             <div class="assessment-card glass-dark rounded-2xl p-8 text-center" onclick="showAssessment('technical')">
                 <div class="text-6xl mb-6">🔧</div>
-                <h3 class="text-2xl font-bold mb-4 text-purple-400">Technical Assessment</h3>
+                <h3 class="text-2xl font-bold mb-4 text-yellow-400">Technical Assessment</h3>
                 <div class="text-4xl font-bold mb-4 text-white">25 Minutes</div>
                 <p class="text-gray-300 mb-6">15 advanced questions for technical roles</p>
-                <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
+                <button class="w-full bg-yellow-700 hover:bg-yellow-800 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
                     Start Technical Assessment →
                 </button>
             </div>
@@ -393,7 +410,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="submit" class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                        <button type="submit" class="bg-gradient-to-r from-yellow-700 to-yellow-800 hover:from-yellow-800 hover:to-yellow-900 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
                             📊 Generate My Comprehensive Assessment Report
                         </button>
                     </div>
@@ -620,7 +637,7 @@
                     </div>
 
                     <div class="text-center">
-                        <button type="submit" class="bg-gradient-to-r from-purple-600 to-red-600 hover:from-purple-700 hover:to-red-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
+                        <button type="submit" class="bg-gradient-to-r from-yellow-700 to-red-600 hover:from-yellow-800 hover:to-red-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
                             🔧 Generate My Technical Assessment Report
                         </button>
                     </div>
@@ -816,5 +833,22 @@
             log('📝 Choose an assessment level to get started');
         };
     </script>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-50 backdrop-blur-md border-t border-gray-700 mt-12">
+        <div class="container mx-auto px-4 py-6 max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-center md:text-left">
+                    <p class="text-gray-300">&copy; 2024 AI Career Survival Guide. Empowering professionals for the AI-driven future.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="assessment-selection.html" class="text-gray-300 hover:text-white transition-colors">Assessment Hub</a>
+                    <a href="quick-assessment-selection.html" class="text-gray-300 hover:text-white transition-colors">Quick</a>
+                    <a href="comprehensive-assessment-selection.html" class="text-gray-300 hover:text-white transition-colors">Comprehensive</a>
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

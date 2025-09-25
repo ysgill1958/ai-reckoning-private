@@ -1,278 +1,416 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Career Survival Guide - Free Assessment | Choose Your Level</title>
-    <link href="css/tailwind.min.css" rel="stylesheet">
-    <link href="css/fontawesome/fontawesome.css" rel="stylesheet">
-    <style>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+        <style>
+        * {
+            text-align: center !important;
+            box-sizing: border-box !important;
+        }
+        html, body {
+            text-align: center !important;
+            width: 100% !important;
+        }
+        .text-left, .text-right, .text-justify, .text-start, .text-end,
+        .sm\:text-left, .md\:text-left, .lg\:text-left, .xl\:text-left,
+        .justify-start, .justify-end, .justify-between, .justify-around, .justify-evenly,
+        .items-start, .items-end, .self-start, .self-end {
+            text-align: center !important;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+        .flex, .flex-col, .flex-row, .inline-flex {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+        .grid {
+            display: grid !important;
+            justify-items: center !important;
+            text-align: center !important;
+        }
         body {
+            font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            text-align: center !important;
         }
-        .glass-dark {
+        main { flex: 1; }
+        .glass {
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .assessment-card {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .assessment-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
-        }
-        .recommended {
-            position: relative;
-            border: 2px solid #10b981;
-        }
-        .recommended::before {
-            content: "MOST POPULAR";
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #10b981;
+        .btn-primary {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
             color: white;
-            padding: 4px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
         }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);
+        }
+        .nav-active {
+            color: #ef4444;
+            font-weight: 600;
+            position: relative;
+        }
+        .nav-active:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ef4444;
+        }
+        /* ...other standard styles from roadmaps.html as needed... */
+        </style>
+
     </style>
 </head>
-<body class="text-white">
-    <div class="container mx-auto px-4 py-8 max-w-6xl">
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <h1 class="text-6xl font-bold mb-6">
-                🚀 <span class="gradient-text">AI Career Survival Guide</span>
-            </h1>
-            <p class="text-2xl text-gray-300 mb-8">
-                Free Download: Professional AI Career Transformation Assessment
-            </p>
-            <p class="text-lg text-blue-400 max-w-3xl mx-auto">
-                Choose the assessment level that fits your time and needs. Get honest feedback, actionable insights, and a personalized roadmap for AI career success.
-            </p>
-        </div>
-
-        <!-- Why Take This Assessment -->
-        <div class="glass-dark rounded-2xl p-8 mb-12">
-            <h2 class="text-3xl font-bold mb-6 text-center gradient-text">Why Take Our AI Assessment?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="text-center">
-                    <div class="text-4xl mb-4">🎯</div>
-                    <h3 class="text-lg font-semibold mb-2">Honest Evaluation</h3>
-                    <p class="text-gray-300 text-sm">No grade inflation - get realistic scores that help you improve</p>
+<body>
+        <div id="app" class="min-h-screen">
+            <header role="banner">
+                <div class="max-w-7xl mx-auto">
+                    <div class="header-container" style="display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1rem;">
+                        <div class="logo-section" style="display:flex;align-items:center;gap:0.75rem;">
+                            <div class="bg-red-600 p-2 rounded-xl warning-icon">
+                                <i class="fas fa-exclamation-triangle text-xl"></i>
+                            </div>
+                            <div>
+                                <h1 class="text-xl font-bold">AI RECKONING</h1>
+                                <p class="text-xs opacity-90">Emergency Career Transformation System</p>
+                            </div>
+                        </div>
+                        <nav role="navigation" style="width:100%;display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;max-width:100%;overflow:visible;">
+                            <a href="index.html">Home</a>
+                            <a href="assessment-selection.html" class="nav-active" aria-current="page">Assessment</a>
+                            <a href="roadmaps.html">Critical Roadmaps</a>
+                            <a href="resources.html">Survival Resources</a>
+                            <a href="community.html">Community</a>
+                            <a href="about.html">About</a>
+                        </nav>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl mb-4">📊</div>
-                    <h3 class="text-lg font-semibold mb-2">Professional Report</h3>
-                    <p class="text-gray-300 text-sm">Detailed PDF with breakdown and recommendations</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl mb-4">🛣️</div>
-                    <h3 class="text-lg font-semibold mb-2">Action Plan</h3>
-                    <p class="text-gray-300 text-sm">90-day roadmap with specific next steps</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl mb-4">🆓</div>
-                    <h3 class="text-lg font-semibold mb-2">Completely Free</h3>
-                    <p class="text-gray-300 text-sm">No hidden costs, no email spam, just value</p>
-                </div>
+            </header>
+            <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" role="main">
+            <!-- Emergency Alert Banner -->
+            <div style="background: rgba(255, 215, 0, 0.15); border: 2px solid #FFD700; border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; text-align: center;">
+                <h2 class="text-2xl font-bold mb-2" style="color: #FFD700;">🧠 AI CAREER ASSESSMENT CENTER</h2>
+                <p class="text-lg">Choose your assessment level and get personalized career transformation guidance</p>
+                <p class="text-sm mt-2" style="color: #d1d5db;">⚡ Select the assessment that matches your time and experience level</p>
             </div>
-        </div>
 
-        <!-- Assessment Level Selection -->
-        <div class="mb-12">
-            <h2 class="text-3xl font-bold mb-8 text-center">Choose Your Assessment Level</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Quick Assessment -->
-                <div class="assessment-card glass-dark rounded-2xl p-8 text-center" onclick="window.location.href='quick-assessment.html'">
-                    <div class="text-6xl mb-6">⚡</div>
-                    <h3 class="text-2xl font-bold mb-4 text-green-400">Quick Assessment</h3>
-                    <div class="text-4xl font-bold mb-4 text-white">5 Minutes</div>
-                    
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Questions:</span>
-                            <span class="font-semibold">5 Essential</span>
+            <!-- Assessment Overview -->
+            <section class="glass rounded-2xl p-8 mb-8">
+                <h3 class="text-3xl font-bold mb-6 text-center">AI Career Assessment Levels</h3>
+                <p class="text-center mb-8 opacity-90">Professional assessments designed for different experience levels and time availability</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="text-center">
+                        <div class="text-4xl mb-2">🟢</div>
+                        <h4 class="text-lg font-bold text-green-400">QUICK START</h4>
+                        <p class="text-sm" style="color: #d1d5db;">5 minutes • Perfect for beginners</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-2">🟡</div>
+                        <h4 class="text-lg font-bold text-yellow-400">COMPREHENSIVE</h4>
+                        <p class="text-sm" style="color: #d1d5db;">15 minutes • In-depth analysis</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-2">�</div>
+                        <h4 class="text-lg font-bold text-red-400">TECHNICAL</h4>
+                        <p class="text-sm" style="color: #d1d5db;">25 minutes • For tech professionals</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Assessment Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+              <!-- Quick Assessment -->
+              <div class="glass rounded-2xl p-8 flex flex-col items-center">
+                <div class="text-5xl mb-4">⚡</div>
+                <h3 class="text-xl font-bold mb-2 text-green-400">Quick Assessment</h3>
+                <div class="text-lg mb-2">5 Essential Questions</div>
+                <div class="text-sm mb-4 text-gray-300">Basic AI awareness and readiness</div>
+                <div class="mb-4 text-xs text-gray-400">Perfect for busy professionals & AI beginners</div>
+                <a href="quick-assessment-selection.html" class="btn-primary w-full">Start Quick Assessment →</a>
+              </div>
+              <!-- Comprehensive Assessment -->
+              <div class="glass rounded-2xl p-8 flex flex-col items-center">
+                <div class="text-5xl mb-4">📊</div>
+                <h3 class="text-xl font-bold mb-2 text-yellow-400">Comprehensive Assessment</h3>
+                <div class="text-lg mb-2">15 Detailed Questions</div>
+                <div class="text-sm mb-4 text-gray-300">In-depth skills and career analysis</div>
+                <div class="mb-4 text-xs text-gray-400">Perfect for career changers & professionals</div>
+                <a href="comprehensive-assessment-selection.html" class="btn-primary w-full">Start Comprehensive Assessment →</a>
+              </div>
+              <!-- Technical Assessment -->
+              <div class="glass rounded-2xl p-8 flex flex-col items-center">
+                <div class="text-5xl mb-4">🔧</div>
+                <h3 class="text-xl font-bold mb-2 text-red-400">Technical Assessment</h3>
+                <div class="text-lg mb-2">15 Technical Questions</div>
+                <div class="text-sm mb-4 text-gray-300">Deep technical skills evaluation</div>
+                <div class="mb-4 text-xs text-gray-400">Perfect for developers & AI engineers</div>
+                <a href="technical-assessment-selection.html" class="btn-primary w-full">Start Technical Assessment →</a>
+              </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <section class="glass rounded-2xl p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-6 text-center">Assessment Comparison</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-white/20">
+                                <th class="text-left p-3">Feature</th>
+                                <th class="text-center p-3 text-green-400">Quick</th>
+                                <th class="text-center p-3 text-yellow-400">Comprehensive</th>
+                                <th class="text-center p-3 text-red-400">Technical</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-white/10">
+                                <td class="p-3">Duration</td>
+                                <td class="text-center p-3">5 min</td>
+                                <td class="text-center p-3">15 min</td>
+                                <td class="text-center p-3">25 min</td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="p-3">Questions</td>
+                                <td class="text-center p-3">5</td>
+                                <td class="text-center p-3">15</td>
+                                <td class="text-center p-3">15</td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="p-3">Report Depth</td>
+                                <td class="text-center p-3">Basic</td>
+                                <td class="text-center p-3">Detailed</td>
+                                <td class="text-center p-3">Technical</td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="p-3">Career Roadmap</td>
+                                <td class="text-center p-3">✓</td>
+                                <td class="text-center p-3">✓</td>
+                                <td class="text-center p-3">✓</td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="p-3">Skills Analysis</td>
+                                <td class="text-center p-3">Basic</td>
+                                <td class="text-center p-3">Detailed</td>
+                                <td class="text-center p-3">Expert</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Best For</td>
+                                <td class="text-center p-3">Beginners</td>
+                                <td class="text-center p-3">Professionals</td>
+                                <td class="text-center p-3">Developers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="glass rounded-2xl p-8 text-center">
+                <h3 class="text-2xl font-bold mb-4">Ready to Transform Your Career?</h3>
+                <p class="text-lg mb-6 opacity-90">Choose your assessment level and get started with your AI career transformation journey</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <a href="quick-assessment-selection.html" class="btn-primary">Quick Start (5 min)</a>
+                    <a href="comprehensive-assessment-selection.html" class="btn-primary">Comprehensive (15 min)</a>
+                    <a href="technical-assessment-selection.html" class="btn-primary">Technical (25 min)</a>
+                </div>
+            </section>
+        </main>
+            </main>
+            <footer class="mt-16 py-8 px-4 border-t border-gray-700" style="background: rgba(17, 24, 39, 0.8); backdrop-filter: blur(10px);" role="contentinfo">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                        <div>
+                            <h4 class="text-lg font-semibold mb-4" style="color: white;">AI RECKONING</h4>
+                            <p class="text-sm mb-4" style="color: #d1d5db;">Emergency response for AI-driven workforce transformation.</p>
+                            <div class="mt-4 space-y-2">
+                                <a href="about.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">About Us</a>
+                                <a href="methodology.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Our Methodology</a>
+                                <a href="research.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Research & Data</a>
+                                <a href="privacy.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Privacy Policy</a>
+                                <a href="terms.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Terms of Service</a>
+                            </div>
                         </div>
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Focus:</span>
-                            <span class="font-semibold">Basic AI Awareness</span>
+                        <div>
+                            <h5 class="font-medium mb-4" style="color: white;">Resources</h5>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="https://futureskillsprime.in" target="_blank" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">FutureSkills Prime</a></li>
+                                <li><a href="https://www.skillindia.gov.in" target="_blank" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Skill India</a></li>
+                            </ul>
                         </div>
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Best For:</span>
-                            <span class="font-semibold">Busy Professionals</span>
+                        <div>
+                            <h5 class="font-medium mb-4" style="color: white;">Industries</h5>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="resources.html#it-bpm" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">IT & BPM</a></li>
+                                <li><a href="resources.html#banking" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Banking</a></li>
+                            </ul>
                         </div>
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Report:</span>
-                            <span class="font-semibold">Quick Overview</span>
+                        <div>
+                            <h5 class="font-medium mb-4" style="color: white;">Support</h5>
+                            <ul class="space-y-2 text-sm">
+                                <li><a href="help.html" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Help Center</a></li>
+                                <li><a href="contact.html" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Contact Us</a></li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="mb-6">
-                        <h4 class="text-lg font-semibold mb-2 text-green-400">Perfect If You:</h4>
-                        <ul class="text-sm text-gray-300 space-y-1">
-                            <li>• Need a quick AI readiness check</li>
-                            <li>• Are new to AI concepts</li>
-                            <li>• Want to get started immediately</li>
-                            <li>• Have limited time right now</li>
+                    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+                        <p style="color: #9ca3af;">&copy; 2025 AI RECKONING. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+</body>
+</html>
                         </ul>
                     </div>
                     
-                    <button class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
-                        Start Quick Assessment →
+                    <button class="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-sm">
+                        Learn More About Quick Assessment →
                     </button>
                 </div>
 
                 <!-- Comprehensive Assessment -->
-                <div class="assessment-card glass-dark rounded-2xl p-8 text-center recommended" onclick="window.location.href='comprehensive-assessment.html'">
-                    <div class="text-6xl mb-6">📊</div>
-                    <h3 class="text-2xl font-bold mb-4 text-blue-400">Comprehensive Assessment</h3>
-                    <div class="text-4xl font-bold mb-4 text-white">15 Minutes</div>
+                <div class="assessment-card glass-dark rounded-2xl p-6 text-center recommended" onclick="window.location.href='comprehensive-assessment-selection.html'" style="max-width: 350px; margin: 0 auto;">
+                    <div class="text-5xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold mb-3 text-blue-400">Comprehensive Assessment</h3>
+                    <div class="text-3xl font-bold mb-4 text-white">15 Minutes</div>
                     
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Questions:</span>
-                            <span class="font-semibold">10 Strategic</span>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center justify-between bg-gray-900 rounded-lg p-2 border border-gray-700">
+                            <span class="text-enhanced text-sm">Questions:</span>
+                            <span class="font-semibold text-enhanced text-sm">10 Strategic</span>
                         </div>
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Focus:</span>
-                            <span class="font-semibold">Business AI Strategy</span>
+                        <div class="flex items-center justify-between bg-gray-900 rounded-lg p-2 border border-gray-700">
+                            <span class="text-enhanced text-sm">Focus:</span>
+                            <span class="font-semibold text-enhanced text-sm">Business AI Strategy</span>
                         </div>
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Best For:</span>
-                            <span class="font-semibold">All Professionals</span>
-                        </div>
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Report:</span>
-                            <span class="font-semibold">Detailed + Action Plan</span>
+                        <div class="flex items-center justify-between bg-gray-900 rounded-lg p-2 border border-gray-700">
+                            <span class="text-enhanced text-sm">Best For:</span>
+                            <span class="font-semibold text-enhanced text-sm">All Professionals</span>
                         </div>
                     </div>
                     
-                    <div class="mb-6">
-                        <h4 class="text-lg font-semibold mb-2 text-blue-400">Perfect If You:</h4>
-                        <ul class="text-sm text-gray-300 space-y-1">
-                            <li>• Want comprehensive evaluation</li>
-                            <li>• Need strategic AI insights</li>
-                            <li>• Are planning AI initiatives</li>
-                            <li>• Want detailed action plan</li>
+                    <div class="mb-4">
+                        <h4 class="text-sm font-semibold mb-2 text-blue-400 text-enhanced">Perfect If You:</h4>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li class="text-enhanced">• Want comprehensive evaluation</li>
+                            <li class="text-enhanced">• Need strategic AI insights</li>
+                            <li class="text-enhanced">• Want detailed action plan</li>
                         </ul>
                     </div>
                     
-                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
-                        Start Comprehensive Assessment →
+                    <button class="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-enhanced text-sm">
+                        Learn More About Comprehensive Assessment →
                     </button>
                 </div>
 
                 <!-- Technical Assessment -->
-                <div class="assessment-card glass-dark rounded-2xl p-8 text-center" onclick="window.location.href='survival-guide-working.html'">
-                    <div class="text-6xl mb-6">🔧</div>
-                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Technical Assessment</h3>
-                    <div class="text-4xl font-bold mb-4 text-white">25 Minutes</div>
+                <div class="assessment-card glass-dark rounded-2xl p-6 text-center" onclick="window.location.href='technical-assessment-selection.html'" style="max-width: 350px; margin: 0 auto;">
+                    <div class="text-5xl mb-4">🔧</div>
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400 text-enhanced">Technical Assessment</h3>
+                    <div class="text-3xl font-bold mb-4 text-white text-enhanced">25 Minutes</div>
                     
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Questions:</span>
-                            <span class="font-semibold">15 Advanced</span>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center justify-between bg-gray-900 rounded-lg p-2 border border-gray-700">
+                            <span class="text-enhanced text-sm">Questions:</span>
+                            <span class="font-semibold text-enhanced text-sm">15 Advanced</span>
                         </div>
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Focus:</span>
-                            <span class="font-semibold">Technical AI Skills</span>
+                        <div class="flex items-center justify-between bg-gray-900 rounded-lg p-2 border border-gray-700">
+                            <span class="text-enhanced text-sm">Focus:</span>
+                            <span class="font-semibold text-enhanced text-sm">Technical AI Skills</span>
                         </div>
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Best For:</span>
-                            <span class="font-semibold">Tech Professionals</span>
-                        </div>
-                        <div class="flex items-center justify-between bg-gray-800 rounded-lg p-3">
-                            <span>Report:</span>
-                            <span class="font-semibold">Deep Technical Analysis</span>
+                        <div class="flex items-center justify-between bg-gray-900 rounded-lg p-2 border border-gray-700">
+                            <span class="text-enhanced text-sm">Best For:</span>
+                            <span class="font-semibold text-enhanced text-sm">Tech Professionals</span>
                         </div>
                     </div>
                     
-                    <div class="mb-6">
-                        <h4 class="text-lg font-semibold mb-2 text-purple-400">Perfect If You:</h4>
-                        <ul class="text-sm text-gray-300 space-y-1">
-                            <li>• Work in technical roles</li>
-                            <li>• Want deep AI knowledge test</li>
-                            <li>• Are implementing AI solutions</li>
-                            <li>• Need technical skill validation</li>
+                    <div class="mb-4">
+                        <h4 class="text-sm font-semibold mb-2 text-yellow-400 text-enhanced">Perfect If You:</h4>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li class="text-enhanced">• Work in technical roles</li>
+                            <li class="text-enhanced">• Want deep AI knowledge test</li>
+                            <li class="text-enhanced">• Need technical skill validation</li>
                         </ul>
                     </div>
                     
-                    <button class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300">
-                        Start Technical Assessment →
+                    <button class="w-full bg-gradient-to-r from-yellow-700 to-yellow-800 hover:from-yellow-800 hover:to-yellow-900 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300 text-enhanced text-sm">
+                        Learn More About Technical Assessment →
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Comparison Table -->
-        <div class="glass-dark rounded-2xl p-8 mb-12">
-            <h2 class="text-2xl font-bold mb-6 text-center">Assessment Comparison</h2>
-            <div class="overflow-x-auto">
+        <div class="glass-dark rounded-2xl p-6 mb-12" style="max-width: 900px; margin: 0 auto;">
+            <h2 class="text-2xl font-bold mb-6 text-center text-enhanced" style="max-width: 800px; margin: 0 auto;">Assessment Comparison</h2>
+            <div class="overflow-x-auto" style="max-width: 800px; margin: 0 auto;">
                 <table class="w-full text-sm">
                     <thead>
                         <tr class="border-b border-gray-600">
-                            <th class="text-left p-4">Feature</th>
-                            <th class="text-center p-4 text-green-400">Quick</th>
-                            <th class="text-center p-4 text-blue-400">Comprehensive</th>
-                            <th class="text-center p-4 text-purple-400">Technical</th>
+                            <th class="text-center p-3 text-enhanced">Feature</th>
+                            <th class="text-center p-3 text-green-400 text-enhanced">Quick</th>
+                            <th class="text-center p-3 text-blue-400 text-enhanced">Comprehensive</th>
+                            <th class="text-center p-3 text-yellow-400 text-enhanced">Technical</th>
                         </tr>
                     </thead>
-                    <tbody class="space-y-2">
+                    <tbody>
                         <tr class="border-b border-gray-700">
-                            <td class="p-4 font-semibold">Time Required</td>
-                            <td class="text-center p-4">5 minutes</td>
-                            <td class="text-center p-4">15 minutes</td>
-                            <td class="text-center p-4">25 minutes</td>
+                            <td class="p-3 font-semibold text-enhanced text-center">Time Required</td>
+                            <td class="text-center p-3 text-enhanced">5 minutes</td>
+                            <td class="text-center p-3 text-enhanced">15 minutes</td>
+                            <td class="text-center p-3 text-enhanced">25 minutes</td>
                         </tr>
                         <tr class="border-b border-gray-700">
-                            <td class="p-4 font-semibold">Number of Questions</td>
-                            <td class="text-center p-4">5</td>
-                            <td class="text-center p-4">10</td>
-                            <td class="text-center p-4">15</td>
+                            <td class="p-3 font-semibold text-enhanced text-center">Number of Questions</td>
+                            <td class="text-center p-3 text-enhanced">5</td>
+                            <td class="text-center p-3 text-enhanced">10</td>
+                            <td class="text-center p-3 text-enhanced">15</td>
                         </tr>
                         <tr class="border-b border-gray-700">
-                            <td class="p-4 font-semibold">Difficulty Level</td>
-                            <td class="text-center p-4">Basic</td>
-                            <td class="text-center p-4">Intermediate</td>
-                            <td class="text-center p-4">Advanced</td>
+                            <td class="p-3 font-semibold text-enhanced text-center">Difficulty Level</td>
+                            <td class="text-center p-3 text-enhanced">Basic</td>
+                            <td class="text-center p-3 text-enhanced">Intermediate</td>
+                            <td class="text-center p-3 text-enhanced">Advanced</td>
                         </tr>
                         <tr class="border-b border-gray-700">
-                            <td class="p-4 font-semibold">Target Audience</td>
-                            <td class="text-center p-4">Everyone</td>
-                            <td class="text-center p-4">Business Professionals</td>
-                            <td class="text-center p-4">Technical Roles</td>
+                            <td class="p-3 font-semibold text-enhanced text-center">Target Audience</td>
+                            <td class="text-center p-3 text-enhanced">Everyone</td>
+                            <td class="text-center p-3 text-enhanced">Business Professionals</td>
+                            <td class="text-center p-3 text-enhanced">Technical Roles</td>
                         </tr>
                         <tr class="border-b border-gray-700">
-                            <td class="p-4 font-semibold">Report Detail</td>
-                            <td class="text-center p-4">Overview</td>
-                            <td class="text-center p-4">Detailed + Action Plan</td>
-                            <td class="text-center p-4">Technical Deep Dive</td>
+                            <td class="p-3 font-semibold text-enhanced text-center">Report Detail</td>
+                            <td class="text-center p-3 text-enhanced">Overview</td>
+                            <td class="text-center p-3 text-enhanced">Detailed + Action Plan</td>
+                            <td class="text-center p-3 text-enhanced">Technical Deep Dive</td>
                         </tr>
                         <tr class="border-b border-gray-700">
-                            <td class="p-4 font-semibold">Score Breakdown</td>
-                            <td class="text-center p-4">5 Categories</td>
-                            <td class="text-center p-4">10 Dimensions</td>
-                            <td class="text-center p-4">15 Technical Areas</td>
+                            <td class="p-3 font-semibold text-enhanced text-center">Score Breakdown</td>
+                            <td class="text-center p-3 text-enhanced">5 Categories</td>
+                            <td class="text-center p-3 text-enhanced">10 Dimensions</td>
+                            <td class="text-center p-3 text-enhanced">15 Technical Areas</td>
                         </tr>
                         <tr>
-                            <td class="p-4 font-semibold">Recommendations</td>
-                            <td class="text-center p-4">Basic</td>
-                            <td class="text-center p-4">Strategic</td>
-                            <td class="text-center p-4">Technical</td>
+                            <td class="p-3 font-semibold text-enhanced text-center">Recommendations</td>
+                            <td class="text-center p-3 text-enhanced">Basic</td>
+                            <td class="text-center p-3 text-enhanced">Strategic</td>
+                            <td class="text-center p-3 text-enhanced">Technical</td>
                         </tr>
                     </tbody>
                 </table>
@@ -280,51 +418,149 @@
         </div>
 
         <!-- Not Sure Which To Choose? -->
-        <div class="glass-dark rounded-xl p-6 mb-8">
-            <h3 class="text-xl font-bold mb-4 text-center text-yellow-400">Not Sure Which Assessment to Choose?</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <div class="bg-green-600 bg-opacity-20 rounded-lg p-4">
-                    <h4 class="font-semibold mb-2">New to AI?</h4>
-                    <p class="text-sm text-gray-300 mb-3">Start with the Quick Assessment to get familiar with AI concepts</p>
-                    <a href="quick-assessment.html" class="text-green-400 hover:text-green-300">Try Quick Assessment →</a>
+        <div class="glass-dark rounded-xl p-8 mb-8" style="max-width: 900px; margin: 0 auto;">
+            <h3 class="text-2xl font-bold mb-6 text-center text-yellow-400 text-enhanced" style="max-width: 800px; margin: 0 auto 2rem auto;">Assessment Info Cards</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center" style="max-width: 900px; margin: 0 auto;">
+                <!-- Quick Assessment Card -->
+                <div class="bg-green-600 bg-opacity-20 rounded-lg p-6 border border-green-400 border-opacity-30" style="max-width: 280px; margin: 0 auto;">
+                    <div class="text-4xl mb-3">⚡</div>
+                    <h4 class="font-bold mb-3 text-green-400 text-enhanced text-lg">Quick Assessment</h4>
+                    <div class="text-2xl font-bold mb-4 text-white text-enhanced">5 Minutes</div>
+                    
+                    <div class="space-y-2 mb-4 text-left">
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Questions:</span>
+                            <span class="font-semibold text-enhanced text-sm">5 Essential</span>
+                        </div>
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Focus:</span>
+                            <span class="font-semibold text-enhanced text-sm">Basic AI Awareness</span>
+                        </div>
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Best For:</span>
+                            <span class="font-semibold text-enhanced text-sm">Busy Professionals</span>
+                        </div>
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Report:</span>
+                            <span class="font-semibold text-enhanced text-sm">Quick Overview</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4 text-center">
+                        <h5 class="text-sm font-semibold mb-2 text-green-400 text-enhanced">Perfect If You:</h5>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li class="text-enhanced">• Need a quick AI readiness check</li>
+                            <li class="text-enhanced">• Are new to AI concepts</li>
+                            <li class="text-enhanced">• Want to get started immediately</li>
+                            <li class="text-enhanced">• Have limited time right now</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="quick-assessment-selection.html" class="text-green-400 hover:text-green-300 text-enhanced text-sm font-semibold">Learn More About Quick Assessment →</a>
                 </div>
-                <div class="bg-blue-600 bg-opacity-20 rounded-lg p-4">
-                    <h4 class="font-semibold mb-2">Business Professional?</h4>
-                    <p class="text-sm text-gray-300 mb-3">Take the Comprehensive Assessment for strategic insights</p>
-                    <a href="comprehensive-assessment.html" class="text-blue-400 hover:text-blue-300">Try Comprehensive →</a>
+                
+                <!-- Comprehensive Assessment Card -->
+                <div class="bg-blue-600 bg-opacity-20 rounded-lg p-6 border border-blue-400 border-opacity-30" style="max-width: 280px; margin: 0 auto;">
+                    <div class="text-4xl mb-3">📊</div>
+                    <h4 class="font-bold mb-3 text-blue-400 text-enhanced text-lg">Comprehensive Assessment</h4>
+                    <div class="text-2xl font-bold mb-4 text-white text-enhanced">15 Minutes</div>
+                    
+                    <div class="space-y-2 mb-4 text-left">
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Questions:</span>
+                            <span class="font-semibold text-enhanced text-sm">10 Strategic</span>
+                        </div>
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Focus:</span>
+                            <span class="font-semibold text-enhanced text-sm">Business AI Strategy</span>
+                        </div>
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Best For:</span>
+                            <span class="font-semibold text-enhanced text-sm">All Professionals</span>
+                        </div>
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Report:</span>
+                            <span class="font-semibold text-enhanced text-sm">Detailed + Action Plan</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4 text-center">
+                        <h5 class="text-sm font-semibold mb-2 text-blue-400 text-enhanced">Perfect If You:</h5>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li class="text-enhanced">• Want comprehensive evaluation</li>
+                            <li class="text-enhanced">• Need strategic AI insights</li>
+                            <li class="text-enhanced">• Are planning AI initiatives</li>
+                            <li class="text-enhanced">• Want detailed action plan</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="comprehensive-assessment-selection.html" class="text-blue-400 hover:text-blue-300 text-enhanced text-sm font-semibold">Learn More About Comprehensive Assessment →</a>
                 </div>
-                <div class="bg-purple-600 bg-opacity-20 rounded-lg p-4">
-                    <h4 class="font-semibold mb-2">Technical Role?</h4>
-                    <p class="text-sm text-gray-300 mb-3">Take the Technical Assessment for deep skill evaluation</p>
-                    <a href="survival-guide-working.html" class="text-purple-400 hover:text-purple-300">Try Technical →</a>
+                
+                <!-- Technical Assessment Card -->
+                <div class="bg-yellow-600 bg-opacity-20 rounded-lg p-6 border border-yellow-400 border-opacity-30" style="max-width: 280px; margin: 0 auto;">
+                    <div class="text-4xl mb-3">🔧</div>
+                    <h4 class="font-bold mb-3 text-yellow-400 text-enhanced text-lg">Technical Assessment</h4>
+                    <div class="text-2xl font-bold mb-4 text-white text-enhanced">25 Minutes</div>
+                    
+                    <div class="space-y-2 mb-4 text-left">
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Questions:</span>
+                            <span class="font-semibold text-enhanced text-sm">15 Advanced</span>
+                        </div>
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Focus:</span>
+                            <span class="font-semibold text-enhanced text-sm">Technical AI Skills</span>
+                        </div>
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Best For:</span>
+                            <span class="font-semibold text-enhanced text-sm">Tech Professionals</span>
+                        </div>
+                        <div class="flex justify-between bg-gray-800 rounded p-2">
+                            <span class="text-enhanced text-sm">Report:</span>
+                            <span class="font-semibold text-enhanced text-sm">Deep Technical Analysis</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4 text-center">
+                        <h5 class="text-sm font-semibold mb-2 text-yellow-400 text-enhanced">Perfect If You:</h5>
+                        <ul class="text-xs text-gray-300 space-y-1">
+                            <li class="text-enhanced">• Work in technical roles</li>
+                            <li class="text-enhanced">• Want deep AI knowledge test</li>
+                            <li class="text-enhanced">• Are implementing AI solutions</li>
+                            <li class="text-enhanced">• Need technical skill validation</li>
+                        </ul>
+                    </div>
+                    
+                    <a href="technical-assessment-selection.html" class="text-yellow-400 hover:text-yellow-300 text-enhanced text-sm font-semibold">Learn More About Technical Assessment →</a>
                 </div>
             </div>
         </div>
 
         <!-- Testimonials/Benefits -->
         <div class="glass-dark rounded-xl p-6 mb-8">
-            <h3 class="text-xl font-bold mb-6 text-center">What You'll Get</h3>
+            <h3 class="text-xl font-bold mb-6 text-center text-enhanced">What You'll Get</h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="space-y-4">
                     <div class="flex items-start space-x-3">
                         <div class="text-green-400 text-xl">✅</div>
                         <div>
-                            <h4 class="font-semibold">Honest Assessment</h4>
-                            <p class="text-sm text-gray-300">Realistic scoring system that helps you identify real skill gaps</p>
+                            <h4 class="font-semibold text-enhanced">Honest Assessment</h4>
+                            <p class="text-sm text-gray-300 text-enhanced">Realistic scoring system that helps you identify real skill gaps</p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-3">
                         <div class="text-blue-400 text-xl">📊</div>
                         <div>
-                            <h4 class="font-semibold">Detailed Breakdown</h4>
-                            <p class="text-sm text-gray-300">See exactly where you excel and where to focus improvement efforts</p>
+                            <h4 class="font-semibold text-enhanced">Detailed Breakdown</h4>
+                            <p class="text-sm text-gray-300 text-enhanced">See exactly where you excel and where to focus improvement efforts</p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-3">
-                        <div class="text-purple-400 text-xl">🎯</div>
+                        <div class="text-yellow-400 text-xl">🎯</div>
                         <div>
-                            <h4 class="font-semibold">Personalized Recommendations</h4>
-                            <p class="text-sm text-gray-300">Get specific next steps based on your role, industry, and skill level</p>
+                            <h4 class="font-semibold text-enhanced">Personalized Recommendations</h4>
+                            <p class="text-sm text-gray-300 text-enhanced">Get specific next steps based on your role, industry, and skill level</p>
                         </div>
                     </div>
                 </div>
@@ -332,22 +568,22 @@
                     <div class="flex items-start space-x-3">
                         <div class="text-orange-400 text-xl">📅</div>
                         <div>
-                            <h4 class="font-semibold">90-Day Action Plan</h4>
-                            <p class="text-sm text-gray-300">Step-by-step roadmap to improve your AI readiness systematically</p>
+                            <h4 class="font-semibold text-enhanced">90-Day Action Plan</h4>
+                            <p class="text-sm text-gray-300 text-enhanced">Step-by-step roadmap to improve your AI readiness systematically</p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-3">
                         <div class="text-pink-400 text-xl">📄</div>
                         <div>
-                            <h4 class="font-semibold">Professional PDF Report</h4>
-                            <p class="text-sm text-gray-300">Comprehensive document you can save, share, or use for career planning</p>
+                            <h4 class="font-semibold text-enhanced">Professional PDF Report</h4>
+                            <p class="text-sm text-gray-300 text-enhanced">Comprehensive document you can save, share, or use for career planning</p>
                         </div>
                     </div>
                     <div class="flex items-start space-x-3">
                         <div class="text-yellow-400 text-xl">🚀</div>
                         <div>
-                            <h4 class="font-semibold">Career Advancement</h4>
-                            <p class="text-sm text-gray-300">Position yourself for AI-driven opportunities in your field</p>
+                            <h4 class="font-semibold text-enhanced">Career Advancement</h4>
+                            <p class="text-sm text-gray-300 text-enhanced">Position yourself for AI-driven opportunities in your field</p>
                         </div>
                     </div>
                 </div>
@@ -356,13 +592,54 @@
 
         <!-- Footer CTA -->
         <div class="text-center">
-            <h3 class="text-2xl font-bold mb-4">Ready to Discover Your AI Potential?</h3>
-            <p class="text-gray-300 mb-6">Choose your assessment level above and get started in seconds</p>
-            <p class="text-sm text-gray-400">
+            <h3 class="text-2xl font-bold mb-4 text-enhanced">Ready to Discover Your AI Potential?</h3>
+            <p class="text-gray-300 mb-6 text-enhanced">Choose your assessment level above and get started in seconds</p>
+            <p class="text-sm text-gray-400 text-enhanced">
                 All assessments are completely free • No registration required • Instant results
             </p>
         </div>
-    </div>
+        </div>
+        <footer class="mt-16 py-8 px-4 border-t border-gray-700" style="background: rgba(17, 24, 39, 0.8); backdrop-filter: blur(10px);" role="contentinfo">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4" style="color: white;">AI RECKONING</h4>
+                        <p class="text-sm mb-4" style="color: #d1d5db;">Emergency response for AI-driven workforce transformation.</p>
+                        <div class="mt-4 space-y-2">
+                            <a href="about.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">About Us</a>
+                            <a href="methodology.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Our Methodology</a>
+                            <a href="research.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Research & Data</a>
+                            <a href="privacy.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Privacy Policy</a>
+                            <a href="terms.html" class="block text-sm hover:text-white transition-colors" style="color: #d1d5db;">Terms of Service</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4" style="color: white;">Resources</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://futureskillsprime.in" target="_blank" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">FutureSkills Prime</a></li>
+                            <li><a href="https://www.skillindia.gov.in" target="_blank" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Skill India</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4" style="color: white;">Industries</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="resources.html#it-bpm" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">IT & BPM</a></li>
+                            <li><a href="resources.html#banking" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Banking</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-4" style="color: white;">Support</h5>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="help.html" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Help Center</a></li>
+                            <li><a href="contact.html" class="hover:text-red-300 transition-colors" style="color: #d1d5db;">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm">
+                    <p style="color: #9ca3af;">&copy; 2025 AI RECKONING. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
 
     <script>
         // Add some interactive elements

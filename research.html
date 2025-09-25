@@ -1,34 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        a, body, main, header, footer, .glass, .critical-alert, .btn-primary, p, h1, h2, h3, h4, h5, h6, ul, li, div { color: #fff !important; position: relative; z-index: 20; }
-        body { background: #18181b !important; }
-    </style>
-    <style>
-        #app, header, main, footer { position: relative; z-index: 20; }
-    </style>
-    <style>
-        #app, header, main, footer { position: relative; z-index: 20; }
-        a, body, main, header, footer, .glass, .critical-alert, .btn-primary, p, h1, h2, h3, h4, h5, h6, ul, li, div { text-align: center; }
-        nav a { text-align: center; }
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Research and data behind AI Reckoning">
+    <meta name="description" content="Research and data behind AI Reckoning - comprehensive AI industry statistics, trends, and career transformation insights">
     <title>Research & Data | AI RECKONING</title>
-    <link rel="stylesheet" href="css/tailwind.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; display: flex; flex-direction: column; color: white; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
         main { flex: 1; }
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .btn-primary { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); padding: 1rem 2rem; border-radius: 0.75rem; color: white; font-weight: 600; }
-        .btn-primary:hover { transform: translateY(-2px); }
-        .nav-active { color: #ef4444; font-weight: 600; position: relative; }
-        .nav-active:after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background: #ef4444; }
-        .warning-icon { animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
-        #loading { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); display: flex; align-items: center; justify-content: center; z-index: 9999; }
-        .hidden { display: none; }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #B8860B 0%, #DAA520 100%);
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            color: white;
+            font-weight: 600;
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(184, 134, 11, 0.4);
+            background: linear-gradient(135deg, #9A7B0A 0%, #B8860B 100%);
+        }
+        .nav-active {
+            color: #FFD700;
+            font-weight: 600;
+            position: relative;
+        }
+        .nav-active:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #FFD700;
+        }
+
+        /* Enhanced Navigation Styles - Force Visibility */
+        header {
+            background: rgba(26, 26, 46, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            position: relative !important;
+            z-index: 1000 !important;
+        }
+        .header-container {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 1rem !important;
+            padding: 1rem !important;
+        }
+        .logo-section {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.75rem !important;
+        }
+        nav {
+            width: 100% !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 0.5rem !important;
+            max-width: 100% !important;
+            overflow: visible !important;
+        }
+        nav a {
+            display: block !important;
+            padding: 0.75rem 1rem !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 0.5rem !important;
+            color: white !important;
+            text-decoration: none !important;
+            font-size: 0.875rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            min-width: 100px !important;
+            transition: all 0.3s ease !important;
+            white-space: nowrap !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            color: #FFD700 !important;
+            transform: translateY(-1px) !important;
+        }
+
+        /* Desktop styles - Force visibility */
+        @media (min-width: 1024px) {
+            .header-container {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 1.5rem !important;
+            }
+            nav {
+                width: auto !important;
+                justify-content: flex-end !important;
+            }
+            nav a {
+                background: rgba(255, 255, 255, 0.12) !important;
+                border: 2px solid rgba(255, 255, 255, 0.2) !important;
+                min-width: auto !important;
+                padding: 0.625rem 1.25rem !important;
+                font-size: 0.9rem !important;
+                font-weight: 500 !important;
+            }
+            nav a:hover {
+                background: rgba(255, 255, 255, 0.2) !important;
+                border-color: rgba(255, 255, 255, 0.4) !important;
+            }
+        }
+
+        /* Content cards */
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .content-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #9CA3AF;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <i class="fas fa-robot text-3xl text-yellow-400"></i>
+                <h1 class="text-2xl lg:text-3xl font-bold text-white">AI RECKONING</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="roadmaps.html">Roadmaps</a>
+                <a href="assessment-selection.html">Assessment</a>
+                <a href="technical-assessment-selection.html">Technical</a>
+                <a href="survival-guide.html">Survival Guide</a>
+                <a href="resources.html">Resources</a>
+                <a href="community.html">Community</a>
+                <a href="research.html" class="nav-active">Research</a>
+                <a href="about.html">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="max-w-7xl mx-auto px-4 py-12">
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6 text-white">
+                    <i class="fas fa-microscope text-yellow-400 mr-4"></i>
+                    Research & Data
+                </h1>
+                <p class="text-xl lg:text-2xl text-gray-200 mb-8">
+                    Evidence-based insights into AI transformation and career evolution
+                </p>
+                <p class="text-lg text-yellow-400 font-semibold">
+                    📊 Latest Statistics • 📈 Industry Trends • 🎯 Career Impact Analysis
+                </p>
+            </div>
+
+            <!-- Key Statistics Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="stat-card">
+                    <div class="stat-number">85%</div>
+                    <div class="stat-label">Jobs Will Be Affected by AI</div>
+                    <div class="text-xs text-gray-400 mt-2">World Economic Forum, 2025</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">97M</div>
+                    <div class="stat-label">New AI Jobs by 2025</div>
+                    <div class="text-xs text-gray-400 mt-2">Gartner Research</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$15.7T</div>
+                    <div class="stat-label">AI Market Value by 2030</div>
+                    <div class="text-xs text-gray-400 mt-2">IDC Research</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">44%</div>
+                    <div class="stat-label">Workers Need Reskilling</div>
+                    <div class="text-xs text-gray-400 mt-2">McKinsey Global Institute</div>
+                </div>
+            </div>
+
+            <!-- AI Industry Impact Analysis -->
+            <div class="content-card mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-white">
+                    <i class="fas fa-chart-line text-yellow-400 mr-3"></i>
+                    AI Industry Impact Analysis
+                </h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-yellow-400">High-Impact Industries</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-building text-blue-400 mr-3"></i>
+                                <span><strong>Financial Services:</strong> 50% of tasks automatable</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-truck text-green-400 mr-3"></i>
+                                <span><strong>Transportation:</strong> 45% automation potential</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-shopping-cart text-purple-400 mr-3"></i>
+                                <span><strong>Retail & E-commerce:</strong> 40% task automation</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-stethoscope text-red-400 mr-3"></i>
+                                <span><strong>Healthcare:</strong> 35% administrative tasks</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-yellow-400">Growth Sectors</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-robot text-cyan-400 mr-3"></i>
+                                <span><strong>AI/ML Engineering:</strong> 200% job growth expected</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-brain text-pink-400 mr-3"></i>
+                                <span><strong>Data Science:</strong> 150% increase in demand</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-shield-alt text-orange-400 mr-3"></i>
+                                <span><strong>AI Ethics & Safety:</strong> 180% growth projection</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-users-cog text-indigo-400 mr-3"></i>
+                                <span><strong>AI Operations:</strong> 130% demand surge</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Skills Gap Analysis -->
+            <div class="content-card mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-white">
+                    <i class="fas fa-graduation-cap text-yellow-400 mr-3"></i>
+                    Critical Skills Gap Analysis
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">🤖</div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Machine Learning</h3>
+                        <p class="text-gray-300 mb-3">Only 22% of companies have access to ML talent</p>
+                        <div class="bg-red-600 bg-opacity-20 rounded-lg p-3">
+                            <div class="text-red-400 font-semibold">Critical Shortage</div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">📊</div>
+                        <h3 class="text-xl font-bold mb-2 text-white">Data Engineering</h3>
+                        <p class="text-gray-300 mb-3">Demand exceeds supply by 300%</p>
+                        <div class="bg-orange-600 bg-opacity-20 rounded-lg p-3">
+                            <div class="text-orange-400 font-semibold">Severe Gap</div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl mb-4">🔒</div>
+                        <h3 class="text-xl font-bold mb-2 text-white">AI Ethics</h3>
+                        <p class="text-gray-300 mb-3">Only 15% of organizations have ethics frameworks</p>
+                        <div class="bg-yellow-600 bg-opacity-20 rounded-lg p-3">
+                            <div class="text-yellow-400 font-semibold">Emerging Need</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Research Methodology -->
+            <div class="content-card mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-white">
+                    <i class="fas fa-flask text-yellow-400 mr-3"></i>
+                    Research Methodology & Sources
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-yellow-400">Primary Data Sources</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                <span>World Economic Forum Future of Jobs Report 2025</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                <span>McKinsey Global Institute AI Reports</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                <span>Gartner AI & ML Market Research</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                <span>IDC Worldwide AI MarketScape</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-green-400 mr-3"></i>
+                                <span>LinkedIn Workforce Development Reports</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-4 text-yellow-400">Data Collection Methods</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-chart-bar text-blue-400 mr-3"></i>
+                                <span>Industry surveys and workforce analysis</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-users text-purple-400 mr-3"></i>
+                                <span>Professional network data aggregation</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-search text-cyan-400 mr-3"></i>
+                                <span>Job market trend analysis</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-lightbulb text-yellow-400 mr-3"></i>
+                                <span>Expert interviews and case studies</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-sync text-green-400 mr-3"></i>
+                                <span>Continuous monitoring and updates</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Projections -->
+            <div class="content-card mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-white">
+                    <i class="fas fa-crystal-ball text-yellow-400 mr-3"></i>
+                    Future Projections (2025-2030)
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl mb-3">🚀</div>
+                        <h3 class="text-xl font-bold mb-2">AI Job Creation</h3>
+                        <p class="text-blue-100 mb-3">97 million new AI-related jobs expected globally</p>
+                        <div class="text-2xl font-bold text-yellow-400">+25% YoY Growth</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-600 to-green-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl mb-3">💰</div>
+                        <h3 class="text-xl font-bold mb-2">Economic Impact</h3>
+                        <p class="text-green-100 mb-3">$15.7 trillion AI market value projected</p>
+                        <div class="text-2xl font-bold text-yellow-400">$4.4T Annual</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-600 to-purple-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl mb-3">🎓</div>
+                        <h3 class="text-xl font-bold mb-2">Reskilling Needs</h3>
+                        <p class="text-purple-100 mb-3">44% of global workforce needs upskilling</p>
+                        <div class="text-2xl font-bold text-yellow-400">1.4B People</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="content-card text-center">
+                <h2 class="text-3xl font-bold mb-6 text-white">
+                    Ready to Navigate the AI Transformation?
+                </h2>
+                <p class="text-xl text-gray-200 mb-8">
+                    Use our research-backed tools to assess your AI readiness and create your personalized transformation roadmap.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="assessment-selection.html" class="btn-primary">
+                        <i class="fas fa-clipboard-check mr-2"></i>
+                        Take Assessment
+                    </a>
+                    <a href="roadmaps.html" class="btn-primary">
+                        <i class="fas fa-map mr-2"></i>
+                        View Roadmaps
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Research page interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🔬 AI Research & Data Page Loaded');
+
+            // Add hover effects to stat cards
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.02)';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

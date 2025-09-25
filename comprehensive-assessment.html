@@ -3,82 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comprehensive AI Career Assessment - 15 Minutes</title>
-    <link href="css/tailwind.min.css" rel="stylesheet">
-    <link href="css/fontawesome/fontawesome.css" rel="stylesheet">
+    <meta name="description" content="Comprehensive AI career assessment - evaluate your readiness for AI transformation">
+    <title>Comprehensive AI Career Assessment | AI RECKONING</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 100vh;
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            color: white;
+            text-align: center !important;
         }
-        .glass-dark {
+        main { flex: 1; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+        .btn-primary { 
+            background: linear-gradient(135deg, #B8860B 0%, #DAA520 100%); 
+            padding: 1rem 2rem; 
+            border-radius: 0.75rem; 
+            color: white; 
+            font-weight: 600; 
+            display: inline-block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 8px 25px rgba(184, 134, 11, 0.4);
+            background: linear-gradient(135deg, #9A7B0A 0%, #B8860B 100%);
+        }
+        .nav-active { 
+            color: #FFD700; 
+            font-weight: 600; 
+            position: relative; 
+        }
+        .nav-active:after { 
+            content: ''; 
+            position: absolute; 
+            bottom: -4px; 
+            left: 0; 
+            width: 100%; 
+            height: 2px; 
+            background: #FFD700; 
+        }
+        
+        /* Enhanced Navigation Styles - Force Visibility */
+        header {
+            background: rgba(26, 26, 46, 0.95) !important;
+            backdrop-filter: blur(10px) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+            position: relative !important;
+            z-index: 1000 !important;
+        }
+        .header-container {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 1rem !important;
+            padding: 1rem !important;
+        }
+        .logo-section {
+            display: flex !important;
+            align-items: center !important;
+            gap: 0.75rem !important;
+        }
+        nav {
+            width: 100% !important;
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 0.5rem !important;
+            max-width: 100% !important;
+            overflow: visible !important;
+        }
+        nav a {
+            display: block !important;
+            padding: 0.75rem 1rem !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            border-radius: 0.5rem !important;
+            color: white !important;
+            text-decoration: none !important;
+            font-size: 0.875rem !important;
+            font-weight: 600 !important;
+            text-align: center !important;
+            min-width: 100px !important;
+            transition: all 0.3s ease !important;
+            white-space: nowrap !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.25) !important;
+            color: #FFD700 !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        /* Desktop styles - Force visibility */
+        @media (min-width: 1024px) {
+            .header-container {
+                flex-direction: row !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 1.5rem !important;
+            }
+            nav {
+                width: auto !important;
+                justify-content: flex-end !important;
+            }
+            nav a {
+                background: rgba(255, 255, 255, 0.12) !important;
+                border: 2px solid rgba(255, 255, 255, 0.2) !important;
+                min-width: auto !important;
+                padding: 0.625rem 1.25rem !important;
+                font-size: 0.9rem !important;
+                font-weight: 500 !important;
+            }
+            nav a:hover {
+                background: rgba(255, 255, 255, 0.2) !important;
+                border-color: rgba(255, 255, 255, 0.4) !important;
+            }
+        }
+        
+        /* Assessment-specific styles */
+        .assessment-card {
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            text-align: center;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        
+        .assessment-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
-        .question-section {
-            border-left: 4px solid #667eea;
-            background: rgba(102, 126, 234, 0.1);
+        
+        .risk-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+        
+        .level-comprehensive {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid #22c55e;
+        }
+        
+        .warning-icon { 
+            animation: pulse 2s infinite; 
+        }
+        @keyframes pulse { 
+            0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); } 
+            70% { box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); } 
+            100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); } 
         }
     </style>
 </head>
-<body class="text-white">
-    <div class="container mx-auto px-4 py-8 max-w-5xl">
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <h1 class="text-5xl font-bold mb-4">
-                📊 <span class="gradient-text">Comprehensive AI Career Assessment</span>
-            </h1>
-            <p class="text-xl text-gray-300 mb-6">
-                Complete AI Readiness Evaluation for Business Professionals
-            </p>
-            <p class="text-lg text-blue-400">
-                🎯 15 Minutes • 📋 10 Strategic Questions • 📈 Detailed Analysis • 📄 Professional Report
-            </p>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <i class="fas fa-robot text-3xl text-yellow-400"></i>
+                <h1 class="text-2xl lg:text-3xl font-bold text-white">AI RECKONING</h1>
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="roadmaps.html">Roadmaps</a>
+                <a href="assessment-selection.html">Assessment</a>
+                <a href="technical-assessment-selection.html">Technical</a>
+                <a href="survival-guide.html">Survival Guide</a>
+                <a href="resources.html">Resources</a>
+                <a href="community.html">Community</a>
+                <a href="research.html">Research</a>
+                <a href="about.html">About</a>
+            </nav>
         </div>
+    </header>
 
-        <!-- Assessment Level Info -->
-        <div class="glass-dark rounded-2xl p-6 mb-8">
-            <h2 class="text-2xl font-bold mb-4 text-center">📊 Level 2: Comprehensive Assessment</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
-                <div class="bg-blue-600 bg-opacity-20 rounded-lg p-4">
-                    <div class="text-2xl mb-2">⏰</div>
-                    <div class="font-semibold">15 Minutes</div>
-                    <div class="text-sm text-gray-300">Balanced depth</div>
+    <main>
+        <!-- Hero Section -->
+        <div class="max-w-4xl mx-auto px-4 py-12">
+            <div class="assessment-card">
+                <div class="risk-badge level-comprehensive">
+                    <i class="fas fa-check-circle"></i>
+                    COMPREHENSIVE
                 </div>
-                <div class="bg-green-600 bg-opacity-20 rounded-lg p-4">
-                    <div class="text-2xl mb-2">📋</div>
-                    <div class="font-semibold">10 Questions</div>
-                    <div class="text-sm text-gray-300">Strategic focus</div>
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6 text-white">
+                    Complete AI Career Assessment
+                </h1>
+                <p class="text-xl lg:text-2xl mb-8 text-gray-200">
+                    A thorough 15-minute evaluation covering all aspects of AI career readiness
+                </p>
+                
+                <!-- Assessment Info -->
+                <div class="grid lg:grid-cols-3 gap-6 mb-8">
+                    <div class="text-center">
+                        <i class="fas fa-clock text-2xl text-yellow-400 mb-2"></i>
+                        <h3 class="text-lg font-semibold text-white">15 Minutes</h3>
+                        <p class="text-gray-300">Complete assessment time</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-list-check text-2xl text-yellow-400 mb-2"></i>
+                        <h3 class="text-lg font-semibold text-white">50+ Questions</h3>
+                        <p class="text-gray-300">Comprehensive evaluation</p>
+                    </div>
+                    <div class="text-center">
+                        <i class="fas fa-chart-line text-2xl text-yellow-400 mb-2"></i>
+                        <h3 class="text-lg font-semibold text-white">Detailed Report</h3>
+                        <p class="text-gray-300">Personalized roadmap</p>
+                    </div>
                 </div>
-                <div class="bg-purple-600 bg-opacity-20 rounded-lg p-4">
-                    <div class="text-2xl mb-2">🎯</div>
-                    <div class="font-semibold">Business Level</div>
-                    <div class="text-sm text-gray-300">Professional insights</div>
-                </div>
-                <div class="bg-orange-600 bg-opacity-20 rounded-lg p-4">
-                    <div class="text-2xl mb-2">📊</div>
-                    <div class="font-semibold">Detailed Report</div>
-                    <div class="text-sm text-gray-300">Action plan included</div>
-                </div>
+                
+                <!-- Assessment Form -->
             </div>
         </div>
 
         <!-- Main Form -->
-        <div class="glass-dark rounded-2xl p-8 mb-8">
-            <h2 class="text-2xl font-bold mb-6 text-center">Comprehensive Assessment Form</h2>
+        <div class="assessment-card" style="max-width: 900px; margin: 0 auto;">
+            <h2 class="text-2xl font-bold mb-6 text-white">Comprehensive Assessment Form</h2>
             
             <form id="comprehensiveAssessmentForm" class="space-y-8">
                 <!-- Basic Info -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium mb-2">Full Name *</label>
+                        <label class="block text-sm font-medium mb-2 text-enhanced">Full Name *</label>
                         <input type="text" id="name" required
                                class="w-full px-3 py-2 rounded bg-gray-800 border border-gray-600 text-white"
                                placeholder="Enter your full name">
@@ -287,10 +453,11 @@
                 <!-- Submit Button -->
                 <div class="text-center mt-8">
                     <button type="submit" id="generateComprehensiveReport" 
-                            class="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105">
-                        📊 Generate My Comprehensive AI Assessment Report
+                            class="btn-primary text-lg">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        Generate My Comprehensive AI Assessment Report
                     </button>
-                    <p class="text-sm text-gray-400 mt-4">
+                    <p class="text-sm text-gray-300 mt-4">
                         Your detailed analysis and personalized action plan will be generated and downloaded
                     </p>
                 </div>
@@ -306,7 +473,7 @@
                     <div class="font-semibold">Quick Assessment</div>
                     <div class="text-sm text-gray-300">5 minutes • 5 questions • Quick overview</div>
                 </a>
-                <a href="survival-guide-working.html" class="bg-purple-600 bg-opacity-20 hover:bg-opacity-30 rounded-lg p-4 text-center transition-all">
+                <a href="standalone-assessment.html" class="bg-purple-600 bg-opacity-20 hover:bg-opacity-30 rounded-lg p-4 text-center transition-all">
                     <div class="text-2xl mb-2">🔧</div>
                     <div class="font-semibold">Technical Assessment</div>
                     <div class="text-sm text-gray-300">25 minutes • 15 questions • Technical depth</div>
@@ -648,5 +815,22 @@
             }, 1000);
         };
     </script>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-50 backdrop-blur-md border-t border-gray-700 mt-12">
+        <div class="container mx-auto px-4 py-6" style="max-width: 1200px;">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                <div class="text-center md:text-left">
+                    <p class="text-gray-300">&copy; 2024 AI Career Survival Guide. Empowering professionals for the AI-driven future.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="assessment-selection.html" class="text-gray-300 hover:text-white transition-colors">Other Assessments</a>
+                    <a href="quick-assessment-selection.html" class="text-gray-300 hover:text-white transition-colors">Quick</a>
+                    <a href="technical-assessment-selection.html" class="text-gray-300 hover:text-white transition-colors">Technical</a>
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

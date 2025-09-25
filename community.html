@@ -1,91 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        /* Fixed styles with black background and no overlapping */
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            min-height: 100vh;
-            color: white;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        
-        a, p, h1, h2, h3, h4, h5, h6 {
-            color: #fff !important;
-            text-shadow: 0 1px 3px #000;
-            text-align: center;
-        }
-        
-        a:hover, a:focus { color: #f3f4f6; text-decoration: underline; }
-        
-        header, main, footer {
-            width: 100%;
-            padding: 1rem;
-            text-align: center;
-        }
-        
-        main { 
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-        
-        nav { 
-            text-align: center;
-        }
-        
-        nav a { 
-            margin: 0 0.75rem; 
-            padding: 0.5rem;
-            display: inline-block;
-            text-align: center;
-        }
-        
-        .btn-primary { 
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); 
-            padding: 1rem 2rem; 
-            border-radius: 0.75rem; 
-            color: white; 
-            font-weight: 600; 
-            display: inline-block; 
-            margin: 1rem auto;
-            text-decoration: none;
-        }
-        
-        .glass { 
-            background: rgba(255, 255, 255, 0.05); 
-            backdrop-filter: blur(10px); 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            padding: 2rem; 
-            margin: 1rem auto;
-            border-radius: 1rem;
-        }
-    </style>
-    <style>
-        /* Additional styles */
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join the AI Reckoning community for support">
+    <meta name="description" content="Join the AI Reckoning community for support, mentorship, and career transformation resources">
     <title>Community | AI RECKONING</title>
     <link rel="stylesheet" href="css/tailwind.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; display: flex; flex-direction: column; color: white; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
         main { flex: 1; }
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .btn-primary { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); padding: 1rem 2rem; border-radius: 0.75rem; color: white; font-weight: 600; }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            color: white;
+            font-weight: 600;
+        }
         .btn-primary:hover { transform: translateY(-2px); }
-        .nav-active { color: #ef4444; font-weight: 600; position: relative; }
-        .nav-active:after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background: #ef4444; }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            color: white;
+            font-weight: 500;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+        .nav-active {
+            color: #ef4444;
+            font-weight: 600;
+            position: relative;
+        }
+        .nav-active:after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #ef4444;
+        }
         .warning-icon { animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); } 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); } }
-        #loading { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.8); display: flex; align-items: center; justify-content: center; z-index: 9999; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .content-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 1rem 0;
+        }
+        .community-stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .forum-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            transition: transform 0.2s;
+        }
+        .forum-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        .event-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        .success-story {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
         .hidden { display: none; }
     </style>
 </head>
@@ -100,12 +130,12 @@
         // Immediately hide loading screen
         document.getElementById('loading').style.display = 'none';
     </script>
+
     <div id="app" class="min-h-screen">
+        <!-- Header -->
         <header class="py-4 px-4 sm:px-6 lg:px-8 border-b border-gray-700" role="banner">
             <div class="max-w-7xl mx-auto">
-                <!-- Main header row -->
                 <div class="flex flex-col lg:flex-row justify-between items-center">
-                    <!-- Logo and brand -->
                     <div class="flex items-center space-x-3 mb-4 lg:mb-0">
                         <div class="bg-red-600 p-2 rounded-xl warning-icon">
                             <i class="fas fa-exclamation-triangle text-2xl"></i>
@@ -115,11 +145,9 @@
                             <p class="text-sm opacity-90">Emergency Career Transformation System</p>
                         </div>
                     </div>
-                    
-                    <!-- Navigation -->
                     <nav class="flex flex-wrap justify-center lg:justify-end gap-4 lg:gap-6" role="navigation">
                         <a href="index.html" class="font-medium hover:text-red-300 transition px-2 py-1">Home</a>
-                        <a href="ai-career-assessment.html" class="font-medium hover:text-red-300 transition px-2 py-1">Assessment</a>
+                        <a href="assessment-selection.html" class="font-medium hover:text-red-300 transition px-2 py-1">Assessment</a>
                         <a href="roadmaps.html" class="font-medium hover:text-red-300 transition px-2 py-1">Critical Roadmaps</a>
                         <a href="resources.html" class="font-medium hover:text-red-300 transition px-2 py-1">Survival Resources</a>
                         <a href="community.html" class="font-medium hover:text-red-300 transition nav-active px-2 py-1" aria-current="page">Community</a>
@@ -128,57 +156,249 @@
                 </div>
             </div>
         </header>
+
+        <!-- Main Content -->
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" role="main">
-            <section id="community" class="glass rounded-2xl p-8">
-                <h3 class="text-2xl font-bold mb-6 text-center">Join Our Community</h3>
-                <p class="text-lg mb-8 text-center opacity-80">Connect with others navigating the AI revolution.</p>
-                <div class="text-center">
-                    <a href="contact.html" class="btn-primary">Get Involved</a>
+            <!-- Page Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6 text-white">
+                    <i class="fas fa-users text-yellow-400 mr-4"></i>
+                    Community
+                </h1>
+                <p class="text-xl lg:text-2xl text-gray-200 mb-8">
+                    Connect, learn, and grow with fellow professionals navigating the AI transformation
+                </p>
+                <p class="text-lg text-yellow-400 font-semibold">
+                    🚀 Celebrate Success Stories & Share Your Journey
+                </p>
+            </div>
+
+            <!-- Community Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="community-stat">
+                    <div class="text-3xl mb-2">👥</div>
+                    <div class="text-2xl font-bold text-yellow-400 mb-1">12,847</div>
+                    <div class="text-sm text-gray-300">Active Members</div>
+                </div>
+                <div class="community-stat">
+                    <div class="text-3xl mb-2">💬</div>
+                    <div class="text-2xl font-bold text-yellow-400 mb-1">3,291</div>
+                    <div class="text-sm text-gray-300">Discussions</div>
+                </div>
+                <div class="community-stat">
+                    <div class="text-3xl mb-2">🎓</div>
+                    <div class="text-2xl font-bold text-yellow-400 mb-1">847</div>
+                    <div class="text-sm text-gray-300">Mentorship Pairs</div>
+                </div>
+                <div class="community-stat">
+                    <div class="text-3xl mb-2">🏆</div>
+                    <div class="text-2xl font-bold text-yellow-400 mb-1">156</div>
+                    <div class="text-sm text-gray-300">Success Stories</div>
+                </div>
+            </div>
+
+            <!-- Community Features -->
+            <div class="content-card mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-white">
+                    <i class="fas fa-handshake text-yellow-400 mr-3"></i>
+                    What Our Community Offers
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">💬</div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Discussion Forums</h3>
+                        <p class="text-gray-300 mb-4">Share experiences, ask questions, and learn from peers in AI career transitions</p>
+                        <a href="#forums" class="btn-secondary text-sm">Explore Forums</a>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">👨‍🏫</div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Mentorship Program</h3>
+                        <p class="text-gray-300 mb-4">Connect with experienced professionals for personalized guidance</p>
+                        <a href="#mentorship" class="btn-secondary text-sm">Find a Mentor</a>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">📅</div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Community Events</h3>
+                        <p class="text-gray-300 mb-4">Webinars, workshops, and networking sessions with industry experts</p>
+                        <a href="#events" class="btn-secondary text-sm">View Events</a>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">📚</div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Resource Sharing</h3>
+                        <p class="text-gray-300 mb-4">Access exclusive tools, templates, and learning materials</p>
+                        <a href="#resources" class="btn-secondary text-sm">Browse Resources</a>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">🏆</div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Success Stories</h3>
+                        <p class="text-gray-300 mb-4">Read inspiring journeys of community members who've successfully adapted</p>
+                        <a href="#stories" class="btn-secondary text-sm">Read Stories</a>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-5xl mb-4">🚀</div>
+                        <h3 class="text-xl font-bold mb-3 text-white">Career Support</h3>
+                        <p class="text-gray-300 mb-4">Get help with resume reviews, interview prep, and job search strategies</p>
+                        <a href="#support" class="btn-secondary text-sm">Get Support</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Discussion Forums Section -->
+            <section id="forums" class="content-card mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-white">
+                    <i class="fas fa-comments text-yellow-400 mr-3"></i>
+                    Discussion Forums
+                </h2>
+                <div class="space-y-4">
+                    <div class="forum-card">
+                        <h3 class="text-xl font-bold text-white mb-2">AI Career Transitions</h3>
+                        <p class="text-gray-300 mb-3">Share your journey and learn from others making the switch to AI-related roles</p>
+                        <div class="flex justify-between items-center text-sm text-gray-400">
+                            <span>1,247 discussions</span>
+                            <span>Last active: 2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="forum-card">
+                        <h3 class="text-xl font-bold text-white mb-2">Skill Development & Learning</h3>
+                        <p class="text-gray-300 mb-3">Discuss courses, certifications, and best practices for upskilling</p>
+                        <div class="flex justify-between items-center text-sm text-gray-400">
+                            <span>892 discussions</span>
+                            <span>Last active: 5 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="forum-card">
+                        <h3 class="text-xl font-bold text-white mb-2">Job Market Insights</h3>
+                        <p class="text-gray-300 mb-3">Real-time updates on AI job opportunities and salary trends</p>
+                        <div class="flex justify-between items-center text-sm text-gray-400">
+                            <span>654 discussions</span>
+                            <span>Last active: 1 hour ago</span>
+                        </div>
+                    </div>
+                    <div class="forum-card">
+                        <h3 class="text-xl font-bold text-white mb-2">Industry News & Trends</h3>
+                        <p class="text-gray-300 mb-3">Stay updated on the latest AI developments and their impact on careers</p>
+                        <div class="flex justify-between items-center text-sm text-gray-400">
+                            <span>423 discussions</span>
+                            <span>Last active: 3 hours ago</span>
+                        </div>
+                    </div>
                 </div>
             </section>
+
+            <!-- Upcoming Events -->
+            <section id="events" class="content-card mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-white">
+                    <i class="fas fa-calendar-alt text-yellow-400 mr-3"></i>
+                    Upcoming Community Events
+                </h2>
+                <div class="space-y-4">
+                    <div class="event-card">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-bold text-white">AI Career Transition Webinar</h3>
+                            <span class="bg-red-600 text-white px-3 py-1 rounded-full text-sm">Live</span>
+                        </div>
+                        <p class="text-gray-300 mb-3">Join industry experts for insights on navigating AI-driven career changes</p>
+                        <div class="flex justify-between items-center text-sm text-gray-400">
+                            <span>📅 Dec 15, 2024 | 2:00 PM EST</span>
+                            <a href="#" class="btn-secondary text-xs">Register</a>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <h3 class="text-xl font-bold text-white mb-2">Mentorship Speed Networking</h3>
+                        <p class="text-gray-300 mb-3">Connect with potential mentors in a structured networking session</p>
+                        <div class="flex justify-between items-center text-sm text-gray-400">
+                            <span>📅 Dec 20, 2024 | 6:00 PM EST</span>
+                            <a href="#" class="btn-secondary text-xs">Join</a>
+                        </div>
+                    </div>
+                    <div class="event-card">
+                        <h3 class="text-xl font-bold text-white mb-2">Resume Review Workshop</h3>
+                        <p class="text-gray-300 mb-3">Get expert feedback on your AI-focused resume and LinkedIn profile</p>
+                        <div class="flex justify-between items-center text-sm text-gray-400">
+                            <span>📅 Dec 22, 2024 | 1:00 PM EST</span>
+                            <a href="#" class="btn-secondary text-xs">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Success Stories -->
+            <section id="stories" class="content-card mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-white">
+                    <i class="fas fa-trophy text-yellow-400 mr-3"></i>
+                    Success Stories
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="success-story">
+                        <h3 class="text-xl font-bold text-white mb-3">From Marketing to AI Ethics</h3>
+                        <p class="text-gray-300 mb-4">"After 10 years in marketing, I was worried about AI automation. This community helped me transition to AI ethics consulting within 6 months."</p>
+                        <div class="text-sm text-yellow-400 font-semibold">- Sarah M., AI Ethics Consultant</div>
+                    </div>
+                    <div class="success-story">
+                        <h3 class="text-xl font-bold text-white mb-3">Software Engineer → AI/ML Engineer</h3>
+                        <p class="text-gray-300 mb-4">"The mentorship program connected me with an amazing mentor who guided me through the transition. Now I'm leading AI projects at a Fortune 500 company."</p>
+                        <div class="text-sm text-yellow-400 font-semibold">- Michael R., Senior AI Engineer</div>
+                    </div>
+                    <div class="success-story">
+                        <h3 class="text-xl font-bold text-white mb-3">Data Analyst → AI Product Manager</h3>
+                        <p class="text-gray-300 mb-4">"The community resources and forums provided the insights I needed to pivot successfully. The support here is incredible."</p>
+                        <div class="text-sm text-yellow-400 font-semibold">- Jennifer L., AI Product Manager</div>
+                    </div>
+                    <div class="success-story">
+                        <h3 class="text-xl font-bold text-white mb-3">Traditional Developer → AI Solutions Architect</h3>
+                        <p class="text-gray-300 mb-4">"I thought my coding skills were obsolete, but this community showed me how to leverage them in AI development. Best career decision ever."</p>
+                        <div class="text-sm text-yellow-400 font-semibold">- David K., AI Solutions Architect</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Join Community CTA -->
+            <div class="text-center content-card">
+                <h2 class="text-3xl font-bold mb-4 text-white">Ready to Join Our Community?</h2>
+                <p class="text-xl text-gray-300 mb-6">Connect with thousands of professionals navigating the AI transformation</p>
+                <a href="mailto:community@ai-reckoning.com" class="btn-primary text-lg mr-4">Join Discussion</a>
+                <a href="#mentorship" class="btn-secondary text-lg">Find Mentorship</a>
+            </div>
         </main>
-        <footer class="mt-16 py-8 px-4 border-t border-gray-700" role="contentinfo">
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 py-8 px-4 sm:px-6 lg:px-8 mt-12">
             <div class="max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
-                        <h4 class="text-lg font-semibold mb-4">AI RECKONING</h4>
-                        <p class="text-sm opacity-75">Emergency response for AI-driven workforce transformation.</p>
-                        <div class="mt-4 space-y-2">
-                            <a href="about.html" class="block text-sm text-blue-400 hover:text-blue-300">About Us</a>
-                            <a href="methodology.html" class="block text-sm text-blue-400 hover:text-blue-300">Our Methodology</a>
-                            <a href="research.html" class="block text-sm text-blue-400 hover:text-blue-300">Research & Data</a>
-                            <a href="privacy.html" class="block text-sm text-blue-400 hover:text-blue-300">Privacy Policy</a>
-                            <a href="terms.html" class="block text-sm text-blue-400 hover:text-blue-300">Terms of Service</a>
-                        </div>
+                        <h3 class="text-lg font-bold text-white mb-4">AI RECKONING</h3>
+                        <p class="text-gray-400">Emergency career transformation resources for the AI era.</p>
                     </div>
                     <div>
-                        <h5 class="font-medium mb-4">Resources</h5>
-                        <ul class="space-y-2 text-sm opacity-75">
-                            <li><a href="https://futureskillsprime.in" target="_blank" class="hover:text-red-300 transition">FutureSkills Prime</a></li>
-                            <li><a href="https://www.skillindia.gov.in" target="_blank" class="hover:text-red-300 transition">Skill India</a></li>
+                        <h4 class="text-white font-semibold mb-4">Resources</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="roadmaps.html" class="hover:text-white">Critical Roadmaps</a></li>
+                            <li><a href="resources.html" class="hover:text-white">Survival Resources</a></li>
+                            <li><a href="research.html" class="hover:text-white">AI Research</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h5 class="font-medium mb-4">Industries</h5>
-                        <ul class="space-y-2 text-sm opacity-75">
-                            <li><a href="resources.html#it-bpm" class="hover:text-red-300 transition">IT & BPM</a></li>
-                            <li><a href="resources.html#banking" class="hover:text-red-300 transition">Banking</a></li>
+                        <h4 class="text-white font-semibold mb-4">Community</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="#forums" class="hover:text-white">Discussion Forums</a></li>
+                            <li><a href="#mentorship" class="hover:text-white">Mentorship</a></li>
+                            <li><a href="#events" class="hover:text-white">Events</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h5 class="font-medium mb-4">Support</h5>
-                        <ul class="space-y-2 text-sm opacity-75">
-                            <li><a href="help.html" class="hover:text-red-300 transition">Help Center</a></li>
-                            <li><a href="contact.html" class="hover:text-red-300 transition">Contact Us</a></li>
+                        <h4 class="text-white font-semibold mb-4">Contact</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><a href="mailto:support@ai-reckoning.com" class="hover:text-white">Email Support</a></li>
+                            <li><a href="about.html" class="hover:text-white">About Us</a></li>
+                            <li><a href="privacy-policy.html" class="hover:text-white">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm opacity-75">
-                    <p>&copy; 2025 AI RECKONING. All rights reserved.</p>
+                <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                    <p>&copy; 2024 AI Reckoning. All rights reserved. | Emergency Career Transformation System</p>
                 </div>
             </div>
         </footer>
     </div>
-    <script src="js/main.js"></script>
 </body>
 </html>

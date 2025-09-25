@@ -1,0 +1,3 @@
+Please help me format this AI in India book content in a stylish, professional manner. Convert it to clean HTML with proper styling, fix any jumbled tables, and make it look like a modern web book. Use modern CSS with glass effects, gradients, and responsive design. Ensure tables are properly formatted with headers and data. Here's the content:
+
+[PASTE THE BOOK CONTENT HERE]

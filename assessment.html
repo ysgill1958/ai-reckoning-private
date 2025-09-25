@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting to AI Career Assessment | AI RECKONING</title>
-    <meta http-equiv="refresh" content="3;url=ai-career-assessment.html">
+    <meta http-equiv="refresh" content="3;url=assessment-selection.html">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -22,22 +22,21 @@
     </style>
 </head>
 <body class="min-h-screen flex items-center justify-center">
-    <div class="max-w-2xl mx-auto text-center p-8">
-        <div class="glass rounded-2xl p-12">
+    <div class="text-center p-8" style="max-width: 900px; margin: 0 auto;">
+        <div class="glass rounded-2xl p-12" style="max-width: 700px; margin: 0 auto;">
             <div class="mb-6">
                 <i class="fas fa-route text-6xl text-green-400 mb-4"></i>
             </div>
-            <h1 class="text-3xl font-bold mb-4">🎯 Redirecting to Comprehensive Assessment</h1>
+            <h1 class="text-3xl font-bold mb-4">🎯 Redirecting to Assessment Selection</h1>
             <p class="text-lg mb-6 opacity-90">
-                We've streamlined your experience! You're being redirected to our comprehensive AI Career Assessment 
-                that provides personalized roadmaps and detailed insights.
+                We've enhanced your experience! Choose from three assessment levels to get personalized AI career insights.
             </p>
             <div class="text-sm opacity-75 mb-6">
                 <p>Redirecting in <span id="countdown">3</span> seconds...</p>
             </div>
-            <a href="ai-career-assessment.html" class="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 px-8 py-3 rounded-lg font-semibold transition-all inline-block">
+            <a href="assessment-selection.html" class="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 px-8 py-3 rounded-lg font-semibold transition-all inline-block">
                 <i class="fas fa-bolt mr-2"></i>
-                Continue to Assessment Now
+                Choose Your Assessment Level Now
             </a>
         </div>
     </div>
@@ -53,13 +52,13 @@
             
             if (count <= 0) {
                 clearInterval(timer);
-                window.location.href = 'ai-career-assessment.html';
+                window.location.href = 'assessment-selection.html';
             }
         }, 1000);
 
         // Immediate redirect if user clicks anywhere
         document.addEventListener('click', () => {
-            window.location.href = 'ai-career-assessment.html';
+            window.location.href = 'assessment-selection.html';
         });
     </script>
 </body>

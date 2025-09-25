@@ -9,42 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* NUCLEAR OPTION - FORCE CENTER ALIGNMENT EVERYWHERE */
-        * {
-            text-align: center !important;
-            box-sizing: border-box !important;
+        header[role="banner"] {
+            background: rgba(23, 37, 84, 0.95);
+            border-bottom: 2px solid #3b82f6;
+            box-shadow: 0 4px 24px 0 rgba(16, 16, 32, 0.15);
+            position: relative;
+            z-index: 100;
+            width: 100%;
         }
-        
-        html, body {
-            text-align: center !important;
-            width: 100% !important;
-        }
-        
-        /* Override ALL Tailwind utility classes */
-        .text-left, .text-right, .text-justify, .text-start, .text-end,
-        .sm\\:text-left, .md\\:text-left, .lg\\:text-left, .xl\\:text-left,
-        .justify-start, .justify-end, .justify-between, .justify-around, .justify-evenly,
-        .items-start, .items-end, .self-start, .self-end {
-            text-align: center !important;
-            justify-content: center !important;
-            align-items: center !important;
-        }
-        
-        /* Force ALL flex containers to center */
-        .flex, .flex-col, .flex-row, .inline-flex {
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            text-align: center !important;
-        }
-        
-        /* Force ALL grid containers to center */
-        .grid {
-            display: grid !important;
-            justify-items: center !important;
-            text-align: center !important;
-        }
-        
         body { 
             font-family: 'Inter', sans-serif; 
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); 
@@ -243,12 +215,30 @@
             flex-direction: column !important;
             align-items: center !important;
             gap: 1rem !important;
-            padding: 1rem !important;
+            padding: 1.5rem 0.5rem 1rem 0.5rem !important;
+            width: 100% !important;
+            max-width: 100vw !important;
+            box-sizing: border-box !important;
         }
         .logo-section {
             display: flex !important;
             align-items: center !important;
             gap: 0.75rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+        @media (max-width: 640px) {
+            .header-container {
+                padding: 0.5rem 0.25rem 0.5rem 0.25rem !important;
+                gap: 0.5rem !important;
+            }
+            .logo-section {
+                flex-direction: column !important;
+                gap: 0.25rem !important;
+            }
+            nav[role="navigation"] {
+                flex-direction: column !important;
+                gap: 0.25rem !important;
+            }
         }
         nav {
             width: 100% !important;
@@ -357,11 +347,11 @@
             left: 0; 
             right: 0; 
             bottom: 0; 
-            background: rgba(0, 0, 0, 0.8); 
-            display: flex; 
+            background: rgba(0, 0, 0, 0.95); 
+            display: none; 
             align-items: center; 
             justify-content: center; 
-            z-index: 9999; 
+            z-index: 1000; 
         }
         .hidden { 
             display: none; 
@@ -537,6 +527,18 @@
             border-radius: 1rem;
             transition: width 0.5s ease;
         }
+        .fact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; justify-items: center !important; text-align: center !important; }
+        .fact-box { background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: 0.5rem; border-left: 3px solid #ef4444; text-align: center !important; width: 100%; max-width: 350px; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
+        .fact-number { font-size: 2rem; font-weight: bold; color: #ef4444; display: block; margin-bottom: 0.5rem; text-align: center !important; }
+        /* Force center alignment for main sections */
+        .critical-alert { text-align: center !important; margin-bottom: 2rem; }
+        .critical-alert h2 { text-align: center !important; display: flex !important; flex-direction: column !important; align-items: center !important; justify-content: center !important; }
+        /* Force center align logo and brand section */
+        .brand-section { display: flex !important; align-items: center !important; justify-content: center !important; text-align: center !important; margin-bottom: 1rem; }
+        .brand-section .warning-icon { margin-right: 1rem; }
+        /* Override Tailwind classes for center alignment */
+        .flex { justify-content: center !important; align-items: center !important; text-align: center !important; }
+        .max-w-7xl { text-align: center !important; }
     </style>
 </head>
 <body>
@@ -551,43 +553,50 @@
         document.getElementById('loading').style.display = 'none';
     </script>
     <div id="app" class="min-h-screen">
-        <header role="banner">
-            <div class="max-w-7xl mx-auto">
-                <div class="header-container">
-                    <!-- Logo and brand -->
-                    <div class="logo-section">
-                        <div class="bg-red-600 p-2 rounded-xl warning-icon">
-                            <i class="fas fa-exclamation-triangle text-xl"></i>
-                        </div>
-                        <div>
-                            <h1 class="text-xl font-bold">AI RECKONING</h1>
-                            <p class="text-xs opacity-90">Emergency Career Transformation System</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Navigation -->
-                    <nav role="navigation">
-                        <a href="index.html">Home</a>
-                        <a href="ai-career-assessment.html">Assessment</a>
-                        <a href="roadmaps.html">Critical Roadmaps</a>
-                        <a href="resources.html" class="nav-active" aria-current="page">Survival Resources</a>
-                        <a href="community.html">Community</a>
-                        <a href="about.html">About</a>
-                    </nav>
+        <!-- Header with Navigation -->
+        <header>
+            <div class="header-container">
+                <div class="logo-section">
+                    <i class="fas fa-robot text-3xl text-yellow-400"></i>
+                    <h1 class="text-2xl lg:text-3xl font-bold text-white">AI RECKONING</h1>
                 </div>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="roadmaps.html">Roadmaps</a>
+                    <a href="assessment-selection.html">Assessment</a>
+                    <a href="technical-assessment-selection.html">Technical</a>
+                    <a href="survival-guide.html">Survival Guide</a>
+                    <a href="resources.html" class="nav-active">Resources</a>
+                    <a href="community.html">Community</a>
+                    <a href="research.html">Research</a>
+                    <a href="about.html">About</a>
+                </nav>
             </div>
         </header>
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8" role="main">
-            <!-- Emergency Alert Banner -->
-            <div style="background: rgba(59, 130, 246, 0.15); border: 2px solid #3b82f6; border-radius: 0.75rem; padding: 1.5rem; margin-bottom: 2rem; text-align: center;">
-                <h2 class="text-2xl font-bold mb-2" style="color: #60a5fa;">🧰 COMPREHENSIVE SURVIVAL TOOLKIT</h2>
-                <p class="text-lg">Essential resources, tools, and training for AI career transformation</p>
-                <p class="text-sm mt-2" style="color: #d1d5db;">⚡ Everything you need to execute your roadmap successfully</p>
+            <!-- Page Headline -->
+            <div class="text-center mb-8">
+                <h1 class="text-4xl lg:text-6xl font-bold mb-6 text-white">
+                    Survival Resources
+                </h1>
             </div>
-
+            
+            <!-- Survival Toolkit Banner -->
+            <div class="content-card text-center mb-8">
+                <h2 class="text-2xl lg:text-3xl font-bold mb-4 text-white">
+                    🧰 COMPREHENSIVE SURVIVAL TOOLKIT
+                </h2>
+                <p class="text-lg lg:text-xl text-gray-200 mb-4">
+                    Essential resources, tools, and training for AI career transformation
+                </p>
+                <p class="text-base text-yellow-400 font-semibold">
+                    ⚡ Everything you need to execute your roadmap successfully
+                </p>
+            </div>
+            
             <!-- Enhanced Progress Tracker -->
             <div class="progress-tracker">
-                <div class="flex justify-between items-center mb-4">
+                <div class="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
                     <h3 class="text-xl font-bold">🎯 Your Learning Progress</h3>
                     <div class="user-level level-beginner">Beginner</div>
                 </div>
@@ -1320,6 +1329,42 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Free Book Promotion -->
+            <div class="glass rounded-2xl p-8 mb-8 text-center" style="background: linear-gradient(135deg, rgba(184, 134, 11, 0.1) 0%, rgba(218, 165, 32, 0.1) 100%); border: 2px solid rgba(184, 134, 11, 0.3);">
+                <div class="mb-6">
+                    <i class="fas fa-book-open text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2" style="color: white;">📖 Free Exclusive Book</h3>
+                    <h4 class="text-xl font-semibold mb-4 text-yellow-400">"AI in India: From Back Office to Global Innovator"</h4>
+                </div>
+                <p class="text-lg mb-6 max-w-2xl mx-auto" style="color: #e5e7eb;">
+                    Discover India's remarkable AI transformation journey - from cost-effective back-office operations to becoming a global innovation powerhouse. Get your free comprehensive guide with data-driven insights and success stories.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+                    <a href="ai-india-book.html" class="btn-primary text-lg">
+                        <i class="fas fa-eye mr-2"></i>
+                        Learn More & Download
+                    </a>
+                    <div class="flex items-center justify-center gap-2 text-green-400 font-semibold">
+                        <i class="fas fa-check-circle"></i>
+                        <span>100% Free • Instant Access • No Email Required</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                    <div class="bg-white bg-opacity-10 rounded-lg p-3">
+                        <i class="fas fa-chart-line text-yellow-400 mb-2"></i>
+                        <div style="color: white;">📊 Key Statistics & Data</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-lg p-3">
+                        <i class="fas fa-trophy text-yellow-400 mb-2"></i>
+                        <div style="color: white;">🏆 Success Stories</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-lg p-3">
+                        <i class="fas fa-map text-yellow-400 mb-2"></i>
+                        <div style="color: white;">🗺️ Future Roadmap</div>
                     </div>
                 </div>
             </div>
